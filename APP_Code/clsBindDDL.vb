@@ -19,9 +19,9 @@ Public Class clsBindDDL
             If SelectOption Then
                 ddlList.Items.Add(list)
             End If
-            Dim dtLookupValues As DataTable = DBManager.Getdatatable("select Id,value from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + DataType + "') and (ISNULL(IsDeleted, 0) = 0)   order by value " + Sort + "")
+            Dim dtLookupValues As DataTable = DBContext.Getdatatable("select Id,value from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + DataType + "') and (ISNULL(IsDeleted, 0) = 0)   order by value " + Sort + "")
             If RelatedIdValue <> 0 Then
-                dtLookupValues = DBManager.Getdatatable("select Id,value from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + DataType + "') and (ISNULL(IsDeleted, 0) = 0)  and RelatedValueId='" + RelatedIdValue.ToString + "'  order by value " + Sort + "")
+                dtLookupValues = DBContext.Getdatatable("select Id,value from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + DataType + "') and (ISNULL(IsDeleted, 0) = 0)  and RelatedValueId='" + RelatedIdValue.ToString + "'  order by value " + Sort + "")
             End If
             If dtLookupValues.Rows.Count <> 0 Then
                 ddlList.DataSource = dtLookupValues
@@ -45,7 +45,7 @@ Public Class clsBindDDL
                 ddlList.Items.Add(list)
             End If
 
-            Dim dtLookupValues As DataTable = DBManager.Getdatatable("select Id,value from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + DataType + "')  and (ISNULL(IsDeleted, 0) = 0)   order by value " + Sort + "")
+            Dim dtLookupValues As DataTable = DBContext.Getdatatable("select Id,value from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + DataType + "')  and (ISNULL(IsDeleted, 0) = 0)   order by value " + Sort + "")
 
             If dtLookupValues.Rows.Count <> 0 Then
                 ddlList.DataSource = dtLookupValues
@@ -71,7 +71,7 @@ Public Class clsBindDDL
             If SelectOption Then
                 ddlList.Items.Add(list)
             End If
-            Dim dt As DataTable = DBManager.Getdatatable(Query + " order by " + DataTextField + " " + Sort + "  ")
+            Dim dt As DataTable = DBContext.Getdatatable(Query + " order by " + DataTextField + " " + Sort + "  ")
             If dt.Rows.Count <> 0 Then
                 ddlList.DataSource = dt
                 ddlList.DataTextField = DataTextField

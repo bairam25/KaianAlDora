@@ -232,7 +232,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function GetMaxLockup(Type As String) As String
         Try
-            Dim dt As DataTable = DBManager.Getdatatable("select isnull(max(orderNo),0) as orderNoMax from TblLookup where Type ='" + Type + "' And isNull(IsDeleted,0)=0")
+            Dim dt As DataTable = DBContext.Getdatatable("select isnull(max(orderNo),0) as orderNoMax from TblLookup where Type ='" + Type + "' And isNull(IsDeleted,0)=0")
             If dt.Rows.Count > 0 Then
                 Dim orderMax As Integer = dt.Rows(0).Item("orderNoMax") + 1
                 Return orderMax
@@ -261,7 +261,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     Public Shared Function GetLockupDT(ByVal Type As String) As DataTable
         Try
             Dim dt As New DataTable
-            dt = DBManager.Getdatatable("select Id,Value,Icon,Code from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + Type + "') and  (ISNULL(IsDeleted, 0) = 0)")
+            dt = DBContext.Getdatatable("select Id,Value,Icon,Code from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + Type + "') and  (ISNULL(IsDeleted, 0) = 0)")
             Return dt
         Catch ex As Exception
 
@@ -271,7 +271,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     Public Shared Function GetLockupId(ByVal Value As String, ByVal Type As String) As String
         Try
             Dim dt As New DataTable
-            dt = DBManager.Getdatatable("select Id from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + Type + "') and value='" + Value + "' and  (ISNULL(IsDeleted, 0) = 0)")
+            dt = DBContext.Getdatatable("select Id from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + Type + "') and value='" + Value + "' and  (ISNULL(IsDeleted, 0) = 0)")
             If dt.Rows.Count > 0 Then
                 Return dt.Rows(0).Item("Id")
             Else
@@ -287,7 +287,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
             If LookupId <> "" Then
 
                 Dim dt As New DataTable
-                dt = DBManager.Getdatatable("Select value from tblLookupValue where Id='" & LookupId & "' And isNULL(IsDeleted,0)=0 ")
+                dt = DBContext.Getdatatable("Select value from tblLookupValue where Id='" & LookupId & "' And isNULL(IsDeleted,0)=0 ")
 
 
                 If dt.Rows.Count > 0 Then
@@ -308,7 +308,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
             If LookupId <> "" Then
 
                 Dim dt As New DataTable
-                dt = DBManager.Getdatatable("Select Code from tblLookupValue where Id='" & LookupId & "' And isNULL(IsDeleted,0)=0 ")
+                dt = DBContext.Getdatatable("Select Code from tblLookupValue where Id='" & LookupId & "' And isNULL(IsDeleted,0)=0 ")
 
 
                 If dt.Rows.Count > 0 Then
@@ -329,7 +329,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
 
             Dim dt As New DataTable
-            dt = DBManager.Getdatatable("select top 1 value from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + Type + "') and  (ISNULL(IsDeleted, 0) = 0) ")
+            dt = DBContext.Getdatatable("select top 1 value from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + Type + "') and  (ISNULL(IsDeleted, 0) = 0) ")
 
 
             If dt.Rows.Count > 0 Then
@@ -346,7 +346,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     Public Shared Function GetLockupParentId(ByVal Value As String, ByVal Type As String) As String
         Try
             Dim dt As New DataTable
-            dt = DBManager.Getdatatable("select RelatedValueId from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + Type + "') and value='" + Value + "' and  (ISNULL(IsDeleted, 0) = 0)")
+            dt = DBContext.Getdatatable("select RelatedValueId from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='" + Type + "') and value='" + Value + "' and  (ISNULL(IsDeleted, 0) = 0)")
             If dt.Rows.Count > 0 Then
                 Return dt.Rows(0).Item("RelatedValueId")
             Else
@@ -470,7 +470,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function GetIdentity(ByVal TableName As String) As String
         Try
-            Dim dt As DataTable = DBManager.Getdatatable("SELECT  isnull(IDENT_CURRENT('" + TableName + "'),0) AS identityId")
+            Dim dt As DataTable = DBContext.Getdatatable("SELECT  isnull(IDENT_CURRENT('" + TableName + "'),0) AS identityId")
             If dt.Rows.Count > 0 Then
                 Dim identity As String = dt.Rows(0).Item("identityId").ToString
                 Return identity
@@ -484,7 +484,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     End Function
     Public Shared Function GetNextIdentity(ByVal TableName As String) As String
         Try
-            Dim dt As DataTable = DBManager.Getdatatable("SELECT  isnull(IDENT_CURRENT('" + TableName + "'),0)+1 AS identityId")
+            Dim dt As DataTable = DBContext.Getdatatable("SELECT  isnull(IDENT_CURRENT('" + TableName + "'),0)+1 AS identityId")
             If dt.Rows.Count > 0 Then
                 Dim identity As String = dt.Rows(0).Item("identityId").ToString
                 Return identity
@@ -535,7 +535,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
             If IDs.Count = 0 Then
                 Return False
             End If
-            Dim Deleted As Integer = DBManager.ExcuteQuery(qry)
+            Dim Deleted As Integer = DBContext.ExcuteQuery(qry)
             Return Deleted = 1
         Catch ex As Exception
             Throw ex
@@ -651,7 +651,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
         Try
 
             Dim dt As New DataTable
-            dt = DBManager.Getdatatable("SELECT Id FROM " + tableName + " WHERE " + FieldName + " = '" + Value + "' AND ISNULL(IsDeleted, 0) = 0   ")
+            dt = DBContext.Getdatatable("SELECT Id FROM " + tableName + " WHERE " + FieldName + " = '" + Value + "' AND ISNULL(IsDeleted, 0) = 0   ")
             If dt.Rows.Count > 0 Then
                 Return dt.Rows(0).Item("Id")
             Else
@@ -684,7 +684,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
             Dim dt As New DataTable
             'Dim dd As String = "select " + selectedColumn + " from " + tableName + "  where Id='" + Value + "'"
-            dt = DBManager.Getdatatable("SELECT " + selectedColumn + " FROM " + tableName + " WHERE Id = '" + Value + "' AND ISNULL(IsDeleted, 0) = 0  ")
+            dt = DBContext.Getdatatable("SELECT " + selectedColumn + " FROM " + tableName + " WHERE Id = '" + Value + "' AND ISNULL(IsDeleted, 0) = 0  ")
             If dt.Rows.Count > 0 Then
                 Return dt.Rows(0).Item(selectedColumn)
             Else
@@ -814,7 +814,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
         Dim UserId As String = "0"
         Try
 
-            Dim dtUsers As DataTable = DBManager.Getdatatable("select UserId from tblCPUsers where Isnull(IsDeleted,0)=0  and username='" + Username + "'")
+            Dim dtUsers As DataTable = DBContext.Getdatatable("select UserId from tblCPUsers where Isnull(IsDeleted,0)=0  and username='" + Username + "'")
             If dtUsers.Rows.Count > 0 Then
                 UserId = dtUsers.Rows(0)(0).ToString
             End If
@@ -827,7 +827,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     Public Shared Function GetUsername(ByVal UserId As String) As String
         Dim Username As String = String.Empty
         Try
-            Dim dtUsers As DataTable = DBManager.Getdatatable("select Username from tblCPUsers where Isnull(IsDeleted,0)=0  and UserId='" + UserId + "'")
+            Dim dtUsers As DataTable = DBContext.Getdatatable("select Username from tblCPUsers where Isnull(IsDeleted,0)=0  and UserId='" + UserId + "'")
             If dtUsers.Rows.Count > 0 Then
                 Username = dtUsers.Rows(0)(0).ToString
             End If
@@ -840,7 +840,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     Public Shared Function GetUserType(ByVal UserId As String) As String
         Dim UserType As String = "0"
         Try
-            Dim dtUsers As DataTable = DBManager.Getdatatable("select UserType from tblCPUsers where Isnull(IsDeleted,0)=0 and UserId='" + UserId + "'")
+            Dim dtUsers As DataTable = DBContext.Getdatatable("select UserType from tblCPUsers where Isnull(IsDeleted,0)=0 and UserId='" + UserId + "'")
             If dtUsers.Rows.Count > 0 Then
                 UserType = dtUsers.Rows(0)(0).ToString
             End If
@@ -947,7 +947,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     End Function
     Public Shared Function CheckUserActive(ByVal CPUserId As String, ByVal CPUsername As String) As Boolean
         Try
-            Dim dt As DataTable = DBManager.Getdatatable("select UserId from tblCPUsers where isnull(isdeleted,0)=0 and Active=1 and UserId=@Par1 and Username=@Par2", CPUserId, CPUsername)
+            Dim dt As DataTable = DBContext.Getdatatable("select UserId from tblCPUsers where isnull(isdeleted,0)=0 and Active=1 and UserId=@Par1 and Username=@Par2", CPUserId, CPUsername)
             If dt.Rows.Count = 0 Then
                 Return False
             End If

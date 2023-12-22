@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Imports System.Net
 Public Class ExecuteQuery
     Dim _sqltransaction As SqlTransaction
-    Private _sqlConnection As New SqlConnection(DBManager.GetConnectionString)
+    Private _sqlConnection As New SqlConnection(DBContext.GetConnectionString)
 
 
     Property __SqlConnection As SqlConnection
