@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="col-md-12 col-xs-12 col-sm-12 p-0 margin-bottom-1">
                                                 <asp:Button ID="btnLogin" runat="server" CssClass="button small success expanded" Text="تسجيل الدخول" ValidationGroup="vUser"
-                                                    UseSubmitBehavior="false" />
+                                                    UseSubmitBehavior="false" OnClick="Login" />
                                             </div>
                                             <div class="checkbox-custom margin-bottom-2">
                                                 <asp:CheckBox ID="chkKeepMeLoggedIn" runat="server" Text="البقاء متصلاً على هذا الجهاز" />

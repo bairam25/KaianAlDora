@@ -9,7 +9,9 @@ Imports clsMessages
 #End Region
 
 Public Class PublicFunctions
-
+#Region "Gobal Variables"
+    Public Shared Client_Id As String = "1001"
+#End Region
 
 #Region "Global Functions"
     Public Shared Function ServerURL() As String
@@ -853,8 +855,8 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function GetUserId() As String
         Try
-            If HttpContext.Current.Request.Cookies.Get("ProfApp") IsNot Nothing Then
-                Dim UserId As String = HttpContext.Current.Request.Cookies("ProfApp")("UserId")
+            If HttpContext.Current.Request.Cookies.Get("KianApp") IsNot Nothing Then
+                Dim UserId As String = HttpContext.Current.Request.Cookies("KianApp")("UserId")
                 Return UserId
             End If
 
@@ -867,8 +869,8 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function GetUserId(ByVal page As Page) As String
         Try
-            If HttpContext.Current.Request.Cookies.Get("ProfApp") IsNot Nothing Then
-                Dim UserId As String = HttpContext.Current.Request.Cookies("ProfApp")("UserId")
+            If HttpContext.Current.Request.Cookies.Get("KianApp") IsNot Nothing Then
+                Dim UserId As String = HttpContext.Current.Request.Cookies("KianApp")("UserId")
                 Return UserId
             Else
                 RemoveCPCookie()
@@ -884,7 +886,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function RemoveCPCookie() As Boolean
         Try
-            Dim UELPDCookies As New HttpCookie("ProfApp")
+            Dim UELPDCookies As New HttpCookie("KianApp")
             UELPDCookies.Expires = DateTime.Now.AddDays(-1D)
             HttpContext.Current.Response.Cookies.Add(UELPDCookies)
 
@@ -925,11 +927,11 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function CheckLogged() As Boolean
         Try
-            If HttpContext.Current.Request.Cookies.Get("ProfApp") Is Nothing Then
+            If HttpContext.Current.Request.Cookies.Get("KianApp") Is Nothing Then
                 Return False
             End If
-            Dim CPUserId As String = HttpContext.Current.Request.Cookies("ProfApp")("UserId")
-            Dim CPUsername As String = HttpContext.Current.Request.Cookies("ProfApp")("Username")
+            Dim CPUserId As String = HttpContext.Current.Request.Cookies("KianApp")("UserId")
+            Dim CPUsername As String = HttpContext.Current.Request.Cookies("KianApp")("Username")
 
             If CPUserId <> String.Empty Then
                 Return True
@@ -959,6 +961,151 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     End Function
 
 
+#End Region
+
+#Region "Registration"
+    Public Shared Function GetRegisteredUserId(ByVal page As Page) As String
+        Try
+            If HttpContext.Current.Request.Cookies.Get("KayanPortal") IsNot Nothing Then
+                Dim UserId As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("UserId"))
+                Return UserId
+            Else
+                RemoveFontEndCookie()
+                page.Response.Redirect("signIn.aspx", False)
+                Return "0"
+            End If
+        Catch ex As Exception
+            RemoveFontEndCookie()
+            page.Response.Redirect("signIn.aspx", True)
+            Return "0"
+        End Try
+    End Function
+    Public Shared Function GetRegisteredUserId() As String
+        Try
+            If HttpContext.Current.Request.Cookies.Get("KayanPortal") IsNot Nothing Then
+                Dim UserId As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("UserId"))
+                Return UserId
+            End If
+
+        Catch ex As Exception
+            RemoveFontEndCookie()
+            Return "0"
+        End Try
+        Return "0"
+    End Function
+    Public Shared Function GetRegisteredUserName() As String
+        Try
+            If HttpContext.Current.Request.Cookies.Get("KayanPortal") IsNot Nothing Then
+                Dim UserName As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("UserName"))
+                Return UserName
+            End If
+
+        Catch ex As Exception
+            RemoveFontEndCookie()
+            Return "0"
+        End Try
+        Return "0"
+    End Function
+    Public Shared Function GetRegisteredFullName() As String
+        Try
+            If HttpContext.Current.Request.Cookies.Get("KayanPortal") IsNot Nothing Then
+                Dim FullName As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("Name"))
+                Return FullName
+            End If
+
+        Catch ex As Exception
+            RemoveFontEndCookie()
+            Return "0"
+        End Try
+        Return "0"
+    End Function
+    Public Shared Function GetRegisteredType() As String
+        Try
+            If HttpContext.Current.Request.Cookies.Get("KayanPortal") IsNot Nothing Then
+                Dim Type As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("Type"))
+                Return Type
+            End If
+
+        Catch ex As Exception
+            RemoveFontEndCookie()
+            Return ""
+        End Try
+        Return ""
+    End Function
+    Public Shared Function GetRegisteredRelatedId() As String
+        Try
+            If HttpContext.Current.Request.Cookies.Get("KayanPortal") IsNot Nothing Then
+                Dim Type As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("RelatedID"))
+                Return Type
+            End If
+
+        Catch ex As Exception
+            RemoveFontEndCookie()
+            Return ""
+        End Try
+        Return ""
+    End Function
+    Public Shared Function RemoveFontEndCookie() As Boolean
+        Try
+            Dim DareCookies As New HttpCookie("KayanPortal")
+            DareCookies.Expires = DateTime.Now.AddDays(-1D)
+            HttpContext.Current.Response.Cookies.Add(DareCookies)
+
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    Public Shared Function CreateFrontEndCookie(dtUser As TblUsers, Optional Remember As Boolean = False) As Boolean
+        Try
+            Dim userCookie As HttpCookie = New HttpCookie("KayanPortal")
+            userCookie("UserId") = PublicFunctions.Encrypt(dtUser.ID)
+            userCookie("Name") = PublicFunctions.Encrypt(dtUser.FullName)
+            userCookie("Email") = PublicFunctions.Encrypt(dtUser.Username)
+            userCookie("Remember") = PublicFunctions.Encrypt(Remember)
+
+            If Remember Then
+                userCookie.Expires = Today.AddDays(30)
+            End If
+
+            HttpContext.Current.Response.Cookies.Add(userCookie)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+#End Region
+
+#Region "Front End Login"
+    Public Shared Function isUserLogged() As Boolean
+        Try
+            If HttpContext.Current.Request.Cookies.Get("KayanPortal") Is Nothing Then
+                Return False
+            End If
+            Dim UserId As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("UserId"))
+            Dim Email As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("Email"))
+
+            Dim isActive = isUserActive(UserId, Email)
+            If Not isActive Then
+                RemoveFontEndCookie()
+                Return False
+            End If
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
+    Public Shared Function isUserActive(ByVal UserId As String, ByVal Email As String) As Boolean
+        Try
+            Dim dt As DataTable = DBContext.Getdatatable("select UserId from tblUsers where isnull(isdeleted,0)=0 and Active=1 and UserId=@Par1 and Username=@Par2", UserId, Email)
+            Return dt.Rows.Count > 0
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 #End Region
 
 #Region "Validation"

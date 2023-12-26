@@ -55,19 +55,37 @@
                                 </div>
                                 <div class="mt-3">
                                     <div class="textfield margin-bottom-2">
-                                        <asp:TextBox ID="txtName" runat="server" MaxLength="100"></asp:TextBox>
-                                        <label>الاسم او اللقب *</label>
+                                        <asp:TextBox ID="txtName" runat="server" MaxLength="50"></asp:TextBox>
+                                        <label>الاسم *</label>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="vUser" ControlToValidate="txtName"
-                                            ErrorMessage="Please Enter Your txtName" CssClass="valid-inp" Display="Dynamic"></asp:RequiredFieldValidator>
+                                            ErrorMessage="Please Enter Your Name" CssClass="valid-inp" Display="Dynamic"></asp:RequiredFieldValidator>
+
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator8"
+                                            ControlToValidate="txtName" runat="server" CssClass="valid-inp"
+                                            ErrorMessage="Invalid Name" ValidationGroup="vUser" Display="Dynamic"
+                                            ValidationExpression="^[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_ ]*$" />
+                                        <%--<asp:FilteredTextBoxExtender TargetControlID="txtName"
+                                            runat="server"  FilterType="Custom"  ValidChars="[a-zA-Zا-ي\s]+"></asp:FilteredTextBoxExtender>--%>
                                     </div>
                                     <div class="textfield margin-bottom-2">
-                                        <asp:TextBox ID="txtUsername" runat="server" MaxLength="100"></asp:TextBox>
+                                        <asp:TextBox ID="txtEmail" runat="server" MaxLength="100"></asp:TextBox>
                                         <label>البريد الالكتروني *</label>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtUsername"
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtEmail"
                                             CssClass="valid-inp" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
                                             Display="Dynamic" ErrorMessage="Invalid Email" ValidationGroup="vUser" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="vUser" ControlToValidate="txtUsername"
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="vUser" ControlToValidate="txtEmail"
                                             ErrorMessage="Please Enter Your Email" CssClass="valid-inp" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="textfield margin-bottom-2">
+                                        <asp:TextBox ID="txtMobile" runat="server" MaxLength="50"></asp:TextBox>
+                                        <label>الموبايل *</label>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="vUser"
+                                            Text="أدخل رقم الموبايل" ControlToValidate="txtMobile"
+                                            runat="server" ErrorMessage="أدخل رقم الموبايل" Display="Dynamic"
+                                            CssClass="valid-inp"></asp:RequiredFieldValidator>
+                                        <asp:FilteredTextBoxExtender runat="server" ID="fmobile" TargetControlID="txtMobile"
+                                            FilterType="Numbers">
+                                        </asp:FilteredTextBoxExtender>
                                     </div>
                                     <div class="textfield margin-bottom-2">
                                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" MaxLength="50"></asp:TextBox>
@@ -85,8 +103,9 @@
                                             runat="server" ErrorMessage="Confirm Password" Display="Dynamic" CssClass="valid-inp"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-md-12 col-xs-12 col-sm-12 p-0 margin-bottom-1">
-                                        <asp:Button ID="btnLogin" runat="server" CssClass="button small success expanded" Text="إنشاء حساب جديد" ValidationGroup="vUser"
-                                            UseSubmitBehavior="false" />
+                                        <asp:Button ID="btnRegister" runat="server" CssClass="button small success expanded"
+                                            Text="إنشاء حساب جديد" ValidationGroup="vUser" CommandArgument="Add"
+                                            UseSubmitBehavior="false" OnClick="Register" />
                                     </div>
                                     <div class="form-group">
                                         <p class="or-seperator">هل لديك حساب ؟<a href="Login.aspx"> تسجيل الدخول</a></p>
