@@ -6758,3 +6758,15 @@ a .price-barcode:hover {
 .mt10 {
     margin-top: 10px !important;
 }
+
+.vertical-bottom {
+    vertical-align: bottom !important;
+}
+
+.displaynone {
+    display: none !important;
+}
+
+.dis-block {
+    display: block !important;
+}
