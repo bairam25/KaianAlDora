@@ -1,4 +1,11 @@
-﻿body {
+/*Font Arabic*/
+@font-face {
+    font-family: 'Tajawal';
+    src: url('../fonts/Tajawal-Black.ttf');
+    src: url('../fonts/Tajawal-Bold.ttf'), url('../fonts/Tajawal-ExtraBold.ttf'), url('../fonts/Tajawal-ExtraLight.ttf'), url('../fonts/Tajawal-Light.ttf'), url('../fonts/Tajawal-Medium.ttf'), url('../fonts/Tajawal-Regular.ttf');
+}
+
+body {
     font-family: 'Roboto', sans-serif !important;
 }
 .p0{
@@ -125,12 +132,13 @@ padding:0px !important;
     .navbar-inverse .navbar-link {
         color: #fff;
         position: absolute;
-        margin-left: 75px;
+        margin-right: 64px;
         top: 0;
         bottom: 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
     }
 
 
@@ -326,10 +334,10 @@ padding:0px !important;
 
         .user.dropdown > a > span {
             display: inline-block;
-            margin: 9px 14px 5px 0px;
+            margin: 9px 0px 5px 0;
             height: 33px;
             line-height: 15px;
-            text-align: right;
+            text-align: center;
             min-width: 80px;
             max-width: 150px;
             overflow: hidden;
@@ -346,7 +354,7 @@ padding:0px !important;
                 color: #888;
                 font-size: 13px;
                 display: block;
-                margin-bottom: 1px;
+                margin-bottom: 3px;
                 width: 100%;
             }
 
@@ -1094,7 +1102,7 @@ body.boxed {
 }
 
 .page-content {
-    margin: 70px 0px -6px 240px;
+    margin: 70px 0 -6px 240px;
     /*min-height: 225vh;*/
     position: relative;
     transition: 1s all ease;
@@ -1103,7 +1111,7 @@ body.boxed {
 
 
 .sidebar-narrow .page-content {
-    margin-left: 65px;
+    margin-right: 65px;
 }
 
 .sidebar-hidden .page-content {
@@ -1159,7 +1167,6 @@ body.boxed {
     box-shadow: 2px 0px 4px 0px rgba(64, 64, 64, 0.18);
     top: 0;
     transition: 1s all ease;
-    left: 0;
     height: 100%;
     z-index: 10;
     overflow-y: auto;
@@ -1298,13 +1305,13 @@ body.boxed {
         }
 
         .navigation > li.has-ul a:after {
-            content: "\f105";
+            content: "\f104";
             font-family: FontAwesome;
             font-size: 13px;
             position: absolute;
-            right: 13px;
+            left: 13px;
             top: 16px;
-            color: #60bf4d;
+            color: #e9d0b7;
             transition: 1s all ease-in-out;
         }
 
@@ -1365,9 +1372,9 @@ body.boxed {
         .navigation > li > a > i {
             position: absolute;
             left: 10px;
-            top: 12px;
+            top: 15px;
             width: 1rem;
-            font-size: 22px;
+            font-size: 20px;
             color: #787e94;
             opacity: 1;
             filter: alpha(Opacity=80);
@@ -1405,24 +1412,24 @@ body.boxed {
                 content: "";
                 display: block;
                 position: absolute;
-                left: 19px;
+                right: 19px;
                 top: 0;
                 bottom: 0;
                 width: 1px;
                 background: rgba(0,0,0,0.04);
-                .navigation > li ul li: before
+                .navigation >
+                li ul li: before
 
 {
     content: "";
-    display: block;
-    position: absolute;
-    left: 19px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: rgba(0,0,0,0.05);
+                display: block;
+                position: absolute;
+                left: 19px;
+                top: 0;
+                bottom: 0;
+                width: 1px;
+                background: rgba(0,0,0,0.05);
 }
-
 }
 
 .navigation > li ul li:after {
@@ -1432,7 +1439,7 @@ body.boxed {
     height: 5px;
     background: #ab47bc;
     border-radius: 50%;
-    left: 17px;
+    right: 17px;
     top: 17px;
     z-index: 1;
     opacity: .6;
@@ -1539,7 +1546,7 @@ body.boxed {
 
 .navigation > li ul > li > a {
     display: block;
-    padding: 10px 10px 10px 35px;
+    padding: 10px 35px 10px 10px;
     font-size: 12px;
     text-decoration: none;
 }
@@ -1565,7 +1572,7 @@ body.boxed {
         content: "";
         display: block;
         position: absolute;
-        left: 19px;
+        right: 19px;
         top: 0;
         bottom: 0;
         width: 1px;
@@ -1581,7 +1588,7 @@ body.boxed {
         height: 5px;
         background: #aaa;
         border-radius: 50%;
-        left: 17px;
+        right: 17px;
         top: 17px;
         z-index: 2;
         opacity: .6;
@@ -1747,7 +1754,7 @@ body.boxed {
     margin-left: 0px;
     position: absolute;
     top: 0;
-    left: 100%;
+    right: 100%;
     display: none;
 }
 
@@ -1762,7 +1769,7 @@ body.boxed {
 }
 
 .sidebar-narrow .navigation > li > ul > li > a {
-    padding-left: 30px;
+    padding-right: 30px;
 }
 
 
@@ -1772,7 +1779,7 @@ body.boxed {
 
     .sidebar-narrow .navigation > li > ul > li:first-child > a {
         border-radius: 2px 2px 0 0;
-        -webkit-border-radius: 2px 2px 0 0;
+        -webkit-border-radius: 0 0 2px 2px;
         -moz-border-radius: 2px 2px 0 0;
     }
 
@@ -2441,7 +2448,7 @@ body.boxed {
     width: 26px;
     height: 2px;
     background: #78939a;
-    margin: 4px 0px;
+    margin: 4px -8px 4px 0;
     border-radius: 3px;
     transition: 0.4s;
 }
@@ -2449,7 +2456,7 @@ body.boxed {
 .bar2 {
     width: 20px;
     height: 2px;
-    margin: 7px 0 7px;
+    margin: 7px -7px 7px 0;
     border-radius: 3px;
     transition: 0.4s;
     background: #78939a;
@@ -2459,26 +2466,26 @@ body.boxed {
     width: 26px;
     height: 2px;
     background: #78939a;
-    margin: 4px 0;
+    margin: 4px -8px 4px 0;
     border-radius: 3px;
     transition: 0.4s;
 }
 
 .ani-menu-change .bar1 {
-    -webkit-transform: rotate(45deg) translate(7px, 10px);
+    -webkit-transform: rotate(-45deg) translate(10px, 3px);
     width: 12px;
-    transform: rotate(45deg) translate(7px, 11px);
+    transform: rotate(-45deg) translate(10px, 3px);
 }
 
 .ani-menu-change .bar2 {
     /* opacity: 0; */
-    margin-left: 0px;
+    margin-left: 0;
     margin-top: 7px;
 }
 
 .ani-menu-change .bar3 {
-    -webkit-transform: rotate(-45deg) translate(7px, -10px);
-    transform: rotate(-45deg) translate(7px, -11px);
+    -webkit-transform: rotate(45deg) translate(11px, -3px);
+    transform: rotate(45deg) translate(11px, -3px);
     width: 12px;
 }
 
@@ -2776,7 +2783,7 @@ body.boxed {
 .toggle-fullscreen {
     color: #000;
     font-size: 18px;
-    margin-left: 108.5%;
+    margin-left: 106%;
     top: 24px;
     position: absolute;
     text-decoration: none !important;
@@ -2814,10 +2821,10 @@ body.boxed {
 ========================================*/
 .site-footer {
     background: #fff;
-    margin-left: 240px;
+    margin-right: 240px;
     padding: 12px 16px 10px 20px;
     float: left;
-    width: 81.1%;
+    width: 100%;
     font-size: 12.5px;
     font-weight: 500 !important;
     color: #000;
@@ -2951,4 +2958,33 @@ body.boxed {
         background: #60bf4d !important;
         color: #fff !important;
         opacity: .9 !important;
+    }
+
+span.site-footer-legal {
+    font-size: 13px;
+}
+
+    span.site-footer-legal span {
+        font-size: 20px;
+    }
+
+.logo-title {
+    position: absolute;
+    margin-left: 66px;
+    padding: 0 15px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+}
+
+    .logo-title h1 a {
+        font-size: 2rem;
+        display: block;
+        margin: 7px 0;
+        color: #544245;
+    }
+
+    .logo-title h1 span {
+        font-size: 1.6rem;
+        color: #746b6c;
     }

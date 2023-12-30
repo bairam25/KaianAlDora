@@ -27,12 +27,7 @@ Partial Class Items
     Dim _sqlconn As New SqlConnection(DBContext.GetConnectionString)
     Dim _sqltrans As SqlTransaction
     Dim ItemSKUCode As String
-    Dim ItemCode As String
     Dim ItemName As String
-    Dim listedByID As String
-    Dim listedByName As String
-    Dim listedByMobile As String
-    Dim ItemBarCode As String
     Dim ItemBrand As String
     Dim ItemBrandName As String
     Dim ItemModel As String
@@ -54,28 +49,17 @@ Partial Class Items
     Dim ItemYouTubeURL As String
     Dim ItemSourceURL As String
     Dim ItemKeywords As String
-    Dim ItemShippingCompany As String
-    Dim ItemWeight As Double
-    Dim ItemCost As Double
-    Dim ItemCRMargin As Double
-    Dim ItemCODMargin As Double
-    Dim ItemCRPrice As Double
-    Dim ItemCODPrice As Double
-    Dim ItemVatPercent As Double
-    Dim ItemVatAmount As Double
+
+    Dim ItemPrice As Double
+    Dim ItemDiscountPercent As Double
+    Dim ItemDiscountAmt As Double
+    Dim ItemNetPRice As Double
+
     Dim ItemBrochure As String
     Dim ItemCollection As String
     Dim ItemMaterial As String
     Dim ItemStyle As String
-    Dim ItemCondition As String
-    Dim ItemCity As String
-    Dim ItemCityId As String
-    Dim ItemArea As String
-    Dim ItemAreaId As String
-    Dim Itemlng As String
-    Dim Itemlat As String
-    Dim ItemType As String
-    Dim IsService As Boolean
+
 #End Region
 
 #Region "Public_Functions"
@@ -162,18 +146,11 @@ Partial Class Items
     Sub SetControlFields()
         Try
             ItemSKUCode = txtSKUCode.Text
-            ItemCode = txtItemCode.Text
             ItemName = txtItemName.Text
-            listedByID = CustomerId.Value
-            listedByName = txtCustomer.Text.Trim
-            listedByMobile = txtCustomerMobile.Text.Trim
-            ItemBarCode = txtSKUCode.Text
             ItemBrand = BrandId.Value
             ItemBrandName = txtBrand.Text.Trim
             ItemModel = ModelId.Value
             ItemModelName = txtModel.Text.Trim
-            ItemType = rblItemType.SelectedValue
-            IsService = PublicFunctions.BoolFormat(rblIsService.SelectedValue)
             ItemActive = PublicFunctions.BoolFormat(rblActive.SelectedValue)
             ItemDesc = txtDescription.TextValue
             ItemCategory = ddlCategory.SelectedValue
@@ -191,153 +168,19 @@ Partial Class Items
             ItemYouTubeURL = txtYoutubeURL.Text
             ItemSourceURL = txtSourceURL.Text
             ItemKeywords = txtKeywords.Text
-            ItemShippingCompany = ddlShippingCompany.SelectedValue
-            ItemWeight = PublicFunctions.DecimalFormat(txtWeight.Text)
-            ItemCost = PublicFunctions.DecimalFormat(txtSupplierPrice.Text)
-            ItemCRMargin = PublicFunctions.DecimalFormat(txtCRMargin.Text)
-            ItemCODMargin = PublicFunctions.DecimalFormat(txtCODMargin.Text)
-            ItemCRPrice = PublicFunctions.DecimalFormat(txtPrice.Text)
-            ItemCODPrice = PublicFunctions.DecimalFormat(txtCODPrice.Text)
-            ItemVatPercent = PublicFunctions.DecimalFormat(txtVATPercent.Text)
-            ItemVatAmount = PublicFunctions.DecimalFormat(txtVAT.Text)
+
             ItemBrochure = HiddenBrochure.Text
             ItemCollection = ddlCollection.SelectedValue
             ItemMaterial = ddlMaterial.SelectedValue
             ItemStyle = ddlStyle.SelectedValue
-            ItemCondition = ddlCondition.SelectedValue
-            ItemCity = txtCity.Text.Trim
-            ItemCityId = CityId.Value
-            ItemArea = txtArea.Text.Trim
-            ItemAreaId = AreaId.Value
-            Itemlng = txtLongitude.Text
-            Itemlat = txtLatitude.Text
-            If Itemlng = String.Empty And Itemlat = String.Empty And ItemCity = String.Empty And ItemArea = String.Empty Then
-                ScriptManager.RegisterStartupScript(up, GetType(Page), "SetCurrentPosition", "SetCurrentPos();", True)
-            End If
+
             FillBrochureImage()
             CheckCollapse()
-            SelectType()
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
     End Sub
 
-    Sub SelectCustomer()
-        Try
-            If txtCustomer.Text <> String.Empty Then
-                Dim FullName As String = txtCustomer.Text.Trim
-                Dim Mobile As String = txtCustomer.Text.Trim
-                If txtCustomer.Text.Contains("|") Then
-                    FullName = txtCustomer.Text.Split("|")(0)
-                    Mobile = txtCustomer.Text.Split("|")(1)
-
-                End If
-                FillCustomerDetails("( mobile='" + Mobile + "')")
-                'FillCustomerDetails("(Fullname='" + FullName + "' or mobile='" + Mobile + "')")
-            End If
-
-
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
-    Sub SelectMobile()
-        Try
-            If txtCustomerMobile.Text <> String.Empty Then
-                Dim Mobile As String = txtCustomerMobile.Text.Trim
-                If FillCustomerDetails(" mobile='" + Mobile + "' ", True) Then
-                    clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.CUSTOMInfo, Page, Nothing, "Customer Mobile already exist")
-                End If
-            End If
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
-    Function FillCustomerDetails(Filter As String, Optional Mobile As Boolean = False) As Boolean
-        Try
-            Dim dtCustomer As DataTable = DBContext.Getdatatable("select Id,FullName,Mobile from tblusers where clientId='" + Client_Id + "' and isnull(IsDeleted,0)=0 and " + Filter + "")
-            If dtCustomer.Rows.Count > 0 Then
-                CustomerId.Value = dtCustomer.Rows(0).Item("Id").ToString
-                txtCustomer.Text = dtCustomer.Rows(0).Item("FullName").ToString
-                txtCustomerMobile.Text = dtCustomer.Rows(0).Item("Mobile").ToString
-                txtCustomerMobile.Enabled = False
-            Else
-                'clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.CUSTOMInfo, Page, Nothing, "Select Valid Customer")
-                'hfCustomer.Visible = True
-                CustomerId.Value = String.Empty
-                txtCustomerMobile.Enabled = True
-                'txtCustomer.Text = String.Empty
-                If Not Mobile Then
-                    txtCustomerMobile.Text = String.Empty
-                    txtCustomerMobile.Focus()
-                End If
-
-                Return False
-            End If
-            Return True
-        Catch ex As Exception
-            Return False
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Function
-
-
-    Sub SelectCity()
-        Try
-            If txtCity.Text <> String.Empty Then
-                ItemCityId = PublicFunctions.GetLockupId(ItemCity, "City")
-                If ItemCityId <> String.Empty Then
-                    CityId.Value = ItemCityId
-                    aceArea.ContextKey = ItemCityId
-                    txtLongitude.Text = String.Empty
-                    txtLatitude.Text = String.Empty
-                    If Not IsCityArea() Then
-                        txtArea.Text = String.Empty
-                    End If
-
-                    ScriptManager.RegisterStartupScript(up, GetType(Page), "setCity", "SetCustomLatLng('" + ItemCity + "')", True)
-                Else
-                    txtCity.Text = String.Empty
-                    CityId.Value = String.Empty
-                    aceArea.ContextKey = String.Empty
-                    clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.CUSTOMInfo, Page, Nothing, "Select Valid City")
-                End If
-            End If
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
-    Sub SelectArea()
-        Try
-            If txtArea.Text <> String.Empty Then
-                ItemAreaId = PublicFunctions.GetLockupId(ItemArea, "Area")
-                If ItemAreaId <> String.Empty Then
-                    AreaId.Value = ItemAreaId
-                    txtLongitude.Text = String.Empty
-                    txtLatitude.Text = String.Empty
-                    ScriptManager.RegisterStartupScript(up, GetType(Page), "setArea", "SetCustomLatLng('" + ItemCity + " - " + ItemArea + "')", True)
-                Else
-                    txtArea.Text = String.Empty
-                    AreaId.Value = String.Empty
-                    clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.CUSTOMInfo, Page, Nothing, "Select Valid Area")
-                End If
-            End If
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
-    Private Function IsCityArea() As Boolean
-        Try
-            Dim dtArea As DataTable = DBContext.Getdatatable("select Id  from tblLookupValue where lookupId=(select top 1 ID from tbllookup where TYPE='Area') and RelatedValueId='" + ItemCityId + "' and Id='" + ItemAreaId + "' and (ISNULL(IsDeleted, 0) = 0) and ClientId='" + Client_Id + "' order by value ASC")
-            If dtArea.Rows.Count > 0 Then
-                Return True
-            End If
-            Return False
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-            Return False
-        End Try
-    End Function
 #End Region
 
 #Region "Page Load"
@@ -354,11 +197,7 @@ Partial Class Items
 
                 BindDDLs()
                 FillGrid(sender, e)
-                If PublicFunctions.GetUserType(UserId).ToLower = "admin" Then
-                    pnlReported.Visible = True
-                Else
-                    pnlReported.Visible = False
-                End If
+
             Else
                 If pnlForm.Visible Then
                     ScriptManager.RegisterClientScriptBlock(up, Me.[GetType](), "MyAction", "document.getElementById('pnlPhotos').style.display='Block';", True)
@@ -376,16 +215,12 @@ Partial Class Items
     ''' </summary>
     Sub BindDDLs()
         Try
-            clsBindDDL.BindCustomDDLs("select distinct countryId,Country from vw_CPItems where country <> ''", "Country", "CountryId", ddlCountry, True)
-            'clsBindDDL.BindCustomDDLs("select Id,Brand from vw_Brands where clientID='" + Client_Id + "'", "Brand", "Id", ddlBrand, True)
             clsBindDDL.BindLookupDDLs("Item Category", ddlCategory, True)
             clsBindDDL.BindLookupDDLs("Item Color", ddlColors, True)
             clsBindDDL.BindLookupDDLs("Item Size", ddlSize, True)
             clsBindDDL.BindLookupDDLs("Collection", ddlCollection, True)
             clsBindDDL.BindLookupDDLs("Material", ddlMaterial, True)
             clsBindDDL.BindLookupDDLs("Style", ddlStyle, True)
-            clsBindDDL.BindLookupDDLs("Condition", ddlCondition, True)
-            clsBindDDL.BindCustomDDLs("select Id,CompanyName from tblShippingCompanies where  (ISNULL(IsDeleted, 0) = 0) and clientId='" + Client_Id + "' ", "CompanyName", "ID", ddlShippingCompany, True)
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
@@ -444,6 +279,7 @@ Partial Class Items
         Dim Search As String = " 1=1"
         txtSearch.Text = txtSearch.Text.Trim
         Try
+            Search = "1=1"
             If txtSearch.Text <> String.Empty Then
                 If sender.id = "cmdSearch" Then
                     dpLvItems.SetPageProperties(0, ddlPager.SelectedValue, True)
@@ -451,17 +287,15 @@ Partial Class Items
                 If txtSearch.Text.Contains("|") Then
                     Search = IIf(txtSearch.Text = "", "1=1", " (SKU = '" + txtSearch.Text.Split("|")(1) + "')")
                 Else
-                    Search = IIf(txtSearch.Text = "", "1=1", " (Name Like '%" + txtSearch.Text + "%' or SKU Like '%" + txtSearch.Text + "%' or ItemCode Like '%" + txtSearch.Text + "%' or BrandName Like '%" + txtSearch.Text + "%' or salesman Like '%" + txtSearch.Text + "%' or CityName like '%" + txtSearch.Text + "%'  or AreaName like '%" + txtSearch.Text + "%' ) ")
+                    Search = IIf(txtSearch.Text = "", "1=1", " (Name Like '%" + txtSearch.Text + "%' or SKU Like '%" + txtSearch.Text + "%' or BrandName Like '%" + txtSearch.Text + "%' ) ")
                 End If
             End If
 
             Dim CreatedDateFrom As String = IIf(txtDateFrom.Text = "", "1=1", "  CreatedDate >= '" + PublicFunctions.DateFormat(txtDateFrom.Text, "yyyy/MM/dd") + " 00:00:00'")
             Dim CreatedDateTo As String = IIf(txtDateTo.Text = "", "1=1", "  CreatedDate <= '" + PublicFunctions.DateFormat(txtDateTo.Text, "yyyy/MM/dd") + " 23:59:59'")
-            Dim Reported As String = IIf(rblReported.SelectedValue = "-1", "1=1", "  Reported = '" + rblReported.SelectedValue + "'")
-            Dim Country As String = IIf(ddlCountry.SelectedValue = "0", "1=1", "  CountryId = '" + ddlCountry.SelectedValue + "'")
-            Dim ShowTo As String = IIf(PublicFunctions.GetUserType(UserId).ToLower = "admin", "1=1", " (CreatedBy = '" + UserId + "')")
 
-            Dim result As String = Search + " and " + CreatedDateFrom + " and " + CreatedDateTo + " and " + ShowTo + " and " + Reported + " and " + Country
+            Dim result As String = Search + " and " + CreatedDateFrom + " and " + CreatedDateTo
+
             Return result
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
@@ -615,13 +449,10 @@ Partial Class Items
             ddlCollection.SelectedIndex = 0
             ddlMaterial.SelectedIndex = 0
             ddlStyle.SelectedIndex = 0
-            ddlCondition.SelectedIndex = 0
             ddlCategory.SelectedIndex = 0
             ddlSubCategory.SelectedIndex = 0
             ddlColors.SelectedIndex = 0
             ddlSize.SelectedIndex = 0
-            ddlShippingCompany.SelectedIndex = 0
-            rblItemType.SelectedIndex = 0
             rblIsService.SelectedIndex = 0
             txtDescription.TextValue = String.Empty
             lblItemId.Text = String.Empty
@@ -630,17 +461,11 @@ Partial Class Items
             lvRelatedItems.DataSource = Nothing
             lvRelatedItems.DataBind()
             ddlCategory.Enabled = True
-            ddlSubCategory.Enabled = True
             ddlColors.Enabled = True
             ddlSize.Enabled = True
             ddlCollection.Enabled = True
-            lblBarCode.Text = String.Empty
-            CityId.Value = String.Empty
-            aceCity.ContextKey = String.Empty
-            AreaId.Value = String.Empty
             ddlSubCategory.Enabled = False
             txtModel.Enabled = False
-            txtCustomerMobile.Enabled = True
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
@@ -648,8 +473,6 @@ Partial Class Items
     Sub GenerateSkuCode()
         Try
             txtSKUCode.Text = GetItemSKU("sku")
-            txtItemCode.Text = GetItemSKU("code")
-            lblBarCode.Text = txtSKUCode.Text
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
@@ -663,8 +486,6 @@ Partial Class Items
             Select Case sender.id
                 Case "txtSKUCode"
                     KeyValue = "Code='" & txtSKUCode.Text & "'"
-                Case "txtItemCode"
-                    KeyValue = "SupplierCode='" & txtItemCode.Text & "'"
             End Select
             Dim dt As DataTable
             dt = DBContext.Getdatatable("select Id from tblItems where isnull(IsDeleted,0)=0 and " & KeyValue & " and clientId='" & Client_Id & "'")
@@ -678,19 +499,7 @@ Partial Class Items
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
     End Sub
-    Sub SelectType()
-        Try
-            Select Case rblItemType.SelectedValue
-                Case "A", "S"
-                    pnlPrice.Visible = True
-                Case "B"
-                    txtPrice.Text = String.Empty
-                    pnlPrice.Visible = False
-            End Select
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
+
     Sub SelectIsService()
         Try
             Select Case rblIsService.SelectedValue
@@ -852,8 +661,7 @@ Partial Class Items
                 'set general details
 
                 txtItemName.Text = dt.Rows(0).Item("Name").ToString
-                CustomerId.Value = dt.Rows(0).Item("ListedBy").ToString
-                FillCustomerDetails("Id='" + CustomerId.Value + "'")
+
 
                 BrandId.Value = dt.Rows(0).Item("Brand").ToString
                 txtBrand.Text = dt.Rows(0).Item("BrandName").ToString
@@ -863,18 +671,6 @@ Partial Class Items
                 txtModel.Text = dt.Rows(0).Item("ModelName").ToString
                 txtDescription.TextValue = dt.Rows(0).Item("Description").ToString
 
-                Dim ItemType As String = dt.Rows(0).Item("Type").ToString
-                If rblItemType.Items.FindByValue(ItemType) IsNot Nothing Then
-                    rblItemType.SelectedValue = ItemType
-                End If
-
-                Dim IsService As Boolean = PublicFunctions.BoolFormat(dt.Rows(0).Item("IsService").ToString)
-                If IsService = True Then
-                    rblIsService.SelectedValue = "1"
-                Else
-                    rblIsService.SelectedValue = "0"
-                End If
-                SelectIsService()
                 Dim Collection As String = dt.Rows(0).Item("Collection").ToString
                 If ddlCollection.Items.FindByValue(Collection) IsNot Nothing Then
                     ddlCollection.SelectedValue = Collection
@@ -889,13 +685,6 @@ Partial Class Items
                 If ddlStyle.Items.FindByValue(Style) IsNot Nothing Then
                     ddlStyle.SelectedValue = Style
                 End If
-
-
-                Dim Condition As String = dt.Rows(0).Item("Condition").ToString
-                If ddlCondition.Items.FindByValue(Condition) IsNot Nothing Then
-                    ddlCondition.SelectedValue = Condition
-                End If
-
 
                 'Set Category and sub category details
                 Dim Category As String = dt.Rows(0).Item("Category").ToString
@@ -935,10 +724,7 @@ Partial Class Items
 
                 'set qunatity and shipping details
                 txtQuantity.Text = PublicFunctions.IntFormat(dt.Rows(0).Item("Quantity").ToString)
-                Dim ShippingCompany As String = dt.Rows(0).Item("ShippingCourier").ToString
-                If ddlShippingCompany.Items.FindByValue(ShippingCompany) IsNot Nothing Then
-                    ddlShippingCompany.SelectedValue = ShippingCompany
-                End If
+
                 txtWeight.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("Weight").ToString)
 
                 'set item price details
@@ -958,20 +744,10 @@ Partial Class Items
                 'set item photos
                 FillPhotos(lblItemId.Text)
                 'fill related item
-                FillRelatedItems()
+                'FillRelatedItems()
 
 
                 txtSKUCode.Text = dt.Rows(0).Item("SKU").ToString
-                txtItemCode.Text = dt.Rows(0).Item("ItemCode").ToString
-                lblBarCode.Text = txtSKUCode.Text
-
-                CityId.Value = dt.Rows(0).Item("City").ToString
-                txtCity.Text = PublicFunctions.GetLockupValue(CityId.Value)
-                AreaId.Value = dt.Rows(0).Item("Area").ToString
-                txtArea.Text = PublicFunctions.GetLockupValue(AreaId.Value)
-
-                txtLongitude.Text = dt.Rows(0).Item("Longitude").ToString
-                txtLatitude.Text = dt.Rows(0).Item("Latitude").ToString
 
                 Return True
             Else
@@ -985,21 +761,21 @@ Partial Class Items
     ''' <summary>
     ''' fill list view of items that have same Item Code.
     ''' </summary>
-    Sub FillRelatedItems()
-        Try
-            Dim dtItems As DataTable
-            If cmdSave.CommandArgument = "add" Then
-                dtItems = DBContext.Getdatatable("select * from tblItems where isnull(IsDeleted,0)=0 and clientId='" + Client_Id + "' and SupplierCode='" + txtItemCode.Text + "'")
-            Else
-                dtItems = DBContext.Getdatatable("select * from tblItems where isnull(IsDeleted,0)=0 and clientId='" + Client_Id + "' and SupplierCode='" + txtItemCode.Text + "' and Id <> '" + lblItemId.Text + "'")
-            End If
+    'Sub FillRelatedItems()
+    '    Try
+    '        Dim dtItems As DataTable
+    '        If cmdSave.CommandArgument = "add" Then
+    '            dtItems = DBContext.Getdatatable("select * from tblItems where isnull(IsDeleted,0)=0 and clientId='" + Client_Id + "' and SupplierCode='" + txtItemCode.Text + "'")
+    '        Else
+    '            dtItems = DBContext.Getdatatable("select * from tblItems where isnull(IsDeleted,0)=0 and clientId='" + Client_Id + "' and SupplierCode='" + txtItemCode.Text + "' and Id <> '" + lblItemId.Text + "'")
+    '        End If
 
-            lvRelatedItems.DataSource = dtItems
-            lvRelatedItems.DataBind()
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
+    '        lvRelatedItems.DataSource = dtItems
+    '        lvRelatedItems.DataBind()
+    '    Catch ex As Exception
+    '        clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+    '    End Try
+    'End Sub
 #End Region
 
 #Region "Delete"
@@ -1057,16 +833,6 @@ Partial Class Items
                 SubCatPrefix = ItemSubCategoryName.Trim.Substring(0, 2)
             End If
 
-            Dim CityPrefix As String = String.Empty
-            If ItemCity <> String.Empty Then
-                CityPrefix = ItemCity.Trim.Substring(0, 2)
-            End If
-
-            Dim AreaPrefix As String = String.Empty
-            If ItemArea <> String.Empty Then
-                AreaPrefix = ItemArea.Trim.Substring(0, 2)
-            End If
-
             Dim SKUCode As String = ItemSKUCode
             Dim ItemCode As String = CatPrefix & SubCatPrefix & BrandPrefix  '& CityPrefix & AreaPrefix
             Select Case Type.ToLower
@@ -1105,24 +871,24 @@ Partial Class Items
     ''' <summary>
     ''' Check Item Code not exist with color and size
     ''' </summary>
-    Function CheckItemCode(ByVal Operation As String) As Boolean
-        Try
-            Dim dtItems As DataTable = New DataTable
-            Select Case Operation.ToLower
-                Case "insert"
-                    dtItems = DBContext.Getdatatable("select Id from tblItems where isnull(IsDeleted,0)=0 and clientId='" & Client_Id & "' and SupplierCode ='" & ItemCode & "' and Size='" & ItemSize & "' and Color='" & ItemColor & "'")
-                Case "update"
-                    dtItems = DBContext.Getdatatable("select Id from tblItems where isnull(IsDeleted,0)=0 and clientId='" & Client_Id & "' and Id <> '" & lblItemId.Text & "' and SupplierCode ='" & ItemCode & "' and Size='" & ItemSize & "' and Color='" & ItemColor & "'")
-            End Select
-            If dtItems.Rows.Count > 0 Then
-                Return False
-            End If
-            Return True
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-            Return False
-        End Try
-    End Function
+    'Function CheckItemCode(ByVal Operation As String) As Boolean
+    '    Try
+    '        Dim dtItems As DataTable = New DataTable
+    '        Select Case Operation.ToLower
+    '            Case "insert"
+    '                dtItems = DBContext.Getdatatable("select Id from tblItems where isnull(IsDeleted,0)=0 and clientId='" & Client_Id & "' and SupplierCode ='" & ItemCode & "' and Size='" & ItemSize & "' and Color='" & ItemColor & "'")
+    '            Case "update"
+    '                dtItems = DBContext.Getdatatable("select Id from tblItems where isnull(IsDeleted,0)=0 and clientId='" & Client_Id & "' and Id <> '" & lblItemId.Text & "' and SupplierCode ='" & ItemCode & "' and Size='" & ItemSize & "' and Color='" & ItemColor & "'")
+    '        End Select
+    '        If dtItems.Rows.Count > 0 Then
+    '            Return False
+    '        End If
+    '        Return True
+    '    Catch ex As Exception
+    '        clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+    '        Return False
+    '    End Try
+    'End Function
 
     ''' <summary>
     ''' Get Brand id if exist and if new insert it then reurn brandid
@@ -1168,41 +934,16 @@ Partial Class Items
     End Function
 
     ''' <summary>
-    ''' Get Listed By id if exist and if new insert it then reurn CustomerId
-    ''' </summary>
-    Private Function GetListedById() As String
-        Try
-            If listedByID = String.Empty Then
-                listedByID = Nothing
-                If listedByName <> String.Empty Then
-                    Dim dtCustomers As DataTable = ExecuteQuery.ExecuteQueryAndReturnDataTable("insert into tblusers(Username,FullName,Mobile,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,IsDeleted,ClientId) values ('','" + listedByName + "','" + listedByMobile + "','" + UserId + "',getdate(),'" + UserId + "',getdate(),0,'" + Client_Id + "');select id from tblusers where Mobile='" + listedByMobile + "' and clientId='" + Client_Id + "' and isnull(IsDeleted,0)=0", _sqlconn, _sqltrans)
-                    If dtCustomers.Rows.Count > 0 Then
-                        listedByID = dtCustomers.Rows(0).Item(0)
-                    End If
-                End If
-            End If
-            Return listedByID
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-            Return Nothing
-        End Try
-    End Function
-
-    ''' <summary>
     ''' Handle save button(form grid) click event.
     ''' </summary>
     Protected Sub Save(ByVal Sender As Object, ByVal e As System.EventArgs)
         Try
-            'SelectCity()
-            'SelectArea()
-            'SelectBrand()
-            'SelectModel()
 
             If Not PublicFunctions.IsGroupValid("vProduct", Page) Then
                 Return
             End If
             ItemSKUCode = GetItemSKU("sku")
-            ItemCode = GetItemSKU("code")
+
             Dim daTabeFactory As New TblItemsFactory
             Dim dtTable As New TblItems
             If cmdSave.CommandArgument.ToLower = "add" Then
@@ -1217,7 +958,6 @@ Partial Class Items
                 _sqlconn.Open()
                 _sqltrans = _sqlconn.BeginTransaction
 
-                dtTable.ListedBy = GetListedById()
                 dtTable.Brand = GetBrandId()
                 ' dtTable.Model = GetModelId()
 
@@ -1255,7 +995,7 @@ Partial Class Items
                 _sqlconn.Open()
                 _sqltrans = _sqlconn.BeginTransaction
 
-                dtTable.ListedBy = GetListedById()
+
                 dtTable.Brand = GetBrandId()
                 'dtTable.Model = GetModelId()
 
@@ -1301,7 +1041,7 @@ Partial Class Items
             'End If
             Select Case Operation
                 Case "insert"
-                    dtItems.Code = ItemCode + "-" + DBContext.SelectMax("Id", "tblItems").ToString
+                    dtItems.Code = ItemSKUCode
                     dtItems.CreatedBy = UserId
                     dtItems.CreatedDate = DateTime.Now
                     dtItems.ModifiedBy = UserId
@@ -1323,8 +1063,6 @@ Partial Class Items
             'dtItems.BarCode = ItemBarCode
             dtItems.Name = ItemName
 
-            dtItems.IsService = IsService
-            dtItems.Type = ItemType
             dtItems.Description = ItemDesc
             dtItems.Category = ItemCategory
             dtItems.SubCategory = ItemSubCategory
@@ -1355,7 +1093,6 @@ Partial Class Items
             dtItems.PDFURL = ItemBrochure
 
             'dtItems.ShippingCourier = ItemShippingCompany
-            dtItems.Weight = ItemWeight
 
             'dtItems.SupplierPrice = ItemCost
 
@@ -1367,10 +1104,7 @@ Partial Class Items
             'dtItems.VAT = ItemVatAmount
             'dtItems.VATPercent = ItemVatPercent
 
-            dtItems.City = ItemCityId
-            dtItems.Area = ItemAreaId
-            dtItems.Longitude = Itemlng
-            dtItems.Latitude = Itemlat
+
             If getMainImg() = "0" Then
                 clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.CUSTOMInfo, Page, Nothing, "You must upload Photo and select Main Photo from the list")
                 Return False
@@ -1680,8 +1414,6 @@ Partial Class Items
     End Sub
 #End Region
 
-
-
 #Region "Collapse"
     Private Sub CheckCollapse()
         CheckCollapse1()
@@ -1721,6 +1453,5 @@ Partial Class Items
 
 
 #End Region
-
 
 End Class

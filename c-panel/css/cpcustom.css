@@ -1,4 +1,4 @@
-﻿/*Font-family Barcode*/
+/*Font-family Barcode*/
 @font-face {
     font-family: 'barcode font';
     font-style: normal;
@@ -8,13 +8,21 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/*Font Arabic*/
+@font-face {
+    font-family: 'Tajawal';
+    src: url('../fonts/Tajawal-Black.ttf');
+    src: url('../fonts/Tajawal-Bold.ttf'), url('../fonts/Tajawal-ExtraBold.ttf'), url('../fonts/Tajawal-ExtraLight.ttf'), url('../fonts/Tajawal-Light.ttf'), url('../fonts/Tajawal-Medium.ttf'), url('../fonts/Tajawal-Regular.ttf');
+}
+
 
 body {
+    /* direction: rtl !important; */
     background: #f2f3f8 !important;
     overflow-y: auto;
     margin-bottom: 25px !important;
     padding: 7px !important;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 
@@ -189,6 +197,36 @@ a {
         color: #fff;
         background: #2867dd;
         border: 1px solid #2867dd;
+        outline: none;
+    }
+
+/*==green==*/
+
+/*==beige==*/
+
+.btn-beige {
+    color: #fff;
+    background: #e9d0b7;
+    border: 1px solid #e9d0b7;
+}
+
+    .btn-beige:hover, .btn-beige:active, .btn-beige:focus {
+        color: #fff;
+        background: #dfc4a8;
+        border: 1px solid #dfc4a8;
+        outline: none !important;
+    }
+
+.btn-beige-line {
+    color: #e9d0b7;
+    background: transparent;
+    border: 1px solid #e9d0b7;
+}
+
+    .btn-beige-line:hover, .btn-beige-line:active {
+        color: #fff;
+        background: #dfc4a8;
+        border: 1px solid #dfc4a8;
         outline: none;
     }
 
@@ -474,9 +512,9 @@ a {
 }
 
 .btni-xxxs {
-    width: 23px;
-    height: 23px;
-    font-size: 11.5px;
+    width: 24px;
+    height: 24px;
+    font-size: 15px;
     display: flex;
     margin-right: 1px;
     justify-content: center;
@@ -991,12 +1029,14 @@ a {
         display: table-cell;
         text-align: left;
         vertical-align: middle;
+        float: left;
     }
 
     .table-top-panel .tbl-top-panel-right {
         display: table-cell;
         text-align: right;
         vertical-align: middle;
+        float: right;
     }
 
     .table-top-panel .input-field {
@@ -1356,8 +1396,8 @@ textarea {
     }
 
         textarea.form-control:focus {
-            /* outline: none; */
-            /* border: 2px solid #fff !important; */
+            outline: none;
+            border: 2px solid #fff !important;
         }
 
 .input-label {
@@ -1871,11 +1911,11 @@ input[type="file"] {
     [type="radio"]:not(:checked) + label,
     [type="radio"]:checked + label {
         position: relative;
-        padding-left: 22px;
+        padding-right: 22px;
         cursor: pointer;
         display: inline-block;
         height: 26px;
-        margin-right: 10px;
+        margin-left: 10px;
         font-family: 'poppins';
         font-weight: 400 !important;
         color: #575962;
@@ -1890,7 +1930,7 @@ input[type="file"] {
 [type="radio"] + label:after {
     content: '';
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
     margin: 5px 0px;
     width: 16px;
@@ -2092,7 +2132,7 @@ label {
 /* CUSTOM CSS CHECKBOXES */
 form p {
     margin-bottom: 10px;
-    text-align: left;
+    text-align: right;
 }
 
     form p:last-child {
@@ -2109,7 +2149,7 @@ form p {
 
 .c-check [type="checkbox"] + label {
     position: relative;
-    padding-left: 25px;
+    padding-left: 15px;
     cursor: pointer;
     display: inline-block;
     height: 22px;
@@ -2160,7 +2200,7 @@ form p {
 .c-check [type="checkbox"] + label:before,
 .c-check [type="checkbox"] + label:after {
     content: '';
-    left: 0;
+    left: 0px;
     position: absolute;
     transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
     z-index: 1;
@@ -2246,7 +2286,7 @@ form p {
 
 .c-check [type="checkbox"]:checked + label:before {
     top: 1px;
-    left: 2px !important;
+    right: 9px !important;
     width: 6px;
     height: 11px;
     border-top: 2px solid transparent;
@@ -2689,6 +2729,7 @@ select {
             color: #fff !important;
             margin-top: 2px;
             vertical-align: top;
+            margin-right: 5px;
         }
 
 .EmptyRowStyle td {
@@ -3361,7 +3402,7 @@ select {
     min-height: 100vh;
     display: flex;
     border: none;
-    background: linear-gradient( to bottom, rgba(31, 35, 43,.9),rgba(96, 191, 77,.7) ),url(../../images/others/login.jpeg);
+    background: linear-gradient( to bottom, rgba(31, 35, 43,.9),rgba(96, 191, 77,.7) );
     background-position: center;
     background-size: cover;
     margin: 0px;
@@ -3386,7 +3427,7 @@ select {
 }
 
     .login-logo img {
-        height: 85px;
+        height: 140px;
     }
 
 .log-area-head {
@@ -3412,13 +3453,13 @@ select {
 }
 
 .log-remember {
-    width: 50%;
+    width: 60%;
     text-align: left;
 }
 
 .log-forgot {
-    width: 50%;
-    text-align: right;
+    width: 40%;
+    text-align: left;
 }
 
     .log-forgot a {
@@ -3634,7 +3675,7 @@ select {
 
     .user-flex-panel .right-300 {
         width: 400px;
-        padding: 0px 15px 0px 10px;
+        padding: 0px 10px 0px 5px;
     }
 
         .user-flex-panel .right-300 .demo-upload-head {
@@ -3648,7 +3689,7 @@ select {
 
             .user-flex-panel .right-300 .demo-upload-head h3 {
                 font-size: 12px;
-                text-transform: uppercase;
+                /* text-transform: uppercase; */
                 font-weight: 600;
                 margin-bottom: 0 !important;
                 margin-top: 0px !important;
@@ -3656,7 +3697,7 @@ select {
 
     .user-flex-panel .left-700 {
         width: calc(100% - 400px);
-        padding: 0px 10px 0px 20px;
+        padding: 0px 10px 0px 10px;
     }
 
         .user-flex-panel .left-700 #accordion {
@@ -3802,8 +3843,8 @@ select {
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
-    text-align: left;
-    text-align: start;
+    text-align: right;
+    text-align: right;
     text-decoration: none;
     text-shadow: none;
     text-transform: none;
@@ -3902,7 +3943,7 @@ select {
 .tooltip-inner {
     max-width: 200px;
     width: max-content;
-    padding: 3px 20px 3px 10px;
+    padding: 3px 10px 3px 20px;
     line-height: 20px;
     color: #9ba4ad;
     text-align: center;
@@ -3925,8 +3966,8 @@ select {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         content: "\f142";
-        float: right;
-        margin-left: 10px;
+        float: left;
+        margin-right: 10px;
         margin-top: 4px;
         color: #45bf4d;
         position: absolute;
@@ -4845,6 +4886,7 @@ a:hover, a:focus {
 
 .modal-header {
     padding: 13px 15px 12px;
+    text-align: left;
 }
 
 .modal-body {
@@ -5304,17 +5346,24 @@ a:hover, a:focus {
     padding: 10px 0;
 }
 
-.uploader {
+.uploader > div {
     position: fixed;
-    z-index: 999999;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, 0px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+    background: rgba(0,0,0,0.05);
+    overflow: hidden;
 }
 
 .uploader img {
     max-width: 100px;
     width: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .modalPopup-uploader {
@@ -5409,8 +5458,8 @@ a:hover, a:focus {
         }
 
 .modalPopup-uploader .modal-footer .photoWrap {
-    float: left;
-    margin: 5px;
+    float: right;
+    margin: 10px 5px 5px;
 }
 
     .modalPopup-uploader .modal-footer .photoWrap .delete-photo {
@@ -5495,11 +5544,12 @@ a:hover, a:focus {
     border-width: 0px !important;
     border-style: solid;
     /* box-shadow: 0px 0px 4px 0px #555; */
-    left: 36% !important;
+    left: 50% !important;
+    transform: translate(-50%, 0px);
     padding: 20px 70px !important;
     border-radius: 6px 6px 6px 6px;
     margin: 0 !important;
-    top: 5% !important;
+    top: 10% !important;
     max-height: 700px;
 }
 
@@ -6242,14 +6292,14 @@ table td img:hover {
 }
 
 .check-green [type="checkbox"]:checked + label:after {
-    border: 1px solid #40bf4d !important;
-    background-color: #40bf4d !important;
+    border: 1px solid #60bf4d !important;
+    background-color: #60bf4d !important;
 }
 
 .icon-logout {
     position: absolute;
     font-size: 25px;
-    left: 20px;
+    left: 27px;
     top: 12px;
 }
 
@@ -6266,11 +6316,12 @@ table td img:hover {
     background-color: unset;
     border: 0;
     display: block;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
     height: 70px;
     padding-top: 35px;
     outline: none;
+    min-width: 80px;
 }
 
 .logo-brand,
@@ -6292,7 +6343,7 @@ table td img:hover {
     justify-content: center !important;
     align-items: center;
     text-align: center;
-    background: #3AA0FF !important;
+    background: #e9d0b7 !important;
     color: #fff !important;
     cursor: pointer;
     font-size: 13px;
@@ -6306,10 +6357,18 @@ table td img:hover {
 .ajax__fileupload_dropzone {
     line-height: 60px;
     text-align: center;
-    border: 2px dashed #3AA0FF !important;
+    border: 2px dashed #e9d0b7 !important;
     font-weight: 400 !important;
     margin-bottom: 7px !important;
     min-height: 80px;
+}
+
+.ajax__fileupload_fileItemInfo {
+    text-align: left;
+}
+
+.ajax__fileupload_uploadbutton {
+    background-color: #e9d0b7 !important;
 }
 
 .uploader-table {
@@ -6512,7 +6571,7 @@ table td img:hover {
 
 .icon-color {
     font-size: 15px;
-    margin: 0 5px 0 -5px;
+    margin: 0 -5px 0 5px;
 }
 
 /*Start tbl-order*/
@@ -6561,14 +6620,15 @@ table td img:hover {
 
 .validation-message ul {
     list-style: none;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 10px;
 }
 
     .validation-message ul li {
         background-color: #ffb7b7;
-        padding: 2px 5px;
+        padding: 2px 10px;
         border-radius: 5px;
         display: inline-block;
+        margin: 0 5px 5px 0;
     }
 
 /*Start panel barcode*/
@@ -6714,24 +6774,24 @@ a .price-barcode:hover {
     position: relative;
 }
 
-    .btn-tooltip-r:hover::before {
+    .sidebar-narrow .btn-tooltip-r:hover::before {
         content: '';
         position: absolute;
         top: 50%;
-        left: 67px;
+        right: 69px;
         z-index: 10;
         width: 10px;
         height: 10px;
-        transform: rotate(135deg)translate(0px, 0px);
+        transform: rotate(135deg)translate(0px, -2px);
         background-color: rgba(0,0,0,1);
-        border-radius: 15px 0px 0px 0px;
+        border-radius: 0px 0px 15px 0px;
     }
 
-    .btn-tooltip-r:hover::after {
+    .sidebar-narrow .btn-tooltip-r:hover::after {
         content: attr(data-descr);
         position: absolute;
         top: 21px;
-        left: 71px;
+        right: 71px;
         z-index: 10;
         padding: 1px 10px;
         color: #fff;
@@ -6750,23 +6810,60 @@ a .price-barcode:hover {
     color: #a94442;
 }
 
-.pnlModels {
-    border-color: transparent !important;
-    box-shadow: unset !important;
+.barcode-bg {
+    background-color: #fff;
 }
 
-.mt10 {
-    margin-top: 10px !important;
+    .barcode-bg .price-barcode {
+        margin-bottom: 0;
+        color: #000;
+    }
+
+.searchContiner {
+    float: right;
 }
 
-.vertical-bottom {
-    vertical-align: bottom !important;
+/*Start tbl-imgs*/
+.tbl-imgs {
+    width: 100%;
+    border: 1px solid #e1e1e1;
 }
 
-.displaynone {
-    display: none !important;
-}
+    .tbl-imgs tr:nth-child(odd) {
+        background-color: #f3f8f9;
+    }
 
-.dis-block {
-    display: block !important;
-}
+    .tbl-imgs tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .tbl-imgs tr:first-of-type,
+    .tbl-imgs tr:first-of-type:hover {
+        background-color: #eee;
+    }
+
+        .tbl-imgs tr:first-of-type th {
+            padding: 10px 5px;
+        }
+
+    .tbl-imgs tr td {
+        padding: 5px;
+        border: 0;
+    }
+
+    .tbl-imgs .img-thumbnail {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        max-width: 100%;
+        padding: 4px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        overflow: hidden;
+        -webkit-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+    }
+/*End tbl-imgs*/

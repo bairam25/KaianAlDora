@@ -1,25 +1,4 @@
-﻿<<<<<<< .mine ﻿@charset "utf-8";
-/* CSS Document */
-/*=====================================================
-* spareparts.blueberry.software
-* Copyright 2017, Linkinsoft
-* www.linkinsoft.com
-* Free to use under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 12/20/2017
-=======================================================*/
-/* Table of contents
-=======================================================
-- 1. Global Styles
-- 2. scroll-bar
-- 3. scroll-to top
-- 4. padding & margin
-- 5. buttons
-
-*/
-/* ================================================================= */
-/*   1. Global Styles
-==================================================================== */
+﻿
 body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;

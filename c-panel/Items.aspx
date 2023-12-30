@@ -152,25 +152,10 @@
                                                         ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"
                                                         CssClass="req_validator" SetFocusOnError="true"></asp:RegularExpressionValidator>
                                                 </div>
-                                                <div class="input-field input-150 input-in">
-                                                    <label>Country</label>
-                                                    <div class="clear"></div>
-                                                    <asp:DropDownList runat="server" ID="ddlCountry" CssClass="ddl-filter" AutoPostBack="true" OnSelectedIndexChanged="FillGrid">
-                                                    </asp:DropDownList>
-                                                </div>
+                                               
 
                                             </asp:Panel>
-                                            <asp:Panel ID="pnlReported" runat="server" CssClass="d-inl-block">
-                                                <div class="input-field input-in">
-                                                    <label>Reported</label>
-                                                    <div class="clear"></div>
-                                                    <asp:RadioButtonList ID="rblReported" runat="server" RepeatDirection="Horizontal">
-                                                        <asp:ListItem Value="-1" Selected="True">All</asp:ListItem>
-                                                        <asp:ListItem Value="1">Reported</asp:ListItem>
-                                                        <asp:ListItem Value="0">Not Reported</asp:ListItem>
-                                                    </asp:RadioButtonList>
-                                                </div>
-                                            </asp:Panel>
+                                           
                                             <asp:LinkButton ID="lbFilter" CssClass="btn-main btn-green vertical-bottom" runat="server" OnClick="FillGrid" ToolTip="Filter" ValidationGroup="vgDate">Filter <i class="ti-search"></i></asp:LinkButton>
                                         </div>
                                     </div>
@@ -180,7 +165,7 @@
                                             <div class="input-320 input-in searchContiner pull-right">
                                                 <asp:Panel ID="pnlSearch" runat="server">
                                                     <div class="input-group" id="search">
-                                                        <asp:TextBox ID="txtSearch" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Search by Name, Brand, Salesman, City, Area" OnTextChanged="FillGrid" onkeypress="return isString(event);" onkeyup="ValidateChars(this);"></asp:TextBox>
+                                                        <asp:TextBox ID="txtSearch" ClientIDMode="Static" runat="server" CssClass="form-control" placeholder="Search by Name, Brand" OnTextChanged="FillGrid" onkeypress="return isString(event);" onkeyup="ValidateChars(this);"></asp:TextBox>
                                                         <%--  <asp:FilteredTextBoxExtender ID="FilteredTextBoxExtender8" runat="server" Enabled="True"
                                                                 TargetControlID="txtSearch" ValidChars=" 0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM()-,|.:+">
                                                             </asp:FilteredTextBoxExtender>--%>
@@ -233,9 +218,7 @@
                                                                     <th class="upnDownArrow" id="Name">
                                                                         <asp:LinkButton ID="lbName" CommandArgument="Name" CommandName="Sort" runat="server">Title</asp:LinkButton>
                                                                     </th>
-                                                                    <th class="upnDownArrow" id="ListedByName">
-                                                                        <asp:LinkButton ID="lbListedBy" CommandArgument="ListedByName" CommandName="Sort" runat="server">Listed By</asp:LinkButton>
-                                                                    </th>
+                                                                    
                                                                     <th class="upnDownArrow" id="CategoryName">
                                                                         <asp:LinkButton ID="lbCategory" CommandArgument="CategoryName" CommandName="Sort" runat="server">Category</asp:LinkButton>
                                                                     </th>
@@ -249,9 +232,7 @@
                                                                     <th class="upnDownArrow" id="CreatedDate">
                                                                         <asp:LinkButton ID="lbCreatedDate" CommandArgument="CreatedDate" CommandName="Sort" runat="server">Listing Date</asp:LinkButton>
                                                                     </th>
-                                                                    <th class="upnDownArrow" id="Salesman">
-                                                                        <asp:LinkButton ID="lbSalesman" CommandArgument="Salesman" CommandName="Sort" runat="server">Salesman</asp:LinkButton>
-                                                                    </th>
+                                                                   
                                                                     <th class="upnDownArrow" id="Active">
                                                                         <asp:LinkButton ID="lbActive" CommandArgument="Active" CommandName="Sort" runat="server">Active</asp:LinkButton>
                                                                     </th>
@@ -287,9 +268,7 @@
                                                             <asp:Label ID="lblItemId" runat="server" Text='<%# Eval("Id")%>' Visible="false"></asp:Label>
                                                             <asp:Label ID="lblName" runat="server" Text='<%# Eval("Name")%>'></asp:Label>
                                                         </td>
-                                                        <td>
-                                                            <asp:Label ID="lblListedBy" runat="server" Text='<%# Eval("ListedByName")%>'></asp:Label>
-                                                        </td>
+                                                        
                                                         <td>
                                                             <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("CategoryName")%>'></asp:Label>
                                                         </td>
@@ -303,9 +282,7 @@
                                                         <td>
                                                             <asp:Label ID="lblCreatedDate" runat="server" Text='<%# Eval("CreatedDate").ToString %>'></asp:Label>
                                                         </td>
-                                                        <td>
-                                                            <asp:Label ID="lblSalesman" runat="server" Text='<%# Eval("Salesman").ToString %>'></asp:Label>
-                                                        </td>
+                                                       
                                                         <td id="Active" runat="server">
                                                             <asp:CheckBox ID="chkActive" runat="server" AutoPostBack="True" CssClass="c-check" Text=" " Checked='<%# PublicFunctions.BoolFormat(Eval("Active").ToString)%>' OnCheckedChanged="UpdateActive" />
                                                         </td>
@@ -505,19 +482,10 @@
                                                                         TargetControlID="txtSKUCode" ValidChars=" ,0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM()-">
                                                                     </asp:FilteredTextBoxExtender>
                                                                 </div>
-                                                                <div class="col-md-3 mb5" style="display: none">
-                                                                    <label class="required">Item Code</label>
-                                                                    <asp:TextBox runat="server" ID="txtItemCode" CssClass="form-control" MaxLength="30" AutoPostBack="true" OnTextChanged="CheckItemCode"></asp:TextBox>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" CssClass="displaynone"
-                                                                        ValidationGroup="vProduct" ControlToValidate="txtItemCode" ErrorMessage="Enter Item Code"></asp:RequiredFieldValidator>
-                                                                </div>
-                                                                <div class="col-md-3 mb5">
-                                                                    <label>Item Barcode</label>
-                                                                    <asp:Label ID="lblBarCode" runat="server" CssClass="lbl-barcode"></asp:Label>
-                                                                </div>
+                                                               
                                                             </asp:Panel>
 
-                                                            <div class="col-md-3 mb5">
+                                                            <div class="col-md-3 mb5" id="divService" runat="server" Visible="false">
                                                                 <label>Item/Service</label>
                                                                 <asp:RadioButtonList ID="rblIsService" CssClass="radioList" runat="server" RepeatLayout="Table" RepeatColumns="3" AutoPostBack="true" OnSelectedIndexChanged="SelectIsService">
                                                                     <asp:ListItem Value="0" Selected="True">Item</asp:ListItem>
@@ -531,27 +499,7 @@
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="displaynone"
                                                                     ValidationGroup="vProduct" ControlToValidate="txtItemName" ErrorMessage="Enter Item Name"></asp:RequiredFieldValidator>
                                                             </div>
-                                                            <div class="col-md-3 mb5">
-                                                                <label class="required">Listed By</label>
-                                                                <asp:HiddenField ID="CustomerId" runat="server" />
-                                                                <asp:TextBox runat="server" ID="txtCustomer" CssClass="form-control" MaxLength="100" placeholder="Type Name Or Mobile" AutoPostBack="true" OnTextChanged="SelectCustomer" onkeypress="return isString(event);" onkeyup="ValidateChars(this);"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" CssClass="displaynone"
-                                                                    ValidationGroup="vProduct" ControlToValidate="txtCustomer" ErrorMessage="Enter Customer Name or Mobile No."></asp:RequiredFieldValidator>
-                                                                <asp:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" BehaviorID="aceCusetomer" FirstRowSelected="false"
-                                                                    EnableCaching="false" Enabled="True" MinimumPrefixLength="0" CompletionListCssClass="acl"
-                                                                    CompletionListItemCssClass="li" CompletionListHighlightedItemCssClass="li-hover"
-                                                                    ServiceMethod="getCustomers" ServicePath="~/WebService.asmx" TargetControlID="txtCustomer"
-                                                                    CompletionInterval="500">
-                                                                </asp:AutoCompleteExtender>
-
-                                                            </div>
-                                                            <div class="col-md-3 mb5">
-                                                                <label class="required">Mobile No.</label>
-                                                                <asp:TextBox runat="server" ID="txtCustomerMobile" CssClass="form-control" MaxLength="15" onkeypress="return isNumber(event);" AutoPostBack="true" OnTextChanged="SelectMobile"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" CssClass="displaynone"
-                                                                    ValidationGroup="vProduct" ControlToValidate="txtCustomerMobile" ErrorMessage="Enter Customer Mobile"></asp:RequiredFieldValidator>
-
-                                                            </div>
+                                                          
                                                             <div class="col-md-3 mb5">
                                                                 <label class="required">Category</label>
                                                                 <asp:DropDownList runat="server" ID="ddlCategory" CssClass="form-control" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="SelectCategory"></asp:DropDownList>
@@ -600,16 +548,7 @@
                                                             </div>
 
 
-
-
-
-                                                            <div class="col-md-3 mb5">
-                                                                <label class="required">Condition</label>
-                                                                <asp:DropDownList runat="server" ID="ddlCondition" CssClass="form-control" AppendDataBoundItems="true"></asp:DropDownList>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" CssClass="displaynone"
-                                                                    ValidationGroup="vProduct" ControlToValidate="ddlCondition" InitialValue="0" ErrorMessage="Select Collection"></asp:RequiredFieldValidator>
-
-                                                            </div>
+                                                            
                                                             <asp:Panel ID="pnlItemStyle" runat="server" Visible="false">
                                                                 <div class="col-md-3 mb5">
                                                                     <label class="mb10">Active</label>
@@ -678,18 +617,11 @@
                                                                     <asp:TextBox runat="server" ID="txtRating" CssClass="form-control" MaxLength="4" onkeyup="return isRating(this);" onkeypress="return isDecimal(event,this);" placeholder="enter value from 1 to 5"></asp:TextBox>
                                                                 </div>
                                                             </asp:Panel>
-                                                            <div class="col-md-3 mb5">
+                                                            <div class="col-md-3 mb5" id="divYouTube" runat ="server" visible ="false" >
                                                                 <label>Youtube URL</label>
                                                                 <asp:TextBox runat="server" ID="txtYoutubeURL" CssClass="form-control"></asp:TextBox>
                                                             </div>
-                                                            <div class="col-md-3 mb5">
-                                                                <label>Type</label>
-                                                                <asp:RadioButtonList ID="rblItemType" CssClass="radioList" runat="server" RepeatLayout="Table" RepeatColumns="3" AutoPostBack="true" OnSelectedIndexChanged="SelectType">
-                                                                    <asp:ListItem Value="A" Selected="True">All</asp:ListItem>
-                                                                    <asp:ListItem Value="S">Sales</asp:ListItem>
-                                                                    <asp:ListItem Value="B">Barter</asp:ListItem>
-                                                                </asp:RadioButtonList>
-                                                            </div>
+                                                            
                                                             <asp:Panel ID="pnlPrice" runat="server" CssClass="col-md-3 mb5" Visible="false">
                                                                     <label class="required">Price</label>
                                                                     <asp:TextBox runat="server" ID="txtPrice" CssClass="form-control" ClientIDMode="Static" MaxLength="10" onkeypress="return isDecimal(event,this);"></asp:TextBox>
@@ -788,59 +720,7 @@
                                                                     </div>
                                                                 </asp:Panel>
                                                             </asp:Panel>
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="col-md-3 mb5">
-                                                                        <label class="required">City</label>
-                                                                        <asp:HiddenField ID="CityId" runat="server" />
-                                                                        <asp:TextBox runat="server" ID="txtCity" CssClass="form-control" MaxLength="100" placeholder="Select City" AutoPostBack="true" OnTextChanged="SelectCity"></asp:TextBox>
-                                                                        <asp:RequiredFieldValidator ValidationGroup="vProduct" runat="server" ID="RequiredFieldValidator27" ControlToValidate="txtCity"
-                                                                            ErrorMessage="Enter City!" SetFocusOnError="true" CssClass="displaynone" />
-                                                                        <asp:AutoCompleteExtender ID="aceCity" runat="server" BehaviorID="aceCity" FirstRowSelected="false"
-                                                                            EnableCaching="false" Enabled="True" MinimumPrefixLength="0" CompletionListCssClass="acl"
-                                                                            CompletionListItemCssClass="li" CompletionListHighlightedItemCssClass="li-hover"
-                                                                            ServiceMethod="getCity" ServicePath="~/WebService.asmx" TargetControlID="txtCity"
-                                                                            CompletionInterval="500">
-                                                                        </asp:AutoCompleteExtender>
-
-                                                                    </div>
-                                                                    <div class="col-md-3 mb5">
-                                                                        <label class="required">Area</label>
-                                                                        <asp:HiddenField ID="AreaId" runat="server" />
-                                                                        <asp:TextBox runat="server" ID="txtArea" CssClass="form-control" MaxLength="200" placeholder="Select Area" AutoPostBack="true" OnTextChanged="SelectArea"></asp:TextBox>
-                                                                        <asp:RequiredFieldValidator ValidationGroup="vProduct" runat="server" ID="RequiredFieldValidator26" ControlToValidate="txtArea"
-                                                                            ErrorMessage="Enter Area!" SetFocusOnError="true" CssClass="displaynone" />
-                                                                        <asp:AutoCompleteExtender ID="aceArea" runat="server" BehaviorID="aceArea" FirstRowSelected="false"
-                                                                            EnableCaching="false" Enabled="True" MinimumPrefixLength="0" CompletionListCssClass="acl"
-                                                                            CompletionListItemCssClass="li" CompletionListHighlightedItemCssClass="li-hover"
-                                                                            ServiceMethod="GetArea" ServicePath="~/WebService.asmx" TargetControlID="txtArea" UseContextKey="true"
-                                                                            CompletionInterval="500">
-                                                                        </asp:AutoCompleteExtender>
-
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                        <label class="required">Latitude</label>
-                                                                        <asp:TextBox runat="server" ID="txtLatitude" CssClass="form-control" MaxLength="20" autocomplete="off" placeholder="Latitude" ToolTip="Latitude" ClientIDMode="Static"></asp:TextBox>
-                                                                        <asp:RequiredFieldValidator ValidationGroup="vProduct" runat="server" ID="RequiredFieldValidator24" ControlToValidate="txtLatitude"
-                                                                            ErrorMessage="Enter Latitude!" SetFocusOnError="true" CssClass="displaynone" />
-                                                                        <asp:FilteredTextBoxExtender runat="server" TargetControlID="txtLatitude" ValidChars="-.0123456789" FilterMode="ValidChars"></asp:FilteredTextBoxExtender>
-                                                                        <%--The latitude must be a number between -90 and 90 and the longitude between -180 and 180--%>
-                                                                        <asp:RegularExpressionValidator CssClass="displaynone" ValidationGroup="vProduct" ID="RegularExpressionValidator1" runat="server" ValidationExpression="^(\+|-)?(?:90(?:(?:\.0{1,15})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,15})?))$" ControlToValidate="txtLatitude" ErrorMessage="Invalid Latitude"></asp:RegularExpressionValidator>
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                        <label class="required">Longitude</label>
-                                                                        <asp:TextBox runat="server" ID="txtLongitude" CssClass="form-control" MaxLength="20" autocomplete="off" placeholder="Longitude" ToolTip="Longitude" ClientIDMode="Static"></asp:TextBox>
-                                                                        <asp:RequiredFieldValidator ValidationGroup="vProduct" runat="server" ID="RequiredFieldValidator25" ControlToValidate="txtLongitude"
-                                                                            ErrorMessage="Enter Longitude!" SetFocusOnError="true" CssClass="displaynone" />
-                                                                        <asp:FilteredTextBoxExtender runat="server" TargetControlID="txtLongitude" ValidChars="-.0123456789" FilterMode="ValidChars"></asp:FilteredTextBoxExtender>
-                                                                        <asp:RegularExpressionValidator CssClass="displaynone" ValidationGroup="vProduct" ID="RegularExpressionValidator3" runat="server" ValidationExpression="^(\+|-)?(?:180(?:(?:\.0{1,15})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,15})?))$" ControlToValidate="txtLongitude" ErrorMessage="Invalid Longitude"></asp:RegularExpressionValidator>
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                        <label class="input-label dis-block">&nbsp;</label>
-                                                                        <a type="button" class="btn-main btn-info btn-map mt5" data-toggle="modal" data-target="#MapModal" onclick="ItemsMap('');">Find On Map <i class="fa fa-map-marker"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                           
                                                             <div class="col-md-12 mb5">
                                                                 <label class="required">Description</label>
                                                                 <uc1:HTMLEditor ID="txtDescription" runat="server" />
@@ -873,14 +753,7 @@
                                                 <div class="panel-body">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <div class="col-md-3 mb5">
-                                                                <label id="lblShippingCompany" class="required">Shipping Company</label>
-                                                                <asp:DropDownList runat="server" ID="ddlShippingCompany" CssClass="form-control" AppendDataBoundItems="true"></asp:DropDownList>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" CssClass="displaynone"
-                                                                    ValidationGroup="vProduct" ControlToValidate="ddlShippingCompany" InitialValue="0" ErrorMessage="Select Shipping Company"></asp:RequiredFieldValidator>
-                                                            </div>
-
-
+                                                         
                                                             <div class="col-md-3 mb5">
                                                                 <label class="required">Weight (gms)</label>
                                                                 <asp:TextBox runat="server" ID="txtWeight" MaxLength="10" CssClass="form-control" onkeypress="return isDecimal(event,this);"></asp:TextBox>
