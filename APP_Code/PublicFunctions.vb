@@ -9,7 +9,9 @@ Imports clsMessages
 #End Region
 
 Public Class PublicFunctions
-
+#Region "Gobal Variables"
+    Public Shared Client_Id As String = "1001"
+#End Region
 
 #Region "Global Functions"
     Public Shared Function ServerURL() As String
@@ -853,8 +855,8 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function GetUserId() As String
         Try
-            If HttpContext.Current.Request.Cookies.Get("ProfApp") IsNot Nothing Then
-                Dim UserId As String = HttpContext.Current.Request.Cookies("ProfApp")("UserId")
+            If HttpContext.Current.Request.Cookies.Get("KianApp") IsNot Nothing Then
+                Dim UserId As String = HttpContext.Current.Request.Cookies("KianApp")("UserId")
                 Return UserId
             End If
 
@@ -867,8 +869,8 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function GetUserId(ByVal page As Page) As String
         Try
-            If HttpContext.Current.Request.Cookies.Get("ProfApp") IsNot Nothing Then
-                Dim UserId As String = HttpContext.Current.Request.Cookies("ProfApp")("UserId")
+            If HttpContext.Current.Request.Cookies.Get("KianApp") IsNot Nothing Then
+                Dim UserId As String = HttpContext.Current.Request.Cookies("KianApp")("UserId")
                 Return UserId
             Else
                 RemoveCPCookie()
@@ -884,7 +886,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function RemoveCPCookie() As Boolean
         Try
-            Dim UELPDCookies As New HttpCookie("ProfApp")
+            Dim UELPDCookies As New HttpCookie("KianApp")
             UELPDCookies.Expires = DateTime.Now.AddDays(-1D)
             HttpContext.Current.Response.Cookies.Add(UELPDCookies)
 
@@ -925,11 +927,11 @@ Optional ByVal MinNumber As Integer = 0) As Integer
 
     Public Shared Function CheckLogged() As Boolean
         Try
-            If HttpContext.Current.Request.Cookies.Get("ProfApp") Is Nothing Then
+            If HttpContext.Current.Request.Cookies.Get("KianApp") Is Nothing Then
                 Return False
             End If
-            Dim CPUserId As String = HttpContext.Current.Request.Cookies("ProfApp")("UserId")
-            Dim CPUsername As String = HttpContext.Current.Request.Cookies("ProfApp")("Username")
+            Dim CPUserId As String = HttpContext.Current.Request.Cookies("KianApp")("UserId")
+            Dim CPUsername As String = HttpContext.Current.Request.Cookies("KianApp")("Username")
 
             If CPUserId <> String.Empty Then
                 Return True
