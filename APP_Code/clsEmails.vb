@@ -15,9 +15,10 @@ Public Class clsEmails
 
 #Region "Class Attributes"
 
-    Private Shared CompanyName As String = "Wesynap"
-    Private Shared CompanyEmail As String = "info@wesynap.com"
-    Private Shared CompanyPassword As String = "Wesynap@2020$"
+    Private Shared CompanyName As String = "Kayan ElDora"
+    Private Shared CompanyEmail As String = "kayaneldora@gmail.com"
+    Private Shared EmailPassword As String = "Kayan@2020"
+    Private Shared CompanyPassword As String = "plbiypjayknsghvw"
 
 #End Region
 
@@ -29,7 +30,7 @@ Public Class clsEmails
     ''' </summary>
     Shared Function SendEmail(ByVal MailSubject As String, ByVal MailTo As String, ByVal MailBody As String, ByVal MailHTMLBody As Boolean, Optional BccMail As String = "") As Boolean
         Try
-            Return True
+            'Return True
 
             Dim strFrom = CompanyEmail
             Dim MailMsg As New MailMessage(New MailAddress(CompanyEmail), New MailAddress(MailTo))
@@ -44,12 +45,17 @@ Public Class clsEmails
             Dim basicAuthenticationInfo As New System.Net.NetworkCredential(CompanyEmail, CompanyPassword)
 
             ''IMPORANT:  Your smtp login email MUST be same as your FROM address.
+            'Host:       smtp.gmail.com
+            'Port: 587
+            'Encryption: TLS
+            'User:       yourgmail@gmail.com
+            'Password:   xmmpzcxmfhwyzdja
 
-            SmtpMail.Host = "mail.wesynap.com"
+            SmtpMail.Host = "smtp.gmail.com"
             SmtpMail.UseDefaultCredentials = False
             SmtpMail.Credentials = basicAuthenticationInfo
-            SmtpMail.Port = 25 '    //alternative port number Is 8889
-            SmtpMail.EnableSsl = False
+            SmtpMail.Port = 587 '    //alternative port number Is 8889
+            SmtpMail.EnableSsl = True
 
             SmtpMail.Send(MailMsg)
             Return True

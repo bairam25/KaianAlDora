@@ -41,7 +41,9 @@
                                             <%--<img src="/images/logo-archiproducts.png" srcset="/images/logo-archiproducts@2x.png" alt="Archiproducts Logo" width="200" height="35" class="logo">--%>
                                         </a>
                                     </div>
-                                    <h2>إنشاء حساب جديد</h2>
+                                    <h2> 
+                                        <asp:Label ID="lblTitle" Text="إنشاء حساب جديد" runat="server" />  
+                                    </h2>
                                     <asp:ValidationSummary CssClass="ValidationSummary" ID="vsUsers" DisplayMode="BulletList" ValidationGroup="vUser" EnableClientScript="true" runat="server" />
                                     <asp:UpdateProgress ID="upgg" runat="server" AssociatedUpdatePanelID="UP">
                                         <ProgressTemplate>
@@ -107,7 +109,7 @@
                                             Text="إنشاء حساب جديد" ValidationGroup="vUser" CommandArgument="Add"
                                             UseSubmitBehavior="false" OnClick="Register" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" runat="server" id="pnlLogin">
                                         <p class="or-seperator">هل لديك حساب ؟<a href="Login.aspx"> تسجيل الدخول</a></p>
                                     </div>
                                 </div>

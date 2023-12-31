@@ -82,10 +82,30 @@
                                         <svg class="icon-large">
                                             <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-heart-line"></use></svg>
                                     </a>
+                                    <asp:Panel runat="server" ID="pnlJoin" CssClass="user-menu">
+                                        <a class="_login button primary show-for-xlarge margin-left-1" href="Login.aspx" data-label="تسجيل الدخول">
+                                            <span>تسجيل الدخول</span>
+                                        </a>
+                                    </asp:Panel>
+                                    <asp:Panel runat="server" ID="pnlWelcome" CssClass="user-menu" Visible="false">
+                                         <span>Welcome,&nbsp;</span><asp:Label ID="lblRegisteredFirstName" runat="server" />
+                                        <div class="drp-user dropdown">
 
-                                    <a class="_login button primary show-for-xlarge margin-left-1" href="Login.aspx" data-label="تسجيل الدخول">
-                                        <span>تسجيل الدخول</span>
-                                    </a>
+                                            <div class="dropdown-menu dropdown-multicol dropdown-menu-right header-menu-action">
+                                                
+                                                <ul class="list-user-menu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="Register.aspx"><i class="fa fa-user-md"></i>Profile</a>
+                                                    </li>
+
+                                                  
+                                                    <li>
+                                                        <asp:LinkButton OnClick="LogOut" class="dropdown-item" runat="server"><i class="fa fa-sign-out-alt"></i>Logout</asp:LinkButton>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
                                     <div class="_login button alpha tiny hide-for-xlarge" id="not-logged-icon" data-label="login">
                                         <svg class="icon-mlarge">
                                             <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-user-mobile"></use></svg>
@@ -199,7 +219,7 @@
         </div>
 
         <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
-
+        <asp:Label Text="" ID="lblRes" runat="server" />
         <div class="subfooter-social">
             <div class="grid-container">
                 <div class="grid-x">

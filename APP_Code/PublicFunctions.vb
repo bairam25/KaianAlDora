@@ -1017,32 +1017,8 @@ Optional ByVal MinNumber As Integer = 0) As Integer
         End Try
         Return "0"
     End Function
-    Public Shared Function GetRegisteredType() As String
-        Try
-            If HttpContext.Current.Request.Cookies.Get("KayanPortal") IsNot Nothing Then
-                Dim Type As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("Type"))
-                Return Type
-            End If
 
-        Catch ex As Exception
-            RemoveFontEndCookie()
-            Return ""
-        End Try
-        Return ""
-    End Function
-    Public Shared Function GetRegisteredRelatedId() As String
-        Try
-            If HttpContext.Current.Request.Cookies.Get("KayanPortal") IsNot Nothing Then
-                Dim Type As String = PublicFunctions.Decrypt(HttpContext.Current.Request.Cookies("KayanPortal")("RelatedID"))
-                Return Type
-            End If
 
-        Catch ex As Exception
-            RemoveFontEndCookie()
-            Return ""
-        End Try
-        Return ""
-    End Function
     Public Shared Function RemoveFontEndCookie() As Boolean
         Try
             Dim DareCookies As New HttpCookie("KayanPortal")
@@ -1098,7 +1074,7 @@ Optional ByVal MinNumber As Integer = 0) As Integer
     End Function
     Public Shared Function isUserActive(ByVal UserId As String, ByVal Email As String) As Boolean
         Try
-            Dim dt As DataTable = DBContext.Getdatatable("select UserId from tblUsers where isnull(isdeleted,0)=0 and Active=1 and UserId=@Par1 and Username=@Par2", UserId, Email)
+            Dim dt As DataTable = DBContext.Getdatatable("select Id from tblUsers where isnull(isdeleted,0)=0 and Active=1 and ID=@Par1 and Username=@Par2", UserId, Email)
             Return dt.Rows.Count > 0
         Catch ex As Exception
             Return False
