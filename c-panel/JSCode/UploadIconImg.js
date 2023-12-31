@@ -17,8 +17,8 @@ function UploadPhotoCompleted(sender, args) {
     }
    
 
-    document.getElementById('imgIcon').src = '../Settings_Icons/' + args.get_fileName();
-    document.getElementById('HiddenIcon').value = '~/Settings_Icons/' + args.get_fileName();
+    document.getElementById('imgIcon').src = '../Settings_Photos/' + args.get_fileName();
+    document.getElementById('HiddenIcon').value = '~/Settings_Photos/' + args.get_fileName();
   
     img.style.display = 'none';
     switch (true) {

@@ -7,6 +7,7 @@
     <link href="css/ar/Slider.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="PageContent" ContentPlaceHolderID="Content" runat="Server">
+    <asp:Label Text="" ID="lblRes" runat="server" />
     <!--======== Slider Section ========-->
     <section class="vs-hero-wrapper hero-3 position-relative">
         <div class="hero-slider3 vs-carousel" data-slide-show="1" data-md-slide-show="1" data-arrows="true" data-fade="true">

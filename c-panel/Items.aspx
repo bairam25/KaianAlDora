@@ -485,13 +485,7 @@
                                                                
                                                             </asp:Panel>
 
-                                                            <div class="col-md-3 mb5" id="divService" runat="server" Visible="false">
-                                                                <label>Item/Service</label>
-                                                                <asp:RadioButtonList ID="rblIsService" CssClass="radioList" runat="server" RepeatLayout="Table" RepeatColumns="3" AutoPostBack="true" OnSelectedIndexChanged="SelectIsService">
-                                                                    <asp:ListItem Value="0" Selected="True">Item</asp:ListItem>
-                                                                    <asp:ListItem Value="1">Service</asp:ListItem>
-                                                                </asp:RadioButtonList>
-                                                            </div>
+                                                          
                                                             <div class="col-md-3 mb5">
                                                                 <label class="required">Item Name</label>
                                                                 <asp:TextBox runat="server" ID="txtItemName" CssClass="form-control" MaxLength="300" onkeypress="return isString(event);" onkeyup="ValidateChars(this);"></asp:TextBox>
@@ -516,35 +510,18 @@
                                                                     ValidationGroup="vProduct" ControlToValidate="ddlSubCategory" InitialValue="0" ErrorMessage="Select Sub Category"></asp:RequiredFieldValidator>
                                                             </div>
                                                             <div class="col-md-3 mb5">
-                                                                <label id="lblBrandRequired" runat="server" class="required">Brand</label>
-                                                                <asp:HiddenField ID="BrandId" runat="server" />
-                                                                <%--<asp:DropDownList runat="server" ID="ddlBrand" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="SelectBrand"></asp:DropDownList>--%>
-                                                                <asp:TextBox ID="txtBrand" runat="server" CssClass="form-control" MaxLength="50" AutoPostBack="true" OnTextChanged="SelectBrand" placeholder="Select Brand" onkeypress="return isString(event);" onkeyup="ValidateChars(this);"></asp:TextBox>
-                                                                <asp:AutoCompleteExtender ID="aclBrands" runat="server" BehaviorID="aceBrand" FirstRowSelected="false"
-                                                                    EnableCaching="false" Enabled="True" MinimumPrefixLength="0" CompletionListCssClass="acl"
-                                                                    CompletionListItemCssClass="li" CompletionListHighlightedItemCssClass="li-hover"
-                                                                    ServiceMethod="GetBrands" ServicePath="~/WebService.asmx" TargetControlID="txtBrand"
-                                                                    CompletionInterval="500">
-                                                                </asp:AutoCompleteExtender>
-                                                                <asp:RequiredFieldValidator ID="rfvBrand" runat="server" CssClass="displaynone"
-                                                                    ValidationGroup="vProduct" ControlToValidate="txtBrand" ErrorMessage="Select Brand"></asp:RequiredFieldValidator>
+                                                                <label class="required">Model</label>
+                                                                <asp:DropDownList runat="server" ID="ddlBrand" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" CssClass="displaynone"
+                                                                    ValidationGroup="vProduct" ControlToValidate="ddlBrand" InitialValue="0" ErrorMessage="Select Brand"></asp:RequiredFieldValidator>
 
                                                             </div>
                                                             <div class="col-md-3 mb5">
-                                                                <label>Model</label>
-                                                                <asp:HiddenField ID="ModelId" runat="server" />
-                                                                <%-- <asp:DropDownList runat="server" ID="ddlModel" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="GenerateSkuCode" Enabled="false" >
-                                                                    <asp:ListItem Text="-- Select --" Value="0"></asp:ListItem>
-                                                                </asp:DropDownList>--%>
-                                                                <asp:TextBox ID="txtModel" runat="server" CssClass="form-control" MaxLength="50" AutoPostBack="true" OnTextChanged="SelectModel" placeholder="Select Model" onkeypress="return isString(event);" onkeyup="ValidateChars(this);"></asp:TextBox>
-                                                                <asp:AutoCompleteExtender ID="aclModels" runat="server" BehaviorID="aceModel" FirstRowSelected="false"
-                                                                    EnableCaching="false" Enabled="True" MinimumPrefixLength="0" CompletionListCssClass="acl"
-                                                                    CompletionListItemCssClass="li" CompletionListHighlightedItemCssClass="li-hover" UseContextKey="true"
-                                                                    ServiceMethod="GetModels" ServicePath="~/WebService.asmx" TargetControlID="txtModel"
-                                                                    CompletionInterval="500">
-                                                                </asp:AutoCompleteExtender>
-                                                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" CssClass="displaynone"
-                                                                    ValidationGroup="vProduct" ControlToValidate="txtModel" ErrorMessage="Select Model"></asp:RequiredFieldValidator>--%>
+                                                                <label class="required">Model</label>
+                                                                <asp:DropDownList runat="server" ID="ddlModel" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" CssClass="displaynone"
+                                                                    ValidationGroup="vProduct" ControlToValidate="ddlModel" InitialValue="0" ErrorMessage="Select Model"></asp:RequiredFieldValidator>
+
                                                             </div>
 
 
@@ -727,7 +704,7 @@
                                                                 <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Text="*" CssClass="displaynone"
                                                         ValidationGroup="vProduct" ControlToValidate="txtDescription" ErrorMessage="Enter Description"></asp:RequiredFieldValidator>--%>
                                                             </div>
-                                                            <div class="col-md-3 mb5">
+                                                            <div class="col-md-3 mb5" id="divSourceURL" runat="server" visible ="false" >
                                                                 <label>Source URL</label>
                                                                 <asp:TextBox runat="server" ID="txtSourceURL" CssClass="form-control"></asp:TextBox>
                                                             </div>

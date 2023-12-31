@@ -1,13 +1,4 @@
-﻿#Region "Signature"
-
-'################################### Signature ######################################
-'############# Date:21-03-2019
-'############# Form Name: Items
-'############# Your Name: Mohamed Khaiallah
-'################################ End of Signature ##################################
-
-#End Region
-
+﻿
 #Region "Import"
 Imports System.Data
 Imports BusinessLayer.BusinessLayer
@@ -147,10 +138,10 @@ Partial Class Items
         Try
             ItemSKUCode = txtSKUCode.Text
             ItemName = txtItemName.Text
-            ItemBrand = BrandId.Value
-            ItemBrandName = txtBrand.Text.Trim
-            ItemModel = ModelId.Value
-            ItemModelName = txtModel.Text.Trim
+            ItemBrand = ddlBrand.SelectedValue
+            ItemBrandName = ddlBrand.SelectedItem.Text
+            ItemModel = ddlModel.SelectedValue
+            ItemModelName = ddlModel.SelectedItem.Text
             ItemActive = PublicFunctions.BoolFormat(rblActive.SelectedValue)
             ItemDesc = txtDescription.TextValue
             ItemCategory = ddlCategory.SelectedValue
@@ -215,6 +206,8 @@ Partial Class Items
     ''' </summary>
     Sub BindDDLs()
         Try
+            clsBindDDL.BindLookupDDLs("Item Brand", ddlBrand, True)
+            clsBindDDL.BindLookupDDLs("Item Model", ddlModel, True)
             clsBindDDL.BindLookupDDLs("Item Category", ddlCategory, True)
             clsBindDDL.BindLookupDDLs("Item Color", ddlColors, True)
             clsBindDDL.BindLookupDDLs("Item Size", ddlSize, True)
@@ -404,23 +397,6 @@ Partial Class Items
 
 #End Region
 
-#Region "Fill Lists"
-    ''' <summary>
-    ''' Bind Drop Down Lists of category and sub category.
-    ''' </summary>
-    Sub BindLists()
-        Try
-            clsBindDDL.BindLookupDDLs("Item Category", ddlCategory, True)
-            clsBindDDL.BindLookupDDLs("Item Category", ddlCategory, True)
-
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
-
-
-#End Region
-
 #Region "New"
 
     ''' <summary>
@@ -449,11 +425,11 @@ Partial Class Items
             ddlCollection.SelectedIndex = 0
             ddlMaterial.SelectedIndex = 0
             ddlStyle.SelectedIndex = 0
+            ddlBrand.SelectedIndex = 0
             ddlCategory.SelectedIndex = 0
             ddlSubCategory.SelectedIndex = 0
             ddlColors.SelectedIndex = 0
             ddlSize.SelectedIndex = 0
-            rblIsService.SelectedIndex = 0
             txtDescription.TextValue = String.Empty
             lblItemId.Text = String.Empty
             gvItemsImgs.DataSource = Nothing
@@ -465,7 +441,7 @@ Partial Class Items
             ddlSize.Enabled = True
             ddlCollection.Enabled = True
             ddlSubCategory.Enabled = False
-            txtModel.Enabled = False
+
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
@@ -500,74 +476,6 @@ Partial Class Items
         End Try
     End Sub
 
-    Sub SelectIsService()
-        Try
-            Select Case rblIsService.SelectedValue
-                Case "0"
-                    rfvBrand.Enabled = True
-                    lblBrandRequired.Attributes.Add("class", "required")
-                Case "1"
-                    rfvBrand.Enabled = False
-                    lblBrandRequired.Attributes.Remove("class")
-            End Select
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
-    ''' <summary>
-    ''' Handle Brand textbox select Change event.
-    ''' </summary>
-    Sub SelectBrand()
-        Try
-            'clsBindDDL.BindCustomDDLs("select Id,Name from vw_models where BrandId='" + ddlBrand.SelectedValue + "' and clientID='" + Client_Id + "'", "Name", "ID", ddlModel, True,,,)
-            'If ddlBrand.SelectedValue = "0" Then
-            '    ddlModel.Enabled = False
-            'Else
-            '    ddlModel.Enabled = True
-            'End If
-            txtModel.Text = String.Empty
-            ModelId.Value = String.Empty
-            txtModel.Enabled = False
-            ItemBrandName = txtBrand.Text.Trim
-            If ItemBrandName <> String.Empty Then
-                txtModel.Enabled = True
-                Dim dtBrand As DataTable = DBContext.Getdatatable("select Id from tblItemsBrands where Brand='" + ItemBrandName + "' and isnull(Isdeleted,0)=0 and ClientId='" + Client_Id + "'")
-                If dtBrand.Rows.Count > 0 Then
-                    BrandId.Value = dtBrand.Rows(0).Item(0).ToString
-                Else
-                    BrandId.Value = String.Empty
-                End If
-                aclModels.ContextKey = BrandId.Value
-                txtBrand.Text = ItemBrandName
-            Else
-                BrandId.Value = String.Empty
-                ItemBrandName = String.Empty
-                aclModels.ContextKey = String.Empty
-            End If
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
-
-    Sub SelectModel()
-        Try
-            ItemModelName = txtModel.Text.Trim
-            If ItemModelName <> String.Empty Then
-                Dim dtModel As DataTable = DBContext.Getdatatable("select Id from tblItemsModels where Name='" + ItemModelName + "' and BrandId='" + BrandId.Value + "' and isnull(Isdeleted,0)=0 and ClientId='" + Client_Id + "'")
-                If dtModel.Rows.Count > 0 Then
-                    ModelId.Value = dtModel.Rows(0).Item(0).ToString
-                Else
-                    ModelId.Value = String.Empty
-                End If
-                txtModel.Text = ItemModelName
-            Else
-                ModelId.Value = String.Empty
-                ItemModelName = String.Empty
-            End If
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-        End Try
-    End Sub
 
     ''' <summary>
     ''' Handle Category textbox select Change event.
@@ -663,12 +571,18 @@ Partial Class Items
                 txtItemName.Text = dt.Rows(0).Item("Name").ToString
 
 
-                BrandId.Value = dt.Rows(0).Item("Brand").ToString
-                txtBrand.Text = dt.Rows(0).Item("BrandName").ToString
+                'Set Brand
+                Dim Brand As String = dt.Rows(0).Item("Brand").ToString
+                If ddlBrand.Items.FindByValue(Brand) IsNot Nothing Then
+                    ddlBrand.SelectedValue = Brand
+                End If
 
-                SelectBrand()
-                ModelId.Value = dt.Rows(0).Item("Model").ToString
-                txtModel.Text = dt.Rows(0).Item("ModelName").ToString
+                'Set Model
+                Dim Model As String = dt.Rows(0).Item("Model").ToString
+                If ddlModel.Items.FindByValue(Model) IsNot Nothing Then
+                    ddlModel.SelectedValue = Model
+                End If
+
                 txtDescription.TextValue = dt.Rows(0).Item("Description").ToString
 
                 Dim Collection As String = dt.Rows(0).Item("Collection").ToString
@@ -786,11 +700,6 @@ Partial Class Items
     Protected Sub Delete(ByVal Sender As Object, ByVal e As System.EventArgs)
         Try
             Dim ItemId As String = Sender.commandargument.ToString
-            Dim dtOrders As DataTable = DBContext.Getdatatable("select Id from tblOrderDetails where isnull(IsDeleted,0)=0 and clientId='" + Client_Id + "' and ItemId='" + ItemId + "'")
-            If dtOrders.Rows.Count > 0 Then
-                clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.CUSTOMInfo, Page, Nothing, "This item already sold before, can't delete it")
-                Return
-            End If
 
             _sqlconn.Open()
             _sqltrans = _sqlconn.BeginTransaction
