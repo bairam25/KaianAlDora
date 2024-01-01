@@ -510,42 +510,35 @@
                                                                     ValidationGroup="vProduct" ControlToValidate="ddlSubCategory" InitialValue="0" ErrorMessage="Select Sub Category"></asp:RequiredFieldValidator>
                                                             </div>
                                                             <div class="col-md-3 mb5">
-                                                                <label class="required">Model</label>
+                                                                <label class="required">Brand</label>
                                                                 <asp:DropDownList runat="server" ID="ddlBrand" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" CssClass="displaynone"
                                                                     ValidationGroup="vProduct" ControlToValidate="ddlBrand" InitialValue="0" ErrorMessage="Select Brand"></asp:RequiredFieldValidator>
 
                                                             </div>
+                                                            
                                                             <div class="col-md-3 mb5">
-                                                                <label class="required">Model</label>
-                                                                <asp:DropDownList runat="server" ID="ddlModel" CssClass="form-control" AppendDataBoundItems="true" ></asp:DropDownList>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" CssClass="displaynone"
-                                                                    ValidationGroup="vProduct" ControlToValidate="ddlModel" InitialValue="0" ErrorMessage="Select Model"></asp:RequiredFieldValidator>
-
+                                                                <label>Production Year</label>
+                                                                <asp:TextBox runat="server" ID="txtProdYear" CssClass="form-control" MaxLength="10" onkeypress="return isNumber(event);"></asp:TextBox>
+                                                            </div>
+                                                             <div class="col-md-3 mb5">
+                                                                <label>Designer</label>
+                                                                <asp:TextBox runat="server" ID="txtDesigner" CssClass="form-control" MaxLength="200"></asp:TextBox>
+                                                            </div>
+                                                            <div class="col-md-3 mb5">
+                                                                <label>Size</label>
+                                                                <asp:TextBox runat="server" ID="txtItemSize" CssClass="form-control" MaxLength="200"></asp:TextBox>
                                                             </div>
 
-
-                                                            
                                                             <asp:Panel ID="pnlItemStyle" runat="server" Visible="false">
-                                                                <div class="col-md-3 mb5">
-                                                                    <label class="mb10">Active</label>
-                                                                    <asp:RadioButtonList ID="rblActive" CssClass="radioList" runat="server" RepeatLayout="Table" RepeatColumns="2">
-                                                                        <asp:ListItem Value="True">On</asp:ListItem>
-                                                                        <asp:ListItem Value="False" Selected="True">Off</asp:ListItem>
-                                                                    </asp:RadioButtonList>
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3 mb5">
                                                                     <label class="required">Color</label>
                                                                     <asp:DropDownList runat="server" ID="ddlColors" CssClass="form-control" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="GenerateSkuCode"></asp:DropDownList>
                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="displaynone"
                                                                         ValidationGroup="vProduct" ControlToValidate="ddlColors" InitialValue="0" ErrorMessage="Select Color"></asp:RequiredFieldValidator>
                                                                 </div>
-                                                                <div class="col-md-3 mb5">
-                                                                    <label class="required">Size</label>
-                                                                    <asp:DropDownList runat="server" ID="ddlSize" CssClass="form-control" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="GenerateSkuCode"></asp:DropDownList>
-                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" CssClass="displaynone"
-                                                                        ValidationGroup="vProduct" ControlToValidate="ddlSize" InitialValue="0" ErrorMessage="Select Size"></asp:RequiredFieldValidator>
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3 mb5">
                                                                     <label class="required">Material</label>
                                                                     <asp:DropDownList runat="server" ID="ddlMaterial" CssClass="form-control" AppendDataBoundItems="true"></asp:DropDownList>
@@ -582,29 +575,36 @@
                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" CssClass="displaynone"
                                                                         ValidationGroup="vProduct" ControlToValidate="txtQuantity" ErrorMessage="Enter Quantity"></asp:RequiredFieldValidator>
                                                                 </div>
+                                                                
                                                                 <div class="col-md-3 mb5">
+                                                                    <label>Item Rating</label>
+                                                                    <asp:TextBox runat="server" ID="txtRating" CssClass="form-control" MaxLength="4" onkeyup="return isRating(this);" onkeypress="return isDecimal(event,this);" placeholder="enter value from 1 to 5"></asp:TextBox>
+                                                                </div>
+                                                                 <div class="col-md-3 mb5" id="divYouTube" runat ="server" visible ="false" >
+                                                                <label>Youtube URL</label>
+                                                                <asp:TextBox runat="server" ID="txtYoutubeURL" CssClass="form-control"></asp:TextBox>
+                                                            </div>
+                                                            </asp:Panel>
+                                                           <div class="col-md-3 mb5">
+                                                                    <label class="mb10">Active</label>
+                                                                    <asp:RadioButtonList ID="rblActive" CssClass="radioList" runat="server" RepeatLayout="Table" RepeatColumns="2">
+                                                                        <asp:ListItem Value="True">On</asp:ListItem>
+                                                                        <asp:ListItem Value="False" Selected="True">Off</asp:ListItem>
+                                                                    </asp:RadioButtonList>
+                                                                </div>
+                                                            <div class="col-md-3 mb5">
                                                                     <label class="mb10">Hot</label>
                                                                     <asp:RadioButtonList ID="rblHot" CssClass="radioList" runat="server" RepeatLayout="Table" RepeatColumns="2">
                                                                         <asp:ListItem Value="True">On</asp:ListItem>
                                                                         <asp:ListItem Value="False" Selected="True">Off</asp:ListItem>
                                                                     </asp:RadioButtonList>
                                                                 </div>
-                                                                <div class="col-md-3 mb5">
-                                                                    <label>Item Rating</label>
-                                                                    <asp:TextBox runat="server" ID="txtRating" CssClass="form-control" MaxLength="4" onkeyup="return isRating(this);" onkeypress="return isDecimal(event,this);" placeholder="enter value from 1 to 5"></asp:TextBox>
-                                                                </div>
-                                                            </asp:Panel>
-                                                            <div class="col-md-3 mb5" id="divYouTube" runat ="server" visible ="false" >
-                                                                <label>Youtube URL</label>
-                                                                <asp:TextBox runat="server" ID="txtYoutubeURL" CssClass="form-control"></asp:TextBox>
-                                                            </div>
-                                                            
-                                                            <asp:Panel ID="pnlPrice" runat="server" CssClass="col-md-3 mb5" Visible="false">
+                                                           <div class="col-md-3 mb5">
                                                                     <label class="required">Price</label>
                                                                     <asp:TextBox runat="server" ID="txtPrice" CssClass="form-control" ClientIDMode="Static" MaxLength="10" onkeypress="return isDecimal(event,this);"></asp:TextBox>
                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" CssClass="displaynone"
                                                                         ValidationGroup="vProduct" ControlToValidate="txtPrice" ErrorMessage="Enter Price"></asp:RequiredFieldValidator>
-                                                            </asp:Panel>
+                                                          </div>
 
                                                             <asp:Panel ID="pnlRelated" runat="server" Visible="false">
                                                                 <div class="col-md-3 mb5">
@@ -788,10 +788,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="panel panel-default" id="Brochure" runat="server" visible="false">
+                                        <div class="panel panel-default" id="Brochure" runat="server" >
                                             <div class="panel-heading" role="tab" id="heading2">
                                                 <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" onclick="SetStatus('3')">PDF Brochure</a>
+                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" onclick="SetStatus('3')">Brochure</a>
                                                 </h4>
                                             </div>
 

@@ -21,8 +21,6 @@ Partial Class Items
     Dim ItemName As String
     Dim ItemBrand As String
     Dim ItemBrandName As String
-    Dim ItemModel As String
-    Dim ItemModelName As String
     Dim ItemActive As Boolean
     Dim ItemDesc As String
     Dim ItemCategory As String
@@ -32,7 +30,6 @@ Partial Class Items
     Dim ItemColor As String
     Dim ItemColorName As String
     Dim ItemSize As String
-    Dim ItemSizeName As String
     Dim ItemReturnable As Boolean
     Dim ItemHot As Boolean
     Dim ItemQuantity As Integer
@@ -41,11 +38,13 @@ Partial Class Items
     Dim ItemSourceURL As String
     Dim ItemKeywords As String
 
-    Dim ItemPrice As Double
+    Dim ItemPrice As Decimal
     Dim ItemDiscountPercent As Double
     Dim ItemDiscountAmt As Double
     Dim ItemNetPRice As Double
 
+    Dim ProdYear As String
+    Dim Designer As String
     Dim ItemBrochure As String
     Dim ItemCollection As String
     Dim ItemMaterial As String
@@ -140,8 +139,6 @@ Partial Class Items
             ItemName = txtItemName.Text
             ItemBrand = ddlBrand.SelectedValue
             ItemBrandName = ddlBrand.SelectedItem.Text
-            ItemModel = ddlModel.SelectedValue
-            ItemModelName = ddlModel.SelectedItem.Text
             ItemActive = PublicFunctions.BoolFormat(rblActive.SelectedValue)
             ItemDesc = txtDescription.TextValue
             ItemCategory = ddlCategory.SelectedValue
@@ -150,8 +147,7 @@ Partial Class Items
             ItemSubCategoryName = ddlSubCategory.SelectedItem.Text
             ItemColor = ddlColors.SelectedValue
             ItemColorName = ddlColors.SelectedItem.Text
-            ItemSize = ddlSize.SelectedValue
-            ItemSizeName = ddlSize.SelectedItem.Text
+            ItemSize = txtItemSize.Text
             ItemReturnable = PublicFunctions.BoolFormat(rblReturnable.SelectedValue)
             ItemHot = PublicFunctions.BoolFormat(rblHot.SelectedValue)
             ItemQuantity = PublicFunctions.DecimalFormat(txtQuantity.Text)
@@ -164,6 +160,10 @@ Partial Class Items
             ItemCollection = ddlCollection.SelectedValue
             ItemMaterial = ddlMaterial.SelectedValue
             ItemStyle = ddlStyle.SelectedValue
+            ProdYear = txtProdYear.Text
+            Designer = txtDesigner.Text
+
+            ItemPrice = PublicFunctions.DecimalFormat(txtPrice.Text)
 
             FillBrochureImage()
             CheckCollapse()
@@ -207,10 +207,8 @@ Partial Class Items
     Sub BindDDLs()
         Try
             clsBindDDL.BindLookupDDLs("Item Brand", ddlBrand, True)
-            clsBindDDL.BindLookupDDLs("Item Model", ddlModel, True)
             clsBindDDL.BindLookupDDLs("Item Category", ddlCategory, True)
             clsBindDDL.BindLookupDDLs("Item Color", ddlColors, True)
-            clsBindDDL.BindLookupDDLs("Item Size", ddlSize, True)
             clsBindDDL.BindLookupDDLs("Collection", ddlCollection, True)
             clsBindDDL.BindLookupDDLs("Material", ddlMaterial, True)
             clsBindDDL.BindLookupDDLs("Style", ddlStyle, True)
@@ -421,7 +419,6 @@ Partial Class Items
     Sub SetDefaultValues()
         Try
             'ddlBrand.SelectedIndex = 0
-            ' ddlModel.SelectedIndex = 0
             ddlCollection.SelectedIndex = 0
             ddlMaterial.SelectedIndex = 0
             ddlStyle.SelectedIndex = 0
@@ -429,7 +426,6 @@ Partial Class Items
             ddlCategory.SelectedIndex = 0
             ddlSubCategory.SelectedIndex = 0
             ddlColors.SelectedIndex = 0
-            ddlSize.SelectedIndex = 0
             txtDescription.TextValue = String.Empty
             lblItemId.Text = String.Empty
             gvItemsImgs.DataSource = Nothing
@@ -438,7 +434,6 @@ Partial Class Items
             lvRelatedItems.DataBind()
             ddlCategory.Enabled = True
             ddlColors.Enabled = True
-            ddlSize.Enabled = True
             ddlCollection.Enabled = True
             ddlSubCategory.Enabled = False
 
@@ -577,11 +572,6 @@ Partial Class Items
                     ddlBrand.SelectedValue = Brand
                 End If
 
-                'Set Model
-                Dim Model As String = dt.Rows(0).Item("Model").ToString
-                If ddlModel.Items.FindByValue(Model) IsNot Nothing Then
-                    ddlModel.SelectedValue = Model
-                End If
 
                 txtDescription.TextValue = dt.Rows(0).Item("Description").ToString
 
@@ -618,11 +608,9 @@ Partial Class Items
                     ddlColors.SelectedValue = Color
                 End If
 
-                Dim Size As String = dt.Rows(0).Item("Size").ToString
-                If ddlSize.Items.FindByValue(Size) IsNot Nothing Then
-                    ddlSize.SelectedValue = Size
-                End If
-
+                txtItemSize.Text = dt.Rows(0).Item("Size").ToString
+                txtProdYear.Text = dt.Rows(0).Item("ProdYear").ToString
+                txtDesigner.Text = dt.Rows(0).Item("Designer").ToString
                 'Set Active, Hot and returnable details
                 rblActive.SelectedValue = PublicFunctions.BoolFormat(dt.Rows(0).Item("Active").ToString)
                 rblHot.SelectedValue = PublicFunctions.BoolFormat(dt.Rows(0).Item("Hot").ToString)
@@ -633,7 +621,7 @@ Partial Class Items
                 txtYoutubeURL.Text = dt.Rows(0).Item("YoutubeURL").ToString
                 txtSourceURL.Text = dt.Rows(0).Item("SourceURL").ToString
                 txtKeywords.Text = dt.Rows(0).Item("Keywords").ToString
-                HiddenBrochure.Text = dt.Rows(0).Item("PDFURL").ToString
+                HiddenBrochure.Text = dt.Rows(0).Item("SketchPhoto").ToString
                 FillBrochureImage()
 
                 'set qunatity and shipping details
@@ -642,24 +630,13 @@ Partial Class Items
                 txtWeight.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("Weight").ToString)
 
                 'set item price details
-                txtSupplierPrice.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("SupplierPrice").ToString)
-                txtTotalCost.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("Cost").ToString)
-                txtVAT.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("VAT").ToString)
-                txtVATPercent.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("VATPercent").ToString)
 
-                txtPrice.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("CreditPrice").ToString)
-                txtCRMargin.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("CreditMargin").ToString)
-
-
-                txtCODPrice.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("CashPrice").ToString)
-                txtCODMargin.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("CashMargin").ToString)
-
+                txtPrice.Text = PublicFunctions.DecimalFormat(dt.Rows(0).Item("Price").ToString)
 
                 'set item photos
                 FillPhotos(lblItemId.Text)
                 'fill related item
                 'FillRelatedItems()
-
 
                 txtSKUCode.Text = dt.Rows(0).Item("SKU").ToString
 
@@ -820,27 +797,7 @@ Partial Class Items
             Return Nothing
         End Try
     End Function
-    ''' <summary>
-    ''' Get Model id if exist and if new insert it then reurn ModelId
-    ''' </summary>
-    Private Function GetModelId() As String
-        Try
 
-            If ItemModel = String.Empty Then
-                ItemModel = Nothing
-                If ItemModelName <> String.Empty Then
-                    Dim dtModel As DataTable = ExecuteQuery.ExecuteQueryAndReturnDataTable("insert into tblItemsModels(BrandId,Name,CreatedBy,CreatedDate,ModifiedBy,ModifiedDate,IsDeleted,ClientId) values ('" + ItemBrand + "','" + ItemModelName + "','" + UserId + "',getdate(),'" + UserId + "',getdate(),0,'" + Client_Id + "');select id from tblItemsModels where BrandId='" + ItemBrand + "' and Name='" + ItemModelName + "' and clientId='" + Client_Id + "' and isnull(IsDeleted,0)=0", _sqlconn, _sqltrans)
-                    If dtModel.Rows.Count > 0 Then
-                        ItemModel = dtModel.Rows(0).Item(0)
-                    End If
-                End If
-            End If
-            Return ItemModel
-        Catch ex As Exception
-            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
-            Return Nothing
-        End Try
-    End Function
 
     ''' <summary>
     ''' Handle save button(form grid) click event.
@@ -868,7 +825,6 @@ Partial Class Items
                 _sqltrans = _sqlconn.BeginTransaction
 
                 dtTable.Brand = GetBrandId()
-                ' dtTable.Model = GetModelId()
 
                 'save Item details at tblitems
                 If daTabeFactory.InsertTrans(dtTable, _sqlconn, _sqltrans) Then
@@ -906,7 +862,6 @@ Partial Class Items
 
 
                 dtTable.Brand = GetBrandId()
-                'dtTable.Model = GetModelId()
 
                 'Update item details at tblItems
                 If daTabeFactory.UpdateTrans(dtTable, _sqlconn, _sqltrans) Then
@@ -989,7 +944,8 @@ Partial Class Items
 
             dtItems.Quantity = ItemQuantity
             dtItems.Rating = ItemRating
-
+            dtItems.ProdYear = ProdYear
+            dtItems.Designer = Designer
             'Dim ValidYoutubeURL = PublicFunctions.GetEmbedYoutubeVideo(ItemYouTubeURL)
             'If txtYoutubeURL.Text <> "" AndAlso ValidYoutubeURL = "" Then
             '    clsMessages.ShowInfoMessgage(lblRes, "Not Valid Youtube URL!", Me)
@@ -999,11 +955,12 @@ Partial Class Items
             'End If
             'dtItems.YoutubeURL = ValidYoutubeURL
             dtItems.SourceURL = ItemSourceURL
-            dtItems.PDFURL = ItemBrochure
+            dtItems.SketchPhoto = ItemBrochure
 
             'dtItems.ShippingCourier = ItemShippingCompany
 
-            'dtItems.SupplierPrice = ItemCost
+            dtItems.Price = ItemPrice
+            dtItems.NetPrice = ItemPrice
 
             'dtItems.Cost = ItemQuantity * ItemCost
             'dtItems.CreditPrice = ItemCRPrice
