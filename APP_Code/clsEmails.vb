@@ -16,7 +16,7 @@ Public Class clsEmails
 #Region "Class Attributes"
 
     Private Shared CompanyName As String = "Kayan ElDora"
-    Private Shared CompanyEmail As String = "kayaneldora@gmail.com"
+    Public Shared CompanyEmail As String = "kayaneldora@gmail.com"
     Private Shared EmailPassword As String = "Kayan@2020"
     Private Shared CompanyPassword As String = "plbiypjayknsghvw"
 
@@ -43,13 +43,6 @@ Public Class clsEmails
 
             Dim SmtpMail As New SmtpClient
             Dim basicAuthenticationInfo As New System.Net.NetworkCredential(CompanyEmail, CompanyPassword)
-
-            ''IMPORANT:  Your smtp login email MUST be same as your FROM address.
-            'Host:       smtp.gmail.com
-            'Port: 587
-            'Encryption: TLS
-            'User:       yourgmail@gmail.com
-            'Password:   xmmpzcxmfhwyzdja
 
             SmtpMail.Host = "smtp.gmail.com"
             SmtpMail.UseDefaultCredentials = False

@@ -11,36 +11,21 @@
     <!--======== Slider Section ========-->
     <section class="vs-hero-wrapper hero-3 position-relative">
         <div class="hero-slider3 vs-carousel" data-slide-show="1" data-md-slide-show="1" data-arrows="true" data-fade="true">
-            <!-- Single Slide -->
-            <div class="vs-hero-inner">
-                <div class="vs-hero-bg" data-bg-src="images/Cover.jpg">
-                    <img src="images/Cover.jpg" alt="overlay">
-                </div>
-                <div class="hero-content3">
-                    <span class="h4 hero-subtitle style-3" data-ani="slideinup" data-ani-delay="0s">أفضل المصممين</span>
-                    <h2 class="hero-title style-2" data-ani="slideinup" data-ani-delay="0.2s">أفضل جودة وأفضل تصميمات بأفضل الأسعار</h2>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="vs-hero-inner">
-                <div class="vs-hero-bg" data-bg-src="images/Cover-2.jpg">
-                    <img src="images/Cover-2.jpg" alt="overlay">
-                </div>
-                <div class="hero-content3">
-                    <span class="h4 hero-subtitle style-3" data-ani="slideinup" data-ani-delay="0s">أفضل المصممين</span>
-                    <h2 class="hero-title style-2" data-ani="slideinup" data-ani-delay="0.2s">نحن نقدم المثالية</h2>
-                </div>
-            </div>
-            <!-- Single Slide -->
-            <div class="vs-hero-inner">
-                <div class="vs-hero-bg" data-bg-src="images/Cover-3.jpg">
-                    <img src="images/Cover-3.jpg" alt="overlay">
-                </div>
-                <div class="hero-content3">
-                    <span class="h4 hero-subtitle style-3" data-ani="slideinup" data-ani-delay="0s">أفضل المصممين</span>
-                    <h2 class="hero-title style-2" data-ani="slideinup" data-ani-delay="0.2s">حمامات فاخرة</h2>
-                </div>
-            </div>
+            <asp:Repeater runat="server" ClientIDMode="AutoID" ID="lvSlider">
+                <ItemTemplate>
+                    <div class="vs-hero-inner">
+                        <div class="vs-hero-bg" data-bg-src="images/Cover.jpg">
+                            <img src='<%# Eval("MediaURL").ToString.Replace("~/", "") %>' alt="overlay">
+                        </div>
+                        <div class="hero-content3">
+                            <span class="h4 hero-subtitle style-3" data-ani="slideinup" data-ani-delay="0s"><%# Eval("Description").ToString %></span>
+                            <h2 class="hero-title style-2" data-ani="slideinup" data-ani-delay="0.2s"><%# Eval("Title").ToString %></h2>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+
+            
         </div>
         <!-- / Slider end -->
     </section>
