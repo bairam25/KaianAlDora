@@ -4,6 +4,13 @@
 
 <asp:Content ID="PageHeader" ContentPlaceHolderID="Header" runat="Server"></asp:Content>
 <asp:Content ID="PageContent" ContentPlaceHolderID="Content" runat="Server">
+     <asp:UpdatePanel ID="up" runat="server" ClientIDMode="AutoID">
+        <ContentTemplate>
+    <asp:Label ID="lblRes" runat ="server" Visible ="false"></asp:Label>
+    <asp:Label ID="lblCheckedControl" runat="server" Visible="false"></asp:Label>
+    <asp:Label ID="lblSearch" runat="server" Visible="false"></asp:Label>
+    <asp:Label ID="lblSearchType" runat="server" Visible="false"></asp:Label>
+    <asp:Label ID="lblPage" runat="server" Visible="false"></asp:Label>
     <section class="cat_2718">
         <div class="title-content-wrapper grid-container padding-top-1 padding-bottom-1">
             <div class="grid-x grid-padding-x">
@@ -485,478 +492,91 @@
                 <div class="accordion filter" data-multi-expand="true" data-allow-all-closed="true">
                     <div class="hide-for-small-only">
                     </div>
-                    <div class="accordion-item is-active">
-                        <a class="accordion-title">
-                            <h2><b>فئات</b></h2>
-                        </a>
-                        <div class="accordion-content" style="display: block">
-                            <section class="categories-view ">
-                                <ul class="vertical menu">
-                                    <li>
-                                        <a href="#" title="جميع الفئات">جميع الفئات</a>
-                                        <ul class="nested vertical menu">
-                                            <li>
-                                                <a href="#" title="الحمام">الحمام</a>
-                                                <ul class="nested vertical menu">
-                                                    <li>
-                                                        <a href="#" title="الاستحمام وأحواض الاستحمام">الاستحمام وأحواض الاستحمام</a>
-                                                        <ul class="nested vertical menu">
-                                                            <li class="active">
-                                                                <a href="#" title="بانيوهات">بانيوهات</a>
+                   <div class="panel-group">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">
+                                                <a data-toggle="collapse" href="#collapseOne"><%=Resources.Resource.Category%>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse show" aria-expanded="true" style="">
+                                            <div class="panel-body custom-scroll">
+                                                <ul class="filterList">
+                                                    <asp:ListView ID="lvCategories" runat="server" ClientIDMode="AutoID">
+                                                        <ItemTemplate>
+                                                            <li>
+                                                                <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("Category").ToString %>' Style="display: none"></asp:Label>
+                                                                <asp:CheckBox ID="chkCategory" runat="server" Text='<%# Eval("CategoryName").ToString %>' CssClass="font-weight-bold" AutoPostBack="true" OnCheckedChanged="CheckCategory" />
                                                             </li>
-                                                        </ul>
-                                                    </li>
+                                                        </ItemTemplate>
+                                                    </asp:ListView>
                                                 </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                    <div id="facetBrand" class="accordion-item is-active">
-                        <a class="accordion-title">
-                            <h2><b>العلامات التجارية</b></h2>
-                        </a>
-                        <div class="accordion-content" style="display: block">
-                            <input type="text" placeholder="بحث عن العلامات التجارية" data-filter-model="brd" />
-                            <section>
-                                <ul class="checkbox-listitem" data-filter="brd">
-                                    <li class="headerBrandLetter"><span>A</span></li>
-                                    <li>
-                                        <a href="#">A. e T. Italia</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Acquabella</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">acquapazza</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Agape</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Albatros</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>B</span></li>
-                                    <li>
-                                        <a href="#">BATH&amp;BATH</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">BEAL International</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Bette</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">BLEU PROVENCE</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Boffi</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">BRAND &amp; STONE</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>C</span></li>
-                                    <li>
-                                        <a href="#">Ceramica Cielo</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Ceramica Flaminia</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Cerasa</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">COCOON</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>D</span></li>
-                                    <li>
-                                        <a href="#">Devon&amp;Devon</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Diamond Spas</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">DISENIA</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Duravit</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>E</span></li>
-                                    <li>
-                                        <a href="#">Edon&#xE9; by Agor&#xE0;</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Ercos | Ponsi</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>F</span></li>
-                                    <li>
-                                        <a href="#">FALPER</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fontana Showers</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">FranchiUmbertoMarmi</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>G</span></li>
-                                    <li>
-                                        <a href="#">Gaia Mobili</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">GALASSIA</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Gentry Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Gessi</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Glass Design</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>H</span></li>
-                                    <li>
-                                        <a href="#">HATRIA</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">HIDEO</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Hidrobox</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>I</span></li>
-                                    <li>
-                                        <a href="#">Ideal Standard</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">INBANI</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>J</span></li>
-                                    <li>
-                                        <a href="#">Jacuzzi&#xAE;</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Jaquar</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">JEE-O</a>
-                                    </li>
-                                    <li class="headerBrandLetter"><span>K</span></li>
-                                    <li>
-                                        <a href="#">Kaldewei</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Karol</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Kerasan</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Kinedo</a>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="accordion-item ">
-                        <a class="accordion-title">
-                            <h2><b>التركيب</b></h2>
-                        </a>
-                        <div class="accordion-content">
-                            <section>
-                                <ul class="checkbox-listitem">
-                                    <li>
-                                        <a href="#">قائما</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">مدمج</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">على الساقين</a>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="accordion-item ">
-                        <a class="accordion-title">
-                            <h2><b>الشكل</b></h2>
-                        </a>
-                        <div class="accordion-content">
-                            <section>
-                                <ul class="checkbox-listitem">
-                                    <li>
-                                        <a href="#">بيضاوي</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">مستطيل</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">ركن</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">مستدير</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">متماثل</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">مربع</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">سداسيه</a>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="accordion-item ">
-                        <a class="accordion-title">
-                            <h2><b>الخامات</b></h2>
-                        </a>
-                        <div class="accordion-content">
-                            <input type="text" placeholder="Search Materials" data-filter-model="mtr" />
-                            <section>
-                                <ul class="checkbox-listitem" data-filter="mtr">
-                                    <li>
-                                        <a href="#">Composite material</a>
-                                        <ul data-filter="mtr">
-                                            <li>
-                                                <a href="#">Acrylic stone</a>
-                                                <ul data-filter="mtr">
-                                                    <li>
-                                                        <a href="#">Solid Surface</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Corian&#xAE;</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Cristalplant&#xAE;</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">DuraSolid</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Korakril&#x2122;</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Aquatek</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Acrylic</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Resin Stone</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Pietraluce&#xAE; </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">White Tec Plus</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Luxolid&#xAE;</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Livingtec&#xAE;</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">MineraLite</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Metal</a>
-                                        <ul data-filter="mtr">
-                                            <li>
-                                                <a href="#">Steel</a>
-                                                <ul data-filter="mtr">
-                                                    <li>
-                                                        <a href="#">Enamelled steel</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Powder coated steel</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Cast Iron</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Copper</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Stainless steel</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Gold Leaf</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Silver Leaf</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Iron</a>
-                                                <ul data-filter="mtr">
-                                                    <li>
-                                                        <a href="#">Wrought Iron</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Brass</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Natural stone</a>
-                                        <ul data-filter="mtr">
-                                            <li>
-                                                <a href="#">Marble</a>
-                                                <ul data-filter="mtr">
-                                                    <li>
-                                                        <a href="#">Carrara marble</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Arabescato marble</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Pietra Grey marble</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Nero Marquina marble</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Stone</a>
-                                                <ul data-filter="mtr">
-                                                    <li>
-                                                        <a href="#">lecce stone</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Quartz</a>
-                                                <ul data-filter="mtr">
-                                                    <li>
-                                                        <a href="#">Quartz sand</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Onyx</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="accordion-item ">
-                        <a class="accordion-title">
-                            <h2><b>الطراز</b></h2>
-                        </a>
-                        <div class="accordion-content">
-                            <section>
-                                <ul class="checkbox-listitem" data-filter="stl">
-                                    <li>
-                                        <a href="#">Contemporary Style </a>
-                                        <ul data-filter="stl">
-                                            <li>
-                                                <a href="#">Scandinavian style </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Japanese Style </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Classic Style </a>
-                                        <ul data-filter="stl">
-                                            <li>
-                                                <a href="#">Victorian Style </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">English Style </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Neoclassical Style </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Design </a>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="accordion-item is-active">
-                        <a class="accordion-title">
-                            <h2><b>السعر</b></h2>
-                        </a>
-                        <div class="accordion-content" style="display: block">
-                            <section>
-                                <div class="grid-container">
-                                    <div class="slider slider-price" data-slider data-step="10" data-start="453" data-initial-start="453" data-initial-end="64476" data-end="64475">
-                                        <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="sliderMin" aria-label="sliderMin" aria-valuemin="453" aria-valuemax="64476" aria-valuenow="453"></span>
-                                        <span class="slider-fill" data-slider-fill></span>
-                                        <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="sliderMax" aria-label="sliderMax" aria-valuemin="453" aria-valuemax="64476" aria-valuenow="64476"></span>
-                                    </div>
-                                    <div class="grid-x grid-padding-x">
-                                        <div class="xxlarge-6 medium-12 small-6 cell">
-                                            <div class="input-group">
-                                                <span class="input-group-label">£</span>
-                                                <input class="input-group-field" type="number" id="sliderMin" aria-label="sliderMin" value="1000">
                                             </div>
-                                        </div>
-                                        <div class="xxlarge-6 medium-12 small-6 cell">
-                                            <div class="input-group">
-                                                <span class="input-group-label">£</span>
-                                                <input class="input-group-field" type="number" id="sliderMax" aria-label="sliderMax" value="50000">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="grid-x grid-padding-x">
-                                        <div class="cell small-12">
-                                            <button type="button" id="btnApplyPriceRange" class="button primary margin-bottom-1" style="width: 100%" data-search-replace-to="from-0-to-1" data-search-replace-above="above-0" data-search-replace-under="under-0" data-search-pattern-clear="/ar/&#x627;&#x644;&#x645;&#x646;&#x62A;&#x62C;&#x627;&#x62A;/&#x628;&#x627;&#x646;&#x64A;&#x648;&#x647;&#x627;&#x62A;/for-sale"
-                                                data-search-pattern-to="/ar/&#x627;&#x644;&#x645;&#x646;&#x62A;&#x62C;&#x627;&#x62A;/&#x628;&#x627;&#x646;&#x64A;&#x648;&#x647;&#x627;&#x62A;/for-sale/price_from-0-to-1" data-search-pattern-above="/ar/&#x627;&#x644;&#x645;&#x646;&#x62A;&#x62C;&#x627;&#x62A;/&#x628;&#x627;&#x646;&#x64A;&#x648;&#x647;&#x627;&#x62A;/for-sale/price_above-0"
-                                                data-search-pattern-under="/ar/&#x627;&#x644;&#x645;&#x646;&#x62A;&#x62C;&#x627;&#x62A;/&#x628;&#x627;&#x646;&#x64A;&#x648;&#x647;&#x627;&#x62A;/for-sale/price_under-0">
-                                                تنفيذ
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="accordion-item ">
-                        <a class="accordion-title">
-                            <h2><b>خصم</b></h2>
-                        </a>
-                        <div class="accordion-content">
-                            <section>
-                                <ul class="checkbox-listitem">
-                                    <li>
-                                        <a href="#">جميع المنتجات مخفضة السعر</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">above 5 %</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">above 10 %</a>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
+                                <div class="clearfix"></div>
+                                <asp:Panel ID="pnlSubCategory" runat="server" Visible="false">
+                                    <div class="panel-group">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title">
+                                                    <a data-toggle="collapse" href="#collapseSubCategory" aria-expanded="true"><%=Resources.Resource.SubCategory%>
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseSubCategory" class="panel-collapse collapse show">
+                                                <div class="panel-body custom-scroll">
+                                                    <ul class="filterList">
+                                                        <asp:Label ID="lblSubCategories" runat="server" Visible="false"></asp:Label>
+                                                        <asp:ListView ID="lvSubCategory" runat="server" ClientIDMode="AutoID">
+                                                            <ItemTemplate>
+                                                                <li>
+                                                                    <asp:CheckBox ID="chkSubCategory" runat="server" Text='<%# Eval("SubCategoryName").ToString %>' AutoPostBack="true" OnCheckedChanged="FillItems" />
+                                                                    <asp:Label ID="lblSubCategory" runat="server" Text='<%# Eval("SubCategory").ToString %>' Style="display: none"></asp:Label>
+                                                                    <asp:Label ID="lblCatSubCategory" runat="server" Text='<%# Eval("CatSubCatName").ToString.Trim %>' Style="display: none"></asp:Label>
+                                                                </li>
+                                                            </ItemTemplate>
+                                                        </asp:ListView>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </asp:Panel>
+                                <div class="clearfix"></div>
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">
+                                                <a data-toggle="collapse" href="#collapseBrand" aria-expanded="true"><%=Resources.Resource.Brand%>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseBrand" class="panel-collapse collapse show">
+                                            <div class="panel-body custom-scroll">
+                                                <ul class="filterList">
+                                                    <asp:ListView ID="lvBrand" runat="server" ClientIDMode="AutoID">
+                                                        <ItemTemplate>
+                                                            <li>
+                                                                <asp:CheckBox ID="chkBrand" runat="server" CssClass="font-weight-bold" Text='<%# Eval("BrandName").ToString %>' AutoPostBack="true" OnCheckedChanged="CheckBrand" />
+                                                                <asp:Label ID="lblBrand" runat="server" Text='<%# Eval("Brand").ToString %>' Style="display: none"></asp:Label>
+                                                            </li>
+                                                        </ItemTemplate>
+                                                    </asp:ListView>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
                 </div>
             </div>
         </div>
     </div>
+            </ContentTemplate> 
+         </asp:UpdatePanel> 
 </asp:Content>
 <asp:Content ID="PageFooter" ContentPlaceHolderID="Footer" runat="Server"></asp:Content>

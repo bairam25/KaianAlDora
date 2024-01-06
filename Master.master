@@ -14,10 +14,17 @@
     <link href="css/ar/above.min.css" rel="stylesheet" />
     <link href="css/ar/bottom.min.css" rel="stylesheet" />
     <link href="css/ar/arabo.min.css" rel="stylesheet" />
+    <script src="<%= PublicFunctions.ServerURL%>JsCode/ChangeURL.js"></script>
     <asp:ContentPlaceHolder ID="Header" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body class="background-color fullsize cat-page category-c ">
     <form id="mainFRM" runat="server" autocomplete="off" enctype="multipart/form-data">
+         <asp:ToolkitScriptManager ID="TKSM" runat="server" ClientIDMode="AutoID" ScriptMode="Release">
+            <Services>
+                <asp:ServiceReference Path="~/WebService.asmx" />
+                <asp:ServiceReference Path="~/wsMultiFileUpload.asmx" />
+            </Services>
+        </asp:ToolkitScriptManager>
         <div class="sticky-container header-sticky-container">
             <div class="sticky" data-margin-top="0" data-top-anchor="networkBar:top" data-sticky-on="small" id="topMenu">
                 <div class="network-bar show-for-xlarge">
