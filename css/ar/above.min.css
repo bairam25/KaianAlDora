@@ -24376,3 +24376,7 @@ body:not(.category-a) .product.categories-new + a h2 span {
     .logo-header.logo-large {
         font-size: 2.5rem;
     }
+
+.d-contents {
+    display: contents !important;
+}

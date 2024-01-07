@@ -89,7 +89,7 @@
                                         <svg class="icon-large">
                                             <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-heart-line"></use></svg>
                                     </a>
-                                    <asp:Panel runat="server" ID="pnlJoin" CssClass="user-menu">
+                                    <asp:Panel runat="server" ID="pnlJoin" CssClass="d-contents">
                                         <a class="_login button primary show-for-xlarge margin-left-1" href="Login.aspx" data-label="تسجيل الدخول">
                                             <span>تسجيل الدخول</span>
                                         </a>
