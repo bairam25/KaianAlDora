@@ -341,31 +341,32 @@ screen and (max-width: 39.99875em) {
     color: #777
 }
 
-.textfield>input.label-up~label,
-.textfield>input:focus~label,
-.textfield>input.active~label,
-.textfield>input.ng-not-empty~label,
-.textfield>input.not-empty~label,
-.textfield>[type=text].label-up~label,
-.textfield>[type=text]:focus~label,
-.textfield>[type=text].active~label,
-.textfield>[type=text].ng-not-empty~label,
-.textfield>[type=text].not-empty~label,
-.textfield>[type=password].label-up~label,
-.textfield>[type=password]:focus~label,
-.textfield>[type=password].active~label,
-.textfield>[type=password].ng-not-empty~label,
-.textfield>[type=password].not-empty~label,
-.textfield select.label-up~label,
-.textfield select:focus~label,
-.textfield select.active~label,
-.textfield select.ng-not-empty~label,
-.textfield select.not-empty~label {
-    font-size: .625rem;
-    top: 0;
-    text-overflow: ellipsis;
-    line-height: 30px
-}
+    .textfield > input.label-up ~ label,
+    .textfield > input:focus ~ label,
+    .textfield > input.active ~ label,
+    .textfield > input.ng-not-empty ~ label,
+    .textfield > input.not-empty ~ label,
+    .textfield > [type=text].label-up ~ label,
+    .textfield > [type=text]:focus ~ label,
+    .textfield > [type=text].active ~ label,
+    .textfield > [type=text].ng-not-empty ~ label,
+    .textfield > [type=text].not-empty ~ label,
+    .textfield > [type=password].label-up ~ label,
+    .textfield > [type=password]:focus ~ label,
+    .textfield > [type=password].active ~ label,
+    .textfield > [type=password].ng-not-empty ~ label,
+    .textfield > [type=password].not-empty ~ label,
+    .textfield select.label-up ~ label,
+    .textfield select:focus ~ label,
+    .textfield select.active ~ label,
+    .textfield select.ng-not-empty ~ label,
+    .textfield select.not-empty ~ label {
+        font-size: .9375rem;
+        top: -30px;
+        left: 0;
+        text-overflow: ellipsis;
+        line-height: 30px
+    }
 
 .textfield>[type=text],
 .textfield>[type=password],
@@ -395,23 +396,26 @@ screen and (max-width: 39.99875em) {
     background-color: rgba(0, 0, 0, .05)
 }
 
-.textfield>label {
-    -webkit-transition: all .15s ease-out;
-    -moz-transition: all .15s ease-out;
-    -ms-transition: all .15s ease-out;
-    transition: all .15s ease-out;
-    position: absolute;
-    font-size: .9375rem;
-    text-overflow: clip;
-    cursor: text;
-    pointer-events: none;
-    top: 0;
-    display: block;
-    overflow-x: hidden;
-    white-space: nowrap;
-    color: #777;
-    line-height: 3rem
-}
+    .textfield > label {
+        -webkit-transition: all .15s ease-out;
+        -moz-transition: all .15s ease-out;
+        -ms-transition: all .15s ease-out;
+        transition: all .15s ease-out;
+        position: absolute;
+        /*font-size: .9375rem;*/
+        font-size: .75rem;
+        text-overflow: clip;
+        cursor: text;
+        pointer-events: none;
+        /*top: 0;*/
+        top: 0;
+        left: 10px;
+        display: block;
+        overflow-x: hidden;
+        white-space: nowrap;
+        color: #777;
+        line-height: 3rem
+    }
 
 .textfield .is-invalid-x {
     position: absolute;

@@ -4,7 +4,7 @@ Imports clsMessages
 Imports System.Data
 
 Partial Class Login
-    Inherits System.Web.UI.Page
+    Inherits clsLang
 #Region "Swich View"
     Protected Sub switchview(sender As LinkButton, e As System.EventArgs)
         Try

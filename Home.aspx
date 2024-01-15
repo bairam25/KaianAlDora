@@ -3,8 +3,8 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="PageHeader" ContentPlaceHolderID="Header" runat="Server">
-    <link href="css/ar/slick.min.css" rel="stylesheet" />
-    <link href="css/ar/Slider.css" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/slick.min.css") %>" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/Slider.css") %>" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="PageContent" ContentPlaceHolderID="Content" runat="Server">
     <asp:Label Text="" ID="lblRes" runat="server" />
@@ -63,7 +63,7 @@
     <section class="grid-container margin-top-3">
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell mt-xlarge">
-                <h1 class="text-center margin-top-3 margin-bottom-4">أحدث أحواض الاستحمام</h1>
+                <h1 class="text-center margin-top-3 margin-bottom-4"><%=Resources.Resource.NewerBathtubs%></h1>
                 <div class="grid-x grid-padding-x grid-margin-y large-up-5 medium-up-2 small-up-2" id="productGrid">
                     <div class="cell _search-item" data-id="665064">
                         <figure class="product">
@@ -205,7 +205,7 @@
     <section class="grid-container margin-top-3 margin-bottom-3">
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell mt-xlarge">
-                <h1 class="text-center margin-top-3 margin-bottom-4">العلامات التجارية</h1>
+                <h1 class="text-center margin-top-3 margin-bottom-4"><%=Resources.Resource.Brands%></h1>
                 <div class="grid-x grid-padding-x grid-margin-y large-up-8 medium-up-4 small-up-2">
                     <div class="cell _search-item" data-id="665064">
                         <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">

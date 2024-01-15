@@ -7,7 +7,7 @@ Public Class clsLang
         SelectUserLang()
     End Sub
     Public Shared Sub SelectUserLang()
-        Dim language As String = "ar"
+        Dim language As String = "en-gb"
         '   Session("Lang") = language
         'Detect User's Language.
         If GetLang() <> String.Empty Then
@@ -17,8 +17,9 @@ Public Class clsLang
 
 
         'Set the Culture.
-        Thread.CurrentThread.CurrentCulture = New CultureInfo(language)
-        Thread.CurrentThread.CurrentUICulture = New CultureInfo(language)
+        Dim culture As New System.Globalization.CultureInfo(language) ' Egyptian Arabic" ar-EG"
+        System.Threading.Thread.CurrentThread.CurrentCulture = culture
+        System.Threading.Thread.CurrentThread.CurrentUICulture = culture
     End Sub
 
     Public Shared Function GetLang() As String
@@ -27,7 +28,7 @@ Public Class clsLang
                 Dim Lang As String = HttpContext.Current.Request.Cookies("KianLang")("Lang")
                 Return Lang
             End If
-            Return "ar"
+            Return "en-gb"
         Catch ex As Exception
             If HttpContext.Current.Request.Cookies.Get("KianLang") IsNot Nothing Then
                 If HttpContext.Current.Request.Cookies.Get("KianLang").Value IsNot Nothing Then
@@ -36,9 +37,13 @@ Public Class clsLang
                     HttpContext.Current.Response.Cookies.Add(RememberMeCookies)
                 End If
             End If
-            Return "ar"
+            Return "en-gb"
         End Try
     End Function
 
+    Public Shared Sub LangRedirect(ByVal lang As String)
+        Dim PageURL As String = HttpContext.Current.Request.Url.ToString
+        HttpContext.Current.Response.Redirect(PageURL)
 
+    End Sub
 End Class

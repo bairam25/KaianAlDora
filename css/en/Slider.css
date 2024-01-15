@@ -1,0 +1,472 @@
+/*------------------- 4.8. Hero Area  -------------------*/
+
+.vs-hero-wrapper .section-before,
+.breadcrumb-section .section-before {
+    top: -5px;
+}
+
+.hero-slider1 {
+    position: relative;
+}
+
+    .hero-slider1 .vs-hero-inner {
+        padding: 100px 0 140px 0;
+    }
+
+.vs-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+    .vs-hero-bg img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        opacity: 0.85;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+.hero-content {
+    max-width: 660px;
+    padding: 150px;
+    right: 180px;
+    margin-left: auto;
+    text-align: center;
+    position: relative;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+    .hero-content .tr-element {
+        background-color: var(--white-color);
+        opacity: 0.9;
+    }
+
+    .hero-content img.car {
+        position: absolute;
+        top: 17px;
+        left: 63px;
+    }
+
+.con-before {
+    position: absolute;
+    left: -26px;
+    top: 19%;
+    transform: rotate(3deg);
+}
+
+.con-after {
+    position: absolute;
+    right: -26px;
+    top: 20%;
+    transform: rotate(3deg);
+}
+
+.hero-title .focus {
+    font-size: 90px;
+    margin-bottom: -4px;
+    line-height: 1.1;
+    display: block;
+}
+
+.hero-title.style-2 {
+    margin-bottom: 35px;
+    font-size: 60px;
+    color: var(--title-color);
+}
+
+.hero-subtitle.style-2 {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 35px;
+    color: var(--title-color);
+}
+
+.hero-text {
+    margin-bottom: 40px;
+    color: var(--blue-color);
+}
+
+    .hero-text span {
+        font-weight: 600;
+        font-size: 24px;
+        position: relative;
+    }
+
+    .hero-text i {
+        font-size: 8px;
+        margin: 0 20px;
+        position: relative;
+        top: -4px;
+    }
+
+.hero-2 {
+    position: relative;
+    overflow: hidden;
+}
+
+    .hero-2 .section-after {
+        margin-bottom: -35px;
+    }
+
+    .hero-2 .shape-mockup {
+        position: absolute !important;
+    }
+
+    .hero-2 .vs-hero-inner {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        height: 840px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+.hero-img-1 {
+    position: absolute !important;
+    top: 50px;
+    left: 45px;
+    z-index: 1;
+}
+
+.hero-img-2 {
+    position: absolute !important;
+    bottom: 80px;
+    right: 60px;
+    z-index: 1;
+}
+
+.hero-slider3 .slick-arrow {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white-color);
+    border: none;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+    width: var(--icon-size, 60px);
+    height: var(--icon-size, 60px);
+    z-index: 2;
+}
+
+    .hero-slider3 .slick-arrow.slick-next {
+        right: 80px;
+        left: unset;
+    }
+
+    .hero-slider3 .slick-arrow:hover {
+        background-color: var(--theme-color);
+        color: var(--white-color);
+    }
+
+.hero-3 .vs-hero-inner {
+    padding: 100px 0;
+    height: 815px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content3 {
+    max-width: 760px;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    margin: 0 auto;
+}
+
+    .hero-content3 .hero-title {
+        color: #fff;
+    }
+
+.hero-subtitle.style-3 {
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+/* Hight Resoulation devices */
+
+@media (min-width: 1922px) {
+    div#cloud {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+/* Extra large devices */
+
+@media (max-width: 1680px) {
+    .hero-img-2 {
+        bottom: 10px;
+        right: 15px;
+    }
+}
+
+/* Medium Large devices */
+
+@media (max-width: 1399px) {
+    .vs-hero-wrapper .section-before,
+    .breadcrumb-section .section-before {
+        top: -8px;
+    }
+
+    .hero-content {
+        right: 50px;
+        margin-left: auto;
+        text-align: center;
+        max-width: 580px;
+        padding: 130px 100px;
+    }
+
+    .hero-title .focus {
+        font-size: 70px;
+    }
+
+    .hero-title.style-2 {
+        font-size: 60px;
+    }
+
+    .hero-img-1 {
+        left: 10px;
+    }
+
+    .hero-img-2 {
+        max-width: 400px !important;
+    }
+}
+
+/* Large devices */
+
+@media (max-width: 1199px) {
+    .vs-hero-wrapper .shape-before img,
+    .vs-hero-wrapper .section-before img {
+        height: 20px;
+    }
+
+    .hero-2 .shape-after img,
+    .hero-2 .section-after img {
+        height: 80px;
+    }
+
+    .hero-3 .shape-after img,
+    .hero-3 .section-after img {
+        height: 45px;
+    }
+
+    .hero-slider1 .vs-hero-inner {
+        padding: 100px 0 100px 0;
+    }
+
+    .hero-content {
+        right: unset;
+        margin-right: auto;
+        max-width: 560px;
+    }
+
+    .hero-2 .vs-hero-inner {
+        height: 520px;
+    }
+
+    .hero-2 #fire {
+        max-width: 140px;
+    }
+
+    .hero-2 #rocket {
+        bottom: 6% !important;
+        left: 27% !important;
+    }
+
+    .hero-2 .section-after {
+        margin-bottom: -20px;
+    }
+
+    .hero-title.style-2 {
+        font-size: 48px;
+    }
+
+    .hero-img-2 {
+        bottom: 0;
+    }
+
+    .hero-img-1 {
+        max-width: 300px !important;
+    }
+
+    .hero-img-2 {
+        max-width: 320px !important;
+    }
+
+    .hero-3 .vs-hero-inner {
+        height: 600px;
+    }
+}
+
+/* Medium devices */
+
+@media (max-width: 991px) {
+    .vs-hero-wrapper .shape-before img,
+    .vs-hero-wrapper .section-before img {
+        height: 15px;
+    }
+
+    .hero-title .focus {
+        font-size: 50px;
+    }
+
+    .hero-subtitle.style-2.mb-35 {
+        margin-bottom: 10px !important;
+    }
+
+    .hero-img-1 {
+        display: none !important;
+    }
+
+    .hero-img-2 {
+        display: none !important;
+    }
+
+    .hero-2 #rocket {
+        bottom: 5% !important;
+        left: 10% !important;
+    }
+
+    .hero-2 .vs-hero-inner {
+        padding: 120px 0 120px 0;
+        height: auto;
+    }
+
+    .hero-3 .vs-hero-inner {
+        height: auto;
+    }
+}
+
+/* Small devices */
+
+@media (max-width: 767px) {
+    .hero-slider1 .vs-hero-inner {
+        padding: 80px 50px 60px 50px;
+    }
+
+    .hero-content {
+        background-size: contain;
+    }
+
+        .hero-content img.car {
+            top: -25px;
+        }
+
+    .con-before {
+        display: none !important;
+    }
+
+    .con-after {
+        display: none !important;
+    }
+
+    .hero-content {
+        padding: 100px 20px 60px;
+    }
+
+    .hero-text {
+        margin-bottom: 20px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        line-height: 1.6;
+    }
+
+        .hero-title .focus {
+            font-size: 44px;
+        }
+
+        .hero-title.style-2 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+    .hero-subtitle.style-2 {
+        margin-bottom: 20px;
+    }
+
+    .hero-2 #rocket {
+        max-width: 55px;
+        bottom: 5% !important;
+        left: 10% !important;
+    }
+
+    .hero-2 #fire {
+        max-width: 100px;
+        left: -10% !important;
+    }
+
+    .hero-2 #star {
+        max-width: 40px;
+    }
+}
+
+/* Extra small devices */
+
+@media (max-width: 575px) {
+    .hero-img-2 {
+        display: none !important;
+    }
+
+    .hero-slider1 .vs-hero-inner {
+        padding: 80px 25px 60px 25px;
+    }
+
+    .hero-content {
+        padding: 60px 20px 40px;
+    }
+
+        .hero-content img.car {
+            top: 68px;
+            max-width: 90px;
+            left: -10px;
+        }
+
+    .hero-text {
+        margin-bottom: 8px;
+    }
+
+    .hero-title.mb-30 {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 350px) {
+    .hero-text {
+        margin-bottom: 0;
+    }
+
+        .hero-text span {
+            font-size: 20px;
+        }
+
+    .hero-title {
+        font-size: 26px;
+        line-height: 1.4;
+    }
+
+        .hero-title .focus {
+            font-size: 36px;
+            line-height: 1;
+        }
+
+    .hero-content img.car {
+        max-width: 60px;
+    }
+}

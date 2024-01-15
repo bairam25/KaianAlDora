@@ -3,7 +3,7 @@ Imports System.Data
 Imports BusinessLayer.BusinessLayer
 
 Partial Class Home
-    Inherits System.Web.UI.Page
+    Inherits clsLang
     ''' <summary>
     ''' Handle page load event
     ''' </summary>

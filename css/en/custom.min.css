@@ -1,0 +1,494 @@
+body {
+    font-family: "Roboto", Arial, sans-serif !important;
+}
+
+html[lang=en] .network-bar .menu-network {
+    float: left !important;
+}
+
+html[lang=en] .network-bar .menu-network li {
+    margin-left: 0 !important;
+    margin-right: -4px
+}
+
+html[lang=en] .network-bar .menu-network li a,
+html[lang=en] .network-bar .menu-network li .fake-link {
+    margin-right: 25px;
+    margin-left: 0 !important;
+}
+
+html[lang=en] .network-bar .menu-network li.flags img {
+    margin-right: 0 !important;
+    margin-left: 5px
+}
+
+html[lang=en] .network-dropdown a {
+    margin-right: 0 !important;
+    margin-left: 40px
+}
+
+html[lang=en] .mainLogoContainer {
+    float: right !important
+}
+
+html[lang=en] .mainLogoContainer button {
+    margin-right: 0;
+    margin-left: 15px
+}
+
+html[lang=en] .search-header {
+    float: right !important
+}
+
+html[lang=en] .search-header .button {
+    right: 0;
+    left: auto;
+}
+
+html[lang=en] .autocomplete ul li {
+    text-align: right
+}
+
+html[lang=en] .account-nav {
+    direction: ltr;
+    justify-content: flex-end;
+    position: relative
+}
+
+html[lang=en] .account-nav .float-right {
+    float: left !important
+}
+
+html[lang=en] .account-nav .icon-user {
+    float: left !important
+}
+
+html[lang=en] .account-nav .dropdown-pane {
+    left: 0 !important;
+    right: auto
+}
+
+html[lang=en] .account-nav .dropdown-pane.dropdown-triangle:before {
+    right: 85% !important
+}
+
+html[lang=en] .account-nav .cont-icon {
+    display: block !important
+}
+
+html[lang=en] .account-nav .cont-icon ._login {
+    float: right !important;
+    margin-right: 0 !important;
+    margin-left: 1rem;
+}
+
+html[lang=en] ._other-links {
+    float: left !important
+}
+
+html[lang=en] .menu-cat-link {
+    float: right !important
+}
+
+html[lang=en] .mega-dropdown {
+    padding: 0 0 0 0
+}
+
+html[lang=en] .mega-dropdown-categories {
+    float: right !important
+}
+
+html[lang=en] .mega-dropdown-categories .categories .menu {
+    float: right !important
+}
+
+html[lang=en] .mega-dropdown-shop {
+    padding-left: 0;
+    padding-right: auto
+}
+
+html[lang=en] .mega-dropdown-footer .float-left {
+    float: right !important
+}
+
+html[lang=en] .breadcrumbs-container .breadcrumbs {
+    float: right !important
+}
+
+html[lang=en] .breadcrumbs-container .breadcrumbs li {
+    float: left !important;
+}
+
+html[lang=en] .breadcrumbs-container .button-group .button {
+    float: left !important
+}
+
+html[lang=en] .bar-option .float-right {
+    float: left !important
+}
+
+html[lang=en] #facet-column .accordion-item .checkbox-listitem li a {
+    padding-left: 0;
+    padding-right: 1.4375rem
+}
+
+html[lang=en] #facet-column .accordion-item .checkbox-listitem li a:before {
+    margin-right: 0;
+    left: auto;
+    margin-left: .5rem;
+    right: 0
+}
+
+html[lang=en] #facet-column .filter .accordion-title {
+    padding: 1.3rem 1rem 1.3rem 2rem
+}
+
+html[lang=en] #facet-column .filter .accordion-title:before {
+    right: auto !important;
+    left: 1rem
+}
+
+html[lang=en] #facet-column .radio-listitem li a {
+    padding-left: 0;
+    padding-right: 1.4375rem
+}
+
+html[lang=en] #facet-column .radio-listitem li a:before {
+    margin-right: 0;
+    left: auto;
+    margin-left: .5rem;
+    right: 0
+}
+
+html[lang=en] .profile-header-container .ar-float-right {
+    float: right !important
+}
+
+html[lang=en] .profile-header-container .media-object-section:first-child {
+    padding-left: 1rem;
+    padding-right: 0 !important
+}
+
+html[lang=en] .profile-header-container .header-profile-info-buttons {
+    text-align: left !important
+}
+
+html[lang=en] .profile-header-container .tabs-title {
+    float: right
+}
+
+html[lang=en] .heading-title .text-left {
+    text-align: right
+}
+
+html[lang=en] .header-fiere-container .large-9 {
+    float: right
+}
+
+html[lang=en] .header-fiere-container .large-9 .media-object-section:first-child {
+    padding-left: 1rem;
+    padding-right: 0 !important
+}
+
+html[lang=en] .menu-fiere .tabs-title {
+    float: right !important
+}
+
+html[lang=en] .reseller-tile .column.small-4.medium-2,
+html[lang=en] .reseller-tile .column.small-8 {
+    float: right
+}
+
+html[lang=en] .utils-bottom {
+    justify-content: flex-start !important
+}
+
+@media screen and (min-width: 64rem) {
+    html[lang=en] .brand-column-navigator .button-group {
+        display: flex;
+        flex-direction: row-reverse
+    }
+}
+
+html[lang=en] .categoryIndex-card figcaption img,
+html[lang=en] .footer-newsletter #inputEmailNewsletterSubscription {
+    margin-right: 0;
+    margin-left: 15px
+}
+
+html[lang=en] .footer .footer-accordion .accordion-content>ul li>a {
+    margin-left: 0;
+    margin-right: 7px
+}
+
+html[lang=en] .product-page-column .container-flex-price .price-group .old-price {
+    margin-right: 0;
+    margin-left: 6px
+}
+
+html[lang=en] .brand-column .brand-column-info span svg {
+    float: right
+}
+
+@media screen and (min-width: 78.75em) {
+    html[lang=en] .product-page .product-page-column {
+        padding: 0 2rem 0 0
+    }
+}
+
+html[lang=en] .swatches-list+.features-3d {
+    margin-right: 10px
+}
+
+html[lang=en] .button-shop-check,
+html[lang=en] .content-quote .media-object .media-object-section:last-child,
+html[lang=en] .designer-block img {
+    margin-right: 0;
+    margin-left: 15px
+}
+
+html[lang=en] .accordion-products .accordion-title span.pdf-label {
+    margin-left: 0;
+    margin-right: 15px
+}
+
+html[lang=en] .mobile-wishlist-share .button:first-child {
+    margin-right: 0;
+    margin-left: 10px
+}
+
+html[lang=en] .product-page .accordion-products .accordion-title {
+    padding-right: 3em
+}
+
+html[lang=en] .cookiesNotice-buttonSettings {
+    margin-right: 0;
+    margin-left: 1rem
+}
+
+html[lang=en] .footer .footer-accordion .accordion-title {
+    padding-left: 0 !important;
+}
+
+html[lang=en] .footer .footer-accordion .accordion-title span.ico {
+    margin-right: 0;
+    margin-left: 5px
+}
+
+html[lang=en] .close-button {
+    left: 1rem;
+    right: auto
+}
+
+html[lang=en] .static-navigation {
+    float: right
+}
+
+html[lang=en] .static-navigation .accordion-title {
+    padding-right: 0
+}
+
+html[lang=en] .static-pages {
+    float: right;
+    border-right: 0;
+    border-left: 1px solid #ddd;
+}
+
+html[lang=en] .newsletter-archive-header-container .title-content .float-left,
+html[lang=en] .newsletter-archive-header-container .tabs .tabs-title {
+    float: right !important
+}
+
+html[lang=en] .product-page-column .desktop-share {
+    left: 0;
+    right: auto
+}
+
+html[lang=en] .mobile-toolbar {
+    left: 15px !important;
+    right: auto !important
+}
+
+html[lang=en] .media-object .media-object-section:first-child {
+    padding-right: 0 !important;
+    padding-left: 1rem !important
+}
+
+html[lang=en] .usr-panel .wrapper-usr-panel .mobile-user-thumb {
+    padding: 0 1rem
+}
+
+html[lang=en] .menu.vertical .media-object .media-object-section:first-child {
+    padding-left: 0 !important;
+    padding-right: 1rem !important
+}
+
+html[lang=en] .usr-panel .wrapper-usr-panel .auth-utilities li a {
+    padding: .5rem 1rem .5rem 0
+}
+
+html[lang=en] .ar-text-left {
+    text-align: left !important
+}
+
+html[lang=en] .select-image:after {
+    right: auto !important;
+    left: 15px !important
+}
+
+html[lang=en] .select-image .options .option input:checked+label img {
+    margin-top: 8px;
+    margin-left: 8px;
+    float: right;
+    margin-right: 0
+}
+
+html[lang=en] .quantitySelect {
+    margin-right: 0;
+    margin-left: 1rem
+}
+
+html[lang=en] .info-request-form .column.large-6:nth-child(even) {
+    padding-left: 0;
+    padding-right: .625rem
+}
+
+html[lang=en] .info-request-form .column.large-6:nth-child(odd) {
+    padding-right: 0;
+    padding-left: .625rem
+}
+
+html[lang=en] .textfield.duo-input-left input,
+html[lang=en] .textfield.duo-input-left select {
+    border-left: none;
+    border-right: 1px solid #e4e5e7
+}
+
+html[lang=en] .info-request-footer .text-accept-privacy label {
+    margin-right: 0 !important
+}
+
+html[lang=en] .account-nav #not-logged-icon {
+    margin-right: 0
+}
+
+@media screen and (max-width: 767px) {
+    html[lang=en] .account-nav .cont-icon .button {
+        padding: 1em .5em
+    }
+    html[lang=en] .account-nav #account-nav {
+        margin-left: 0;
+        margin-right: 10px
+    }
+    html[lang=en] .network-hello-bar-js p {
+        text-align: right
+    }
+}
+
+html[lang=en] .product-launch .view-counter {
+    left: auto;
+    right: 15px
+}
+
+html[lang=en] .magazineIndex-category-tag>div:first-child,
+html[lang=en] .magazineIndex-menu div:first-child {
+    margin-left: 0;
+    margin-right: auto
+}
+
+html[lang=en] .magazineIndex-category-tag>div:last-child,
+html[lang=en] .magazineIndex-menu div:last-child {
+    margin-right: 0;
+    margin-left: auto
+}
+
+html[lang=en] div [class^=multilanguage-switcher] span {
+    margin-right: 0;
+    margin-left: 5px
+}
+
+@media screen and (min-width: 118.75em) {
+    html[lang=en] .Article-News-Content.xxlarge-offset-1 {
+        margin-left: 0;
+        margin-right: 8.3333333333%
+    }
+    html[lang=en] .Article-News-Social {
+        margin-left: auto;
+        margin-right: -137px
+    }
+}
+
+html[lang=en] .info-request-header-component__logo {
+    margin-right: 0 !important;
+    margin-left: 1rem
+}
+
+@media print,
+screen and (max-width: 78.74875em) {
+    html[lang=en] nav.main-menu .cat-first-level.menu-mobile li a {
+        padding: 1rem 3.4rem 1rem 3rem !important
+    }
+    html[lang=en] #showSearch svg {
+        margin-right: 0;
+        margin-left: 10px
+    }
+    html[lang=en] #network-mobile .network-link span {
+        padding: 1rem 1rem 1rem 3rem
+    }
+    html[lang=en] .menu-mobile li.link-bottom p.fake-link span.globalization-flag {
+        right: 15px;
+        left: auto
+    }
+    html[lang=en] .open-left.wrapper-menu-mobile.open .close-menu-mobile {
+        left: 15px;
+        right: auto
+    }
+}
+
+html[lang=en] nav.main-menu .submenu-wrapper .left-zone .right-zone .current-brand li:last-child {
+    margin-left: 0;
+    margin-right: 10px
+}
+
+html[lang=en] .cart-info {
+    left: 0;
+    right: auto
+}
+
+html[lang=en] .cart-info:before {
+    left: 15px;
+    right: auto !important
+}
+
+html[lang=en] .projects-box-container .thumbs img+img+img+img+span {
+    right: 225px;
+    left: auto
+}
+
+html[lang=en] .big-slider .flickity-button.flickity-prev-next-button.next {
+    right: auto
+}
+
+.pagination li.pagination-previous a::before {
+    content: "";
+    background-image: url(../../images/icon-arrow-right.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: .7rem;
+    height: .7rem;
+    display: inline-block;
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+.pagination li.pagination-next a::after {
+    content: "";
+    background-image: url(../../images/icon-arrow-left.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: .7rem;
+    height: .7rem;
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 0.5rem;
+}

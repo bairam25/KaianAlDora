@@ -1,5 +1,5 @@
 ﻿
 Partial Class Brands
-    Inherits System.Web.UI.Page
+    Inherits clsLang
 
 End Class

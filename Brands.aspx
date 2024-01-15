@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="PageHeader" ContentPlaceHolderID="Header" runat="Server">
-    <link href="css/ar/composite-box.min.css" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/composite-box.min.css") %>" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="PageContent" ContentPlaceHolderID="Content" runat="Server">
     <nav class="breadcrumbs-container hide-for-small-only hide-for-medium-only cat_2718" aria-label="You are here:" role="navigation">
@@ -11,10 +11,10 @@
             <div class="grid-x">
                 <ul class="breadcrumbs cell small-12">
                     <li>
-                        <a href="Home.aspx"><span>الصفحة الرئيسية</span></a>
+                        <a href="Home.aspx"><span><%=Resources.Resource.Home%></span></a>
                     </li>
                     <li>
-                        <span class="current">العلامات التجارية</span>
+                        <span class="current"><%=Resources.Resource.Brands%></span>
                     </li>
                 </ul>
             </div>

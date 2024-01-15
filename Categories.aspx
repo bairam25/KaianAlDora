@@ -10,10 +10,10 @@
                 <div class="grid-x">
                     <ul class="breadcrumbs cell small-12">
                         <li>
-                            <a href="Home.aspx"><span>الصفحة الرئيسية</span></a>
+                            <a href="Home.aspx"><span><%=Resources.Resource.Home%></span></a>
                         </li>
                         <li>
-                            <span class="current">الفئات</span>
+                            <span class="current"><%=Resources.Resource.Categories%></span>
                         </li>
                     </ul>
                 </div>
@@ -22,7 +22,7 @@
         <section class="grid-container margin-top-3">
             <div class="grid-x grid-padding-x">
                 <div class="small-12 cell">
-                    <h4>الفئات</h4>
+                    <h4><%=Resources.Resource.Categories%></h4>
                     <asp:Label Text="" runat="server" ID="lblRes" />
                     <div class="category-a margin-top-3 margin-bottom-3">
                         <div id="boxesCatA2" class="grid-x grid-padding-x grid-margin-y small-margin-collapse large-up-4 medium-up-3 small-up-2 categoryA-tile">
@@ -58,9 +58,6 @@
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
-
-
-
                         </div>
                     </div>
                 </div>

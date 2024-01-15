@@ -7,7 +7,7 @@ Imports clsMessages
 Imports Microsoft.VisualBasic.ApplicationServices
 
 Partial Class Register
-    Inherits System.Web.UI.Page
+    Inherits clsLang
 #Region "Variables"
 
     Dim UserId As String

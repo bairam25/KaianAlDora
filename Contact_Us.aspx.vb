@@ -2,7 +2,7 @@
 Imports System
 
 Partial Class Contact_Us
-    Inherits System.Web.UI.Page
+    Inherits clsLang
 
 
     Protected Sub Send(sener As Object, e As EventArgs)

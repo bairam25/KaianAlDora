@@ -4,7 +4,7 @@ Imports clsMessages
 Imports System.Data
 
 Partial Class Categories
-    Inherits System.Web.UI.Page
+    Inherits clsLang
     ''' <summary>
     ''' Handle page load event
     ''' </summary>

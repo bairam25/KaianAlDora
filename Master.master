@@ -2,385 +2,394 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
+<html lang="<%$Resources:Resource, LangReference %>" dir="<%$Resources:Resource, LangDirection %>" runat="server">
+<head runat="server">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كـيـان الــدره</title>
+    <title><%=Resources.Resource.KianAlDora%></title>
     <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" />
     <link href="fontawesome-6.1.0/css/all.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeaderCss" runat="server"></asp:ContentPlaceHolder>
-    <link href="css/ar/above.min.css" rel="stylesheet" />
-    <link href="css/ar/bottom.min.css" rel="stylesheet" />
-    <link href="css/ar/arabo.min.css" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/above.min.css") %>" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/bottom.min.css") %>" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/custom.min.css") %>" rel="stylesheet" />
     <script src="<%= PublicFunctions.ServerURL%>JsCode/ChangeURL.js"></script>
     <asp:ContentPlaceHolder ID="Header" runat="server"></asp:ContentPlaceHolder>
 </head>
-<body class="background-color fullsize cat-page category-c ">
+<body runat="server" class="background-color fullsize cat-page category-c ">
     <form id="mainFRM" runat="server" autocomplete="off" enctype="multipart/form-data">
-         <asp:ToolkitScriptManager ID="TKSM" runat="server" ClientIDMode="AutoID" ScriptMode="Release">
+        <asp:ToolkitScriptManager ID="TKSM" runat="server" ClientIDMode="AutoID" ScriptMode="Release">
             <Services>
                 <asp:ServiceReference Path="~/WebService.asmx" />
                 <asp:ServiceReference Path="~/wsMultiFileUpload.asmx" />
             </Services>
         </asp:ToolkitScriptManager>
-        <div class="sticky-container header-sticky-container">
-            <div class="sticky" data-margin-top="0" data-top-anchor="networkBar:top" data-sticky-on="small" id="topMenu">
-                <div class="network-bar show-for-xlarge">
-                    <div class="grid-container">
-                        <div class="grid-x">
-                            <div class="cell medium-6">
-                                <ul class="menu-network">
-                                    <li class="flags">
-                                        <span class="fake-link _openGlobalizationSettings">
-                                            <span class="flag-icon" style="background-image: -webkit-image-set( url('/images/flags/eg.png') 1x, url('/images/flags/eg@2x.png') 2x); background-image: image-set( url('/images/flags/eg.png') 1x, url('/images/flags/eg@2x.png') 2x)"></span>
+        <asp:UpdatePanel ID="up" runat="server">
+            <ContentTemplate>
+                <div class="sticky-container header-sticky-container">
+                    <div class="sticky" data-margin-top="0" data-top-anchor="networkBar:top" data-sticky-on="small" id="topMenu">
+                        <div class="network-bar show-for-xlarge">
+                            <div class="grid-container">
+                                <div class="grid-x">
+                                    <div class="cell medium-6">
+                                        <ul class="menu-network">
+                                            <li class="flags">
+                                                <asp:LinkButton ID="lbEnLang" runat="server" CommandArgument="en-gb" OnClick="ChangeLanguage">
+                                            <span class="flag-icon" style="background-image: url('/images/flags/eg@2x.png')"></span>
+                                            <span class="name">Egypt</span>
+                                            <span>/ EN</span>
+                                                </asp:LinkButton>
+                                                <asp:LinkButton ID="lbArLang" runat="server" CommandArgument="ar-EG" OnClick="ChangeLanguage">
+                                            <span class="flag-icon" style="background-image: url('/images/flags/eg@2x.png')"></span>
                                             <span class="name">مصر</span>
-                                            <span>/ ar</span>
-                                        </span>
-                                    </li>
-                                </ul>
+                                            <span>/ عربى</span>
+                                                </asp:LinkButton>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="top-bar show-bar">
-                    <div class="grid-container">
-                        <div class="grid-x grid-header">
-                            <div class="cell small-8 large-3 mainLogoContainer">
-                                <button class="float-left button alpha small icon-h-menu hide-for-xlarge" type="button" id="openMenuMobile" data-toggle="menuMobile" aria-label="Mobile Menu">
-                                    <svg class="icon-xlarge">
-                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-n-menu"></use></svg>
-                                </button>
-                                <a title="كـيـان الــدره" class="logo-mobile" href="Home.aspx">
-                                    <h1 class="logo-header">كـيـان الــدره</h1>
-                                    <%--<span>
+                        <div class="top-bar show-bar">
+                            <div class="grid-container">
+                                <div class="grid-x grid-header">
+                                    <div class="cell small-8 large-3 mainLogoContainer">
+                                        <button class="float-left button alpha small icon-h-menu hide-for-xlarge" type="button" id="openMenuMobile" data-toggle="menuMobile" aria-label="Mobile Menu">
+                                            <svg class="icon-xlarge">
+                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-n-menu"></use></svg>
+                                        </button>
+                                        <a title="<%=Resources.Resource.KianAlDora%>" class="logo-mobile" href="Home.aspx">
+                                            <h1 class="logo-header"><%=Resources.Resource.KianAlDora%></h1>
+                                            <%--<span>
                                         <img src="/images/logo.png" alt="كـيـان الــدره" width="200" height="35" class="logo" />
                                     </span>--%>
-                                </a>
-                            </div>
-                            <div class="cell small-12 large-6 search-header" id="searchForm">
-                                <div class="search-header__form" id="search-form">
-                                    <div class="search-header__fixed-search">
-                                        <span class="search-header__back-search hide-for-large _back-search back-search">
-                                            <svg style="width: 1em; height: 1em;">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search-back"></use></svg></span>
-                                        <input class="search-header__input" id="search-input" type="search" placeholder="بحث عن المنتجات / الفئات / العلامات التجارية"
-                                            name="q" value>
-                                        <button class="search-header__button button alpha flat autocomplete-submit-button" type="submit" id="submit" value aria-label="search">
-                                            <svg class="icon-large">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search"></use></svg>
-                                        </button>
-                                        <span class="search-header__close close hide-for-large _close-search">
-                                            <svg class="icon small middle" style="width: 1em; height: 1em;">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-close-full"></use></svg></span>
-                                    </div>
-                                    <div class="search-header__search header-search primary autocomplete" id="header-search">
-                                        <div class="search-header__search-results" id="search-results">
-                                            <ul class="search-header__search-results-list hide"></ul>
-                                        </div>
-                                    </div>
-                                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8FZQQMIjULtJjnFmk0dY_kWmiYEl2AeIXgnX1wDuKqsn0-GEORNv9RtPNukfCIMHn0AYLgrRiElCa1VkvJnXq-Q_PyB7K_szt72_8WPfiXsAjOkOqh2iT9Om0S-NjJvSPIwNLBeleGA1RKDObEa9HDE" />
-                                </div>
-                            </div>
-                            <div class="cell small-4 large-3 account-nav">
-                                <div class="cont-icon ">
-                                    <a title="المفضلة" class="button alpha tiny" href="Favorites.aspx">
-                                        <svg class="icon-large">
-                                            <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-heart-line"></use></svg>
-                                    </a>
-                                    <asp:Panel runat="server" ID="pnlJoin" CssClass="d-contents">
-                                        <a class="_login button primary show-for-xlarge margin-left-1" href="Login.aspx" data-label="تسجيل الدخول">
-                                            <span>تسجيل الدخول</span>
                                         </a>
-                                    </asp:Panel>
-                                    <asp:Panel runat="server" ID="pnlWelcome" CssClass="user-menu" Visible="false">
-                                         <span>Welcome,&nbsp;</span><asp:Label ID="lblRegisteredFirstName" runat="server" />
-                                        <div class="drp-user dropdown">
-
-                                            <div class="dropdown-menu dropdown-multicol dropdown-menu-right header-menu-action">
-                                                
-                                                <ul class="list-user-menu">
-                                                    <li>
-                                                        <a class="dropdown-item" href="Register.aspx"><i class="fa fa-user-md"></i>Profile</a>
-                                                    </li>
-
-                                                  
-                                                    <li>
-                                                        <asp:LinkButton OnClick="LogOut" class="dropdown-item" runat="server"><i class="fa fa-sign-out-alt"></i>Logout</asp:LinkButton>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </asp:Panel>
-                                    <div class="_login button alpha tiny hide-for-xlarge" id="not-logged-icon" data-label="login">
-                                        <svg class="icon-mlarge">
-                                            <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-user-mobile"></use></svg>
                                     </div>
-                                    <div class="reveal full usr-panel" id="mobile-user-panel" data-reveal>
-                                        <span class="close-button close-reveal-slide show-for-medium"></span>
-                                        <button class="close-button close-menu-mobile hide-for-xlarge" data-close aria-label="Close modal" type="button">
-                                            <svg class="icon xsmall middle">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-close"></use></svg>
-                                        </button>
-                                        <div class="wrapper-usr-panel">
+                                    <div class="cell small-12 large-6 search-header" id="searchForm">
+                                        <div class="search-header__form" id="search-form">
+                                            <div class="search-header__fixed-search">
+                                                <span class="search-header__back-search hide-for-large _back-search back-search">
+                                                    <svg style="width: 1em; height: 1em;">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search-back"></use></svg></span>
+                                                <input class="search-header__input" id="search-input" type="search" placeholder="<%=Resources.Resource.SearchPlaceholder%>"
+                                                    name="q" value>
+                                                <button class="search-header__button button alpha flat autocomplete-submit-button" type="submit" id="submit" value aria-label="search">
+                                                    <svg class="icon-large">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search"></use></svg>
+                                                </button>
+                                                <span class="search-header__close close hide-for-large _close-search">
+                                                    <svg class="icon small middle" style="width: 1em; height: 1em;">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-close-full"></use></svg></span>
+                                            </div>
+                                            <div class="search-header__search header-search primary autocomplete" id="header-search">
+                                                <div class="search-header__search-results" id="search-results">
+                                                    <ul class="search-header__search-results-list hide"></ul>
+                                                </div>
+                                            </div>
+                                            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8FZQQMIjULtJjnFmk0dY_kWmiYEl2AeIXgnX1wDuKqsn0-GEORNv9RtPNukfCIMHn0AYLgrRiElCa1VkvJnXq-Q_PyB7K_szt72_8WPfiXsAjOkOqh2iT9Om0S-NjJvSPIwNLBeleGA1RKDObEa9HDE" />
+                                        </div>
+                                    </div>
+                                    <div class="cell small-4 large-3 account-nav">
+                                        <div class="cont-icon ">
+                                            <a title="<%=Resources.Resource.Favorite%>" class="button alpha tiny" href="Favorites.aspx">
+                                                <svg class="icon-large">
+                                                    <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-heart-line"></use></svg>
+                                            </a>
+                                            <asp:Panel runat="server" ID="pnlJoin" CssClass="d-contents">
+                                                <a class="_login button primary show-for-xlarge margin-left-1" href="Login.aspx" data-label="<%=Resources.Resource.SignIn%>">
+                                                    <span><%=Resources.Resource.SignIn%></span>
+                                                </a>
+                                            </asp:Panel>
+                                            <asp:Panel runat="server" ID="pnlWelcome" CssClass="user-menu" Visible="false">
+                                                <span>Welcome,&nbsp;</span><asp:Label ID="lblRegisteredFirstName" runat="server" />
+                                                <div class="drp-user dropdown">
+
+                                                    <div class="dropdown-menu dropdown-multicol dropdown-menu-right header-menu-action">
+
+                                                        <ul class="list-user-menu">
+                                                            <li>
+                                                                <a class="dropdown-item" href="Register.aspx"><i class="fa fa-user-md"></i>Profile</a>
+                                                            </li>
+
+
+                                                            <li>
+                                                                <asp:LinkButton OnClick="LogOut" class="dropdown-item" runat="server"><i class="fa fa-sign-out-alt"></i>Logout</asp:LinkButton>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </asp:Panel>
+                                            <div class="_login button alpha tiny hide-for-xlarge" id="not-logged-icon" data-label="login">
+                                                <svg class="icon-mlarge">
+                                                    <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-user-mobile"></use></svg>
+                                            </div>
+                                            <div class="reveal full usr-panel" id="mobile-user-panel" data-reveal>
+                                                <span class="close-button close-reveal-slide show-for-medium"></span>
+                                                <button class="close-button close-menu-mobile hide-for-xlarge" data-close aria-label="Close modal" type="button">
+                                                    <svg class="icon xsmall middle">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-close"></use></svg>
+                                                </button>
+                                                <div class="wrapper-usr-panel">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="mega-drop-down-menu-wrapper">
-                    <div class="grid-container">
-                        <div class="wrapper-menu-mobile open-left" id="menuMobile" data-toggler=".open">
-                            <span class="close-menu-mobile show-for-medium"></span>
-                            <div class="cont-menu-mobile">
-                                <span class="close-menu-mobile show-for-small-only">
-                                    <svg class="icon xsmall middle">
-                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-close"></use></svg>
-                                </span>
-                                <ul class="vertical menu menu-mobile hide-for-xlarge" role="tree">
-                                    <li class="link-bottom" role="treeitem">
-                                        <p class="fake-link _openGlobalizationSettings">
-                                            <span class="globalization-flag" style="background-image: url('/images/flags/eg@2x.png')"></span>
-                                            <span class="name" id="globalization-name">مصر</span>
-                                            <span id="globalization-code">/ ar</span>
-                                        </p>
-                                    </li>
-                                </ul>
+                        <div class="mega-drop-down-menu-wrapper">
+                            <div class="grid-container">
+                                <div class="wrapper-menu-mobile open-left" id="menuMobile" data-toggler=".open">
+                                    <span class="close-menu-mobile show-for-medium"></span>
+                                    <div class="cont-menu-mobile">
+                                        <span class="close-menu-mobile show-for-small-only">
+                                            <svg class="icon xsmall middle">
+                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-close"></use></svg>
+                                        </span>
+                                        <ul class="vertical menu menu-mobile hide-for-xlarge" role="tree">
+                                            <li class="link-bottom" role="treeitem">
+                                                <p class="fake-link _openGlobalizationSettings">
+                                                    <span class="globalization-flag" style="background-image: url('/images/flags/eg@2x.png')"></span>
+                                                    <span class="name" id="globalization-name">مصر</span>
+                                                    <span id="globalization-code">/ ar</span>
+                                                </p>
+                                            </li>
+                                        </ul>
 
-                                <div class="hide-for-large" id="showSearch">
-                                    <svg class="icon-medium">
-                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search"></use></svg>
-                                    Search...
-                                </div>
-                                <nav class="_menu-categories menu-categories main-menu grid-x grid-padding-x align-justify">
-                                    <ul class="cat-first-level menu-mobile" role="tree">
-                                        <li class="new-brand-item cat_new_brand firstLevel trigger-close" role="treeitem" data-id="new">
-                                            <svg class="icon-medium hide-for-xlarge">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-new-mobile"></use></svg>
-                                            <a title="الصفحة الرئيسية" data-content="الصفحة الرئيسية" href="Home.aspx">الصفحة الرئيسية</a>
-                                        </li>
-                                        <li class="cat_1691 firstLevel" data-id="2718" role="treeitem">
-                                            <svg class="icon-medium hide-for-xlarge">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2718"></use></svg>
-                                            <a href="Items.aspx" data-content="المنتجات" class="">المنتجات</a>
-                                            <div class="submenu-wrapper">
-                                                <div class="left-zone">
-                                                    <ul class="cat-second-level ul-2718" data-content="المنتجات">
-                                                        <li class="cat_2698 active" data-id="2698">
-                                                            <a href="#">السيراميك الحمام</a>
-                                                            <div class="right-zone show-for-xlarge">
-                                                                <ul class="cat-third-level" data-content="السيراميك الحمام">
-                                                                    <li class="cat_1458"><a href="#">أحواض غسل</a></li>
-                                                                    <li class="cat_1463"><a href="#">مراحيض</a></li>
-                                                                    <li class="cat_1465"><a href="#">شطافات</a></li>
-                                                                    <li class="cat_1471"><a href="#">حوض اليد</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="cat_2711" data-id="2711">
-                                                            <a href="#">الاستحمام وأحواض الاستحمام</a>
-                                                            <div class="right-zone show-for-xlarge">
-                                                                <ul class="cat-third-level" data-content="الاستحمام وأحواض الاستحمام">
-                                                                    <li class="cat_769"><a href="Home.aspx">بانيوهات</a></li>
-                                                                    <li class="cat_1459"><a href="#">بانيوهات قدم</a></li>
-                                                                    <li class="cat_1460"><a href="#">كبائن الاستحمام</a></li>
-                                                                    <li class="cat_1461"><a href="#">أعمدة الدش</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="cat_1691 firstLevel" data-id="1390" role="treeitem">
-                                            <svg class="icon-medium hide-for-xlarge">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-1390"></use></svg>
-                                            <a title="الفئات" href="Categories.aspx" data-content="الفئات">الفئات</a>
-                                        </li>
-                                        <li class="cat_1691 firstLevel" data-id="1390" role="treeitem">
-                                            <svg class="icon-medium hide-for-xlarge">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-1390"></use></svg>
-                                            <a title="العلامات التجارية" href="Brands.aspx" data-content="العلامات التجارية">العلامات التجارية</a>
-                                        </li>
-                                        <li class="cat_1691 firstLevel" data-id="2719" role="treeitem">
-                                            <svg class="icon-medium hide-for-xlarge">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2719"></use></svg>
-                                            <a title="اتصل بنا" href="Contact_Us.aspx" data-content="اتصل بنا">اتصل بنا</a>
-                                        </li>
-                                        <%--<li class="cat_1691 firstLevel" data-id="2719" role="treeitem">
+                                        <div class="hide-for-large" id="showSearch">
+                                            <svg class="icon-medium">
+                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search"></use></svg>
+                                            Search...
+                                        </div>
+                                        <nav class="_menu-categories menu-categories main-menu grid-x grid-padding-x align-justify">
+                                            <ul class="cat-first-level menu-mobile" role="tree">
+                                                <li class="new-brand-item cat_new_brand firstLevel trigger-close" role="treeitem" data-id="new">
+                                                    <svg class="icon-medium hide-for-xlarge">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-new-mobile"></use></svg>
+                                                    <a title="<%=Resources.Resource.Home%>" data-content="<%=Resources.Resource.Home%>" href="Home.aspx"><%=Resources.Resource.Home%></a>
+                                                </li>
+                                                <li class="cat_1691 firstLevel" data-id="2718" role="treeitem">
+                                                    <svg class="icon-medium hide-for-xlarge">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2718"></use></svg>
+                                                    <a href="Items.aspx" data-content="<%=Resources.Resource.Items%>" class=""><%=Resources.Resource.Items%></a>
+                                                    <div class="submenu-wrapper">
+                                                        <div class="left-zone">
+                                                            <ul class="cat-second-level ul-2718" data-content="<%=Resources.Resource.Items%>">
+                                                                <li class="cat_2698 active" data-id="2698">
+                                                                    <a href="#">السيراميك الحمام</a>
+                                                                    <div class="right-zone show-for-xlarge">
+                                                                        <ul class="cat-third-level" data-content="السيراميك الحمام">
+                                                                            <li class="cat_1458"><a href="#">أحواض غسل</a></li>
+                                                                            <li class="cat_1463"><a href="#">مراحيض</a></li>
+                                                                            <li class="cat_1465"><a href="#">شطافات</a></li>
+                                                                            <li class="cat_1471"><a href="#">حوض اليد</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="cat_2711" data-id="2711">
+                                                                    <a href="#">الاستحمام وأحواض الاستحمام</a>
+                                                                    <div class="right-zone show-for-xlarge">
+                                                                        <ul class="cat-third-level" data-content="الاستحمام وأحواض الاستحمام">
+                                                                            <li class="cat_769"><a href="Home.aspx">بانيوهات</a></li>
+                                                                            <li class="cat_1459"><a href="#">بانيوهات قدم</a></li>
+                                                                            <li class="cat_1460"><a href="#">كبائن الاستحمام</a></li>
+                                                                            <li class="cat_1461"><a href="#">أعمدة الدش</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="cat_1691 firstLevel" data-id="1390" role="treeitem">
+                                                    <svg class="icon-medium hide-for-xlarge">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-1390"></use></svg>
+                                                    <a title="<%=Resources.Resource.Categories%>" href="Categories.aspx" data-content="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
+                                                </li>
+                                                <li class="cat_1691 firstLevel" data-id="1390" role="treeitem">
+                                                    <svg class="icon-medium hide-for-xlarge">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-1390"></use></svg>
+                                                    <a title="<%=Resources.Resource.Brands%>" href="Brands.aspx" data-content="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
+                                                </li>
+                                                <li class="cat_1691 firstLevel" data-id="2719" role="treeitem">
+                                                    <svg class="icon-medium hide-for-xlarge">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2719"></use></svg>
+                                                    <a title="<%=Resources.Resource.ContactUs%>" href="Contact_Us.aspx" data-content="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
+                                                </li>
+                                                <%--<li class="cat_1691 firstLevel" data-id="2719" role="treeitem">
                                             <svg class="icon-medium hide-for-xlarge">
                                                 <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2719"></use></svg>
                                             <a title="معلومات عنا" href="#" data-content="معلومات عنا">معلومات عنا</a>
                                         </li>--%>
-                                    </ul>
-                                </nav>
-                                <div class="mega-dropdown-overlay show-for-xlarge"></div>
+                                            </ul>
+                                        </nav>
+                                        <div class="mega-dropdown-overlay show-for-xlarge"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
-        <asp:Label Text="" ID="lblRes" runat="server" />
-        <div class="subfooter-social">
-            <div class="grid-container">
-                <div class="grid-x">
-                    <div class="small-12 cell footer-social-bar margin-bottom-0">
-                        <a href="#" target="_blank" rel="noopener" title="كـيـان الــدره على فيسبوك">
-                            <svg class="icon">
-                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-facebook"></use></svg></a>
-                        <a href="#" target="_blank" rel="noopener" title="كـيـان الــدره على انستجرام">
-                            <svg class="icon">
-                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-instagram"></use></svg></a>
-                        <%--<a href="#" target="_blank" rel="noopener" title="Archiproducts on Pinterest">
+                <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+                <asp:Label Text="" ID="lblRes" runat="server" />
+                <div class="subfooter-social">
+                    <div class="grid-container">
+                        <div class="grid-x">
+                            <div class="small-12 cell footer-social-bar margin-bottom-0">
+                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KianAlDoraOnFacebook%>">
+                                    <svg class="icon">
+                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-facebook"></use></svg></a>
+                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KianAlDoraOnInstagram%>">
+                                    <svg class="icon">
+                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-instagram"></use></svg></a>
+                                <%--<a href="#" target="_blank" rel="noopener" title="Archiproducts on Pinterest">
                             <svg class="icon">
                                 <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-pinterest"></use></svg></a>--%>
-                        <a href="#" target="_blank" rel="noopener" title="كـيـان الــدره على تويتر">
-                            <svg class="icon">
-                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-twitter-x"></use></svg></a>
-                        <a href="#" target="_blank" rel="noopener" title="كـيـان الــدره على يوتيوب">
-                            <svg class="icon">
-                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-youtube"></use></svg></a>
+                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KianAlDoraOnX%>">
+                                    <svg class="icon">
+                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-twitter-x"></use></svg></a>
+                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KianAlDoraOnYoutube%>">
+                                    <svg class="icon">
+                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-youtube"></use></svg></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div id="subscription-dialog-container" class="reveal reveal-autosize" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog"></div>
-        <footer class="footer">
-            <div class="grid-container">
-                <div class="grid-x small-collapse medium-uncollapse">
-                    <div class="small-12 medium-6 large-5 cell">
-                        <ul class="footer-accordion accordion">
-                            <li class="accordion-item close-for-mobile">
-                                <a class="accordion-title">
-                                    <span>كـيـان الــدره</span>
-                                </a>
-                                <div class="accordion-content margin-left-2">
-                                    <p class="p-text margin-left-4">
-                                        لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="small-12 medium-6 large-3 cell">
-                        <ul class="footer-accordion accordion">
-                            <li class="accordion-item close-for-mobile">
-                                <a class="accordion-title">
-                                    <span>معلومات الصفحات</span>
-                                </a>
-                                <div class="accordion-content">
-                                    <ul class="vertical menu docs-nav">
-                                        <li>
-                                            <a href="Home.aspx" title="الصفحة الرئيسية">الصفحة الرئيسية</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="المنتجات">المنتجات</a>
-                                        </li>
-                                        <li>
-                                            <a href="Categories.aspx" title="الفئات">الفئات</a>
-                                        </li>
-                                        <li>
-                                            <a href="Brands.aspx" title="العلامات التجارية">العلامات التجارية</a>
-                                        </li>
-                                        <li>
-                                            <a href="Contact_Us.aspx" title="اتصل بنا">اتصل بنا</a>
-                                        </li>
-                                        <%--<li>
+                <div id="subscription-dialog-container" class="reveal reveal-autosize" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog"></div>
+                <footer class="footer">
+                    <div class="grid-container">
+                        <div class="grid-x small-collapse medium-uncollapse">
+                            <div class="small-12 medium-6 large-5 cell">
+                                <ul class="footer-accordion accordion">
+                                    <li class="accordion-item close-for-mobile">
+                                        <a class="accordion-title">
+                                            <span><%=Resources.Resource.KianAlDora%></span>
+                                        </a>
+                                        <div class="accordion-content margin-right-2">
+                                            <p class="p-text margin-right-4">
+                                                لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="small-12 medium-6 large-3 cell">
+                                <ul class="footer-accordion accordion">
+                                    <li class="accordion-item close-for-mobile">
+                                        <a class="accordion-title">
+                                            <span><%=Resources.Resource.PagesInfo%></span>
+                                        </a>
+                                        <div class="accordion-content">
+                                            <ul class="vertical menu docs-nav">
+                                                <li>
+                                                    <a href="Home.aspx" title="<%=Resources.Resource.Home%>"><%=Resources.Resource.Home%></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" title="<%=Resources.Resource.Items%>"><%=Resources.Resource.Items%></a>
+                                                </li>
+                                                <li>
+                                                    <a href="Categories.aspx" title="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
+                                                </li>
+                                                <li>
+                                                    <a href="Brands.aspx" title="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
+                                                </li>
+                                                <li>
+                                                    <a href="Contact_Us.aspx" title="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
+                                                </li>
+                                                <%--<li>
                                             <a href="#" title="معلومات عنا">معلومات عنا</a>
                                         </li>--%>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="small-12 medium-6 large-4 cell">
+                                <ul class="footer-accordion accordion">
+                                    <li class="accordion-item close-for-mobile">
+                                        <a class="accordion-title accordion-title-brands">
+                                            <span><%=Resources.Resource.ContactUs%></span>
+                                        </a>
+                                        <div class="accordion-content">
+                                            <ul class="vertical menu docs-nav">
+                                                <li>
+                                                    <div class="info-media">
+                                                        <div class="media-icon">
+                                                            <i class="fa fa-map-location-dot"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <p class="info-text">25 شارع سيد درويش, القاهرة, مصر</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="info-media">
+                                                        <div class="media-icon">
+                                                            <i class="fa fa-phone"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <p class="info-text">
+                                                                <a href="tel:+20123456789">+20 123 456 7890</a>
+                                                            </p>
+                                                            <p class="info-text">
+                                                                <a href="tel:+20123456789">+20 198 765 4321</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="info-media">
+                                                        <div class="media-icon">
+                                                            <i class="fa-regular fa-envelope"></i>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <p class="info-text">
+                                                                <a href="mailto:info@info.com">info@info.com</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="accordion-item close-for-mobile">
+                                        <a class="accordion-title">
+                                            <span><%=Resources.Resource.ForInquiriesPleaseContactUs%> :</span>
+                                        </a>
+                                        <div class="accordion-content">
+                                            <a class="apx-amb" href="https://wa.me/+0123456789" target="_blank" title="<%=Resources.Resource.ContactUsViaWhatsApp%>">
+                                                <i class="fab fa-whatsapp fa-lg"></i>
+                                                <span><%=Resources.Resource.ContactUsViaWhatsApp%></span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="small-12 medium-6 large-4 cell">
-                        <ul class="footer-accordion accordion">
-                            <li class="accordion-item close-for-mobile">
-                                <a class="accordion-title accordion-title-brands">
-                                    <span>اتصل بنا</span>
-                                </a>
-                                <div class="accordion-content">
-                                    <ul class="vertical menu docs-nav">
-                                        <li>
-                                            <div class="info-media">
-                                                <div class="media-icon">
-                                                    <i class="fa fa-map-location-dot"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="info-text">25 شارع سيد درويش, القاهرة, مصر</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="info-media">
-                                                <div class="media-icon">
-                                                    <i class="fa fa-phone"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="info-text">
-                                                        <a href="tel:+20123456789">+20 123 456 7890</a>
-                                                    </p>
-                                                    <p class="info-text">
-                                                        <a href="tel:+20123456789">+20 198 765 4321</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="info-media">
-                                                <div class="media-icon">
-                                                    <i class="fa-regular fa-envelope"></i>
-                                                </div>
-                                                <div class="media-body">
-                                                    <p class="info-text">
-                                                        <a href="mailto:info@info.com">info@info.com</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="accordion-item close-for-mobile">
-                                <a class="accordion-title">
-                                    <span>للاستفسارات يرجى التواصل :</span>
-                                </a>
-                                <div class="accordion-content">
-                                    <a class="apx-amb" href="https://wa.me/+0123456789" target="_blank" title="تواصل معنا عن طريق واتساب">
-                                        <i class="fab fa-whatsapp fa-lg"></i>
-                                        <span>تواصل معنا عن طريق واتساب</span>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+                </footer>
+                <div class="footer-disclaimer">
+                    <div class="grid-container">
+                        <div class="grid-x">
+                            <div class="large-12 cell text-center medium-text-center" style="color: #9c9c9c;">
+                                <%=Resources.Resource.KianAlDora%> © 2023 - <%=Resources.Resource.AllCopyrightsReserved%>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <div class="footer-disclaimer">
-            <div class="grid-container">
-                <div class="grid-x">
-                    <div class="large-12 cell text-center medium-text-center" style="color: #9c9c9c;">
-                        كـيـان الــدره © 2023 - جميع الحقوق محفوظة
-                    </div>
+                <span class="slide-up-icon" id="back_to_top" style="visibility: hidden">
+                    <svg class="icon-large">
+                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-arrow-slide-up"></use></svg></span>
+                <div id="modal" class="reveal" data-reveal>
+                    <div class="_modalApp"></div>
                 </div>
-            </div>
-        </div>
-        <span class="slide-up-icon" id="back_to_top" style="visibility: hidden">
-            <svg class="icon-large">
-                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-arrow-slide-up"></use></svg></span>
-        <div id="modal" class="reveal" data-reveal>
-            <div class="_modalApp"></div>
-        </div>
-        <div id="invitation-subscription-dialog-container" class="reveal reveal-autosize" data-reveal aria-labelledby="Newsletter Subscription" aria-hidden="true" role="dialog"></div>
-        <div id="newsletter-footer-recaptcha-placeholder" class="recaptcha-placeholder"></div>
-        <div id="newsletter-dialog-recaptcha-placeholder" class="recaptcha-placeholder"></div>
+                <div id="invitation-subscription-dialog-container" class="reveal reveal-autosize" data-reveal aria-labelledby="Newsletter Subscription" aria-hidden="true" role="dialog"></div>
+                <div id="newsletter-footer-recaptcha-placeholder" class="recaptcha-placeholder"></div>
+                <div id="newsletter-dialog-recaptcha-placeholder" class="recaptcha-placeholder"></div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </form>
 </body>
 <script src="js/jquery-min.js"></script>

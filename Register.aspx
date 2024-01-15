@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>كـيـان الــدره</title>
+    <title><%=Resources.Resource.KianAlDora%></title>
     <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" />
     <link href="fontawesome-6.1.0/css/all.min.css" rel="stylesheet" />
-    <link href="css/ar/above.min.css" rel="stylesheet" />
-    <link href="css/ar/bottom.min.css" rel="stylesheet" />
-    <link href="css/ar/arabo.min.css" rel="stylesheet" />
-    <link href="css/ar/login-css.css" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/above.min.css") %>" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/bottom.min.css") %>" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/custom.min.css") %>" rel="stylesheet" />
+    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/login-css.css") %>" rel="stylesheet" />
 </head>
 <body>
     <form id="mainFRM" runat="server" autocomplete="off" enctype="multipart/form-data">
@@ -37,12 +37,12 @@
                                 <div class="form-title margin-bottom-3">
                                     <div class="top-bar margin-bottom-1">
                                         <a href="Home.aspx">
-                                            <h1 class="logo-header logo-large margin-0">كـيـان الــدره</h1>
+                                            <h1 class="logo-header logo-large margin-0"><%=Resources.Resource.KianAlDora%></h1>
                                             <%--<img src="/images/logo-archiproducts.png" srcset="/images/logo-archiproducts@2x.png" alt="Archiproducts Logo" width="200" height="35" class="logo">--%>
                                         </a>
                                     </div>
                                     <h2> 
-                                        <asp:Label ID="lblTitle" Text="إنشاء حساب جديد" runat="server" />  
+                                        <asp:Label ID="lblTitle" Text="<%$Resources:Resource, SignUp %>" runat="server" />  
                                     </h2>
                                     <asp:ValidationSummary CssClass="ValidationSummary" ID="vsUsers" DisplayMode="BulletList" ValidationGroup="vUser" EnableClientScript="true" runat="server" />
                                     <asp:UpdateProgress ID="upgg" runat="server" AssociatedUpdatePanelID="UP">
@@ -58,7 +58,7 @@
                                 <div class="mt-3">
                                     <div class="textfield margin-bottom-2">
                                         <asp:TextBox ID="txtName" runat="server" MaxLength="50"></asp:TextBox>
-                                        <label>الاسم *</label>
+                                        <label><%=Resources.Resource.NameOrTitle%> *</label>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="vUser" ControlToValidate="txtName"
                                             ErrorMessage="Please Enter Your Name" CssClass="valid-inp" Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="textfield margin-bottom-2">
                                         <asp:TextBox ID="txtEmail" runat="server" MaxLength="100"></asp:TextBox>
-                                        <label>البريد الالكتروني *</label>
+                                        <label><%=Resources.Resource.Email%> *</label>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtEmail"
                                             CssClass="valid-inp" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
                                             Display="Dynamic" ErrorMessage="Invalid Email" ValidationGroup="vUser" />
@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="textfield margin-bottom-2">
                                         <asp:TextBox ID="txtMobile" runat="server" MaxLength="50"></asp:TextBox>
-                                        <label>الموبايل *</label>
+                                        <label><%=Resources.Resource.Mobile%> *</label>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="vUser"
                                             Text="أدخل رقم الموبايل" ControlToValidate="txtMobile"
                                             runat="server" ErrorMessage="أدخل رقم الموبايل" Display="Dynamic"
@@ -91,7 +91,7 @@
                                     </div>
                                     <div class="textfield margin-bottom-2">
                                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" MaxLength="50"></asp:TextBox>
-                                        <label>كلمة المرور *</label>
+                                        <label><%=Resources.Resource.Password%> *</label>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="vUser" ControlToValidate="txtPassword"
                                             ErrorMessage="Please Enter Your Password" CssClass="valid-inp" Display="Dynamic"></asp:RequiredFieldValidator>
                                         <asp:CompareValidator ControlToCompare="txtPassword" Display="Dynamic"
@@ -100,17 +100,17 @@
                                     </div>
                                     <div class="textfield margin-bottom-2">
                                         <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" MaxLength="50"></asp:TextBox>
-                                        <label>تأكيد كلمة المرور *</label>
+                                        <label><%=Resources.Resource.ConfirmPassword%> *</label>
                                         <asp:RequiredFieldValidator ID="rfvConfirmPassword" ValidationGroup="vUser" Text="Confirm Password" ControlToValidate="txtConfirmPassword"
                                             runat="server" ErrorMessage="Confirm Password" Display="Dynamic" CssClass="valid-inp"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-md-12 col-xs-12 col-sm-12 p-0 margin-bottom-1">
                                         <asp:Button ID="btnRegister" runat="server" CssClass="button small success expanded"
-                                            Text="إنشاء حساب جديد" ValidationGroup="vUser" CommandArgument="Add"
+                                            Text="<%$Resources:Resource, SignUp %>" ValidationGroup="vUser" CommandArgument="Add"
                                             UseSubmitBehavior="false" OnClick="Register" />
                                     </div>
                                     <div class="form-group" runat="server" id="pnlLogin">
-                                        <p class="or-seperator">هل لديك حساب ؟<a href="Login.aspx"> تسجيل الدخول</a></p>
+                                        <p class="or-seperator"><%=Resources.Resource.DoYouHaveAnAccount%><a href="Login.aspx"> <%=Resources.Resource.SignIn%></a></p>
                                     </div>
                                 </div>
                             </div>

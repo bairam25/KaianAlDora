@@ -23,7 +23,7 @@ Partial Class Master
             UserId = PublicFunctions.GetRegisteredUserId()
             CheckLogin()
             If Not Page.IsPostBack Then
-
+                setLangText(clsLang.GetLang)
             End If
         Catch ex As Exception
             ShowMessage(lblRes, MessageTypesEnum.ERR, Page, ex)
@@ -77,6 +77,50 @@ Partial Class Master
             Next
             Response.Redirect(PublicFunctions.ServerURL & "/Home.aspx", False)
         End If
+    End Sub
+#End Region
+
+#Region "Language"
+    Protected Sub ChangeLanguage(sender As Object, e As EventArgs)
+        Dim lang As String = sender.CommandArgument
+        Try
+            If CreateLangCookie(lang) Then
+                setLangText(lang)
+            End If
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+        clsLang.LangRedirect(lang)
+    End Sub
+    Private Function CreateLangCookie(ByRef Lang As String) As Boolean
+        Try
+            Dim userCookie As HttpCookie = New HttpCookie("KianLang")
+            userCookie("Lang") = Lang
+            userCookie.Expires = Today.AddDays(30)
+            Response.Cookies.Add(userCookie)
+            Return True
+        Catch ex As Exception
+            Return False
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+    End Function
+    Sub setLangText(ByVal lang As String)
+        Try
+            Select Case lang
+                Case "ar-EG"
+                    lbEnLang.Visible = True
+                    lbArLang.Visible = False
+
+                    'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "LangMain1", "ChangeLang('" + lang + "');", True)
+                Case "en-gb"
+                    lbEnLang.Visible = False
+                    lbArLang.Visible = True
+
+                    ' ScriptManager.RegisterStartupScript(Me, Me.GetType(), "LangMain1", "ChangeLang('" + lang + "');", True)
+            End Select
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
     End Sub
 #End Region
 End Class

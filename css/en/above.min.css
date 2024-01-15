@@ -5314,7 +5314,7 @@ cite {
 
     .cite-block:before,
     cite:before {
-        content: "— "
+        content: "Ã¢â‚¬â€ "
     }
 
 .code-inline,
@@ -6719,7 +6719,7 @@ select:not([multiple]) {
 }
 
 .is-active > .accordion-title::before {
-    content: "–"
+    content: "Ã¢â‚¬â€œ"
 }
 
 .accordion-content {
@@ -6926,7 +6926,7 @@ select:not([multiple]) {
             position: relative;
             margin: 0 .5rem;
             opacity: 1;
-            content: "/";
+            content: "â€º" !important;
             color: #cacaca
         }
 
@@ -8482,8 +8482,8 @@ select:not([multiple]) {
 
 .dropdown.menu > li.opens-left > .is-dropdown-submenu {
     top: 100%;
-    right: 0;
-    left: auto
+    left: 0;
+    right: auto;
 }
 
 .dropdown.menu > li.opens-right > .is-dropdown-submenu {
@@ -8936,6 +8936,10 @@ select:not([multiple]) {
 .dropdown .is-dropdown-submenu a {
     padding: .7rem 1rem
 }
+
+    .dropdown .is-dropdown-submenu a:hover {
+        background-color: #eee;
+    }
 
 .is-dropdown-submenu .is-dropdown-submenu-parent > a::after {
     right: 14px
@@ -9877,7 +9881,7 @@ select:not([multiple]) {
 
 .pagination .ellipsis::after {
     padding: .1875rem .625rem;
-    content: "…";
+    content: "Ã¢â‚¬Â¦";
     color: #0a0a0a
 }
 
@@ -9885,7 +9889,7 @@ select:not([multiple]) {
 .pagination-previous.disabled::before {
     display: inline-block;
     margin-right: .5rem;
-    content: "«"
+    content: "Ã‚Â«"
 }
 
 .pagination-next a::after,
@@ -12861,7 +12865,7 @@ hr.bordered {
     height: 2.9rem;
     box-sizing: border-box !important;
     background-color: #f7f8fa;
-    padding: .4rem .4rem .4rem 1rem;
+    padding: .4rem 1rem .4rem .4rem;
     color: #777;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -15120,7 +15124,7 @@ nav.main-menu .submenu-wrapper {
                 }
 
                     nav.main-menu .submenu-wrapper .left-zone .right-zone .current-brand li:last-child:after {
-                        content: "›";
+                        content: "Ã¢â‚¬Âº";
                         margin-left: 5px
                     }
 
@@ -16429,6 +16433,10 @@ svg[class*=icon] {
     }
 }
 
+.product.no-overlay > a::before {
+    display: none;
+}
+
 .product > a .cont-image {
     border: none;
     position: relative;
@@ -16502,7 +16510,7 @@ svg[class*=icon] {
 
 @media print, screen and (max-width: 39.99875em) {
     .product > a .cont-image .sayDuck3d:after {
-        content: " · "
+        content: " Ã‚Â· "
     }
 }
 
@@ -17304,7 +17312,7 @@ svg[class*=icon] {
 }
 
 .utils-bottom .fk-tooltip span + span:before {
-    content: "• "
+    content: "Ã¢â‚¬Â¢ "
 }
 
 .utils-bottom .features-3d {
@@ -17459,7 +17467,7 @@ svg[class*=icon] {
     }
 
     .product-shop-button:after {
-        content: "›";
+        content: "Ã¢â‚¬Âº";
         margin-left: 5px
     }
 
@@ -17525,7 +17533,7 @@ svg[class*=icon] {
     }
 
         .breadcrumbs li:not(:last-child)::after {
-            content: "›";
+            content: "Ã¢â‚¬Âº";
             font-size: 1.2rem;
             line-height: 0
         }
@@ -23518,8 +23526,11 @@ html.is-reveal-open body {
         text-align: center;
         line-height: 54px;
         border-radius: 50%;
-        /*border: 10px solid var(--smoke-theme);*/
+        border: 10px solid #ededed;
         margin-right: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 .media-body {
@@ -24328,6 +24339,10 @@ body:not(.category-a) .product.categories-new + a h2 span {
 
 .text-white {
     color: #fff;
+}
+
+.no-bg {
+    background-color: unset !important;
 }
 
 .logo-header {
