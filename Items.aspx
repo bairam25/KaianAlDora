@@ -492,86 +492,65 @@
                         <div class="accordion filter" data-multi-expand="true" data-allow-all-closed="true">
                             <div class="hide-for-small-only">
                             </div>
-                            <div class="panel-group">
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <a data-toggle="collapse" href="#collapseOne"><%=Resources.Resource.Categories%>
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse show" aria-expanded="true" style="">
-                                        <div class="panel-body custom-scroll">
-                                            <ul class="filterList">
-                                                <asp:ListView ID="lvCategories" runat="server" ClientIDMode="AutoID">
-                                                    <ItemTemplate>
-                                                        <li>
-                                                            <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("Category").ToString %>' Style="display: none"></asp:Label>
-                                                            <asp:CheckBox ID="chkCategory" runat="server" Text='<%# Eval("CategoryName").ToString %>' CssClass="font-weight-bold" AutoPostBack="true" OnCheckedChanged="CheckCategory" />
-                                                        </li>
-                                                    </ItemTemplate>
-                                                </asp:ListView>
-                                            </ul>
-                                        </div>
-                                    </div>
+                            <div class="accordion-item is-active">
+                                <a class="accordion-title">
+                                    <h2><b><%=Resources.Resource.Categories%></b></h2>
+                                </a>
+                                <div class="accordion-content" style="display: block">
+                                    <section class="categories-view ">
+                                        <ul class="vertical menu">
+                                            <asp:ListView ID="lvCategories" runat="server" ClientIDMode="AutoID">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("Category").ToString %>' Style="display: none"></asp:Label>
+                                                        <asp:CheckBox ID="chkCategory" runat="server" Text='<%# Eval("CategoryName").ToString %>' AutoPostBack="true" OnCheckedChanged="CheckCategory" />
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:ListView>
+                                        </ul>
+                                    </section>
                                 </div>
                             </div>
-                            <div class="clearfix"></div>
-                            <asp:Panel ID="pnlSubCategory" runat="server" Visible="false">
-                                <div class="panel-group">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h5 class="panel-title">
-                                                <a data-toggle="collapse" href="#collapseSubCategory" aria-expanded="true"><%=Resources.Resource.SubCategories%>
-                                                </a>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseSubCategory" class="panel-collapse collapse show">
-                                            <div class="panel-body custom-scroll">
-                                                <ul class="filterList">
-                                                    <asp:Label ID="lblSubCategories" runat="server" Visible="false"></asp:Label>
-                                                    <asp:ListView ID="lvSubCategory" runat="server" ClientIDMode="AutoID">
-                                                        <ItemTemplate>
-                                                            <li>
-                                                                <asp:CheckBox ID="chkSubCategory" runat="server" Text='<%# Eval("SubCategoryName").ToString %>' AutoPostBack="true" OnCheckedChanged="FillItems" />
-                                                                <asp:Label ID="lblSubCategory" runat="server" Text='<%# Eval("SubCategory").ToString %>' Style="display: none"></asp:Label>
-                                                                <asp:Label ID="lblCatSubCategory" runat="server" Text='<%# Eval("CatSubCatName").ToString.Trim %>' Style="display: none"></asp:Label>
-                                                            </li>
-                                                        </ItemTemplate>
-                                                    </asp:ListView>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <asp:Panel ID="pnlSubCategory" runat="server" CssClass="accordion-item is-active" Visible="false">
+                                <a class="accordion-title">
+                                    <h2><b><%=Resources.Resource.SubCategories%></b></h2>
+                                </a>
+                                <div class="accordion-content" style="display: block">
+                                    <section class="categories-view ">
+                                        <ul class="vertical menu">
+                                            <asp:Label ID="lblSubCategories" runat="server" Visible="false"></asp:Label>
+                                            <asp:ListView ID="lvSubCategory" runat="server" ClientIDMode="AutoID">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:CheckBox ID="chkSubCategory" runat="server" Text='<%# Eval("SubCategoryName").ToString %>' AutoPostBack="true" OnCheckedChanged="FillItems" />
+                                                        <asp:Label ID="lblSubCategory" runat="server" Text='<%# Eval("SubCategory").ToString %>' Style="display: none"></asp:Label>
+                                                        <asp:Label ID="lblCatSubCategory" runat="server" Text='<%# Eval("CatSubCatName").ToString.Trim %>' Style="display: none"></asp:Label>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:ListView>
+                                        </ul>
+                                    </section>
                                 </div>
                             </asp:Panel>
-                            <div class="clearfix"></div>
-                            <div class="panel-group">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">
-                                            <a data-toggle="collapse" href="#collapseBrand" aria-expanded="true"><%=Resources.Resource.Brands%>
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div id="collapseBrand" class="panel-collapse collapse show">
-                                        <div class="panel-body custom-scroll">
-                                            <ul class="filterList">
-                                                <asp:ListView ID="lvBrand" runat="server" ClientIDMode="AutoID">
-                                                    <ItemTemplate>
-                                                        <li>
-                                                            <asp:CheckBox ID="chkBrand" runat="server" CssClass="font-weight-bold" Text='<%# Eval("BrandName").ToString %>' AutoPostBack="true" OnCheckedChanged="CheckBrand" />
-                                                            <asp:Label ID="lblBrand" runat="server" Text='<%# Eval("Brand").ToString %>' Style="display: none"></asp:Label>
-                                                        </li>
-                                                    </ItemTemplate>
-                                                </asp:ListView>
-                                            </ul>
-                                        </div>
-                                    </div>
+                            <div class="accordion-item is-active">
+                                <a class="accordion-title">
+                                    <h2><b><%=Resources.Resource.Brands%></b></h2>
+                                </a>
+                                <div class="accordion-content" style="display: block">
+                                    <section class="categories-view ">
+                                        <ul class="vertical menu">
+                                            <asp:ListView ID="lvBrand" runat="server" ClientIDMode="AutoID">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:CheckBox ID="chkBrand" runat="server" Text='<%# Eval("BrandName").ToString %>' AutoPostBack="true" OnCheckedChanged="CheckBrand" />
+                                                        <asp:Label ID="lblBrand" runat="server" Text='<%# Eval("Brand").ToString %>' Style="display: none"></asp:Label>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:ListView>
+                                        </ul>
+                                    </section>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
