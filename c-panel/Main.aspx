@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Main.aspx.vb" Inherits="c_panel_Main" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <meta charset="utf-8">
@@ -11,7 +10,7 @@
     <meta name="description" content="your company is an...">
 
     <title>KIAN</title>
-    <link rel="shortcut icon" href="../images/logo/favi.png">
+    <link rel="shortcut icon" href="../images/favicons/favicon-32x32.png">
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -59,11 +58,11 @@
                     <i class="ti-fullscreen"></i>
                 </a>
                 <div class="logo-title">
-                    <h1>
-                        <a href="#">Kian</a>
-                        <a href="#">
-                            <%--<span>وحدة التحكم في بيانات الموقع</span>--%>
-                        </a>
+                    <h1 class="d-flex align-items-center">
+                        <a href="#">Kian Al-Dora</a>
+                        <%--<a href="#">
+                            <span>وحدة التحكم في بيانات الموقع</span>
+                        </a>--%>
                     </h1>
                 </div>
                
@@ -109,10 +108,15 @@
                 <div class="sidebar-content">
                     <ul class="navigation" id="UlMenu" runat="server">
                         <li>
-                            <a href="items.aspx" onclick ="LoadFrame(this);return false;" ><span>المنتجات </span> <i class="" ></a>
+                            <a href="items.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-box"></i><span>المنتجات</span></a>
+                        </li>
+                        <li>
+                            <a href="Slider.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-sliders"></i><span>شريط التمرير</span></a>
+                        </li>
+                        <li>
+                            <a href="Settings.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-gears"></i><span>الاعدادات</span></a>
                         </li>
                     </ul>
-
                 </div>
             </div>
 
