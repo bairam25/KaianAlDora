@@ -8,8 +8,9 @@
 body {
     font-family: 'Roboto', sans-serif !important;
 }
-.p0{
-padding:0px !important;
+
+.p0 {
+    padding: 0px !important;
 }
 /* ========================================================== */
 /*   Navigation and Page Content
@@ -1106,12 +1107,12 @@ body.boxed {
     /*min-height: 225vh;*/
     position: relative;
     transition: 1s all ease;
-    height:100%;
+    height: 100%;
 }
 
 
 .sidebar-narrow .page-content {
-    margin-right: 65px;
+    margin-left: 65px;
 }
 
 .sidebar-hidden .page-content {
@@ -1128,7 +1129,7 @@ body.boxed {
 
 .page-container {
     position: relative;
-    height:100%;
+    height: 100%;
 }
 
 /*===== Sidebar toggle button =====*/
@@ -1417,19 +1418,19 @@ body.boxed {
                 bottom: 0;
                 width: 1px;
                 background: rgba(0,0,0,0.04);
-                .navigation >
-                li ul li: before
+                .navigation > li ul li: before
 
 {
     content: "";
-                display: block;
-                position: absolute;
-                left: 19px;
-                top: 0;
-                bottom: 0;
-                width: 1px;
-                background: rgba(0,0,0,0.05);
+    display: block;
+    position: absolute;
+    left: 19px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(0,0,0,0.05);
 }
+
 }
 
 .navigation > li ul li:after {
@@ -2988,3 +2989,11 @@ span.site-footer-legal {
         font-size: 1.6rem;
         color: #746b6c;
     }
+
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}

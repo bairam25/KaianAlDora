@@ -6867,3 +6867,7 @@ a .price-barcode:hover {
         transition: all .2s ease-in-out;
     }
 /*End tbl-imgs*/
+
+.vertical-bottom {
+    vertical-align: bottom !important;
+}

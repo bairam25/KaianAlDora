@@ -300,27 +300,27 @@
                                                         </td>
                                                         <td>
                                                             <asp:Panel ID="pnlDetails" runat="server">
-                                                                <asp:LinkButton ID="lbDetails" runat="server" CommandArgument='<%# Eval("Id") %>' OnClick="Details"
-                                                                    ToolTip="Details"><i class="fa fa-copy btni-xxxs btn-info brd-50"></i> </asp:LinkButton>
+                                                                <asp:LinkButton ID="lbDetails" runat="server" CssClass="btni-xxxs btn-info brd-50" CommandArgument='<%# Eval("Id") %>' OnClick="Details"
+                                                                    ToolTip="Details"><i class="fa fa-copy"></i> </asp:LinkButton>
                                                             </asp:Panel>
                                                         </td>
                                                         <td>
                                                             <asp:Panel ID="pnlPreview" runat="server">
-                                                                <a href='<%# PublicFunctions.ServerURL + "Item/" + Eval("SKU") %>' target="_blank"><i class="fa fa-eye btni-xxxs btn-info brd-50"></i></a>
+                                                                <a class="btni-xxxs btn-info brd-50" href='<%# PublicFunctions.ServerURL + "Item/" + Eval("SKU") %>' target="_blank"><i class="fa fa-eye"></i></a>
                                                             </asp:Panel>
                                                         </td>
                                                         <td id="Edit" runat="server">
                                                             <asp:Panel ID="pnlEdit" runat="server">
-                                                                <asp:LinkButton ID="lbEdit" runat="server" CommandArgument='<%# Eval("Id") %>' OnClick="Edit"
-                                                                    ToolTip="Edit"><i class="fa fa-edit btni-xxxs btn-info brd-50"></i> </asp:LinkButton>
+                                                                <asp:LinkButton ID="lbEdit" runat="server" CssClass="btni-xxxs btn-info brd-50" CommandArgument='<%# Eval("Id") %>' OnClick="Edit"
+                                                                    ToolTip="Edit"><i class="fa fa-edit"></i> </asp:LinkButton>
                                                             </asp:Panel>
                                                         </td>
                                                         <td id="Delete" runat="server">
                                                             <asp:Panel ID="pnlDelete" runat="server">
 
-                                                                <a href="#" id="hrefDelete" title="Delete"
+                                                                <a href="#" id="hrefDelete" title="Delete" class="btni-xxxs btn-red brd-50"
                                                                     onclick="ShowConfirmPopup('<%# CType(Container, ListViewItem).FindControl("mpConfirmDelete").ClientID.ToString%>','<%# CType(Container, ListViewItem).FindControl("pnlConfirmExtenderDelete").ClientID.ToString%>');return false;">
-                                                                    <i class="fa fa-trash btni-xxxs btn-red brd-50"></i>
+                                                                    <i class="fa fa-trash"></i>
                                                                 </a>
                                                                 <asp:HiddenField ID="hfDelete" runat="server" />
                                                                 <asp:ModalPopupExtender ID="mpConfirmDelete" runat="server" PopupControlID="pnlConfirmExtenderDelete" TargetControlID="hfDelete"

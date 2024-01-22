@@ -108,7 +108,7 @@
                 <div class="sidebar-content">
                     <ul class="navigation" id="UlMenu" runat="server">
                         <li>
-                            <a href="items.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-box"></i><span>المنتجات</span></a>
+                            <a href="items.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-shopping-bag"></i><span>المنتجات</span></a>
                         </li>
                         <li>
                             <a href="Slider.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-sliders"></i><span>شريط التمرير</span></a>
@@ -124,7 +124,7 @@
             <!-- /sidebar -->
             <!--============================ Page-Content =============================-->
             <!-- Page content Start-->
-            <div class="page-content" style="overflow-x: hidden;">
+            <div class="page-content" style="overflow: hidden;">
                 <div class="container-fluid p0" style="height: 100%;">
 
                     <div class="row" style="height: 100%;">
