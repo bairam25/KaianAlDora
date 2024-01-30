@@ -13,6 +13,7 @@ Partial Class Home
 
             If Not Page.IsPostBack Then
                 FillSlider()
+                FillBrands()
             End If
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
@@ -24,6 +25,15 @@ Partial Class Home
             Dim dt As DataTable = DBContext.Getdatatable("Select * from tblslider where active='1' and ISNULL(isdeleted,0)=0")
             lvSlider.DataSource = dt
             lvSlider.DataBind()
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+    End Sub
+    Sub FillBrands()
+        Try
+            Dim dt As DataTable = DBContext.Getdatatable("select Id,LookupId,Value,Icon from tblLookupValue where isnull(isdeleted,0)=0 and lookupid = (select id from tblLookup where Type='Item Brand')")
+            rpBrands.DataSource = dt
+            rpBrands.DataBind()
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try

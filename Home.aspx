@@ -25,7 +25,7 @@
                 </ItemTemplate>
             </asp:Repeater>
 
-           <%-- <!-- Single Slide -->
+            <%-- <!-- Single Slide -->
             <div class="vs-hero-inner">
                 <div class="vs-hero-bg" data-bg-src="images/Cover.jpg">
                     <img src="images/Cover.jpg" alt="overlay">
@@ -207,118 +207,26 @@
             <div class="large-12 cell mt-xlarge">
                 <h1 class="text-center margin-top-3 margin-bottom-4"><%=Resources.Resource.Brands%></h1>
                 <div class="grid-x grid-padding-x grid-margin-y large-up-8 medium-up-4 small-up-2">
-                    <div class="cell _search-item" data-id="665064">
-                        <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                            <a class="_search-item-anchor" href="Brands.aspx">
-                                <div class="cont-image no-bg">
-                                    <div class="img-placeholder">
-                                        <picture>
-                                            <img src="images/brands/thumb2_Box-Docce-2B-14331610-log1.jpg" alt="2B" class="image-product"
-                                                width="300" height="225" loading="eager">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="cell _search-item" data-id="636346" data-tile-type="default">
-                        <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                            <a class="_search-item-anchor" href="Brands.aspx">
-                                <div class="cont-image no-bg">
-                                    <div class="img-placeholder">
-                                        <picture>
-                                            <img src="images/brands/thumb2_A-e-T-Italia-909ca965-log1.jpg" alt="A. e T. Italia"
-                                                class="image-product" width="300" height="225" loading="eager">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="cell _search-item" data-id="627842" data-tile-type="default">
-                        <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                            <a class="_search-item-anchor" href="Brands.aspx">
-                                <div class="cont-image no-bg">
-                                    <div class="img-placeholder">
-                                        <picture>
-                                            <img src="images/brands/thumb2_0b72e9f7-c59d-4442-8ade-7b3dc650be06-log1.jpg" alt="ABOUTWATER"
-                                                class="image-product" width="300" height="225" loading="eager">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="cell _search-item" data-id="444254" data-tile-type="default">
-                        <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                            <a class="_search-item-anchor" href="Brands.aspx">
-                                <div class="cont-image no-bg">
-                                    <div class="img-placeholder">
-                                        <picture>
-                                            <img src="images/brands/thumb2_CONSTRUPLAS-S-L-4e4df19b-log1.jpg" alt="Acquabella"
-                                                class="image-product" width="300" height="225" loading="eager">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="cell _search-item" data-id="610425" data-tile-type="default">
-                        <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                            <a class="_search-item-anchor" href="Brands.aspx">
-                                <div class="cont-image no-bg">
-                                    <div class="img-placeholder">
-                                        <picture>
-                                            <img src="images/brands/thumb2_ACQUAPAZZA-e6aa0444-log1.jpg" alt="acquapazza"
-                                                class="image-product" width="300" height="225" loading="eager">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="cell _search-item" data-id="610425" data-tile-type="default">
-                        <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                            <a class="_search-item-anchor" href="Brands.aspx">
-                                <div class="cont-image no-bg">
-                                    <div class="img-placeholder">
-                                        <picture>
-                                            <img src="images/brands/thumb2_ADIELLE-f3f3544f-log1.jpg" alt="ADL"
-                                                class="image-product" width="300" height="225" loading="eager">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="cell _search-item" data-id="610425" data-tile-type="default">
-                        <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                            <a class="_search-item-anchor" href="Brands.aspx">
-                                <div class="cont-image no-bg">
-                                    <div class="img-placeholder">
-                                        <picture>
-                                            <img src="images/brands/thumb2_Agape-5a45fcdf-log1.jpg" alt="Agape"
-                                                class="image-product" width="300" height="225" loading="eager">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="cell _search-item" data-id="610425" data-tile-type="default">
-                        <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                            <a class="_search-item-anchor" href="Brands.aspx">
-                                <div class="cont-image no-bg">
-                                    <div class="img-placeholder">
-                                        <picture>
-                                            <img src="images/brands/thumb2_Albatros-829789cd-log1.jpg" alt="Albatros"
-                                                class="image-product" width="300" height="225" loading="eager">
-                                        </picture>
-                                    </div>
-                                </div>
-                            </a>
-                        </figure>
-                    </div>
+                    <asp:Repeater runat="server" ID="rpBrands">
+                        <ItemTemplate>
+                            <div class="cell _search-item" data-id='<%# Eval("Id").ToString  %>' data-tile-type="default">
+                                <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
+                                    <a class="_search-item-anchor" href="Brands.aspx">
+                                        <div class="cont-image no-bg">
+                                            <div class="img-placeholder">
+                                                <picture>
+                                                    <img src='<%# Eval("Icon").ToString.Replace("~/", "") %>' alt='<%# Eval("Value").ToString  %>'
+                                                        class="image-product" width="300" height="225" loading="eager">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </figure>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+
                 </div>
             </div>
         </div>

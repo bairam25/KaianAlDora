@@ -125,4 +125,23 @@ Public Class WebService
 
 #End Region
 
+    <WebMethod()>
+    Public Function WishList(ByVal ItemId As String, ByVal Selected As Boolean) As Boolean
+        Try
+            If Val(ItemId) = 0 Then
+                Return False
+            End If
+            Dim UserId = PublicFunctions.GetUserId
+            Dim da As New TblWishListFactory
+            Dim res As Boolean = True
+            If Selected = False Then
+                res = DBContext.ExcuteQuery("Delete from TblWishList where UserId='" & UserId & "' and ItemId='" & ItemId & "'") > 0
+            Else
+                res = DBContext.ExcuteQuery("Insert into TblWishList(UserId,ItemId,CreatedOn) values ('" & UserId & "','" & ItemId & "',getDate())") > 0
+            End If
+            Return res
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 End Class

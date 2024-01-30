@@ -41,8 +41,8 @@
                                             <%--<img src="/images/logo-archiproducts.png" srcset="/images/logo-archiproducts@2x.png" alt="Archiproducts Logo" width="200" height="35" class="logo">--%>
                                         </a>
                                     </div>
-                                    <h2> 
-                                        <asp:Label ID="lblTitle" Text="<%$Resources:Resource, SignUp %>" runat="server" />  
+                                    <h2>
+                                        <asp:Label ID="lblTitle" Text="<%$Resources:Resource, SignUp %>" runat="server" />
                                     </h2>
                                     <asp:ValidationSummary CssClass="ValidationSummary" ID="vsUsers" DisplayMode="BulletList" ValidationGroup="vUser" EnableClientScript="true" runat="server" />
                                     <asp:UpdateProgress ID="upgg" runat="server" AssociatedUpdatePanelID="UP">
@@ -108,6 +108,8 @@
                                         <asp:Button ID="btnRegister" runat="server" CssClass="button small success expanded"
                                             Text="<%$Resources:Resource, SignUp %>" ValidationGroup="vUser" CommandArgument="Add"
                                             UseSubmitBehavior="false" OnClick="Register" />
+                                        <a href="Home.aspx" class="button small info expanded">Cancel</a>
+                                        
                                     </div>
                                     <div class="form-group" runat="server" id="pnlLogin">
                                         <p class="or-seperator"><%=Resources.Resource.DoYouHaveAnAccount%><a href="Login.aspx"> <%=Resources.Resource.SignIn%></a></p>
