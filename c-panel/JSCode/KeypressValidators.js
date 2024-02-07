@@ -45,7 +45,7 @@ function fnOnUpdateValidators() {
         var val = Page_Validators[i];
         var ctrl = document.getElementById(val.controltovalidate);
         if (ctrl != null && ctrl.style != null) {
-            if (document.getElementById(val.controltovalidate).value == "")
+            if (document.getElementById(val.controltovalidate).value == "" || document.getElementById(val.controltovalidate).value == "0")
                 ctrl.style.borderColor = '#d9534f';
             else
                 ctrl.style.borderColor = '';
