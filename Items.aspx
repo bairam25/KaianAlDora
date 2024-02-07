@@ -10,7 +10,6 @@
             <asp:Label ID="lblCheckedControl" runat="server" Visible="false"></asp:Label>
             <asp:Label ID="lblSearch" runat="server" Visible="false"></asp:Label>
             <asp:Label ID="lblSearchType" runat="server" Visible="false"></asp:Label>
-            <asp:Label ID="lblPage" runat="server" Visible="false"></asp:Label>
             <section class="cat_2718">
                 <div class="title-content-wrapper grid-container padding-top-1 padding-bottom-1">
                     <div class="grid-x grid-padding-x">
@@ -25,26 +24,57 @@
                     <div class="large-9 cell small-order-1 medium-order-2 mt-xlarge">
                         <div class="grid-x bar-option show-for-large" style="justify-content: flex-start; align-items: baseline">
                             <div style="display: flex; align-items: center; font-size: 15px">
-                                <span><strong>1,214 <%=Resources.Resource.Items%></strong></span>
+                                <span><strong><asp:label ID="lblItemsCount" runat ="server" ></asp:label> <%=Resources.Resource.Items%></strong></span>
                                 <div class="desktop-sortby d-flex">
                                     <span><%=Resources.Resource.SortBy%> :</span>
-                                    <ul class="dropdown menu float-right" data-dropdown-menu="5xiuen-dropdown-menu" role="menubar">
-                                        <li class="is-dropdown-submenu-parent opens-left">
-                                            <a href="#" class="button light padding-left-1 padding-right-2" role="menuitem" aria-haspopup="true"><%=Resources.Resource.[New]%></a>
-                                            <ul class="menu submenu is-dropdown-submenu first-sub vertical" role="menubar">
-                                                <li class="is-submenu-item is-dropdown-submenu-item"><a href="#" role="menuitem"><%=Resources.Resource.[New]%></a></li>
-                                                <li class="is-submenu-item is-dropdown-submenu-item"><a href="#" role="menuitem"><%=Resources.Resource.Brands%></a></li>
-                                                <li class="is-submenu-item is-dropdown-submenu-item"><a href="#" role="menuitem"><%=Resources.Resource.PriceLowToHigh%></a></li>
-                                                <li class="is-submenu-item is-dropdown-submenu-item"><a href="#" role="menuitem"><%=Resources.Resource.PriceHighToLow%></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                     <asp:DropDownList runat="server" ID="ddlSort" CssClass="form-control sort" AutoPostBack="true" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged">
+                                        <asp:ListItem Value="New" Text="<%$Resources:Resource, New %>" Selected="True"></asp:ListItem>
+                                        <asp:ListItem Value="PriceLowToHigh" Text="<%$Resources:Resource, PriceLowToHigh %>"></asp:ListItem>
+                                        <asp:ListItem Value="PriceHighToLow" Text="<%$Resources:Resource, PriceHighToLow %>"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:Label runat="server" ID="lblSortExperssion" Visible="false" Text="Best Match"></asp:Label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="grid-x grid-padding-x grid-margin-y large-up-3 medium-up-2 small-up-2" id="productGrid">
-                            <div class="cell _search-item" data-id="665064">
+                               <asp:ListView ID="lvItems" runat="server" ClientIDMode="AutoID">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblUrl" runat="server" Visible="false" Text='<%#PublicFunctions.ServerURL + "ItemView/" + Eval("Id").ToString  %>'></asp:Label>
+                                       
+                                       <div class="cell _search-item" data-id='<%# Eval("Id").ToString %>' data-tile-type="default">
+                                <figure class="product">
+                                    <a class="_search-item-anchor"  href='<%#PublicFunctions.ServerURL + "Item/" + Eval("Id").ToString  %>' title= '<%# Eval("Name")%>'>
+                                        <div class="cont-image">
+                                            <div class="img-placeholder">
+                                                <picture>
+                                                    <img src='<%# PublicFunctions.ServerURL & Eval("PhotoThumb")%>' alt= '<%# Eval("Name")%>'
+                                                        class="image-product" width="300" height="225" loading="eager">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <figcaption>
+                                            <div class="product-manufacturer">
+                                                <%# Eval("Designer")%>
+                                            </div>
+                                            <h3 class="product-title"> <%# Eval("NameSubString")%></h3>
+                                            <span class="hideprice"> <%# PublicFunctions.DecimalFormat(Eval("Price").ToString)%></span>
+                                        </figcaption>
+                                    </a>
+                                    <div class="_addToListButton button button-save show-for-large">
+                                        <svg class="icon-xxmedium middle">
+                                            <use href="/images/sprite-icon.svg?v=20231122_4#icon-heart-line"></use>
+                                        </svg>
+                                    </div>
+                                </figure>
+                            </div>
+
+                                    </ItemTemplate>
+                                    <EmptyDataTemplate>
+                                        No Data Found
+                                    </EmptyDataTemplate>
+                                </asp:ListView>
+                           <%-- <div class="cell _search-item" data-id="665064">
                                 <figure class="product">
                                     <a class="_search-item-anchor" href="Item_Details.aspx" title="Gruppo Geromin - AVIGO">
                                         <div class="cont-image">
@@ -70,32 +100,7 @@
                                     </div>
                                 </figure>
                             </div>
-                            <div class="cell _search-item" data-id="636346" data-tile-type="default">
-                                <figure class="product">
-                                    <a class="_search-item-anchor" href="#" title="Antoniolupi - CUBA">
-                                        <div class="cont-image">
-                                            <div class="img-placeholder">
-                                                <picture>
-                                                    <img src="images/product-thumbs/h_CUBA-Antonio-Lupi-Design-636346-reld970b2e1.jpg" alt="CUBA - بانيو"
-                                                        class="image-product" width="300" height="225" loading="eager">
-                                                </picture>
-                                            </div>
-                                        </div>
-                                        <figcaption>
-                                            <div class="product-manufacturer">
-                                                Antoniolupi
-                                            </div>
-                                            <h3 class="product-title">CUBA - بانيو</h3>
-                                            <span class="hideprice">30,100</span>
-                                        </figcaption>
-                                    </a>
-                                    <div class="_addToListButton button button-save show-for-large">
-                                        <svg class="icon-xxmedium middle">
-                                            <use href="/images/sprite-icon.svg?v=20231122_4#icon-heart-line"></use>
-                                        </svg>
-                                    </div>
-                                </figure>
-                            </div>
+                         
                             <div class="cell _search-item" data-id="627842" data-tile-type="default">
                                 <figure class="product">
                                     <a class="_search-item-anchor" href="#" title="Ceramica Cielo - OTTAVIA">
@@ -441,7 +446,7 @@
                                         </svg>
                                     </div>
                                 </figure>
-                            </div>
+                            </div>--%>
                         </div>
 
 
@@ -449,18 +454,16 @@
                             <div class="cell small-12 text-center">
                                 <div class="pagination-container">
                                     <ul aria-label="Pagination" class="pagination" role="navigation">
-                                        <li class="disabled pagination-previous"><a href="=#" rel="prev">Back</a></li>
-                                        <li class="current"><span>1</span></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li><a href="#">6</a></li>
-                                        <li><a href="#">7</a></li>
-                                        <li><a href="#">8</a></li>
-                                        <li><a href="#">9</a></li>
-                                        <li><a href="#">10</a></li>
-                                        <li class="pagination-next"><a href="#" rel="next">Next</a></li>
+                                        <asp:DataPager ID="Pager" runat="server" PageSize="20" PagedControlID="lvItems">
+
+                                            <Fields>
+
+                                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                                <asp:NumericPagerField NextPageText="Next" PreviousPageText="Previous" />
+                                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                            </Fields>
+                                        </asp:DataPager>
+                                        <asp:Label ID="lblPage" runat="server" Visible="false"></asp:Label>
                                     </ul>
                                 </div>
                             </div>

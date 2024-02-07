@@ -36,7 +36,7 @@
         System.Web.Routing.RouteTable.Routes.MapPageRoute("ComingSoon", "ComingSoon", "~/ComingSoon.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("PageNotFound", "PageNotFound", "~/PageNotFound.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("UserAds", "User/{UserAdsId}", "~/UserAds.aspx")
-        System.Web.Routing.RouteTable.Routes.MapPageRoute("Items-Details", "Item/{SKU}", "~/ItemDetails.aspx")
+        System.Web.Routing.RouteTable.Routes.MapPageRoute("Items-Details", "Item/{SKU}", "~/Item_Details.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("Items-DetailsView", "ItemView/{SKU}", "~/ItemQuick.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("Categories", "Categories", "~/Categories.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("Items0", "{Parameter1}/{Parameter2}/{Parameter3}/{Parameter4}/{Parameter5}/{Parameter6}/{Parameter7}/{Parameter8}/{Parameter9}/{Parameter10}", "~/Items.aspx")

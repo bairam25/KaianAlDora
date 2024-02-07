@@ -44,13 +44,14 @@ Public Class clsGlobalApplication
     Public Shared Function GetItemsDT() As DataTable
         Dim dtItems As DataTable
         Try
-            If HttpContext.Current.Application("Items") Is Nothing Then
-                dtItems = DBContext.Getdatatable("SELECT * FROM vw_Items where ClientId='" & PublicFunctions.Client_Id & "'")
-                HttpContext.Current.Application("Items") = dtItems
-            Else
-                dtItems = HttpContext.Current.Application("Items")
-            End If
-
+            'If HttpContext.Current.Application("Items") Is Nothing Then
+            '    dtItems = DBContext.Getdatatable("SELECT * FROM vw_Items where ClientId='" & PublicFunctions.Client_Id & "'")
+            '    HttpContext.Current.Application("Items") = dtItems
+            'Else
+            '    dtItems = HttpContext.Current.Application("Items")
+            'End If
+            dtItems = DBContext.Getdatatable("SELECT * FROM vw_Items where ClientId='" & PublicFunctions.Client_Id & "'")
+            HttpContext.Current.Application("Items") = dtItems
             Return dtItems
         Catch ex As Exception
             Return Nothing
