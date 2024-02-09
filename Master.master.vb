@@ -1,6 +1,7 @@
 ﻿
 Imports BusinessLayer.BusinessLayer
 Imports clsMessages
+Imports System.Activities.Statements
 Imports System.Data
 Imports System.Data.SqlClient
 
@@ -11,6 +12,7 @@ Partial Class Master
     Dim UserId As String
     Dim _sqlconn As New SqlConnection(DBContext.GetConnectionString)
     Dim _sqltrans As SqlTransaction
+    Dim dtItems As DataTable
 #End Region
 
 #Region "Page Load"
@@ -24,6 +26,7 @@ Partial Class Master
             CheckLogin()
             If Not Page.IsPostBack Then
                 setLangText(clsLang.GetLang)
+                FillCategories()
             End If
         Catch ex As Exception
             ShowMessage(lblRes, MessageTypesEnum.ERR, Page, ex)
@@ -139,5 +142,40 @@ Partial Class Master
     End Sub
 
 #End Region
+
+#Region "FillMenu"
+    Sub FillCategories()
+
+        Try
+            Dim dtCat As DataTable = DBContext.Getdatatable("select distinct Category,CategoryName from vw_Items ")
+            lvCategories.DataSource = dtCat
+            lvCategories.DataBind()
+            FillSubCategories()
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+    End Sub
+    Sub FillSubCategories()
+        Try
+            Dim dtSubCategories As DataTable = DBContext.Getdatatable("select distinct SubCategory,SubCategoryName,Category,CategoryName from vw_Items  ")
+            Dim dvSubCat As New DataView(dtSubCategories)
+            If dvSubCat.Count > 0 Then
+                For Each item As ListViewItem In lvCategories.Items
+                    Dim CategoryId As String = CType(item.FindControl("lblCategoryId"), Label).Text
+                    Dim lvSubCategories As ListView = CType(item.FindControl("lvSubCategories"), ListView)
+                    dvSubCat.RowFilter = "Category = " & CategoryId
+                    dvSubCat.Sort = "SubCategoryName ASC"
+                    Dim dtSubCat As DataTable = dvSubCat.ToTable(True, "SubCategoryName", "SubCategory", "CategoryName")
+
+                    lvSubCategories.DataSource = dtSubCat
+                    lvSubCategories.DataBind()
+                Next
+            End If
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+    End Sub
+#End Region
+
 End Class
 

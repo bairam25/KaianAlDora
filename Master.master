@@ -176,7 +176,32 @@
                                                     <div class="submenu-wrapper">
                                                         <div class="left-zone">
                                                             <ul class="cat-second-level ul-2718" data-content="<%=Resources.Resource.Items%>">
-                                                                <li class="cat_2698 active" data-id="2698">
+                                                                <asp:ListView ID="lvCategories" runat ="server" >
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblCategoryId" runat ="server" Visible ="false" text='<%# Eval("Category").ToString %>' ></asp:Label>
+                                                                        <li class='<%# "cat_" & Eval("Category").ToString %>' data-id='<%# Eval("Category").ToString %>'
+                                                                    <a href='<%#PublicFunctions.ServerURL + "cateogry=" + Eval("CategoryName").ToString.Replace(" ", "-") %>'><%# Eval("CategoryName")%></a>
+                                                                    <div class="right-zone show-for-xlarge">
+                                                                        <ul class="cat-third-level" data-content='<%# Eval("CategoryName")%>'>
+                                                                            <asp:ListView ID="lvSubCategories" runat="server">
+                                                                                <ItemTemplate>
+                                                                                    <li class='<%# "cat_" & Eval("SubCategory").ToString %>'>
+                                                                                        <a href='<%#PublicFunctions.ServerURL + "Category=" + Eval("CategoryName").ToString.Replace(" ", "-") + "/SubCategory=" + Eval("SubCategoryName").ToString.Replace(" ", "-") %>'>
+                                                                                            <%# Eval("SubCategoryName")%>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ItemTemplate>
+                                                                            </asp:ListView>
+                                                                            <%--<li class="cat_1458"><a href="#">أحواض غسل</a></li>
+                                                                            <li class="cat_1463"><a href="#">مراحيض</a></li>
+                                                                            <li class="cat_1465"><a href="#">شطافات</a></li>
+                                                                            <li class="cat_1471"><a href="#">حوض اليد</a></li>--%>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                    </ItemTemplate>
+                                                                </asp:ListView>
+                                                                <%--<li class="cat_2698 active" data-id="2698">
                                                                     <a href="#">السيراميك الحمام</a>
                                                                     <div class="right-zone show-for-xlarge">
                                                                         <ul class="cat-third-level" data-content="السيراميك الحمام">
@@ -197,7 +222,7 @@
                                                                             <li class="cat_1461"><a href="#">أعمدة الدش</a></li>
                                                                         </ul>
                                                                     </div>
-                                                                </li>
+                                                                </li>--%>
                                                             </ul>
                                                         </div>
                                                     </div>

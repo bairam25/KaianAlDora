@@ -398,13 +398,13 @@ Partial Class Items
                     Result += "/" & FilterByPage(1)
                 End If
             End If
-            If FilterByBestMatch(1) <> "" Then
-                If Result = "" Then
-                    Result = FilterByBestMatch(1)
-                Else
-                    Result += "/" + FilterByBestMatch(1)
-                End If
-            End If
+            'If FilterByBestMatch(1) <> "" Then
+            '    If Result = "" Then
+            '        Result = FilterByBestMatch(1)
+            '    Else
+            '        Result += "/" + FilterByBestMatch(1)
+            '    End If
+            'End If
             Return Result
 
         Catch ex As Exception
@@ -442,6 +442,9 @@ Partial Class Items
                 'End Select
 
                 Select Case lblSortExperssion.Text.ToLower
+                    Case "MostViewed"
+                        SortingStr = "ViewCount DESC"
+                        SortingURL = "MostViewed"
                     Case "new"
                         SortingStr = "Hot DESC"
                         SortingURL = "New"
@@ -826,7 +829,23 @@ Partial Class Items
         End Try
     End Function
 #End Region
+#Region "Paging"
 
+    ' ''' <summary>
+    ' ''' Paging function
+    ' ''' </summary>
+    Protected Sub lv_PagePropertiesChanging(sender As Object, e As PagePropertiesChangingEventArgs) Handles lvItems.PagePropertiesChanging
+        Try
+            Dim PIndex As String = CInt(Pager.StartRowIndex / Pager.MaximumRows) + 1
+            Pager.SetPageProperties(e.StartRowIndex, e.MaximumRows, False)
+            lblPage.Text = PIndex
+            FillItems(sender, New EventArgs)
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+
+    End Sub
+#End Region
 #Region "Sort"
     Protected Sub ddlSort_SelectedIndexChanged(sender As Object, e As EventArgs)
         Try

@@ -28,7 +28,8 @@
                                 <div class="desktop-sortby d-flex">
                                     <span><%=Resources.Resource.SortBy%> :</span>
                                      <asp:DropDownList runat="server" ID="ddlSort" CssClass="form-control sort" AutoPostBack="true" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged">
-                                        <asp:ListItem Value="New" Text="<%$Resources:Resource, New %>" Selected="True"></asp:ListItem>
+                                        <asp:ListItem Value="Most Viewed" Text="<%$Resources:Resource, MostViewed %>" Selected="True"></asp:ListItem>
+                                         <asp:ListItem Value="New" Text="<%$Resources:Resource, New %>" ></asp:ListItem>
                                         <asp:ListItem Value="PriceLowToHigh" Text="<%$Resources:Resource, PriceLowToHigh %>"></asp:ListItem>
                                         <asp:ListItem Value="PriceHighToLow" Text="<%$Resources:Resource, PriceHighToLow %>"></asp:ListItem>
                                     </asp:DropDownList>
@@ -38,42 +39,45 @@
                         </div>
 
                         <div class="grid-x grid-padding-x grid-margin-y large-up-3 medium-up-2 small-up-2" id="productGrid">
-                               <asp:ListView ID="lvItems" runat="server" ClientIDMode="AutoID">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblUrl" runat="server" Visible="false" Text='<%#PublicFunctions.ServerURL + "ItemView/" + Eval("Id").ToString  %>'></asp:Label>
-                                       
-                                       <div class="cell _search-item" data-id='<%# Eval("Id").ToString %>' data-tile-type="default">
-                                <figure class="product">
-                                    <a class="_search-item-anchor"  href='<%#PublicFunctions.ServerURL + "Item/" + Eval("Id").ToString  %>' title= '<%# Eval("Name")%>'>
-                                        <div class="cont-image">
-                                            <div class="img-placeholder">
-                                                <picture>
-                                                    <img src='<%# PublicFunctions.ServerURL & Eval("PhotoThumb")%>' alt= '<%# Eval("Name")%>'
-                                                        class="image-product" width="300" height="225" loading="eager">
-                                                </picture>
-                                            </div>
-                                        </div>
-                                        <figcaption>
-                                            <div class="product-manufacturer">
-                                                <%# Eval("Designer")%>
-                                            </div>
-                                            <h3 class="product-title"> <%# Eval("NameSubString")%></h3>
-                                            <span class="hideprice"> <%# PublicFunctions.DecimalFormat(Eval("Price").ToString)%></span>
-                                        </figcaption>
-                                    </a>
-                                    <div class="_addToListButton button button-save show-for-large">
-                                        <svg class="icon-xxmedium middle">
-                                            <use href="/images/sprite-icon.svg?v=20231122_4#icon-heart-line"></use>
-                                        </svg>
-                                    </div>
-                                </figure>
-                            </div>
+                            <asp:ListView ID="lvItems" runat="server" ClientIDMode="AutoID">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblUrl" runat="server" Visible="false" Text='<%#PublicFunctions.ServerURL + "ItemView/" + Eval("Id").ToString  %>'></asp:Label>
 
-                                    </ItemTemplate>
-                                    <EmptyDataTemplate>
-                                        No Data Found
-                                    </EmptyDataTemplate>
-                                </asp:ListView>
+                                    <div class="cell _search-item" data-id='<%# Eval("Id").ToString %>' data-tile-type="default">
+                                        <figure class="product">
+                                            <a class="_search-item-anchor" href='<%#PublicFunctions.ServerURL + "Item/" + Eval("Id").ToString  %>' title='<%# Eval("Name")%>'>
+                                                <div class="cont-image">
+                                                    <div class="utils-top" id="divNew" runat="server" visible='<%# IIf(PublicFunctions.BoolFormat(Eval("Hot").ToString), True, False) %>'>
+                                                        <div class="new-product">NEW</div>
+                                                    </div>
+                                                    <div class="img-placeholder">
+                                                        <picture>
+                                                            <img src='<%# PublicFunctions.ServerURL & Eval("PhotoThumb")%>' alt='<%# Eval("Name")%>'
+                                                                class="image-product" width="300" height="225" loading="eager">
+                                                        </picture>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="product-manufacturer">
+                                                        <%# Eval("Designer")%>
+                                                    </div>
+                                                    <h3 class="product-title"><%# Eval("NameSubString")%></h3>
+                                                    <span class="hideprice"><%# PublicFunctions.DecimalFormat(Eval("Price").ToString)%></span>
+                                                </figcaption>
+                                            </a>
+                                            <div class="_addToListButton button button-save show-for-large">
+                                                <svg class="icon-xxmedium middle">
+                                                    <use href="/images/sprite-icon.svg?v=20231122_4#icon-heart-line"></use>
+                                                </svg>
+                                            </div>
+                                        </figure>
+                                    </div>
+
+                                </ItemTemplate>
+                                <EmptyDataTemplate>
+                                    No Data Found
+                                </EmptyDataTemplate>
+                            </asp:ListView>
                            <%-- <div class="cell _search-item" data-id="665064">
                                 <figure class="product">
                                     <a class="_search-item-anchor" href="Item_Details.aspx" title="Gruppo Geromin - AVIGO">
@@ -455,9 +459,7 @@
                                 <div class="pagination-container">
                                     <ul aria-label="Pagination" class="pagination" role="navigation">
                                         <asp:DataPager ID="Pager" runat="server" PageSize="20" PagedControlID="lvItems">
-
                                             <Fields>
-
                                                 <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
                                                 <asp:NumericPagerField NextPageText="Next" PreviousPageText="Previous" />
                                                 <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
