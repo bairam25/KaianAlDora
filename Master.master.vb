@@ -123,5 +123,21 @@ Partial Class Master
         End Try
     End Sub
 #End Region
+#Region "Search"
+    Protected Sub Search(ByVal sender As Object, ByVal e As System.EventArgs)
+        Dim ItemKey As String = txtSearch.Text.Trim
+
+        Dim Qry As String = ""
+
+        If ItemKey <> String.Empty Then
+            Qry += "Search=" & ItemKey.Replace(" ", "-")
+        End If
+        If Qry <> String.Empty Then
+            Response.Redirect(PublicFunctions.ServerURL & Qry)
+        End If
+
+    End Sub
+
+#End Region
 End Class
 

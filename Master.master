@@ -72,9 +72,9 @@
                                                 <span class="search-header__back-search hide-for-large _back-search back-search">
                                                     <svg style="width: 1em; height: 1em;">
                                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search-back"></use></svg></span>
-                                                <input class="search-header__input" id="search-input" type="search" placeholder="<%=Resources.Resource.SearchPlaceholder%>"
-                                                    name="q" value>
-                                                <button class="search-header__button button alpha flat autocomplete-submit-button" type="submit" id="submit" value aria-label="search">
+                                                <asp:TextBox ID="txtSearch" runat="server"  placeholder="<%$Resources:Resource, SearchPlaceholder %>" CssClass="search-header__input"></asp:TextBox>
+                                               <asp:Button ID="btnSearch" runat ="server"  CssClass="search-header__button button alpha flat autocomplete-submit-button" OnClick="Search" />
+                                               
                                                     <svg class="icon-large">
                                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search"></use></svg>
                                                 </button>
