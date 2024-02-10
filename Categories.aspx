@@ -79,20 +79,20 @@
                                 <ItemTemplate>
                                     <div class="cell">
                                         <figure class="product categories-new padding-bottom-0">
-                                            <a href="#" title='<%# Eval("Value").ToString %>'>
+                                            <a href="Items.aspx?Category=<%# Eval("CategoryName").ToString.Replace(" ", "-") %>/SubCategory=<%# Eval("SubCategoryName").ToString.Replace(" ", "-") %>" title='<%# Eval("SubCategoryName").ToString %>'>
                                                 <div class="cont-image">
                                                     <div class="img-placeholder small">
                                                         <picture>
-                                                            <img src='<%# Eval("Icon").ToString.Replace("~/", "") %>' width="840" height="630"
-                                                                alt='<%# Eval("Value").ToString %>' title='<%# Eval("Value").ToString %>'
+                                                            <img src='<%# Eval("SubCatIcon").ToString.Replace("~/", "") %>' width="840" height="630"
+                                                                alt='<%# Eval("SubCategoryName").ToString %>' title='<%# Eval("SubCategoryName").ToString %>'
                                                                 style="opacity: 1; transition: opacity 0.5s ease 0s; min-width: 1px; background-color: rgb(255, 255, 255);">
                                                         </picture>
                                                     </div>
                                                 </div>
                                             </a>
                                         </figure>
-                                        <a href="#" title='<%# Eval("Value").ToString %>'>
-                                            <h2><%# Eval("Value").ToString %></h2>
+                                        <a href="#" title='<%# Eval("SubCategoryName").ToString %>'>
+                                            <h2><%# Eval("SubCategoryName").ToString %></h2>
                                         </a>
                                     </div>
                                 </ItemTemplate>

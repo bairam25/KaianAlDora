@@ -47,7 +47,8 @@ Partial Class Categories
                 Exit Sub
             End If
             lblSubCategoryTitle.Text = dtCategory.Rows(0).Item("Value").ToString
-            Dim dt As DataTable = DBContext.Getdatatable("select Id,LookupId,Value,Icon,relatedvalueid from tblLookupValue where isnull(isdeleted,0)=0 and relatedvalueid =" & CatId & " Order by Value")
+            'Dim qry = "select Id,LookupId,Value,Icon,relatedvalueid from tblLookupValue where isnull(isdeleted,0)=0 and relatedvalueid =" & CatId & " Order by Value"
+            Dim dt As DataTable = DBContext.Getdatatable("Select distinct SubCategory,SubCategoryName,SubCatIcon,CategoryName from vw_Items where Category=" & CatId)
 
             rpSubCategory.DataSource = dt
             rpSubCategory.DataBind()
