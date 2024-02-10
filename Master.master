@@ -72,11 +72,11 @@
                                                 <span class="search-header__back-search hide-for-large _back-search back-search">
                                                     <svg style="width: 1em; height: 1em;">
                                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search-back"></use></svg></span>
-                                                <asp:TextBox ID="txtSearch" runat="server"  placeholder="<%$Resources:Resource, SearchPlaceholder %>" CssClass="search-header__input"></asp:TextBox>
-                                               <asp:Button ID="btnSearch" runat ="server"  CssClass="search-header__button button alpha flat autocomplete-submit-button" OnClick="Search" />
-                                               
-                                                    <svg class="icon-large">
-                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search"></use></svg>
+                                                <asp:TextBox ID="txtSearch" runat="server" placeholder="<%$Resources:Resource, SearchPlaceholder %>" CssClass="search-header__input"></asp:TextBox>
+                                                <asp:Button ID="btnSearch" runat="server" CssClass="search-header__button button alpha flat autocomplete-submit-button" OnClick="Search" />
+
+                                                <svg class="icon-large">
+                                                    <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-search"></use></svg>
                                                 </button>
                                                 <span class="search-header__close close hide-for-large _close-search">
                                                     <svg class="icon small middle" style="width: 1em; height: 1em;">
@@ -101,8 +101,8 @@
                                                     <span><%=Resources.Resource.SignIn%></span>
                                                 </a>
                                             </asp:Panel>
-                                            <asp:Panel runat="server" ID="pnlWelcome" CssClass="user-menu" Visible="false">
-                                                <span>Welcome,&nbsp;</span><asp:Label ID="lblRegisteredFirstName" runat="server" />
+                                            <%--<asp:Panel runat="server" ID="pnlWelcome" CssClass="user-menu" Visible="false">
+                                                <span>Welcome,&nbsp;<asp:Label ID="lblRegisteredFirstName" runat="server" /></span>
                                                 <div class="drp-user dropdown">
 
                                                     <div class="dropdown-menu dropdown-multicol dropdown-menu-right header-menu-action">
@@ -119,6 +119,38 @@
                                                         </ul>
                                                     </div>
                                                 </div>
+                                            </asp:Panel>--%>
+                                            <asp:Panel runat="server" ID="pnlWelcome" CssClass="header-user-account display-inline-block" Visible="false">
+                                                <div class="header-user-account__propic position-relative" data-toggle="user-dropdown" role="button" aria-controls="user-dropdown" data-is-focus="false" data-yeti-box="user-dropdown" aria-haspopup="true" aria-expanded="false" id="hupkat-dd-anchor">
+                                                    <b class="header-user-account__propic--text font-x-small display-inline-block text-center">MR</b>
+                                                </div>
+                                                <div class="header-user-account__dropdown dropdown-pane padding-horizontal-0 padding-bottom-0 has-position-bottom has-alignment-right" id="user-dropdown" data-dropdown="3evie8-dropdown" data-close-on-click="true" data-position="bottom" data-alignment="right" data-v-offset="10" aria-labelledby="hupkat-dd-anchor" aria-hidden="true" data-yeti-box="user-dropdown" data-resize="user-dropdown" style="top: 47.2639px; left: -126.583px;" data-events="resize">
+                                                    <div class="flex-container hide-for-large">
+                                                        <button class="shared-modal-close flex-container align-middle align-center" aria-label="Close modal" data-close="" role="button">
+                                                            <svg class="icon icon-small">
+                                                                <use xlink:href="/images/sprite-icon.svg?v=20240206_2#icon-close-modal"></use></svg>
+                                                        </button>
+                                                    </div>
+                                                    <div class="header-user-account__dropdown__user-info">
+                                                        <div class="padding-bottom-1 padding-horizontal-1 flex-container align-middle">
+                                                            <b class="avatar">MR</b>
+                                                            <div class="header-user-account__dropdown__user-info__details">
+                                                                <b class="font-x-small">
+                                                                    <asp:Label ID="lblRegisteredFirstName" runat="server" /></b>
+                                                                <span class="display-block font-x-small">mohamed.m.rabie.94@gmail.com</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="header-user-account__dropdown__mylists">
+                                                        <li><a class="font-x-small" href="Register.aspx"><i class="fa fa-user"></i><%=Resources.Resource.EditProfile%></a></li>
+                                                    </ul>
+                                                    <ul class="header-user-account__dropdown__logout border-0">
+                                                        <li>
+                                                            <asp:LinkButton OnClick="LogOut" class="_logout font-x-small" runat="server"><i class="fa fa-sign-out-alt"></i><%=Resources.Resource.Logout%></asp:LinkButton>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="overlay"></div>
                                             </asp:Panel>
                                             <div class="_login button alpha tiny hide-for-xlarge" id="not-logged-icon" data-label="login">
                                                 <svg class="icon-mlarge">
@@ -176,29 +208,29 @@
                                                     <div class="submenu-wrapper">
                                                         <div class="left-zone">
                                                             <ul class="cat-second-level ul-2718" data-content="<%=Resources.Resource.Items%>">
-                                                                <asp:ListView ID="lvCategories" runat ="server" >
+                                                                <asp:ListView ID="lvCategories" runat="server">
                                                                     <ItemTemplate>
-                                                                        <asp:Label ID="lblCategoryId" runat ="server" Visible ="false" text='<%# Eval("Category").ToString %>' ></asp:Label>
-                                                                        <li class='<%# "cat_" & Eval("Category").ToString %>' data-id='<%# Eval("Category").ToString %>'
-                                                                    <a href='<%#PublicFunctions.ServerURL + "cateogry=" + Eval("CategoryName").ToString.Replace(" ", "-") %>'><%# Eval("CategoryName")%></a>
-                                                                    <div class="right-zone show-for-xlarge">
-                                                                        <ul class="cat-third-level" data-content='<%# Eval("CategoryName")%>'>
-                                                                            <asp:ListView ID="lvSubCategories" runat="server">
-                                                                                <ItemTemplate>
-                                                                                    <li class='<%# "cat_" & Eval("SubCategory").ToString %>'>
-                                                                                        <a href='<%#PublicFunctions.ServerURL + "Category=" + Eval("CategoryName").ToString.Replace(" ", "-") + "/SubCategory=" + Eval("SubCategoryName").ToString.Replace(" ", "-") %>'>
-                                                                                            <%# Eval("SubCategoryName")%>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                </ItemTemplate>
-                                                                            </asp:ListView>
-                                                                            <%--<li class="cat_1458"><a href="#">أحواض غسل</a></li>
+                                                                        <asp:Label ID="lblCategoryId" runat="server" Visible="false" Text='<%# Eval("Category").ToString %>'></asp:Label>
+                                                                        <li class='<%# "cat_" & Eval("Category").ToString %>' data-id='<%# Eval("Category").ToString %>'>
+                                                                            <a href='<%#PublicFunctions.ServerURL + "cateogry=" + Eval("CategoryName").ToString.Replace(" ", "-") %>'><%# Eval("CategoryName")%></a>
+                                                                            <div class="right-zone show-for-xlarge">
+                                                                                <ul class="cat-third-level" data-content='<%# Eval("CategoryName")%>'>
+                                                                                    <asp:ListView ID="lvSubCategories" runat="server">
+                                                                                        <ItemTemplate>
+                                                                                            <li class='<%# "cat_" & Eval("SubCategory").ToString %>'>
+                                                                                                <a href='<%#PublicFunctions.ServerURL + "Category=" + Eval("CategoryName").ToString.Replace(" ", "-") + "/SubCategory=" + Eval("SubCategoryName").ToString.Replace(" ", "-") %>'>
+                                                                                                    <%# Eval("SubCategoryName")%>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:ListView>
+                                                                                    <%--<li class="cat_1458"><a href="#">أحواض غسل</a></li>
                                                                             <li class="cat_1463"><a href="#">مراحيض</a></li>
                                                                             <li class="cat_1465"><a href="#">شطافات</a></li>
                                                                             <li class="cat_1471"><a href="#">حوض اليد</a></li>--%>
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </li>
                                                                     </ItemTemplate>
                                                                 </asp:ListView>
                                                                 <%--<li class="cat_2698 active" data-id="2698">

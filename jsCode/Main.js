@@ -46,6 +46,11 @@ $('.accordion-item a.accordion-title').on('click', function () {
     $(this).next('.accordion-content').slideToggle();
 });
 
+$('.header-user-account__propic').on('click', function () {
+    $(this).toggleClass('hover');
+    $(this).next('.header-user-account__dropdown').toggleClass('is-open');
+});
+
 //Scroll To Top
 $('.slide-up-icon').each(function () {
     $(this).on('click', function (e) {

@@ -43,6 +43,7 @@ html[lang=en] .search-header {
 html[lang=en] .search-header .button {
     right: 0;
     left: auto;
+    z-index: 10;
 }
 
 html[lang=en] .autocomplete ul li {
@@ -64,8 +65,8 @@ html[lang=en] .account-nav .icon-user {
 }
 
 html[lang=en] .account-nav .dropdown-pane {
-    left: 0 !important;
-    right: auto
+    left: auto !important;
+    right: 0;
 }
 
 html[lang=en] .account-nav .dropdown-pane.dropdown-triangle:before {
