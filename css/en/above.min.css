@@ -24359,3 +24359,15 @@ body:not(.category-a) .product.categories-new + a h2 span {
 .d-contents {
     display: contents !important;
 }
+
+.white-space-nowrap {
+    white-space: nowrap !important;
+}
+
+.menu-sort {
+    border: 0;
+    height: auto;
+    margin: 0 0 0 10px;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    background-position: left -1rem center;
+}

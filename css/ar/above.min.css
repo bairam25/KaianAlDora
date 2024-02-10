@@ -15149,7 +15149,7 @@ nav.main-menu .submenu-wrapper {
         }
 
             nav.main-menu .submenu-wrapper .left-zone .cat-second-level > li {
-                padding-left: 30px;
+                padding-right: 30px;
                 cursor: pointer;
                 height: 2rem;
                 line-height: 2rem
@@ -24379,4 +24379,14 @@ body:not(.category-a) .product.categories-new + a h2 span {
 
 .d-contents {
     display: contents !important;
+}
+
+.white-space-nowrap {
+    white-space: nowrap !important;
+}
+
+.menu-sort {
+    border: 0;
+    height: auto;
+    margin: 0 10px 0 0;
 }
