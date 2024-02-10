@@ -243,13 +243,13 @@
                 <div class="grid-x grid-padding-x grid-margin-y large-up-8 medium-up-4 small-up-2">
                     <asp:Repeater runat="server" ID="rpBrands">
                         <ItemTemplate>
-                            <div class="cell _search-item" data-id='<%# Eval("Id").ToString  %>' data-tile-type="default">
+                            <div class="cell _search-item" data-id='<%# Eval("Brand").ToString  %>' data-tile-type="default">
                                 <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                                    <a class="_search-item-anchor" href="Brands.aspx">
+                                    <a class="_search-item-anchor" href="Items.aspx?Brand=<%# Eval("BrandName").ToString.Replace(" ", "-")  %>">
                                         <div class="cont-image no-bg">
                                             <div class="img-placeholder">
                                                 <picture>
-                                                    <img src='<%# Eval("Icon").ToString.Replace("~/", "") %>' alt='<%# Eval("Value").ToString  %>'
+                                                    <img src='<%# Eval("BrandPhoto").ToString.Replace("~/", "") %>' alt='<%# Eval("BrandName").ToString  %>'
                                                         class="image-product" width="300" height="225" loading="eager">
                                                 </picture>
                                             </div>

@@ -25,15 +25,15 @@ Partial Class Item_Details
             UserId = PublicFunctions.GetRegisteredUserId()
 
             If Not Page.IsPostBack Then
-                'If Page.RouteData.Values("Id") IsNot Nothing Then
-                Dim ItemId As String = 3 'Page.RouteData.Values("Id")
+                If Page.RouteData.Values("Id") IsNot Nothing Then
+                    Dim ItemId As String = 3 'Page.RouteData.Values("Id")
                     FillItem(ItemId)
                     UpdateViewCount(ItemId)
 
-                'Else
-                'Response.Redirect(PublicFunctions.ServerURL, False)
-                'Return
-                'End If
+                Else
+                    Response.Redirect(PublicFunctions.ServerURL, False)
+                    Return
+                End If
             End If
 
         Catch ex As Exception

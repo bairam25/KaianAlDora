@@ -32,7 +32,8 @@ Partial Class Home
     End Sub
     Sub FillBrands()
         Try
-            Dim dt As DataTable = DBContext.Getdatatable("select Id,LookupId,Value,Icon from tblLookupValue where isnull(isdeleted,0)=0 and lookupid = (select id from tblLookup where Type='Item Brand')")
+            Dim dt As DataTable = DBContext.Getdatatable("select distinct Brand,BrandName,BrandPhoto from vw_Items")
+            'Dim dt As DataTable = DBContext.Getdatatable("select Id,LookupId,Value,Icon from tblLookupValue where isnull(isdeleted,0)=0 and lookupid = (select id from tblLookup where Type='Item Brand')")
             rpBrands.DataSource = dt
             rpBrands.DataBind()
         Catch ex As Exception
