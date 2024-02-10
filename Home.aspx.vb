@@ -14,6 +14,7 @@ Partial Class Home
             If Not Page.IsPostBack Then
                 FillSlider()
                 FillBrands()
+                FillHotItems()
             End If
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
@@ -31,9 +32,20 @@ Partial Class Home
     End Sub
     Sub FillBrands()
         Try
-            Dim dt As DataTable = DBContext.Getdatatable("select Id,LookupId,Value,Icon from tblLookupValue where isnull(isdeleted,0)=0 and lookupid = (select id from tblLookup where Type='Item Brand')")
+            Dim dt As DataTable = DBContext.Getdatatable("select distinct Brand,BrandName,BrandPhoto from vw_Items")
+            'Dim dt As DataTable = DBContext.Getdatatable("select Id,LookupId,Value,Icon from tblLookupValue where isnull(isdeleted,0)=0 and lookupid = (select id from tblLookup where Type='Item Brand')")
             rpBrands.DataSource = dt
             rpBrands.DataBind()
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+    End Sub
+
+    Sub FillHotItems()
+        Try
+            Dim dt As DataTable = DBContext.Getdatatable("select top 5 * from vw_Items where hot=1")
+            lvItems.DataSource = dt
+            lvItems.DataBind()
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
