@@ -65,7 +65,40 @@
             <div class="large-12 cell mt-xlarge">
                 <h1 class="text-center margin-top-3 margin-bottom-4"><%=Resources.Resource.NewerBathtubs%></h1>
                 <div class="grid-x grid-padding-x grid-margin-y large-up-5 medium-up-2 small-up-2" id="productGrid">
-                    <div class="cell _search-item" data-id="665064">
+                    <asp:ListView ID="lvItems" runat="server" ClientIDMode="AutoID">
+                        <ItemTemplate>
+                            <div class="cell _search-item" data-id='<%# Eval("Id").ToString %>' data-tile-type="default">
+                                <figure class="product">
+                                    <a class="_search-item-anchor" href='<%#PublicFunctions.ServerURL + "Item/" + Eval("Id").ToString  %>' title= '<%# Eval("Name")%>'>
+                                        <div class="cont-image">
+                                            <div class="img-placeholder">
+                                                <picture>
+                                                   <img src='<%# PublicFunctions.ServerURL & Eval("PhotoThumb")%>' alt= '<%# Eval("Name")%>'
+                                                        class="image-product" width="300" height="225" loading="eager">
+                                                </picture>
+                                            </div>
+                                        </div>
+                                        <figcaption>
+                                            <div class="product-manufacturer">
+                                                 <%# Eval("Designer")%>
+                                            </div>
+                                            <h3 class="product-title"><%# Eval("Name")%></h3>
+                                            <span class="hideprice"><%# Eval("Price")%></span>
+                                        </figcaption>
+                                    </a>
+                                    <div class="_addToListButton button button-save show-for-large">
+                                        <svg class="icon-xxmedium middle">
+                                            <use href="/images/sprite-icon.svg?v=20231122_4#icon-heart-line"></use>
+                                        </svg>
+                                    </div>
+                                </figure>
+                            </div>
+                        </ItemTemplate>
+                        <EmptyDataTemplate>
+                            No Data Found
+                        </EmptyDataTemplate>
+                    </asp:ListView>
+                  <%--  <div class="cell _search-item" data-id="665064">
                         <figure class="product">
                             <a class="_search-item-anchor" href="Item_Details.aspx" title="Gruppo Geromin - AVIGO">
                                 <div class="cont-image">
@@ -196,7 +229,8 @@
                                 </svg>
                             </div>
                         </figure>
-                    </div>
+                    </div>--%>
+
                 </div>
             </div>
         </div>
@@ -209,13 +243,13 @@
                 <div class="grid-x grid-padding-x grid-margin-y large-up-8 medium-up-4 small-up-2">
                     <asp:Repeater runat="server" ID="rpBrands">
                         <ItemTemplate>
-                            <div class="cell _search-item" data-id='<%# Eval("Id").ToString  %>' data-tile-type="default">
+                            <div class="cell _search-item" data-id='<%# Eval("Brand").ToString  %>' data-tile-type="default">
                                 <figure class="product no-overlay padding-horizontal-2 padding-vertical-2">
-                                    <a class="_search-item-anchor" href="Brands.aspx">
+                                    <a class="_search-item-anchor" href="Items.aspx?Brand=<%# Eval("BrandName").ToString.Replace(" ", "-")  %>">
                                         <div class="cont-image no-bg">
                                             <div class="img-placeholder">
                                                 <picture>
-                                                    <img src='<%# Eval("Icon").ToString.Replace("~/", "") %>' alt='<%# Eval("Value").ToString  %>'
+                                                    <img src='<%# Eval("BrandPhoto").ToString.Replace("~/", "") %>' alt='<%# Eval("BrandName").ToString  %>'
                                                         class="image-product" width="300" height="225" loading="eager">
                                                 </picture>
                                             </div>

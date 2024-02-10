@@ -201,6 +201,9 @@
   <data name="Mobile" xml:space="preserve">
     <value>الموبايل</value>
   </data>
+  <data name="MostViewed" xml:space="preserve">
+    <value>الأكثر مشاهدة</value>
+  </data>
   <data name="NameOrTitle" xml:space="preserve">
     <value>الاسم او اللقب</value>
   </data>

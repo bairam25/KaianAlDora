@@ -201,6 +201,9 @@
   <data name="Mobile" xml:space="preserve">
     <value>Mobile</value>
   </data>
+  <data name="MostViewed" xml:space="preserve">
+    <value>Most Viewed</value>
+  </data>
   <data name="NameOrTitle" xml:space="preserve">
     <value>Name Or Title</value>
   </data>

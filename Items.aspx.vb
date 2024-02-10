@@ -279,29 +279,30 @@ Partial Class Items
 
             dvListItems.RowFilter = "" & FilterItemsDv(sender, e) & ""
 
-            ' dvListItems.Sort = "" + FilterByBestMatch(0) + ""
-            'If dvListItems.Count = 0 Then
-            '    dvListItems = New DataView(GetItemsDT)
+            dvListItems.Sort = "" + FilterByBestMatch(0) + ""
+            If dvListItems.Count = 0 Then
+                dvListItems = New DataView(GetItemsDT)
 
-            '    dvListItems.RowFilter = "" & FilterItemsDv() & ""
-            'End If
+                dvListItems.RowFilter = "" & FilterItemsDv(sender, e) & ""
+            End If
 
             Dim dtListItems As DataTable = dvListItems.ToTable()
             BindPager(actionType)
-            'lvItems.DataSource = dtListItems
-            'lvItems.DataBind()
+            lvItems.DataSource = dtListItems
+            lvItems.DataBind()
 
 
 
-            'If dtListItems.Rows.Count > 0 Then
-            '    Pager.Visible = True
-            'Else
-            '    Pager.Visible = False
-            'End If
+            If dtListItems.Rows.Count > 0 Then
+                Pager.Visible = True
+            Else
+                Pager.Visible = False
+            End If
             If OriginalURL = String.Empty Then
                 FillItemsURL()
             End If
 
+            lblItemsCount.Text = lvItems.Items.Count
 
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
@@ -314,15 +315,15 @@ Partial Class Items
     ''' </summary>
     Sub BindPager(ByVal actionType As String)
         Try
-            'If actionType <> "lvItems" Then
-            '    lblPage.Text = String.Empty
-            'End If
-            'If FilterByPage(0) <> String.Empty Then
-            '    Dim PStartIndex As Double = CDbl(CInt(lblPage.Text) - 1) * Pager.PageSize
-            '    Pager.SetPageProperties(PStartIndex, Pager.PageSize, False)
-            'Else
-            '    Pager.SetPageProperties(0, Pager.PageSize, False)
-            'End If
+            If actionType <> "lvItems" Then
+                lblPage.Text = String.Empty
+            End If
+            If FilterByPage(0) <> String.Empty Then
+                Dim PStartIndex As Double = CDbl(CInt(lblPage.Text) - 1) * Pager.PageSize
+                Pager.SetPageProperties(PStartIndex, Pager.PageSize, False)
+            Else
+                Pager.SetPageProperties(0, Pager.PageSize, False)
+            End If
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
@@ -383,13 +384,13 @@ Partial Class Items
                 End If
             End If
 
-            'If FilterBySearch(1) <> "" Then
-            '    If Result = "" Then
-            '        Result = FilterBySearch(1)
-            '    Else
-            '        Result += "/" & FilterBySearch(1)
-            '    End If
-            'End If
+            If FilterBySearch(1) <> "" Then
+                If Result = "" Then
+                    Result = FilterBySearch(1)
+                Else
+                    Result += "/" & FilterBySearch(1)
+                End If
+            End If
             If FilterByPage(1) <> "" Then
                 If Result = "" Then
                     Result = FilterByPage(1)
@@ -419,50 +420,47 @@ Partial Class Items
         Dim SortingURL As String = ""
         Dim SortingArr As New List(Of String)
         Try
-            'If OriginalURL.Contains("sort") Then
-            '    Dim FilterURL As String = OriginalURL.Split(New String() {"sort="}, StringSplitOptions.None)(1)
-            '    If FilterURL.Contains("/") Then
-            '        FilterURL = FilterURL.Split("/")(0)
-            '    End If
-            '    'lbBestMatch.Text = FilterURL.Replace("-", " ") '+ "<span class='caret'>"
-            '    lblSortExperssion.Text = FilterURL.Replace("-", " ")
-            '    If ddlSort.Items.FindByValue(lblSortExperssion.Text) IsNot Nothing Then
-            '        ddlSort.SelectedValue = lblSortExperssion.Text
-            '    End If
+            If OriginalURL.Contains("sort") Then
+                Dim FilterURL As String = OriginalURL.Split(New String() {"sort="}, StringSplitOptions.None)(1)
+                If FilterURL.Contains("/") Then
+                    FilterURL = FilterURL.Split("/")(0)
+                End If
+                'lbBestMatch.Text = FilterURL.Replace("-", " ") '+ "<span class='caret'>"
+                lblSortExperssion.Text = FilterURL.Replace("-", " ")
+                If ddlSort.Items.FindByValue(lblSortExperssion.Text) IsNot Nothing Then
+                    ddlSort.SelectedValue = lblSortExperssion.Text
+                End If
 
-            'End If
-            'If lblSortExperssion.Text <> String.Empty Then
-            '    'Dim sort As String = ddlSort.SelectedValue.ToLower
-            '    'Select Case sort.ToLower
-            '    '    Case "newest"
-            '    '        sort = " ModifiedDate Desc"
-            '    '    Case "oldest"
-            '    '        sort = " ModifiedDate ASC"
-            '    'End Select
+            End If
+            If lblSortExperssion.Text <> String.Empty Then
+                'Dim sort As String = ddlSort.SelectedValue.ToLower
+                'Select Case sort.ToLower
+                '    Case "newest"
+                '        sort = " ModifiedDate Desc"
+                '    Case "oldest"
+                '        sort = " ModifiedDate ASC"
+                'End Select
 
-            '    Select Case lblSortExperssion.Text.ToLower
-            '        Case "newest to oldest"
-            '            'Dim dvListItems As New DataView(dtItems)
-            '            'Dim MaxPrice As Double = CDbl(dvListItems.ToTable().Compute("Max(CreditPrice)", String.Empty))
-            '            'Dim MinPrice As Double = CDbl(dvListItems.ToTable().Compute("Min(CreditPrice)", String.Empty))
-            '            SortingStr = "ModifiedDate DESC"
-            '            SortingURL = "Newest to Oldest"
-            '        Case "oldest to newest"
-            '            SortingStr = "ModifiedDate ASC"
-            '            SortingURL = "Oldest to Newest"
-            '            'Case "Top Rated"
-            '            '    SortingStr = "Rating DESC"
-            '            '    SortingURL = "Top Rated"
-            '        Case "best match"
-            '            SortingStr = "ViewCount DESC"
-            '            SortingURL = "Best Match"
+                Select Case lblSortExperssion.Text.ToLower
+                    Case "MostViewed"
+                        SortingStr = "ViewCount DESC"
+                        SortingURL = "MostViewed"
+                    Case "new"
+                        SortingStr = "Hot DESC"
+                        SortingURL = "New"
+                    Case "pricelowtohigh"
+                        SortingStr = "Price ASC"
+                        SortingURL = "PriceLowToHigh"
+                    Case "pricehightolow"
+                        SortingStr = "Price DESC"
+                        SortingURL = "PriceHighToLow"
 
-            '    End Select
-            '    SortingArr.Add(SortingStr)
-            '    SortingArr.Add("Sort=" + SortingURL.Replace(" ", "-") + "")
-            '    Return SortingArr.ToArray
+                End Select
+                SortingArr.Add(SortingStr)
+                SortingArr.Add("Sort=" + SortingURL.Replace(" ", "-") + "")
+                Return SortingArr.ToArray
 
-            'End If
+            End If
 
         Catch ex As Exception
             SortingArr.Add("ModifiedDate DESC")
@@ -780,7 +778,7 @@ Partial Class Items
                 lblSearch.Text = FilterURL.Replace("-", " ")
                 lblSearchType.Text = SearchType
                 If lblSearch.Text <> String.Empty Then
-                    SearchStr = " (Name like '%" & FilterURL.Replace("-", " ") & "%' Or SKU like '%" & FilterURL & "%'  Or CategoryName like '%" & FilterURL.Replace("-", " ") & "%'  Or SubCategoryName like '%" & FilterURL.Replace("-", " ") & "%') "
+                    SearchStr = " (Name like '%" & FilterURL.Replace("-", " ") & "%'  Or CategoryName like '%" & FilterURL.Replace("-", " ") & "%'  Or SubCategoryName like '%" & FilterURL.Replace("-", " ") & "%') "
                     SearchURL = "Search=" & FilterURL
                     SearchArr.Add(SearchStr)
                     SearchArr.Add(SearchURL.Replace(" ", "-"))
@@ -830,5 +828,32 @@ Partial Class Items
             Return PageArr.ToArray
         End Try
     End Function
+#End Region
+#Region "Paging"
+
+    ' ''' <summary>
+    ' ''' Paging function
+    ' ''' </summary>
+    Protected Sub lv_PagePropertiesChanging(sender As Object, e As PagePropertiesChangingEventArgs) Handles lvItems.PagePropertiesChanging
+        Try
+            Dim PIndex As String = CInt(Pager.StartRowIndex / Pager.MaximumRows) + 1
+            Pager.SetPageProperties(e.StartRowIndex, e.MaximumRows, False)
+            lblPage.Text = PIndex
+            FillItems(sender, New EventArgs)
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+
+    End Sub
+#End Region
+#Region "Sort"
+    Protected Sub ddlSort_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Try
+            lblSortExperssion.Text = ddlSort.SelectedValue
+            FillItems(sender, New EventArgs)
+        Catch ex As Exception
+            clsMessages.ShowErrorMessgage(lblRes, clsMessages.MessageTypesEnum.ERR, Me.Page)
+        End Try
+    End Sub
 #End Region
 End Class
