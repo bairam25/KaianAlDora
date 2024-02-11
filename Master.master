@@ -449,7 +449,7 @@
         </asp:UpdatePanel>
     </form>
 </body>
-<script src="js/jquery-min.js"></script>
-<script src="jsCode/Main.js"></script>
+<script src="../js/jquery-min.js"></script>
+<script src="../jsCode/Main.js"></script>
 <asp:ContentPlaceHolder ID="Footer" runat="server"></asp:ContentPlaceHolder>
 </html>

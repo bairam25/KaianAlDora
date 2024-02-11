@@ -6976,7 +6976,7 @@ select:not([multiple]) {
             position: relative;
             margin: 0 .5rem;
             opacity: 1;
-            content: "Ã¢â‚¬Âº" !important;
+            content: "›" !important;
             color: #cacaca
         }
 
@@ -17632,7 +17632,7 @@ svg[class*=icon] {
     }
 
         .breadcrumbs li:not(:last-child)::after {
-            content: "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Âº";
+            content: "›";
             font-size: 1.2rem;
             line-height: 0
         }
@@ -23440,7 +23440,7 @@ html.is-reveal-open body {
     -webkit-transition: opacity .4s;
     transition: opacity .4s;
     overflow: hidden;
-    cursor: url(../../../../images/apx-fullscreen.svg?v=2) 22 22,auto
+    /*cursor: url(../../../../images/apx-fullscreen.svg?v=2) 22 22,auto*/
 }
 
     .product-page .carousel-cell-image[data-appended-img=true] {
@@ -24622,3 +24622,7 @@ body:not(.category-a) .product.categories-new + a h2 span {
         .header-user-account__dropdown ul li:hover {
             background-color: var(--brand-100)
         }
+
+.w-100 {
+    width: 100% !important;
+}

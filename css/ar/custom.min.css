@@ -266,7 +266,7 @@ html[lang=ar] .mobile-wishlist-share .button:first-child {
 }
 
 html[lang=ar] .product-page .accordion-products .accordion-title {
-    padding-right: 3em
+    padding-left: 3em;
 }
 
 html[lang=ar] .cookiesNotice-buttonSettings {
