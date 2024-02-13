@@ -1253,17 +1253,17 @@ Partial Class Items
         Try
             If HiddenBrochure.Text IsNot Nothing And HiddenBrochure.Text <> "" Then
                 If HiddenBrochure.Text.ToString.Split(".").Last.ToLower = "pdf" Then
-                    imgBrochure.ImageUrl = "~/images/pdf_icon.jpg"
+                    imgBrochure.ImageUrl = "images/pdf_icon.jpg"
                 ElseIf HiddenBrochure.Text.ToString.Split(".").Last.ToLower = "doc" Then
-                    imgBrochure.ImageUrl = "~/images/word.png"
+                    imgBrochure.ImageUrl = "images/word.png"
                 ElseIf HiddenBrochure.Text.ToString.Split(".").Last.ToLower = "docx" Then
-                    imgBrochure.ImageUrl = "~/images/word.png"
+                    imgBrochure.ImageUrl = "images/word.png"
                 Else
                     imgBrochure.ImageUrl = HiddenBrochure.Text
                 End If
             Else
                 HiddenBrochure.Text = ""
-                imgBrochure.ImageUrl = "~/images/noDoc.png"
+                imgBrochure.ImageUrl = "images/noDoc.png"
             End If
 
         Catch ex As Exception
@@ -1273,7 +1273,7 @@ Partial Class Items
     Sub ClearBrochure(ByVal sender As Object, ByVal e As System.EventArgs)
         Try
             HiddenBrochure.Text = ""
-            imgBrochure.ImageUrl = "~/images/noDoc.png"
+            imgBrochure.ImageUrl = "images/noDoc.png"
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try

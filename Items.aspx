@@ -26,8 +26,8 @@
                             <div style="display: flex; align-items: center; font-size: 15px">
                                 <span><strong><asp:label ID="lblItemsCount" runat ="server" ></asp:label> <%=Resources.Resource.Items%></strong></span>
                                 <div class="desktop-sortby d-flex">
-                                    <span><%=Resources.Resource.SortBy%> :</span>
-                                     <asp:DropDownList runat="server" ID="ddlSort" CssClass="form-control sort" AutoPostBack="true" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged">
+                                    <span class="white-space-nowrap"><%=Resources.Resource.SortBy%> :</span>
+                                     <asp:DropDownList runat="server" ID="ddlSort" CssClass="form-control menu-sort sort" AutoPostBack="true" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged">
                                         <asp:ListItem Value="Most Viewed" Text="<%$Resources:Resource, MostViewed %>" Selected="True"></asp:ListItem>
                                          <asp:ListItem Value="New" Text="<%$Resources:Resource, New %>" ></asp:ListItem>
                                         <asp:ListItem Value="PriceLowToHigh" Text="<%$Resources:Resource, PriceLowToHigh %>"></asp:ListItem>

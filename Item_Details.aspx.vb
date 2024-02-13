@@ -8,7 +8,7 @@ Imports PublicFunctions
 #End Region
 
 Partial Class Item_Details
-    Inherits System.Web.UI.Page
+    Inherits clsLang
 #Region "Global Variables"
     Dim UserId As String
     Dim Client_ID As String = "1001"
@@ -26,7 +26,7 @@ Partial Class Item_Details
 
             If Not Page.IsPostBack Then
                 If Page.RouteData.Values("Id") IsNot Nothing Then
-                    Dim ItemId As String = 3 'Page.RouteData.Values("Id")
+                    Dim ItemId As String = Page.RouteData.Values("Id")
                     FillItem(ItemId)
                     UpdateViewCount(ItemId)
 
@@ -90,43 +90,16 @@ Partial Class Item_Details
             For Each dr As ListViewItem In lvDetails.Items
                 Dim lblId As Label = DirectCast(dr.FindControl("lblId"), Label)
 
-                ''Fill Photos
-                'Dim lvCurrentPhotos As ListView = DirectCast(dr.FindControl("lvCurrentPhotos"), ListView)
-                'Dim dtPhotos As DataTable = DBContext.Getdatatable("select 	REPLACE(Photo, '~/', dbo.GetSiteURL(ClientId)) as Photo,REPLACE(PhotoThumb, '~/', dbo.GetSiteURL(ClientId)) as PhotoThumb,Type from tblItemsPhotos where isnull(Isdeleted,0)=0 and itemId='" & lblId.Text & "' order by main DESC")
-                'Dim dvCurrentPhotos As DataView = dtPhotos.DefaultView
-                'dvCurrentPhotos.RowFilter = "Type='C'"
-                'If dvCurrentPhotos.Count > 0 Then
-                '    lvCurrentPhotos.DataSource = dvCurrentPhotos
-                '    lvCurrentPhotos.DataBind()
-                'Else
-                '    Dim Actual As HtmlGenericControl = DirectCast(dr.FindControl("lbActual"), HtmlGenericControl)
-                '    Actual.Visible = False
-                '    Dim pnlActual As Panel = DirectCast(dr.FindControl("Actual"), Panel)
-                '    pnlActual.CssClass = "tab-pane fade"
+                'Fill Photos
+                Dim lvPhotos As ListView = DirectCast(dr.FindControl("lvPhotos"), ListView)
+                Dim lvPhotosButtons As ListView = DirectCast(dr.FindControl("lvPhotosButtons"), ListView)
+                Dim dtPhotos As DataTable = DBContext.Getdatatable("select 	id,main,REPLACE(Photo, '~/','') as Photo,REPLACE(PhotoThumb, '~/', '') as PhotoThumb from tblItemsPhotos where  isnull(Isdeleted,0)=0 and itemId='" & lblId.Text & "' order by main DESC")
 
+                lvPhotos.DataSource = dtPhotos
+                lvPhotos.DataBind()
 
-                '    Dim pnlOriginal As Panel = DirectCast(dr.FindControl("Original"), Panel)
-                '    pnlOriginal.CssClass = "tab-pane active"
-                'End If
-
-
-                'Dim lvOriginalPhotos As ListView = DirectCast(dr.FindControl("lvOriginalPhotos"), ListView)
-                'Dim dvOriginalPhotos As DataView = dtPhotos.DefaultView
-                'dvOriginalPhotos.RowFilter = "Type='O'"
-                'If dvOriginalPhotos.Count > 0 Then
-                '    lvOriginalPhotos.DataSource = dvOriginalPhotos
-                '    lvOriginalPhotos.DataBind()
-                'Else
-                '    Dim Original As HtmlGenericControl = DirectCast(dr.FindControl("lbOriginal"), HtmlGenericControl)
-                '    Original.Visible = False
-                'End If
-
-
-                'Dim Price As Double = DirectCast(dr.FindControl("lblPrice"), Label).Text
-                'Dim pnlPrice As Panel = DirectCast(dr.FindControl("pnlPrice"), Panel)
-                'If Price = 0 Then
-                '    pnlPrice.Visible = False
-                'End If
+                lvPhotosButtons.DataSource = dtPhotos
+                lvPhotosButtons.DataBind()
             Next
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
