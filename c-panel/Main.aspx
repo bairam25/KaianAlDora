@@ -79,13 +79,6 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
-                <li>
-                    <span style="position: relative;">
-                        <i class="ti-power-off icon-logout"></i>
-                        <asp:Button ID="lbLogOut" runat="server" OnClick="Logout" CssClass="mod-icon" Text="تسجيل الخروج"></asp:Button>
-                    </span>
-                </li>
-
                 <li class="user dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         
@@ -96,6 +89,12 @@
 
                         </span>
                     </a>
+                </li>
+                <li>
+                    <span style="position: relative;">
+                        <label class="ti-power-off icon-logout" for="lbLogOut"></label>
+                        <asp:Button ID="lbLogOut" runat="server" OnClick="Logout" CssClass="mod-icon" Text="تسجيل الخروج"></asp:Button>
+                    </span>
                 </li>
             </ul>
         </div>
@@ -146,7 +145,7 @@
             <footer class="site-footer">
                 <div class="row">
                     <div class="col-md-12 col-xs-12 text-center">
-                        <span class="site-footer-legal">2019 <span>©</span> <a href="#">برنامج التنمية المحلية لصعيد مصر</a></span>
+                        <span class="site-footer-legal">2024 <span>©</span> <a href="#">Kian Al-Dora</a></span>
                     </div>
                 </div>
             </footer>

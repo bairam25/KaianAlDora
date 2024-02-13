@@ -8,7 +8,7 @@ Imports PublicFunctions
 #End Region
 
 Partial Class Item_Details
-    Inherits System.Web.UI.Page
+    Inherits clsLang
 #Region "Global Variables"
     Dim UserId As String
     Dim Client_ID As String = "1001"

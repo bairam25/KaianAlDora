@@ -7,7 +7,7 @@
 <head runat="server">
     <title>Slider</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
+    <link rel="icon" type="image/png" href="~/images/favicons/favicon-32x32.png" />
     <!-- Resource style -->
     <link rel="stylesheet" href="css/c-scroll.css" />
     <link rel="stylesheet" href="css/multifile-up.css" />
@@ -47,14 +47,14 @@
                                 </div>
                                 <div class="d-flex">
                                     <ul class="breadcrumb flex-1 bg-unset p-0 m-0">
-                                        <li class="breadcrumb-item"><a href="Dashboards.aspx"><i class="fa fa-home"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="Main.aspx"><i class="fa fa-home"></i></a></li>
                                         <li class="breadcrumb-item">Slider</li>
                                     </ul>
                                     <asp:Panel ID="pnlConfirm" runat="server" Visible="false">
                                         <div class="input-in">
                                             <span class="frame-btn">
-                                                <asp:Button ID="cmdSave" CssClass="btn btn-success" ValidationGroup="vSlider" OnClick="Save" runat="server" Text="Save" ToolTip="Save" />
-                                                <label class="fa fa-check" for="btnSave"></label>
+                                                <asp:Button ID="cmdSave" CssClass="btn btn-success" ValidationGroup="vSlider" OnClick="Save" runat="server" UseSubmitBehavior="false" OnClientClick="SaveClick(this,'vSlider');" Text="Save" ToolTip="Save" />
+                                                <label class="fa fa-check" for="cmdSave"></label>
                                             </span>
                                         </div>
                                         <div class="input-in">
@@ -75,7 +75,7 @@
                                                             <h5 class="card-title border-0 m-0 p-0">Confirmation Message</h5>
                                                         </div>
                                                         <div class="body p-2">
-                                                            <label>Confirm Cancel ?</label>
+                                                            <label>Are you sure you want to cancel ?</label>
                                                         </div>
                                                         <div class="footer">
                                                             <div class="input-in">
@@ -135,7 +135,7 @@
 
                                 <div class="col-md-6 text-right">
                                     <div class="input-in">
-                                        <asp:LinkButton ID="cmdNew" runat="server" CssClass="btn btn-primary" OnClick="Add" ToolTip="New">New<i class="fa fa-plus"></i></asp:LinkButton>
+                                        <asp:LinkButton ID="cmdNew" runat="server" CssClass="btn btn-primary" OnClick="Add" ToolTip="New">New<i class="feather icon-plus"></i></asp:LinkButton>
                                     </div>
                                     <div class="input-in col-md-6">
                                         <div class="input-group">
@@ -144,7 +144,7 @@
                                             <asp:LinkButton runat="server" ID="cmdClear" CssClass="clear-search" title="Clear" OnClientClick="$('#txtSearch').val('');">&times;</asp:LinkButton>
                                             <asp:Button ID="btnSearch" runat="server" Style="display: none" ClientIDMode="Static" OnClick="FillGrid" />
                                             <span class="input-group-append">
-                                                <asp:LinkButton ID="cmdSearch" runat="server" CssClass="btn btn-primary" type="button" OnClick="FillGrid"><i class="fa-search fa"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="cmdSearch" runat="server" CssClass="btn btn-primary" type="button" OnClick="FillGrid"><i class="feather icon-search"></i></asp:LinkButton>
                                             </span>
                                         </div>
                                         <!-- /input-group -->
@@ -257,7 +257,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="p-lr-3">
-                                        <asp:ValidationSummary ID="ValidationSummary" CssClass="ValidationSummary" DisplayMode="BulletList" ValidationGroup="vSlider" EnableClientScript="true" runat="server" />
+                                        <asp:ValidationSummary ID="ValidationSummary" CssClass="validation-message" DisplayMode="BulletList" ValidationGroup="vSlider" EnableClientScript="true" runat="server" />
                                         <asp:Label ID="lblPhotoSlider" runat="server" Visible="false"></asp:Label>
                                     </div>
 
@@ -296,7 +296,7 @@
                                 <div class="card-body">
                                     <asp:Panel ID="pnlTLCopy" runat="server" CssClass="custom-file-container position-relative">
                                         <asp:HyperLink ID="hlViewSlider" CssClass="logo_photo" runat="server" ClientIDMode="Static" Target="_blank">
-                                            <asp:Image ID="imgSlider" ClientIDMode="Static" runat="server" Style="max-height: 100%; max-width: 100%" ImageUrl="images/noDoc.png" />
+                                            <asp:Image ID="imgSlider" ClientIDMode="Static" runat="server" Style="max-height: 100%; max-width: 100%" ImageUrl="~/images/noDoc.png" />
                                         </asp:HyperLink>
 
                                         <asp:TextBox ID="HiddenSliderImg" runat="server" ClientIDMode="Static" Style="display: none"></asp:TextBox>

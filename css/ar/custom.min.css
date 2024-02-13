@@ -48,7 +48,8 @@ html[lang=ar] .search-header {
 
 html[lang=ar] .search-header .button {
     left: 0;
-    right: auto
+    right: auto;
+    z-index: 10;
 }
 
 html[lang=ar] .autocomplete ul li {
@@ -79,7 +80,8 @@ html[lang=ar] .account-nav .dropdown-pane.dropdown-triangle:before {
 }
 
 html[lang=ar] .account-nav .cont-icon {
-    display: block !important
+    display: block !important;
+    direction: rtl;
 }
 
 html[lang=ar] .account-nav .cont-icon ._login {
@@ -264,7 +266,7 @@ html[lang=ar] .mobile-wishlist-share .button:first-child {
 }
 
 html[lang=ar] .product-page .accordion-products .accordion-title {
-    padding-right: 3em
+    padding-left: 3em;
 }
 
 html[lang=ar] .cookiesNotice-buttonSettings {

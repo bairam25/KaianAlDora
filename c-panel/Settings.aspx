@@ -8,7 +8,7 @@
 <head id="Head1" runat="server">
     <title>Settings</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
+    <link rel="icon" type="image/png" href="~/images/favicons/favicon-32x32.png" />
     <!-- Resource style -->
     <link rel="stylesheet" href="css/c-scroll.css" />
     <link rel="stylesheet" href="css/multifile-up.css" />
@@ -108,7 +108,7 @@
 
                                         <asp:Button ID="btnSearch" runat="server" Style="display: none" ClientIDMode="Static" OnClick="FillDataTypes" />
                                         <span class="input-group-append">
-                                            <asp:LinkButton ID="lbSearchIcon" runat="server" CssClass="btn btn-primary" type="button" OnClick="FillDataTypes"><i class="fa-search fa"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="lbSearchIcon" runat="server" CssClass="btn btn-primary" type="button" OnClick="FillDataTypes"><i class="feather icon-search"></i></asp:LinkButton>
                                         </span>
                                     </div>
                                 </div>
@@ -159,7 +159,7 @@
                                     </div>
                                     <div class="col-md-6 p-0 text-right">
                                         <div class="input-in">
-                                            <asp:LinkButton ID="lbNewValue" runat="server" OnClick="NewValue" CssClass="btn btn-primary" ToolTip="New">New<i class="fa fa-plus"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="lbNewValue" runat="server" OnClick="NewValue" CssClass="btn btn-primary" ToolTip="New">New<i class="feather icon-plus"></i></asp:LinkButton>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +176,7 @@
                                 <asp:Label ID="lblLookupId" runat="server" Visible="false"></asp:Label>
                                 <asp:Label ID="lblType" runat="server" Visible="false"></asp:Label>
                                 <asp:Label ID="lblLookupValueId" runat="server" Visible="false"></asp:Label>
-                                <asp:ValidationSummary CssClass="dis-none" runat="server" ID="vgroup" ValidationGroup="vSettings" />
+                                <asp:ValidationSummary CssClass="validation-message" runat="server" ID="vgroup" ValidationGroup="vSettings" />
                             </div>
 
                             <asp:Panel ID="pnlGvValues" runat="server" Visible="False">

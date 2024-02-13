@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddToFavorites" xml:space="preserve">
+    <value>Add To Favorites</value>
+  </data>
   <data name="AllCopyrightsReserved" xml:space="preserve">
     <value>All Copyrights Reserved</value>
   </data>
@@ -132,6 +135,9 @@
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
+  <data name="Collection" xml:space="preserve">
+    <value>Collection</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
@@ -144,8 +150,17 @@
   <data name="CreateNewAccount" xml:space="preserve">
     <value>Create New Account ?</value>
   </data>
+  <data name="DesignedBy" xml:space="preserve">
+    <value>Designed By</value>
+  </data>
+  <data name="Dimensions" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
   <data name="DoYouHaveAnAccount" xml:space="preserve">
     <value>Do You Have an Account ?</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Edit Profile</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
@@ -164,6 +179,9 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="Informations" xml:space="preserve">
+    <value>Informations</value>
   </data>
   <data name="Items" xml:space="preserve">
     <value>Items</value>
@@ -194,6 +212,12 @@
   </data>
   <data name="LeaveMessage" xml:space="preserve">
     <value>Leave Message</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="ManufactureYear" xml:space="preserve">
+    <value>Manufacture Year</value>
   </data>
   <data name="MessageSubject" xml:space="preserve">
     <value>Message Subject</value>
@@ -227,6 +251,9 @@
   </data>
   <data name="PriceLowToHigh" xml:space="preserve">
     <value>Price - Low To High</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read More</value>
   </data>
   <data name="ResetPassword" xml:space="preserve">
     <value>Reset Password</value>
