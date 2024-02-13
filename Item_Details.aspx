@@ -66,7 +66,6 @@
                                             </div>
                                             
                                             <ol class="carousel-indicators">
-                                               
                                                 <asp:ListView ID="lvPhotosButtons" runat="server">
                                                     <ItemTemplate>
                                                         <li data-target="#carouselExampleIndicators" data-slide-to='<%# Container.DataItemIndex %>' class='<%# IIf(PublicFunctions.BoolFormat(Eval("main")), "active", "")%>'>
@@ -74,7 +73,6 @@
                                                         </li>
                                                     </ItemTemplate>
                                                 </asp:ListView>
-                                               
                                             </ol>
                                         </div>
 
@@ -134,12 +132,12 @@
                                 </div>
                                 
                                 <div id="pnlFullScreen" class="carousel-wrapper fullscreen" style="display: none;">
-                                    <figure onmousemove="" class="" style="background-position: 97.0025% 5.53977%;">
-                                        <img src="../images/product-thumbs/b_Gruppo-Geromin_AVIGO_FvwjndJ4R.jpeg" id="imgCarousel" class="carousel-cell-image flickity-lazyloaded" sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 66vw, 840px" width="840" height="630" alt="Mineraltek freestanding oval bathtub AVIGO by Gruppo Geromin_2" title="Mineraltek freestanding oval bathtub AVIGO by Gruppo Geromin_2">
-                                    </figure>
+                                    <div class="d-flex align-items-center justify-content-center h-100 margin-top-3">
+                                        <img src="#" id="imgCarousel" class="carousel-cell-image flickity-lazyloaded" alt="">
+                                    </div>
                                     <button class="close-gallery close-button" type="button"><span aria-hidden="true">×</span></button>
                                     <div class="caption-recap caption-details">
-                                        <p>AVIGO | Gruppo Geromin</p>
+                                        <p id="lblimgTitle">AVIGO | Gruppo Geromin</p>
                                     </div>
                                 </div>
 
@@ -178,28 +176,14 @@
                                                     <li><%=Resources.Resource.ManufactureYear%> :<b><%# Eval("ProdYear").ToString  %></b> </li>
                                                 </ul>
                                             </div>
-                                            <div class="request-box contact-manufacturer-box">
+                                            <div class="request-box contact-manufacturer-box margin-bottom-2">
                                                 <button id="PriceRequestButton" class="button expanded brand-ap iconized" type="button">
                                                     <svg class="icon icon-medium">
                                                         <use xlink:href="/images/sprite-icon.svg?v=20231121_4#icon-heart-line"></use></svg><%=Resources.Resource.AddToFavorites%>
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="mobile-wishlist-share hide-for-large">
-                                            <div class="my-products">
-                                                <div class="button alpha icon-label _addProductNotSellable" title="Share with...">
-                                                    <svg class="icon">
-                                                        <use xlink:href="/images/sprite-icon.svg?v=20231121_4#icon-heart-line"></use></svg>
-                                                </div>
-                                            </div>
-                                            <div class="button alpha icon-label" title="Share with..." id="shareButton">
-                                                <svg class="icon">
-                                                    <use xlink:href="/images/sprite-icon.svg?v=20231121_4#icon-share"></use></svg>
-                                            </div>
-                                        </div>
                                     </div>
-
-
                                 </div>
                             </div>
                             <div class="productsheet__info">

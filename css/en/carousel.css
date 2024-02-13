@@ -208,3 +208,7 @@
     z-index: 9999 !important;
     background: #e5dfd8 !important;
 }
+
+    .carousel-wrapper.fullscreen .carousel-cell-image {
+        max-height: 85vh;
+    }
