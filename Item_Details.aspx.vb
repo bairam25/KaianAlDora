@@ -56,9 +56,9 @@ Partial Class Item_Details
             'dvListItems.RowFilter = "Id='" & ItemId & "'"
             Dim dtListItems As DataTable = DBContext.Getdatatable("select * from vw_Items where Id='" & ItemId & "'")
             If dtListItems.Rows.Count > 0 Then
-                'If dtListItems.Rows(0).Item("Active").ToString <> "True" Then
-                '    lvDetails.Enabled = False
-                'End If
+                If dtListItems.Rows(0).Item("Active").ToString <> "True" Then
+                    lvDetails.Enabled = False
+                End If
                 lvDetails.DataSource = dtListItems
                 lvDetails.DataBind()
 

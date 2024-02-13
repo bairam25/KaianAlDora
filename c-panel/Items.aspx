@@ -303,9 +303,10 @@
                                                     <th class="upnDownArrow" id="Active">
                                                         <asp:LinkButton ID="lbActive" CommandArgument="Active" CommandName="Sort" runat="server">Active</asp:LinkButton>
                                                     </th>
-
+                                                    <th class="upnDownArrow" id="Hot">
+                                                        <asp:LinkButton ID="lbHot" CommandArgument="Hot" CommandName="Sort" runat="server">New</asp:LinkButton>
+                                                    </th>
                                                     <th>Photos</th>
-                                                    <th>Reports</th>
                                                     <th>Details</th>
                                                     <th>Preview</th>
                                                     <th id="EditHeader">Edit</th>
@@ -341,16 +342,16 @@
                                                         <asp:CheckBox ID="chkActive" runat="server" AutoPostBack="True" Text=" " Checked='<%# PublicFunctions.BoolFormat(Eval("Active").ToString)%>' OnCheckedChanged="UpdateActive" />
                                                     </div>
                                                 </td>
+                                                <td id="Hot" runat="server">
+                                                    <div class="checkbox">
+                                                        <asp:CheckBox ID="chkHot" runat="server" AutoPostBack="True" Text=" " Checked='<%# PublicFunctions.BoolFormat(Eval("Hot").ToString)%>' OnCheckedChanged="UpdateHot" />
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     <asp:Image ID="ImgbigPhoto" CssClass="td-img img-thumbnail" Width="50px" Height="40px" runat="server" ImageUrl='<%# IIf(Eval("Photo").ToString <> String.Empty, Eval("Photo"), "~/Images/noimage.jpg")%>' Visible="false" />
                                                     <asp:LinkButton ID="lbShowImages" runat="server" CommandArgument='<%# Eval("ID")%>' OnClick="ViewPhotos">
                                                         <asp:Image ID="imgPhoto" CssClass="td-img img-thumbnail" Width="50px" Height="40px" runat="server" ImageUrl='<%# IIf(Eval("PhotoThumb").ToString <> String.Empty, Eval("PhotoThumb"), "~/Images/noimage.jpg")%>' />
                                                     </asp:LinkButton>
-                                                </td>
-                                                <td id="Reported" runat="server">
-                                                    <asp:Panel ID="pnlReported" runat="server" Visible='<%#IIf(PublicFunctions.GetUserType(PublicFunctions.GetUserId).ToLower = "admin", "True", "False") %>'>
-                                                        <a href="#" class="btn btn-primary" onclick='<%# String.Format("javascript:OpenPopUpFromGv(""ReportsFrm.aspx?ItemId={0}"");return false;", Eval("Id"))%>'><i class="feather icon-file"></i></a>
-                                                    </asp:Panel>
                                                 </td>
                                                 <td>
                                                     <asp:Panel ID="pnlDetails" runat="server">
@@ -564,7 +565,7 @@
                                                 </asp:RadioButtonList>
                                             </div>
                                             <div class="form-group col-md-3 input-in">
-                                                <label class="form-label">Hot</label>
+                                                <label class="form-label">New</label>
                                                 <asp:RadioButtonList ID="rblHot" CssClass="radioList" runat="server" RepeatLayout="Table" RepeatColumns="2">
                                                     <asp:ListItem Value="True">On</asp:ListItem>
                                                     <asp:ListItem Value="False" Selected="True">Off</asp:ListItem>
