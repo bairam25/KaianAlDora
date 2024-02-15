@@ -129,6 +129,9 @@
   <data name="Brands" xml:space="preserve">
     <value>Brands</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="Categories" xml:space="preserve">
     <value>Categories</value>
   </data>
@@ -177,6 +180,9 @@
   <data name="ForInquiriesPleaseContactUs" xml:space="preserve">
     <value>For Inquiries, Please Contact Us</value>
   </data>
+  <data name="GoToTheHomepage" xml:space="preserve">
+    <value>Go to the homepage</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -219,8 +225,17 @@
   <data name="ManufactureYear" xml:space="preserve">
     <value>Manufacture Year</value>
   </data>
+  <data name="MessageAttentionKaianAlDoraPageYouSearchedForDoesNotExist" xml:space="preserve">
+    <value>Attention : Kaian Al-Dora page you searched for does not exist</value>
+  </data>
   <data name="MessageSubject" xml:space="preserve">
     <value>Message Subject</value>
+  </data>
+  <data name="MessageThePageYouAreLookingForMightHaveBeenMovedOrMayNoLongerExist" xml:space="preserve">
+    <value>The page you are looking for might have been moved or may no longer exist</value>
+  </data>
+  <data name="MessageTheRequestedPageHasNotBeenFound" xml:space="preserve">
+    <value>The requested page has not been found</value>
   </data>
   <data name="Mobile" xml:space="preserve">
     <value>Mobile</value>

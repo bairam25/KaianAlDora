@@ -460,9 +460,9 @@
                                     <ul aria-label="Pagination" class="pagination" role="navigation">
                                         <asp:DataPager ID="Pager" runat="server" PageSize="20" PagedControlID="lvItems">
                                             <Fields>
-                                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                                <asp:NumericPagerField NextPageText="Next" PreviousPageText="Previous" />
-                                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="disabled pagination-previous" />
+                                                <asp:NumericPagerField NextPageText="Next" PreviousPageText="Previous" CurrentPageLabelCssClass="current" />
+                                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="pagination-next" />
                                             </Fields>
                                         </asp:DataPager>
                                         <asp:Label ID="lblPage" runat="server" Visible="false"></asp:Label>

@@ -34,9 +34,9 @@
 
                             <div class="login-form">
                                 <asp:Label Text="" ID="lblRes" runat="server" />
-                                <div class="form-title margin-bottom-3">
+                                <div class="form-title margin-bottom-2">
                                     <div class="top-bar margin-bottom-1">
-                                        <a href="Home.aspx">
+                                        <a href="Home.aspx" style="outline: unset;">
                                             <h1 class="logo-header logo-large margin-0"><%=Resources.Resource.KianAlDora%></h1>
                                             <%--<img src="/images/logo-archiproducts.png" srcset="/images/logo-archiproducts@2x.png" alt="Archiproducts Logo" width="200" height="35" class="logo">--%>
                                         </a>
@@ -105,10 +105,10 @@
                                             runat="server" ErrorMessage="Confirm Password" Display="Dynamic" CssClass="valid-inp"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="col-md-12 col-xs-12 col-sm-12 p-0 margin-bottom-1">
-                                        <asp:Button ID="btnRegister" runat="server" CssClass="button small success expanded"
+                                        <asp:Button ID="btnRegister" runat="server" CssClass="button small success expanded margin-bottom-1"
                                             Text="<%$Resources:Resource, SignUp %>" ValidationGroup="vUser" CommandArgument="Add"
                                             UseSubmitBehavior="false" OnClick="Register" />
-                                        <a href="Home.aspx" class="button small info expanded">Cancel</a>
+                                        <a href="Home.aspx" class="button small shop expanded"><%=Resources.Resource.Cancel%></a>
                                         
                                     </div>
                                     <div class="form-group" runat="server" id="pnlLogin">

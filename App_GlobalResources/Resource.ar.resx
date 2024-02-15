@@ -129,6 +129,9 @@
   <data name="Brands" xml:space="preserve">
     <value>العلامات التجارية</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
   <data name="Categories" xml:space="preserve">
     <value>الفئات</value>
   </data>
@@ -177,6 +180,9 @@
   <data name="ForInquiriesPleaseContactUs" xml:space="preserve">
     <value>للاستفسارات يرجى التواصل</value>
   </data>
+  <data name="GoToTheHomepage" xml:space="preserve">
+    <value>اذهب الى الصفحة الرئيسية</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>الصفحة الرئيسية</value>
   </data>
@@ -219,8 +225,17 @@
   <data name="ManufactureYear" xml:space="preserve">
     <value>سنة الصنع</value>
   </data>
+  <data name="MessageAttentionKaianAlDoraPageYouSearchedForDoesNotExist" xml:space="preserve">
+    <value>إنتباه : صفحة كيان الدره التي قمت بالبحث عنها غير موجودة</value>
+  </data>
   <data name="MessageSubject" xml:space="preserve">
     <value>عنوان الرسالة</value>
+  </data>
+  <data name="MessageThePageYouAreLookingForMightHaveBeenMovedOrMayNoLongerExist" xml:space="preserve">
+    <value>من المحتمل أن تكون الصفحة غير موجودة، أو قد تم إدخال العنوان بطريقة خاطئة في المكان المحدد للعناوين</value>
+  </data>
+  <data name="MessageTheRequestedPageHasNotBeenFound" xml:space="preserve">
+    <value>الصفحة التي تم طلبها غير موجودة</value>
   </data>
   <data name="Mobile" xml:space="preserve">
     <value>الموبايل</value>

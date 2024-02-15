@@ -38,7 +38,7 @@
                                     <asp:View ID="vwLogin" runat="server">
                                         <div class="form-title margin-bottom-3">
                                             <div class="top-bar margin-bottom-2">
-                                                <a href="Home.aspx">
+                                                <a href="Home.aspx" style="outline: unset;">
                                                     <h1 class="logo-header logo-large margin-0"><%=Resources.Resource.KianAlDora%></h1>
                                                     <%--<img src="/images/logo-archiproducts.png" srcset="/images/logo-archiproducts@2x.png" alt="Archiproducts Logo" width="200" height="35" class="logo">--%>
                                                 </a>

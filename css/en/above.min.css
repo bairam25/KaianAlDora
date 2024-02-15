@@ -58,7 +58,8 @@
     --construction: #f7f7f7;
     --contruction-dark: #EAEAEA;
     --lifestyle: #cbdbd4;
-    --lifestyle-dark: #BCD0C8
+    --lifestyle-dark: #BCD0C8;
+    --shop-rgb: 255, 99, 99;
 }
 
 html {
@@ -9881,7 +9882,9 @@ select:not([multiple]) {
         clear: both
     }
 
-    .pagination li {
+    .pagination li, 
+    .pagination span span, 
+    .pagination span input {
         margin-right: .0625rem;
         border-radius: 4px;
         font-size: .875rem;
@@ -9894,17 +9897,19 @@ select:not([multiple]) {
         }
 
 @media print, screen and (min-width: 40em) {
-    .pagination li {
+    .pagination li, 
+    .pagination span span {
         display: inline-block
     }
 }
 
-.pagination a,
-.pagination button {
-    display: block;
+.pagination a, 
+.pagination button, 
+.pagination span input {
+    display: inline-block;
     padding: .1875rem .625rem;
     border-radius: 4px;
-    color: #0a0a0a
+    color: #0a0a0a;
 }
 
     .pagination a:hover,
@@ -22591,7 +22596,7 @@ html.is-reveal-open body {
 
     .pagination .disabled.pagination-previous,
     .pagination .disabled.pagination-next {
-        padding: 0
+        /*padding: 0*/
     }
 
         .pagination .disabled.pagination-previous:before,
@@ -22635,7 +22640,9 @@ html.is-reveal-open body {
             padding: .1875rem .325rem
         }
 
-    .pagination li {
+    .pagination li, 
+    .pagination span span, 
+    .pagination span input {
         border: 1px solid #e4e5e7;
         margin-right: .3rem;
         -webkit-border-radius: 4px;
@@ -22659,7 +22666,8 @@ html.is-reveal-open body {
     margin-right: 0
 }
 
-.pagination li.current {
+.pagination li.current,
+.pagination span .current {
     background-color: #fff;
     border-color: #0a0a0a;
     color: #0a0a0a
@@ -24630,3 +24638,32 @@ body:not(.category-a) .product.categories-new + a h2 span {
 .h-100 {
     height: 100% !important;
 }
+
+.ValidationSummary ul {
+    list-style: disc;
+    margin: 1rem 0 0.5rem;
+    display: flex;
+    gap: 0 2.5rem;
+    flex-wrap: wrap;
+    /*list-style: none;
+    margin: 1rem 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;*/
+}
+
+    .ValidationSummary ul li {
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+        color: var(--shop);
+        font-weight: 600;
+        /*width: max-content;
+        font-size: 0.85rem;
+        display: inline-flex;
+        padding: 0.1rem 1.5rem;
+        border-radius: 20px;
+        border: 1px solid var(--shop);
+        background-color: rgba(var(--shop-rgb), 0.3);*/
+    }
