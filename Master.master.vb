@@ -40,6 +40,7 @@ Partial Class Master
         Try
             If UserId = 0 Then
                 pnlJoin.Visible = True
+                pnlJoinMobile.Visible = True
                 pnlWelcome.Visible = False
                 lblRegisteredFirstName.Text = String.Empty
                 'lblRegisteredFullName.Text = String.Empty
@@ -48,12 +49,14 @@ Partial Class Master
             Dim dt As DataTable = DBContext.Getdatatable("select FullName from tblUsers where isnull(isDeleted,0)=0 and Active=1 and ID=@Par1", UserId)
             If dt.Rows.Count = 0 Then
                 pnlJoin.Visible = True
+                pnlJoinMobile.Visible = True
                 pnlWelcome.Visible = False
                 lblRegisteredFirstName.Text = String.Empty
                 'lblRegisteredFullName.Text = String.Empty
                 Exit Sub
             End If
             pnlJoin.Visible = False
+            pnlJoinMobile.Visible = False
             pnlWelcome.Visible = True
             Dim FirstName As String = dt.Rows(0).Item("FullName").ToString
             Dim FullName As String = dt.Rows(0).Item("FullName").ToString
@@ -63,6 +66,7 @@ Partial Class Master
 
         Catch ex As Exception
             pnlJoin.Visible = True
+            pnlJoinMobile.Visible = True
             pnlWelcome.Visible = False
             lblRegisteredFirstName.Text = String.Empty
             'lblRegisteredFullName.Text = String.Empty
@@ -112,12 +116,16 @@ Partial Class Master
             Select Case lang
                 Case "ar-EG"
                     lbEnLang.Visible = True
+                    lbEnLangMobile.Visible = True
                     lbArLang.Visible = False
+                    lbArLangMobile.Visible = False
 
                     'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "LangMain1", "ChangeLang('" + lang + "');", True)
                 Case "en-gb"
                     lbEnLang.Visible = False
+                    lbEnLangMobile.Visible = False
                     lbArLang.Visible = True
+                    lbArLangMobile.Visible = True
 
                     ' ScriptManager.RegisterStartupScript(Me, Me.GetType(), "LangMain1", "ChangeLang('" + lang + "');", True)
             End Select

@@ -62,6 +62,14 @@ $('#pnlFullScreen .close-gallery').on('click', function () {
     $('#pnlFullScreen').hide();
 });
 
+$('#openMenuMobile').on('click', function () {
+    $('#menuMobile').addClass('open');
+});
+
+$('#menuMobile .close-menu-mobile').on('click', function () {
+    $('#menuMobile').removeClass('open');
+});
+
 //$('.carousel .carousel-control-prev').on('click', function () {
 //    debugger;
 //    let current_Item = $('.carousel-inner .carousel-item.active');

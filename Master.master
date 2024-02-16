@@ -91,7 +91,7 @@
                                         </div>
                                     </div>
                                     <div class="cell small-4 large-3 account-nav">
-                                        <div class="cont-icon ">
+                                        <div class="cont-icon text-left">
                                             <a title="<%=Resources.Resource.Favorite%>" class="button alpha tiny" href="Favorites.aspx">
                                                 <svg class="icon-large">
                                                     <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-heart-line"></use></svg>
@@ -152,10 +152,12 @@
                                                 </div>
                                                 <div class="overlay"></div>
                                             </asp:Panel>
-                                            <div class="_login button alpha tiny hide-for-xlarge" id="not-logged-icon" data-label="login">
-                                                <svg class="icon-mlarge">
-                                                    <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-user-mobile"></use></svg>
-                                            </div>
+                                            <asp:Panel runat="server" ID="pnlJoinMobile" CssClass="d-contents">
+                                                <a class="_login button alpha tiny hide-for-xlarge" href="Login.aspx" data-label="<%=Resources.Resource.SignIn%>">
+                                                    <svg class="icon-mlarge">
+                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-user-mobile"></use></svg>
+                                                </a>
+                                            </asp:Panel>
                                             <div class="reveal full usr-panel" id="mobile-user-panel" data-reveal>
                                                 <span class="close-button close-reveal-slide show-for-medium"></span>
                                                 <button class="close-button close-menu-mobile hide-for-xlarge" data-close aria-label="Close modal" type="button">
@@ -179,13 +181,18 @@
                                             <svg class="icon xsmall middle">
                                                 <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-close"></use></svg>
                                         </span>
-                                        <ul class="vertical menu menu-mobile hide-for-xlarge" role="tree">
-                                            <li class="link-bottom" role="treeitem">
-                                                <p class="fake-link _openGlobalizationSettings">
-                                                    <span class="globalization-flag" style="background-image: url('/images/flags/eg@2x.png')"></span>
-                                                    <span class="name" id="globalization-name">مصر</span>
-                                                    <span id="globalization-code">/ ar</span>
-                                                </p>
+                                        <ul class="menu-network hide-for-xlarge">
+                                            <li class="flags">
+                                                <asp:LinkButton ID="lbEnLangMobile" runat="server" CommandArgument="en-gb" OnClick="ChangeLanguage">
+                                            <span class="flag-icon" style="background-image: url('/images/flags/eg@2x.png')"></span>
+                                            <span class="name">Egypt</span>
+                                            <span>/ EN</span>
+                                                </asp:LinkButton>
+                                                <asp:LinkButton ID="lbArLangMobile" runat="server" CommandArgument="ar-EG" OnClick="ChangeLanguage">
+                                            <span class="flag-icon" style="background-image: url('/images/flags/eg@2x.png')"></span>
+                                            <span class="name">مصر</span>
+                                            <span>/ عربى</span>
+                                                </asp:LinkButton>
                                             </li>
                                         </ul>
 
