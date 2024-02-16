@@ -27,6 +27,12 @@ Partial Class Master
             If Not Page.IsPostBack Then
                 setLangText(clsLang.GetLang)
                 FillCategories()
+                lblFavCount.Text = PublicFunctions.GetFavouritCount
+                lblFavoriteIcon.InnerHtml = "<use xlink:href='/images/sprite-icon.svg?v=20231114_3#icon-heart-full'></use>"
+                If Val(lblFavCount.Text) = 0 Then
+                    lblFavCount.Attributes.Add("style", "display:none")
+                    lblFavoriteIcon.InnerHtml = "<use xlink:href='/images/sprite-icon.svg?v=20231114_3#icon-heart-line'></use>"
+                End If
             End If
         Catch ex As Exception
             ShowMessage(lblRes, MessageTypesEnum.ERR, Page, ex)
@@ -46,13 +52,16 @@ Partial Class Master
                 'lblRegisteredFullName.Text = String.Empty
                 Exit Sub
             End If
-            Dim dt As DataTable = DBContext.Getdatatable("select FullName from tblUsers where isnull(isDeleted,0)=0 and Active=1 and ID=@Par1", UserId)
+            Dim dt As DataTable = DBContext.Getdatatable("select * from tblUsers where isnull(isDeleted,0)=0 and Active=1 and ID=@Par1", UserId)
             If dt.Rows.Count = 0 Then
                 pnlJoin.Visible = True
                 pnlJoinMobile.Visible = True
                 pnlWelcome.Visible = False
                 lblRegisteredFirstName.Text = String.Empty
-                'lblRegisteredFullName.Text = String.Empty
+                lblRegisteredEmail.Text = String.Empty
+                lblRegisteredAvatar1.Text = String.Empty
+                lblRegisteredAvatar2.Text = String.Empty
+
                 Exit Sub
             End If
             pnlJoin.Visible = False
@@ -61,9 +70,10 @@ Partial Class Master
             Dim FirstName As String = dt.Rows(0).Item("FullName").ToString
             Dim FullName As String = dt.Rows(0).Item("FullName").ToString
             lblRegisteredFirstName.Text = PublicFunctions.GetFullNameFirstWord(FullName)
-            'lblRegisteredFullName.Text = FullName
-
-
+            lblRegisteredEmail.Text = dt.Rows(0).Item("UserName").ToString
+            Dim avatarName = GetFirstLetters(dt.Rows(0).Item("FullName").ToString)
+            lblRegisteredAvatar1.Text = avatarName
+            lblRegisteredAvatar2.Text = avatarName
         Catch ex As Exception
             pnlJoin.Visible = True
             pnlJoinMobile.Visible = True
@@ -73,6 +83,17 @@ Partial Class Master
         End Try
     End Sub
 
+    Function GetFirstLetters(input As String) As String
+        Dim result As String = ""
+
+        For Each word As String In input.Split(" "c)
+            If word.Length > 0 Then
+                result &= word(0)
+            End If
+        Next
+
+        Return result
+    End Function
 #End Region
 
 #Region "Logout"

@@ -252,6 +252,9 @@
   <data name="NewerBathtubs" xml:space="preserve">
     <value>أحدث أحواض الاستحمام</value>
   </data>
+  <data name="NoDataFound" xml:space="preserve">
+    <value>لا توجد بيانات</value>
+  </data>
   <data name="OfficeAddress" xml:space="preserve">
     <value>عنوان المكتب</value>
   </data>

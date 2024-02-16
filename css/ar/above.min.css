@@ -5374,7 +5374,7 @@ cite {
 
     .cite-block:before,
     cite:before {
-        content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â "
+        content: "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â "
     }
 
 .code-inline,
@@ -5404,11 +5404,11 @@ code {
 }
 
 .text-left {
-    text-align: left
+    text-align: right;
 }
 
 .text-right {
-    text-align: right
+    text-align: left;
 }
 
 .text-center {
@@ -6780,7 +6780,7 @@ select:not([multiple]) {
 }
 
 .is-active > .accordion-title::before {
-    content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ"
+    content: "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“"
 }
 
 .accordion-content {
@@ -6987,7 +6987,7 @@ select:not([multiple]) {
             position: relative;
             margin: 0 .5rem;
             opacity: 1;
-            content: "/";
+            content: "›" !important;
             color: #cacaca
         }
 
@@ -9941,7 +9941,7 @@ select:not([multiple]) {
 
 .pagination .ellipsis::after {
     padding: .1875rem .625rem;
-    content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦";
+    content: "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦";
     color: #0a0a0a
 }
 
@@ -9949,7 +9949,7 @@ select:not([multiple]) {
 .pagination-previous.disabled::before {
     display: inline-block;
     margin-right: .5rem;
-    content: "ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«"
+    content: "ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â«"
 }
 
 .pagination-next a::after,
@@ -15239,7 +15239,7 @@ nav.main-menu .submenu-wrapper {
                 }
 
                     nav.main-menu .submenu-wrapper .left-zone .right-zone .current-brand li:last-child:after {
-                        content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Âº";
+                        content: "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº";
                         margin-left: 5px
                     }
 
@@ -16625,7 +16625,7 @@ svg[class*=icon] {
 
 @media print, screen and (max-width: 39.99875em) {
     .product > a .cont-image .sayDuck3d:after {
-        content: " ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· "
+        content: " ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â· "
     }
 }
 
@@ -17427,7 +17427,7 @@ svg[class*=icon] {
 }
 
 .utils-bottom .fk-tooltip span + span:before {
-    content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¢ "
+    content: "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ "
 }
 
 .utils-bottom .features-3d {
@@ -17582,7 +17582,7 @@ svg[class*=icon] {
     }
 
     .product-shop-button:after {
-        content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Âº";
+        content: "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº";
         margin-left: 5px
     }
 
@@ -24680,3 +24680,20 @@ body:not(.category-a) .product.categories-new + a h2 span {
         border: 1px solid var(--shop);
         background-color: rgba(var(--shop-rgb), 0.3);*/
     }
+
+.favorite-count {
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+._addToListButton.button-save > span {
+    display: none !important;
+}
+
+._addToListButton.button-save .iconFavourite {
+    line-height: inherit !important;
+}

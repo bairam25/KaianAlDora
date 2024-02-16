@@ -6,6 +6,8 @@ Imports System.Security.Cryptography
 Imports System.IO
 Imports System.Globalization
 Imports clsMessages
+Imports Microsoft.VisualBasic.ApplicationServices
+
 #End Region
 
 Public Class PublicFunctions
@@ -1102,4 +1104,18 @@ Optional ByVal MinNumber As Integer = 0) As Integer
         Return True
     End Function
 #End Region
+
+#Region "Wish List"
+    Public Shared Function GetFavouritCount() As String
+        Try
+            Dim FavCount = DBContext.Getdatatable("Select Count(Id) from TblWishList where UserID=" & PublicFunctions.GetRegisteredUserId).Rows(0).Item(0).ToString
+            Return FavCount
+        Catch ex As Exception
+            RemoveFontEndCookie()
+            Return "0"
+        End Try
+        Return "0"
+    End Function
+#End Region
+
 End Class

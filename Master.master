@@ -91,9 +91,10 @@
                                         </div>
                                     </div>
                                     <div class="cell small-4 large-3 account-nav">
-                                        <div class="cont-icon text-left">
-                                            <a title="<%=Resources.Resource.Favorite%>" class="button alpha tiny" href="Favorites.aspx">
-                                                <svg class="icon-large">
+                                        <div class="cont-icon text-right">
+                                            <a title="<%=Resources.Resource.Favorite%>" class="button alpha tiny position-relative" href="Favorites.aspx">
+                                                <asp:Label CssClass="favorite-count" Text="0" runat="server" ID="lblFavCount" ClientIDMode="Static" />
+                                                <svg class="icon-large" id="lblFavoriteIcon" runat="server">
                                                     <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-heart-line"></use></svg>
                                             </a>
                                             <asp:Panel runat="server" ID="pnlJoin" CssClass="d-contents">
@@ -122,7 +123,7 @@
                                             </asp:Panel>--%>
                                             <asp:Panel runat="server" ID="pnlWelcome" CssClass="header-user-account display-inline-block" Visible="false">
                                                 <div class="header-user-account__propic position-relative" data-toggle="user-dropdown" role="button" aria-controls="user-dropdown" data-is-focus="false" data-yeti-box="user-dropdown" aria-haspopup="true" aria-expanded="false" id="hupkat-dd-anchor">
-                                                    <b class="header-user-account__propic--text font-x-small display-inline-block text-center">MR</b>
+                                                    <b class="header-user-account__propic--text font-x-small display-inline-block text-center"><asp:Label ID="lblRegisteredAvatar1" runat="server" /></b>
                                                 </div>
                                                 <div class="header-user-account__dropdown dropdown-pane padding-horizontal-0 padding-bottom-0 has-position-bottom has-alignment-right" id="user-dropdown" data-dropdown="3evie8-dropdown" data-close-on-click="true" data-position="bottom" data-alignment="right" data-v-offset="10" aria-labelledby="hupkat-dd-anchor" aria-hidden="true" data-yeti-box="user-dropdown" data-resize="user-dropdown" style="top: 47.2639px; left: -126.583px;" data-events="resize">
                                                     <div class="flex-container hide-for-large">
@@ -133,11 +134,13 @@
                                                     </div>
                                                     <div class="header-user-account__dropdown__user-info">
                                                         <div class="padding-bottom-1 padding-horizontal-1 flex-container align-middle">
-                                                            <b class="avatar">MR</b>
+                                                            <b class="avatar"> <asp:Label ID="lblRegisteredAvatar2" runat="server" /></b>
                                                             <div class="header-user-account__dropdown__user-info__details">
                                                                 <b class="font-x-small">
                                                                     <asp:Label ID="lblRegisteredFirstName" runat="server" /></b>
-                                                                <span class="display-block font-x-small">mohamed.m.rabie.94@gmail.com</span>
+                                                                <span class="display-block font-x-small">
+                                                                    <asp:Label ID="lblRegisteredEmail" runat="server" />
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -271,11 +274,11 @@
                                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-1390"></use></svg>
                                                     <a title="<%=Resources.Resource.Categories%>" href="../Categories.aspx" data-content="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
                                                 </li>
-                                                <li class="cat_1691 firstLevel" role="treeitem">
+                                               <%-- <li class="cat_1691 firstLevel" role="treeitem">
                                                     <svg class="icon-medium hide-for-xlarge">
                                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-1390"></use></svg>
                                                     <a title="<%=Resources.Resource.Brands%>" href="../Brands.aspx" data-content="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
-                                                </li>
+                                                </li>--%>
                                                 <li class="cat_1691 firstLevel" role="treeitem">
                                                     <svg class="icon-medium hide-for-xlarge">
                                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2719"></use></svg>

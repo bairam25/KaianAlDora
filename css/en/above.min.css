@@ -24667,3 +24667,20 @@ body:not(.category-a) .product.categories-new + a h2 span {
         border: 1px solid var(--shop);
         background-color: rgba(var(--shop-rgb), 0.3);*/
     }
+
+.favorite-count {
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+._addToListButton.button-save > span {
+    display: none !important;
+}
+
+._addToListButton.button-save .iconFavourite {
+    line-height: inherit !important;
+}

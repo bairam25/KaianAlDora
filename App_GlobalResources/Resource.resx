@@ -252,6 +252,9 @@
   <data name="NewerBathtubs" xml:space="preserve">
     <value>Newer Bathtubs</value>
   </data>
+  <data name="NoDataFound" xml:space="preserve">
+    <value>No Data Found</value>
+  </data>
   <data name="OfficeAddress" xml:space="preserve">
     <value>Office Address</value>
   </data>

@@ -1,6 +1,6 @@
 ﻿Imports BusinessLayer.BusinessLayer
 Partial Class Favorites
-    Inherits System.Web.UI.Page
+    Inherits clsLang
     Dim UserId As String = "1"
 #Region "Page Load"
     ''' <summary>
@@ -8,12 +8,16 @@ Partial Class Favorites
     ''' </summary>
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         lblRes.Visible = False
-        UserId = PublicFunctions.GetUserId(Page)
+        UserId = PublicFunctions.GetRegisteredUserId()
         Try
             If Page.IsPostBack = False Then
-                FillWishList()
+                Dim isLogged = PublicFunctions.isUserLogged
+                If isLogged Then
+                    FillWishList()
+                Else
+                    Response.Redirect("Login.aspx")
+                End If
             End If
-
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try
@@ -25,6 +29,7 @@ Partial Class Favorites
             Dim dt = DBContext.Getdatatable("Select I.* from vw_Items I inner join tblWishList W on I.ID = w.ItemID where W.UserId='" & UserId & "'")
             rpFavorit.DataSource = dt
             rpFavorit.DataBind()
+
         Catch ex As Exception
             clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
         End Try

@@ -70,6 +70,15 @@ $('#menuMobile .close-menu-mobile').on('click', function () {
     $('#menuMobile').removeClass('open');
 });
 
+function AddToFavourite(sender) {
+    if ($('#' + sender.id + ' svg use[href*="line"]').length > 0) {
+        $('#' + sender.id + ' svg use').attr('href', '/images/sprite-icon.svg?v=20231122_4#icon-heart-full');
+    }
+    else {
+        $('#' + sender.id + ' svg use').attr('href', '/images/sprite-icon.svg?v=20231122_4#icon-heart-line');
+    }
+}
+
 //$('.carousel .carousel-control-prev').on('click', function () {
 //    debugger;
 //    let current_Item = $('.carousel-inner .carousel-item.active');

@@ -5,6 +5,7 @@
 <asp:Content ID="PageHeader" ContentPlaceHolderID="Header" runat="Server">
     <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/slick.min.css") %>" rel="stylesheet" />
     <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/Slider.css") %>" rel="stylesheet" />
+    <script src="jsCode/jsWishlist.js" defer="defer"></script>
 </asp:Content>
 <asp:Content ID="PageContent" ContentPlaceHolderID="Content" runat="Server">
     <asp:Label Text="" ID="lblRes" runat="server" />
@@ -69,27 +70,34 @@
                         <ItemTemplate>
                             <div class="cell _search-item" data-id='<%# Eval("Id").ToString %>' data-tile-type="default">
                                 <figure class="product">
-                                    <a class="_search-item-anchor" href='<%#PublicFunctions.ServerURL + "Item/" + Eval("Id").ToString  %>' title= '<%# Eval("Name")%>'>
+                                    <a class="_search-item-anchor" href='<%#PublicFunctions.ServerURL + "Item/" + Eval("Id").ToString  %>' title='<%# Eval("Name")%>'>
                                         <div class="cont-image">
                                             <div class="img-placeholder">
                                                 <picture>
-                                                   <img src='<%# PublicFunctions.ServerURL & Eval("PhotoThumb")%>' alt= '<%# Eval("Name")%>'
+                                                    <img src='<%# PublicFunctions.ServerURL & Eval("PhotoThumb")%>' alt='<%# Eval("Name")%>'
                                                         class="image-product" width="300" height="225" loading="eager">
                                                 </picture>
                                             </div>
                                         </div>
                                         <figcaption>
                                             <div class="product-manufacturer">
-                                                 <%# Eval("Designer")%>
+                                                <%# Eval("Designer")%>
                                             </div>
                                             <h3 class="product-title"><%# Eval("Name")%></h3>
                                             <span class="hideprice"><%# Eval("Price")%></span>
                                         </figcaption>
                                     </a>
-                                    <div class="_addToListButton button button-save show-for-large">
+                                    <div class="_addToListButton button button-save show-for-large" data-itemid='<%# Eval("Id").ToString %>'>
+                                        <asp:CheckBox Text=" " ID="chkAddToWishList" runat="server"
+                                            Checked='<%# Eval("isFavourit").ToString %>'
+                                            data-itemid='<%# Eval("Id").ToString %>'
+                                            lang='<%# Eval("Id").ToString %>'
+                                            onclick="WishList(this)" />
+                                        <asp:Label ID="lbliconFavourite" CssClass="iconFavourite" runat="server" AssociatedControlID="chkAddToWishList" onclick="AddToFavourite(this);">
                                         <svg class="icon-xxmedium middle">
                                             <use href="/images/sprite-icon.svg?v=20231122_4#icon-heart-line"></use>
                                         </svg>
+                                        </asp:Label>
                                     </div>
                                 </figure>
                             </div>
@@ -98,7 +106,7 @@
                             No Data Found
                         </EmptyDataTemplate>
                     </asp:ListView>
-                  <%--  <div class="cell _search-item" data-id="665064">
+                    <%--  <div class="cell _search-item" data-id="665064">
                         <figure class="product">
                             <a class="_search-item-anchor" href="Item_Details.aspx" title="Gruppo Geromin - AVIGO">
                                 <div class="cont-image">
@@ -230,7 +238,6 @@
                             </div>
                         </figure>
                     </div>--%>
-
                 </div>
             </div>
         </div>
