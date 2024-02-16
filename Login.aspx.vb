@@ -5,6 +5,24 @@ Imports System.Data
 
 Partial Class Login
     Inherits clsLang
+#Region "Page Load"
+    ''' <summary>
+    ''' Handle page_load event
+    ''' </summary>
+    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Try
+            lblRes.Visible = False
+            If Not Page.IsPostBack Then
+                If PublicFunctions.isUserLogged Then
+                    Response.Redirect("Home.aspx")
+                End If
+            End If
+
+        Catch ex As Exception
+            clsMessages.ShowMessage(lblRes, clsMessages.MessageTypesEnum.ERR, Page, ex)
+        End Try
+    End Sub
+#End Region
 #Region "Swich View"
     Protected Sub switchview(sender As LinkButton, e As System.EventArgs)
         Try

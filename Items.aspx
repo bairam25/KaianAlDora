@@ -2,7 +2,9 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
-<asp:Content ID="PageHeader" ContentPlaceHolderID="Header" runat="Server"></asp:Content>
+<asp:Content ID="PageHeader" ContentPlaceHolderID="Header" runat="Server">
+    <script src="jsCode/jsWishlist.js" defer="defer"></script>
+</asp:Content>
 <asp:Content ID="PageContent" ContentPlaceHolderID="Content" runat="Server">
     <asp:UpdatePanel ID="up" runat="server" ClientIDMode="AutoID">
         <ContentTemplate>
@@ -66,7 +68,16 @@
                                                 </figcaption>
                                             </a>
                                             <div class="_addToListButton button button-save show-for-large">
+                                                <asp:CheckBox Text=" " ID="chkAddToWishList" runat="server"
+                                                    Checked='<%# Eval("isFavourit").ToString %>' ClientIDMode="Static" 
+                                                    data-itemid='<%# Eval("Id").ToString %>' 
+                                                    lang='<%# Eval("Id").ToString %>'
+                                                    onclick="WishList(this)"/>
+
+                                              
+
                                                 <svg class="icon-xxmedium middle">
+                                                    
                                                     <use href="/images/sprite-icon.svg?v=20231122_4#icon-heart-line"></use>
                                                 </svg>
                                             </div>

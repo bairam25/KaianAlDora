@@ -11,6 +11,8 @@
     <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/bottom.min.css") %>" rel="stylesheet" />
     <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/custom.min.css") %>" rel="stylesheet" />
     <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/login-css.css") %>" rel="stylesheet" />
+    <script src="js/jquery-min.js"></script>
+    <script src="c-panel/JSCode/KeypressValidators.js"></script>
 </head>
 <body>
     <form id="mainFRM" runat="server" autocomplete="off" enctype="multipart/form-data">
@@ -111,7 +113,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6 pl-0 margin-bottom-1">
                                                         <asp:Button ID="lbSend" runat="server" ValidationGroup="ForgetPassword"
-                                                            Text="<%$Resources:Resource, Send %>" UseSubmitBehavior="false" OnClientClick="SaveClick(this,'ForgetPassword');"
+                                                            Text="<%$Resources:Resource, Send %>" UseSubmitBehavior="false" 
+                                                            OnClick="ResetPassword"
+                                                            OnClientClick="SaveClick(this,'ForgetPassword');"
                                                             CssClass="button small success expanded"></asp:Button>
 
                                                     </div>
