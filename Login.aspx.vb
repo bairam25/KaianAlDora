@@ -16,6 +16,8 @@ Partial Class Login
                 If PublicFunctions.isUserLogged Then
                     Response.Redirect("Home.aspx")
                 End If
+            Else
+                ScriptManager.RegisterClientScriptBlock(Me, Me.GetType(), "AddScriptsPostback", "AddScriptsPostback();", True)
             End If
 
         Catch ex As Exception

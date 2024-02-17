@@ -33,6 +33,8 @@ Partial Class Master
                     lblFavCount.Attributes.Add("style", "display:none")
                     lblFavoriteIcon.InnerHtml = "<use xlink:href='/images/sprite-icon.svg?v=20231114_3#icon-heart-line'></use>"
                 End If
+            Else
+                ScriptManager.RegisterClientScriptBlock(Me, Me.GetType(), "AddScriptsPostback", "AddScriptsPostback();", True)
             End If
         Catch ex As Exception
             ShowMessage(lblRes, MessageTypesEnum.ERR, Page, ex)

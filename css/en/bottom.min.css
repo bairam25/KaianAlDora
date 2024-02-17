@@ -360,7 +360,8 @@ screen and (max-width: 39.99875em) {
     .textfield select:focus ~ label,
     .textfield select.active ~ label,
     .textfield select.ng-not-empty ~ label,
-    .textfield select.not-empty ~ label {
+    .textfield select.not-empty ~ label,
+    .textfield > input:not(empty) ~ label {
         font-size: .9375rem;
         top: -30px;
         left: 0;

@@ -24,6 +24,8 @@ Partial Class Register
             UserId = PublicFunctions.GetRegisteredUserId()
             If Not Page.IsPostBack Then
                 FillProfile()
+            Else
+                ScriptManager.RegisterClientScriptBlock(Me, Me.GetType(), "AddScriptsPostback", "AddScriptsPostback();", True)
             End If
             txtPassword.Attributes("value") = txtPassword.Text
             txtConfirmPassword.Attributes("value") = txtConfirmPassword.Text
