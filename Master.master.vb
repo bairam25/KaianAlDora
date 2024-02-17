@@ -59,7 +59,6 @@ Partial Class Master
                 lblRegisteredEmail.Text = String.Empty
                 lblRegisteredAvatar1.Text = String.Empty
                 lblRegisteredAvatar2.Text = String.Empty
-
                 Exit Sub
             End If
             pnlJoin.Visible = False
@@ -67,7 +66,7 @@ Partial Class Master
             pnlWelcome.Visible = True
             Dim FirstName As String = dt.Rows(0).Item("FullName").ToString
             Dim FullName As String = dt.Rows(0).Item("FullName").ToString
-            lblRegisteredFirstName.Text = PublicFunctions.GetFullNameFirstWord(FullName)
+            lblRegisteredFirstName.Text = FullName ' PublicFunctions.GetFullNameFirstWord(FullName)
             lblRegisteredEmail.Text = dt.Rows(0).Item("UserName").ToString
             Dim avatarName = GetFirstLetters(dt.Rows(0).Item("FullName").ToString)
             lblRegisteredAvatar1.Text = avatarName
