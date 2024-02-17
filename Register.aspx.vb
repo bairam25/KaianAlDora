@@ -174,7 +174,8 @@ Partial Class Register
                 Exit Sub
             End If
             clsMessages.ShowSuccessMessgage(lblRes, "Thanks!.. We'll send an email to you. Open it up to activate your account.", Me.Page)
-            Response.Redirect("Home.aspx", False)
+            'Threading.Thread.Sleep(10)
+            Response.Redirect("Login.aspx", False)
         Catch ex As Exception
             Throw ex
         End Try

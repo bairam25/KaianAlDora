@@ -434,7 +434,7 @@ html[lang=ar] .info-request-header-component__logo {
 @media print,
 screen and (max-width: 78.74875em) {
     html[lang=ar] nav.main-menu .cat-first-level.menu-mobile li a {
-        padding: 1rem 3.4rem 1rem 3rem !important
+        padding: 1rem 1rem 1rem 3rem !important;
     }
     html[lang=ar] #showSearch svg {
         margin-right: 0;

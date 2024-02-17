@@ -277,8 +277,8 @@ html[lang=en] .footer .footer-accordion .accordion-title span.ico {
 }
 
 html[lang=en] .close-button {
-    left: 1rem;
-    right: auto
+    right: 1rem;
+    left: auto;
 }
 
 html[lang=en] .static-navigation {
@@ -427,7 +427,7 @@ html[lang=en] .info-request-header-component__logo {
 @media print,
 screen and (max-width: 78.74875em) {
     html[lang=en] nav.main-menu .cat-first-level.menu-mobile li a {
-        padding: 1rem 3.4rem 1rem 3rem !important
+        padding: 1rem 3.4rem 1rem 1rem !important;
     }
     html[lang=en] #showSearch svg {
         margin-right: 0;
@@ -441,8 +441,8 @@ screen and (max-width: 78.74875em) {
         left: auto
     }
     html[lang=en] .open-left.wrapper-menu-mobile.open .close-menu-mobile {
-        left: 15px;
-        right: auto
+        right: 15px;
+        left: auto;
     }
 }
 

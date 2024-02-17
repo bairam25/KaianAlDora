@@ -171,6 +171,15 @@
   <data name="Favorite" xml:space="preserve">
     <value>المفضلة</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>تصفية</value>
+  </data>
+  <data name="FilterBy" xml:space="preserve">
+    <value>صنف حسب</value>
+  </data>
+  <data name="FilterOrSort" xml:space="preserve">
+    <value>تصفية / ترتيب</value>
+  </data>
   <data name="ForgotYourPassword" xml:space="preserve">
     <value>هل نسيت كلمة المرور ؟</value>
   </data>

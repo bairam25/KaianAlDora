@@ -5272,7 +5272,7 @@ li {
 
 ul {
     margin-left: 0;
-    list-style-type: disc
+    list-style-type: none;
 }
 
 ol {
@@ -10042,6 +10042,7 @@ select:not([multiple]) {
     /*position: relative*/
     top: 0;
     position: sticky;
+    z-index: 100;
 }
 
 .sticky {
@@ -12285,7 +12286,7 @@ hr.bordered {
         top: 0;
         bottom: 0;
         background: #fff !important;
-        z-index: 99;
+        z-index: 999;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch
     }
@@ -15757,7 +15758,7 @@ nav.main-menu.is-open + .mega-dropdown-overlay {
 
     .menu-mobile li [class*=icon-] {
         position: absolute;
-        left: 1rem;
+        right: 1rem;
         top: 0;
         bottom: 0;
         margin: auto
@@ -15809,7 +15810,8 @@ nav.main-menu.is-open + .mega-dropdown-overlay {
         height: 13px;
         position: absolute;
         right: 1rem;
-        top: 1.5em
+        top: 1.5em;
+        display: none;
     }
 
     .menu-mobile li.static a:after {
@@ -18131,6 +18133,16 @@ svg[class*=icon] {
                 right: 0;
                 padding: 2px
             }
+
+.shared-modal-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 10px;
+    left: 10px;
+    z-index: 9999
+}
 
 [role=button] {
     cursor: pointer

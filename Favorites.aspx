@@ -21,7 +21,7 @@
             </div>
         </div>
     </nav>
-    <section class="grid-container margin-top-3">
+    <section class="grid-container margin-top-3" style="min-height: 60vh;">
         <div class="grid-x grid-padding-x">
             <div class="small-12 cell">
                 <h4><%=Resources.Resource.Favorite%></h4>

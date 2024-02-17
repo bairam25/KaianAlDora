@@ -15,8 +15,16 @@
             <section class="cat_2718">
                 <div class="title-content-wrapper grid-container padding-top-1 padding-bottom-1">
                     <div class="grid-x grid-padding-x">
-                        <div class="large-12 cell">
+                        <div class="large-12 cell" style="display: flex; align-items: center; justify-content: space-between;">
                             <h3 id="meta-content"><%=Resources.Resource.Items%></h3>
+                            <div class="options-toolbar grid-x hide-for-large" style="align-items: center" data-top-toolbar-mobile="" data-gtm="{&quot;h&quot;:&quot;[data-top-toolbar-mobile] > .cell div[data-mobile-switch] > * > input,a&quot;,&quot;i-s&quot;:&quot;28&quot;,&quot;c-s&quot;:&quot;filter-select&quot;,&quot;a-x&quot;:&quot;./../../span/a/text()&quot;}">
+                                <div class="cell">
+                                    <div class="button small light expanded _openRevealBtn" data-toggle="facet-column" aria-expanded="true" aria-controls="facet-column">
+                                        <svg class="icon icon-medium margin-right-1" style="vertical-align: middle;">
+                                            <use xlink:href="/images/sprite-icon.svg?v=20240221_1#icon-settings2"></use></svg><span><%=Resources.Resource.Filter%></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -24,7 +32,7 @@
             <div class="grid-container">
                 <div class="grid-x grid-padding-x">
                     <div class="large-9 cell small-order-1 medium-order-2 mt-xlarge">
-                        <div class="grid-x bar-option show-for-large" style="justify-content: flex-start; align-items: baseline">
+                        <div class="grid-x bar-option" style="justify-content: flex-start; align-items: baseline">
                             <div style="display: flex; align-items: center; font-size: 15px">
                                 <span><strong>
                                     <asp:Label ID="lblItemsCount" runat="server"></asp:Label>
@@ -483,26 +491,14 @@
                     </div>
                     <div class="large-3 cell hide filter-show-for-large small-order-2 medium-order-1" id="facet-column" data-toggler=".hide">
                         <div class="hide-for-large filter-mobile-header filter-comeback">
-                            <p>تصفية / ترتيب </p>
+                            <p><%=Resources.Resource.FilterOrSort%></p>
                             <button class="close-button _closeRevealBtn" data-toggle="facet-column" type="button">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="filter-mobile-header hide-for-large" style="border: 0">
-                            <div class="select-like">
-                                <p>الترتيب بحسب</p>
-                                <ul>
-                                    <li><a href="#">الجديد</a></li>
-                                    <li><a href="#">العلامات التجارية</a></li>
-                                    <li><a href="#">الأكثر شعبية</a></li>
-                                    <li><a href="#">with 3D</a></li>
-                                    <li><a href="#">Price - Low to High</a></li>
-                                    <li><a href="#">Price - High to Low</a></li>
-                                </ul>
-                            </div>
-                        </div>
+
                         <div class="hide-for-large filter-mobile-header">
-                            <p>صنف حسب</p>
+                            <p><%=Resources.Resource.FilterBy%></p>
                         </div>
                         <div class="accordion filter" data-multi-expand="true" data-allow-all-closed="true">
                             <div class="hide-for-small-only">

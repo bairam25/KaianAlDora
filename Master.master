@@ -207,13 +207,11 @@
                                         <nav class="_menu-categories menu-categories main-menu grid-x grid-padding-x align-justify">
                                             <ul class="cat-first-level menu-mobile" role="tree">
                                                 <li class="new-brand-item cat_new_brand firstLevel trigger-close" role="treeitem" data-id="new">
-                                                    <svg class="icon-medium hide-for-xlarge">
-                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-new-mobile"></use></svg>
+                                                    <i class="icon-medium hide-for-xlarge icon icon-box fa fa-home"></i>
                                                     <a title="<%=Resources.Resource.Home%>" data-content="<%=Resources.Resource.Home%>" href="../Home.aspx"><%=Resources.Resource.Home%></a>
                                                 </li>
                                                 <li class="cat_1691 firstLevel" data-id="2718" role="treeitem">
-                                                    <svg class="icon-medium hide-for-xlarge">
-                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2718"></use></svg>
+                                                    <i class="icon-medium hide-for-xlarge icon icon-box fa fa-box-open"></i>
                                                     <a href="../Items.aspx" data-content="<%=Resources.Resource.Items%>"><%=Resources.Resource.Items%></a>
                                                     <div class="submenu-wrapper">
                                                         <div class="left-zone">
@@ -270,18 +268,15 @@
                                                     </div>
                                                 </li>
                                                 <li class="cat_1691 firstLevel" role="treeitem">
-                                                    <svg class="icon-medium hide-for-xlarge">
-                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-1390"></use></svg>
+                                                    <i class="icon-medium hide-for-xlarge icon icon-box fa fa-columns"></i>
                                                     <a title="<%=Resources.Resource.Categories%>" href="../Categories.aspx" data-content="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
                                                 </li>
                                                <%-- <li class="cat_1691 firstLevel" role="treeitem">
-                                                    <svg class="icon-medium hide-for-xlarge">
-                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-1390"></use></svg>
+                                                    <i class="icon-medium hide-for-xlarge icon icon-box fa fa-trademark"></i>
                                                     <a title="<%=Resources.Resource.Brands%>" href="../Brands.aspx" data-content="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
                                                 </li>--%>
                                                 <li class="cat_1691 firstLevel" role="treeitem">
-                                                    <svg class="icon-medium hide-for-xlarge">
-                                                        <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2719"></use></svg>
+                                                    <i class="icon-medium hide-for-xlarge icon icon-box fa fa-phone"></i>
                                                     <a title="<%=Resources.Resource.ContactUs%>" href="../Contact_Us.aspx" data-content="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
                                                 </li>
                                                 <%--<li class="cat_1691 firstLevel" data-id="2719" role="treeitem">

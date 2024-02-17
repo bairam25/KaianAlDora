@@ -171,6 +171,15 @@
   <data name="Favorite" xml:space="preserve">
     <value>Favorite</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FilterBy" xml:space="preserve">
+    <value>Filter By</value>
+  </data>
+  <data name="FilterOrSort" xml:space="preserve">
+    <value>Filter / Sort</value>
+  </data>
   <data name="ForgotYourPassword" xml:space="preserve">
     <value>Forgot Your Password ?</value>
   </data>
