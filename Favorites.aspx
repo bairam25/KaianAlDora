@@ -20,7 +20,7 @@
                 </ul>
             </div>
         </div>
-    </nav> 
+    </nav>
     <section class="grid-container margin-top-3">
         <div class="grid-x grid-padding-x">
             <div class="small-12 cell">
