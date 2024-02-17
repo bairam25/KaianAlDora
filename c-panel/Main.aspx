@@ -113,6 +113,9 @@
                             <a href="Slider.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-sliders"></i><span>شريط التمرير</span></a>
                         </li>
                         <li>
+                            <a href="RegisteredUsers.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-users"></i><span>المستخدمين</span></a>
+                        </li>
+                        <li>
                             <a href="Settings.aspx" onclick ="LoadFrame(this);return false;"><i class="fa fa-gears"></i><span>الاعدادات</span></a>
                         </li>
                     </ul>

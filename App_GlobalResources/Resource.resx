@@ -277,7 +277,7 @@
     <value>Reset Password</value>
   </data>
   <data name="SearchPlaceholder" xml:space="preserve">
-    <value>Search for Items / Categories / Brands</value>
+    <value>Search for Items</value>
   </data>
   <data name="Send" xml:space="preserve">
     <value>Send</value>
