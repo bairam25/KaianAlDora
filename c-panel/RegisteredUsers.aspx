@@ -7,7 +7,7 @@
 <head runat="server">
     <title>Users</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
+    <link rel="shortcut icon" href="../images/favicons/favicon-32x32.png">
     <!-- Resource style -->
     <link rel="stylesheet" href="css/c-scroll.css" />
     <link rel="stylesheet" href="css/multifile-up.css" />
