@@ -91,10 +91,11 @@
                                         </div>
                                     </div>
                                     <div class="cell small-4 large-3 account-nav">
-                                        <div class="cont-icon text-right">
-                                            <a title="<%=Resources.Resource.Favorite%>" class="button alpha tiny position-relative" href="Favorites.aspx">
-                                                <asp:Label CssClass="favorite-count" Text="0" runat="server" ID="lblFavCount" ClientIDMode="Static" />
-                                                <svg class="icon-large" id="lblFavoriteIcon" runat="server">
+                                        <div class="cont-icon text-left">
+                                            <asp:Label Text="0" runat="server" ID="lblFavCount" ClientIDMode="Static" />
+                                            
+                                            <a title="<%=Resources.Resource.Favorite%>" class="button alpha tiny" href="Favorites.aspx">
+                                                <svg class="icon-large">
                                                     <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-heart-line"></use></svg>
                                             </a>
                                             <asp:Panel runat="server" ID="pnlJoin" CssClass="d-contents">

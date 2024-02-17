@@ -26,14 +26,12 @@
                     <div class="large-9 cell small-order-1 medium-order-2 mt-xlarge">
                         <div class="grid-x bar-option show-for-large" style="justify-content: flex-start; align-items: baseline">
                             <div style="display: flex; align-items: center; font-size: 15px">
-                                <span><strong>
-                                    <asp:Label ID="lblItemsCount" runat="server"></asp:Label>
-                                    <%=Resources.Resource.Items%></strong></span>
+                                <span><strong><asp:label ID="lblItemsCount" runat ="server" ></asp:label> <%=Resources.Resource.Items%></strong></span>
                                 <div class="desktop-sortby d-flex">
                                     <span class="white-space-nowrap"><%=Resources.Resource.SortBy%> :</span>
-                                    <asp:DropDownList runat="server" ID="ddlSort" CssClass="form-control menu-sort sort" AutoPostBack="true" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged">
+                                     <asp:DropDownList runat="server" ID="ddlSort" CssClass="form-control menu-sort sort" AutoPostBack="true" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged">
                                         <asp:ListItem Value="Most Viewed" Text="<%$Resources:Resource, MostViewed %>" Selected="True"></asp:ListItem>
-                                        <asp:ListItem Value="New" Text="<%$Resources:Resource, New %>"></asp:ListItem>
+                                         <asp:ListItem Value="New" Text="<%$Resources:Resource, New %>" ></asp:ListItem>
                                         <asp:ListItem Value="PriceLowToHigh" Text="<%$Resources:Resource, PriceLowToHigh %>"></asp:ListItem>
                                         <asp:ListItem Value="PriceHighToLow" Text="<%$Resources:Resource, PriceHighToLow %>"></asp:ListItem>
                                     </asp:DropDownList>
@@ -71,24 +69,27 @@
                                             </a>
                                             <div class="_addToListButton button button-save show-for-large">
                                                 <asp:CheckBox Text=" " ID="chkAddToWishList" runat="server"
-                                                    Checked='<%# Eval("isFavourit").ToString %>'
-                                                    data-itemid='<%# Eval("Id").ToString %>'
+                                                    Checked='<%# Eval("isFavourit").ToString %>' ClientIDMode="Static" 
+                                                    data-itemid='<%# Eval("Id").ToString %>' 
                                                     lang='<%# Eval("Id").ToString %>'
-                                                    onclick="WishList(this)" />
-                                                <asp:Label ID="lbliconFavourite" CssClass="iconFavourite" runat="server" AssociatedControlID="chkAddToWishList" onclick="AddToFavourite(this);">
+                                                    onclick="WishList(this)"/>
+
+                                              
+
                                                 <svg class="icon-xxmedium middle">
-                                                    <use href="/images/sprite-icon.svg?v=20231122_4#<%# IIf(PublicFunctions.BoolFormat(Eval("isFavourit").ToString), "icon-heart-full", "icon-heart-line") %>"></use>
+                                                    
+                                                    <use href="/images/sprite-icon.svg?v=20231122_4#icon-heart-line"></use>
                                                 </svg>
-                                                </asp:Label>
                                             </div>
                                         </figure>
                                     </div>
+
                                 </ItemTemplate>
                                 <EmptyDataTemplate>
-                                    <%=Resources.Resource.NoDataFound%>
+                                    No Data Found
                                 </EmptyDataTemplate>
                             </asp:ListView>
-                            <%-- <div class="cell _search-item" data-id="665064">
+                           <%-- <div class="cell _search-item" data-id="665064">
                                 <figure class="product">
                                     <a class="_search-item-anchor" href="Item_Details.aspx" title="Gruppo Geromin - AVIGO">
                                         <div class="cont-image">

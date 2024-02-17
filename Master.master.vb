@@ -28,10 +28,8 @@ Partial Class Master
                 setLangText(clsLang.GetLang)
                 FillCategories()
                 lblFavCount.Text = PublicFunctions.GetFavouritCount
-                lblFavoriteIcon.InnerHtml = "<use xlink:href='/images/sprite-icon.svg?v=20231114_3#icon-heart-full'></use>"
                 If Val(lblFavCount.Text) = 0 Then
                     lblFavCount.Attributes.Add("style", "display:none")
-                    lblFavoriteIcon.InnerHtml = "<use xlink:href='/images/sprite-icon.svg?v=20231114_3#icon-heart-line'></use>"
                 End If
             End If
         Catch ex As Exception
