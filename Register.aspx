@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title><%=Resources.Resource.KianAlDora%></title>
+    <title><%=Resources.Resource.KayanAlDorra%></title>
     <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" />
     <link href="fontawesome-6.1.0/css/all.min.css" rel="stylesheet" />
     <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/above.min.css") %>" rel="stylesheet" />
@@ -37,7 +37,7 @@
                                 <div class="form-title margin-bottom-2">
                                     <div class="top-bar margin-bottom-1">
                                         <a href="Home.aspx" style="outline: unset;">
-                                            <h1 class="logo-header logo-large margin-0"><%=Resources.Resource.KianAlDora%></h1>
+                                            <h1 class="logo-header logo-large margin-0"><%=Resources.Resource.KayanAlDorra%></h1>
                                             <%--<img src="/images/logo-archiproducts.png" srcset="/images/logo-archiproducts@2x.png" alt="Archiproducts Logo" width="200" height="35" class="logo">--%>
                                         </a>
                                     </div>

@@ -201,23 +201,23 @@
   <data name="Items" xml:space="preserve">
     <value>المنتجات</value>
   </data>
-  <data name="KeepMeSignedIn" xml:space="preserve">
-    <value>البقاء متصلاً على هذا الجهاز</value>
-  </data>
-  <data name="KianAlDora" xml:space="preserve">
+  <data name="KayanAlDorra" xml:space="preserve">
     <value>كـيـان الــدره</value>
   </data>
-  <data name="KianAlDoraOnFacebook" xml:space="preserve">
+  <data name="KayanAlDorraOnFacebook" xml:space="preserve">
     <value>كـيـان الــدره على فيسبوك</value>
   </data>
-  <data name="KianAlDoraOnInstagram" xml:space="preserve">
+  <data name="KayanAlDorraOnInstagram" xml:space="preserve">
     <value>كـيـان الــدره على انستجرام</value>
   </data>
-  <data name="KianAlDoraOnX" xml:space="preserve">
+  <data name="KayanAlDorraOnX" xml:space="preserve">
     <value>كـيـان الــدره على تويتر</value>
   </data>
-  <data name="KianAlDoraOnYoutube" xml:space="preserve">
+  <data name="KayanAlDorraOnYoutube" xml:space="preserve">
     <value>كـيـان الــدره على يوتيوب</value>
+  </data>
+  <data name="KeepMeSignedIn" xml:space="preserve">
+    <value>البقاء متصلاً على هذا الجهاز</value>
   </data>
   <data name="LangDirection" xml:space="preserve">
     <value>rtl</value>

@@ -201,23 +201,23 @@
   <data name="Items" xml:space="preserve">
     <value>Items</value>
   </data>
+  <data name="KayanAlDorra" xml:space="preserve">
+    <value>Kayan Al-Dorra</value>
+  </data>
+  <data name="KayanAlDorraOnFacebook" xml:space="preserve">
+    <value>Kayan Al-Dorra On Facebook</value>
+  </data>
+  <data name="KayanAlDorraOnInstagram" xml:space="preserve">
+    <value>Kayan Al-Dorra On Instagram</value>
+  </data>
+  <data name="KayanAlDorraOnX" xml:space="preserve">
+    <value>Kayan Al-Dorra On X</value>
+  </data>
+  <data name="KayanAlDorraOnYoutube" xml:space="preserve">
+    <value>Kayan Al-Dorra On Youtube</value>
+  </data>
   <data name="KeepMeSignedIn" xml:space="preserve">
     <value>Keep Me Signed In</value>
-  </data>
-  <data name="KianAlDora" xml:space="preserve">
-    <value>Kian Al-Dora</value>
-  </data>
-  <data name="KianAlDoraOnFacebook" xml:space="preserve">
-    <value>Kian Al-Dora On Facebook</value>
-  </data>
-  <data name="KianAlDoraOnInstagram" xml:space="preserve">
-    <value>Kian Al-Dora On Instagram</value>
-  </data>
-  <data name="KianAlDoraOnX" xml:space="preserve">
-    <value>Kian Al-Dora On X</value>
-  </data>
-  <data name="KianAlDoraOnYoutube" xml:space="preserve">
-    <value>Kian Al-Dora On Youtube</value>
   </data>
   <data name="LangDirection" xml:space="preserve">
     <value>ltr</value>

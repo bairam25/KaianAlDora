@@ -7,7 +7,7 @@ Public Class clsLang
         SelectUserLang()
     End Sub
     Public Shared Sub SelectUserLang()
-        Dim language As String = "en-gb"
+        Dim language As String = "ar-EG"
         '   Session("Lang") = language
         'Detect User's Language.
         If GetLang() <> String.Empty Then
@@ -28,7 +28,7 @@ Public Class clsLang
                 Dim Lang As String = HttpContext.Current.Request.Cookies("KianLang")("Lang")
                 Return Lang
             End If
-            Return "en-gb"
+            Return "ar-EG"
         Catch ex As Exception
             If HttpContext.Current.Request.Cookies.Get("KianLang") IsNot Nothing Then
                 If HttpContext.Current.Request.Cookies.Get("KianLang").Value IsNot Nothing Then
@@ -37,7 +37,7 @@ Public Class clsLang
                     HttpContext.Current.Response.Cookies.Add(RememberMeCookies)
                 End If
             End If
-            Return "en-gb"
+            Return "ar-EG"
         End Try
     End Function
 

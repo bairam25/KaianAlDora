@@ -6987,7 +6987,7 @@ select:not([multiple]) {
             position: relative;
             margin: 0 .5rem;
             opacity: 1;
-            content: "â€º" !important;
+            content: "›" !important;
             color: #cacaca
         }
 

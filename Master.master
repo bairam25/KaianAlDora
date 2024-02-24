@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=Resources.Resource.KianAlDora%></title>
+    <title><%=Resources.Resource.KayanAlDorra%></title>
     <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" />
     <link href="fontawesome-6.1.0/css/all.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeaderCss" runat="server"></asp:ContentPlaceHolder>
@@ -59,8 +59,8 @@
                                             <svg class="icon-xlarge">
                                                 <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-n-menu"></use></svg>
                                         </button>
-                                        <a title="<%=Resources.Resource.KianAlDora%>" class="logo-mobile" href="Home.aspx">
-                                            <h1 class="logo-header"><%=Resources.Resource.KianAlDora%></h1>
+                                        <a title="<%=Resources.Resource.KayanAlDorra%>" class="logo-mobile" href='<%= PublicFunctions.ServerURL & "Home"%>'>
+                                            <h1 class="logo-header"><%=Resources.Resource.KayanAlDorra%></h1>
                                             <%--<span>
                                         <img src="/images/logo.png" alt="كـيـان الــدره" width="200" height="35" class="logo" />
                                     </span>--%>
@@ -300,19 +300,19 @@
                     <div class="grid-container">
                         <div class="grid-x">
                             <div class="small-12 cell footer-social-bar margin-bottom-0">
-                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KianAlDoraOnFacebook%>">
+                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KayanAlDorraOnFacebook%>">
                                     <svg class="icon">
                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-facebook"></use></svg></a>
-                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KianAlDoraOnInstagram%>">
+                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KayanAlDorraOnInstagram%>">
                                     <svg class="icon">
                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-instagram"></use></svg></a>
                                 <%--<a href="#" target="_blank" rel="noopener" title="Archiproducts on Pinterest">
                             <svg class="icon">
                                 <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-pinterest"></use></svg></a>--%>
-                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KianAlDoraOnX%>">
+                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KayanAlDorraOnX%>">
                                     <svg class="icon">
                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-twitter-x"></use></svg></a>
-                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KianAlDoraOnYoutube%>">
+                                <a href="#" target="_blank" rel="noopener" title="<%=Resources.Resource.KayanAlDorraOnYoutube%>">
                                     <svg class="icon">
                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-youtube"></use></svg></a>
                             </div>
@@ -327,7 +327,7 @@
                                 <ul class="footer-accordion accordion">
                                     <li class="accordion-item close-for-mobile">
                                         <a class="accordion-title">
-                                            <span><%=Resources.Resource.KianAlDora%></span>
+                                            <span><%=Resources.Resource.KayanAlDorra%></span>
                                         </a>
                                         <div class="accordion-content margin-right-2">
                                             <p class="p-text margin-right-4">
@@ -436,7 +436,7 @@
                     <div class="grid-container">
                         <div class="grid-x">
                             <div class="large-12 cell text-center medium-text-center" style="color: #9c9c9c;">
-                                <%=Resources.Resource.KianAlDora%> © 2024 - <%=Resources.Resource.AllCopyrightsReserved%>
+                                <%=Resources.Resource.KayanAlDorra%> © 2024 - <%=Resources.Resource.AllCopyrightsReserved%>
                             </div>
                         </div>
                     </div>

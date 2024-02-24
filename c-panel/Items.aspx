@@ -361,7 +361,7 @@
                                                 </td>
                                                 <td>
                                                     <asp:Panel ID="pnlPreview" runat="server">
-                                                        <a class="btn btn-primary" href='<%# PublicFunctions.ServerURL + "Item/" + Eval("SKU") %>' target="_blank"><i class="feather icon-eye"></i></a>
+                                                        <a class="btn btn-primary" href='<%# PublicFunctions.ServerURL + "Item/" & Eval("Id").ToString %>' target="_blank"><i class="feather icon-eye"></i></a>
                                                     </asp:Panel>
                                                 </td>
                                                 <td id="Edit" runat="server">

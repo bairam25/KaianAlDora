@@ -9,7 +9,7 @@
     <meta name="keywords" content="aldealer.com, aldealer">
     <meta name="description" content="your company is an...">
 
-    <title>KIAN</title>
+    <title>KAYAN Al-Dorra</title>
     <link rel="shortcut icon" href="../images/favicons/favicon-32x32.png">
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,7 +59,7 @@
                 </a>
                 <div class="logo-title">
                     <h1 class="d-flex align-items-center">
-                        <a href="#">Kian Al-Dora</a>
+                        <a href="#">Kayan Al-Dorra</a>
                         <%--<a href="#">
                             <span>وحدة التحكم في بيانات الموقع</span>
                         </a>--%>
@@ -79,7 +79,7 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
-                <li class="user dropdown">
+                <%--<li class="user dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         
                         <asp:Label ID="lblUserGroup" runat="server" Visible="false"></asp:Label>
@@ -89,7 +89,7 @@
 
                         </span>
                     </a>
-                </li>
+                </li>--%>
                 <li>
                     <span style="position: relative;">
                         <label class="ti-power-off icon-logout" for="lbLogOut"></label>
@@ -133,7 +133,7 @@
                         <div class="col-md-12" style="height: 100%;">
                             <div class="widget" style="height: 100%;">
                                 <div class="w-body w-no-hf" style="height: 100%;">
-                                    <iframe id="MyFrame"  name="myiframe" class="iframe1-f"></iframe>
+                                    <iframe id="MyFrame" src ="Items.aspx"  name="myiframe" class="iframe1-f"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
             <footer class="site-footer">
                 <div class="row">
                     <div class="col-md-12 col-xs-12 text-center">
-                        <span class="site-footer-legal">2024 <span>©</span> <a href="#">Kian Al-Dora</a></span>
+                        <span class="site-footer-legal">2024 <span>©</span> <a href="#">Kayan Al-Dorra</a></span>
                     </div>
                 </div>
             </footer>
