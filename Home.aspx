@@ -243,7 +243,7 @@
         </div>
     </section>
 
-    <section class="grid-container margin-top-3 margin-bottom-3">
+    <section class="grid-container margin-top-3 margin-bottom-3" runat="server" id="pnlBrands">
         <div class="grid-x grid-padding-x">
             <div class="large-12 cell mt-xlarge">
                 <h1 class="text-center margin-top-3 margin-bottom-4"><%=Resources.Resource.Brands%></h1>
