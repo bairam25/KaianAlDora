@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="PageHeader" ContentPlaceHolderID="Header" runat="Server">
-    <script src="jsCode/jsWishlist.js" defer="defer"></script>
+    <script src="<%= PublicFunctions.ServerURL%>jsCode/jsWishlist.js" defer="defer"></script>
 </asp:Content>
 <asp:Content ID="PageContent" ContentPlaceHolderID="Content" runat="Server">
     <asp:UpdatePanel ID="up" runat="server" ClientIDMode="AutoID">

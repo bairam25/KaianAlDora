@@ -11,10 +11,10 @@
             <div class="grid-x">
                 <ul class="breadcrumbs cell small-12">
                     <li>
-                        <a href="Home"><span><%=Resources.Resource.Home%></span></a>
+                        <a href="<%= PublicFunctions.ServerURL & "Home"%>"><span><%=Resources.Resource.Home%></span></a>
                     </li>
                     <li>
-                        <a href="Items"><span><%=Resources.Resource.Items%></span></a>
+                        <a href="<%= PublicFunctions.ServerURL & "Items"%>"><span><%=Resources.Resource.Items%></span></a>
                     </li>
                     <li>
                         <asp:HyperLink runat="server" ID="lbCategory"></asp:HyperLink>

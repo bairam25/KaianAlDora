@@ -24708,3 +24708,7 @@ body:not(.category-a) .product.categories-new + a h2 span {
 ._addToListButton.button-save .iconFavourite {
     line-height: inherit !important;
 }
+
+.d-none {
+    display: none !important;
+}

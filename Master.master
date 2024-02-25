@@ -8,12 +8,12 @@
     <meta http-equiv="x-ua-compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=Resources.Resource.KayanAlDorra%></title>
-    <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" />
-    <link href="fontawesome-6.1.0/css/all.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="<%= PublicFunctions.ServerURL & "images/favicons/favicon-32x32.png"%>" />
+    <link href="<%= PublicFunctions.ServerURL & "fontawesome-6.1.0/css/all.min.css"%>" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeaderCss" runat="server"></asp:ContentPlaceHolder>
-    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/above.min.css") %>" rel="stylesheet" />
-    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/bottom.min.css") %>" rel="stylesheet" />
-    <link href="<%= Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/custom.min.css") %>" rel="stylesheet" />
+    <link href="<%= PublicFunctions.ServerURL & Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/above.min.css") %>" rel="stylesheet" />
+    <link href="<%= PublicFunctions.ServerURL & Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/bottom.min.css") %>" rel="stylesheet" />
+    <link href="<%= PublicFunctions.ServerURL & Page.ResolveUrl("css/" & Resources.Resource.LangReference & "/custom.min.css") %>" rel="stylesheet" />
     <script src="<%= PublicFunctions.ServerURL%>JsCode/ChangeURL.js"></script>
     <asp:ContentPlaceHolder ID="Header" runat="server"></asp:ContentPlaceHolder>
 </head>
@@ -92,13 +92,13 @@
                                     </div>
                                     <div class="cell small-4 large-3 account-nav">
                                         <div class="cont-icon text-right">
-                                            <a title="<%=Resources.Resource.Favorite%>" class="button alpha tiny position-relative" href="Favorites.aspx">
+                                            <a title="<%=Resources.Resource.Favorite%>" class="button alpha tiny position-relative" href='<%= PublicFunctions.ServerURL & "Favorites"%>'>
                                                 <asp:Label CssClass="favorite-count" Text="0" runat="server" ID="lblFavCount" ClientIDMode="Static" />
                                                 <svg class="icon-large" id="lblFavoriteIcon" runat="server">
                                                     <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-heart-line"></use></svg>
                                             </a>
                                             <asp:Panel runat="server" ID="pnlJoin" CssClass="d-contents">
-                                                <a class="_login button primary show-for-xlarge margin-left-1" href="Login.aspx" data-label="<%=Resources.Resource.SignIn%>">
+                                                <a class="_login button primary show-for-xlarge margin-left-1" href='<%= PublicFunctions.ServerURL & "Login"%>' data-label="<%=Resources.Resource.SignIn%>">
                                                     <span><%=Resources.Resource.SignIn%></span>
                                                 </a>
                                             </asp:Panel>
@@ -145,7 +145,7 @@
                                                         </div>
                                                     </div>
                                                     <ul class="header-user-account__dropdown__mylists">
-                                                        <li><a class="font-x-small" href="Register.aspx"><i class="fa fa-user"></i><%=Resources.Resource.EditProfile%></a></li>
+                                                        <li><a class="font-x-small" href="<%= PublicFunctions.ServerURL & "Register.aspx"%>"><i class="fa fa-user"></i><%=Resources.Resource.EditProfile%></a></li>
                                                     </ul>
                                                     <ul class="header-user-account__dropdown__logout border-0">
                                                         <li>
@@ -156,7 +156,7 @@
                                                 <div class="overlay"></div>
                                             </asp:Panel>
                                             <asp:Panel runat="server" ID="pnlJoinMobile" CssClass="d-contents">
-                                                <a class="_login button alpha tiny hide-for-xlarge" href="Login.aspx" data-label="<%=Resources.Resource.SignIn%>">
+                                                <a class="_login button alpha tiny hide-for-xlarge" href="<%= PublicFunctions.ServerURL & "Login.aspx"%>" data-label="<%=Resources.Resource.SignIn%>">
                                                     <svg class="icon-mlarge">
                                                         <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-user-mobile"></use></svg>
                                                 </a>
@@ -208,11 +208,11 @@
                                             <ul class="cat-first-level menu-mobile" role="tree">
                                                 <li class="new-brand-item cat_new_brand firstLevel trigger-close" role="treeitem" data-id="new">
                                                     <i class="icon-medium hide-for-xlarge icon icon-box fa fa-home"></i>
-                                                    <a title="<%=Resources.Resource.Home%>" data-content="<%=Resources.Resource.Home%>" href="../Home.aspx"><%=Resources.Resource.Home%></a>
+                                                    <a title="<%=Resources.Resource.Home%>" data-content="<%=Resources.Resource.Home%>" href="<%= PublicFunctions.ServerURL & "Home"%>"><%=Resources.Resource.Home%></a>
                                                 </li>
                                                 <li class="cat_1691 firstLevel" data-id="2718" role="treeitem">
                                                     <i class="icon-medium hide-for-xlarge icon icon-box fa fa-box-open"></i>
-                                                    <a href="../Items.aspx" data-content="<%=Resources.Resource.Items%>"><%=Resources.Resource.Items%></a>
+                                                    <a href="<%= PublicFunctions.ServerURL & "Items.aspx"%>" data-content="<%=Resources.Resource.Items%>"><%=Resources.Resource.Items%></a>
                                                     <div class="submenu-wrapper">
                                                         <div class="left-zone">
                                                             <ul class="cat-second-level ul-2718" data-content="<%=Resources.Resource.Items%>">
@@ -269,15 +269,15 @@
                                                 </li>
                                                 <li class="cat_1691 firstLevel" role="treeitem">
                                                     <i class="icon-medium hide-for-xlarge icon icon-box fa fa-columns"></i>
-                                                    <a title="<%=Resources.Resource.Categories%>" href="../Categories.aspx" data-content="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
+                                                    <a title="<%=Resources.Resource.Categories%>" href="<%= PublicFunctions.ServerURL & "Categories.aspx"%>" data-content="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
                                                 </li>
                                                <%-- <li class="cat_1691 firstLevel" role="treeitem">
                                                     <i class="icon-medium hide-for-xlarge icon icon-box fa fa-trademark"></i>
-                                                    <a title="<%=Resources.Resource.Brands%>" href="../Brands.aspx" data-content="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
+                                                    <a title="<%=Resources.Resource.Brands%>" href="<%= PublicFunctions.ServerURL & "Brands.aspx"%>" data-content="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
                                                 </li>--%>
                                                 <li class="cat_1691 firstLevel" role="treeitem">
                                                     <i class="icon-medium hide-for-xlarge icon icon-box fa fa-phone"></i>
-                                                    <a title="<%=Resources.Resource.ContactUs%>" href="../Contact_Us.aspx" data-content="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
+                                                    <a title="<%=Resources.Resource.ContactUs%>" href="<%= PublicFunctions.ServerURL & "Contact_Us.aspx"%>" data-content="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
                                                 </li>
                                                 <%--<li class="cat_1691 firstLevel" data-id="2719" role="treeitem">
                                             <svg class="icon-medium hide-for-xlarge">
@@ -346,19 +346,19 @@
                                         <div class="accordion-content">
                                             <ul class="vertical menu docs-nav">
                                                 <li>
-                                                    <a href="Home.aspx" title="<%=Resources.Resource.Home%>"><%=Resources.Resource.Home%></a>
+                                                    <a href="<%= PublicFunctions.ServerURL & "Home"%>" title="<%=Resources.Resource.Home%>"><%=Resources.Resource.Home%></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" title="<%=Resources.Resource.Items%>"><%=Resources.Resource.Items%></a>
+                                                    <a href="<%= PublicFunctions.ServerURL & "Items.aspx"%>" title="<%=Resources.Resource.Items%>"><%=Resources.Resource.Items%></a>
                                                 </li>
                                                 <li>
-                                                    <a href="Categories.aspx" title="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
+                                                    <a href="<%= PublicFunctions.ServerURL & "Categories.aspx"%>" title="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
                                                 </li>
                                                 <li>
-                                                    <a href="Brands.aspx" title="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
+                                                    <a href="<%= PublicFunctions.ServerURL & "Brands.aspx"%>" title="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
                                                 </li>
                                                 <li>
-                                                    <a href="Contact_Us.aspx" title="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
+                                                    <a href="<%= PublicFunctions.ServerURL & "Contact_Us.aspx"%>" title="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
                                                 </li>
                                                 <%--<li>
                                             <a href="#" title="معلومات عنا">معلومات عنا</a>

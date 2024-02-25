@@ -18,7 +18,9 @@
 
         System.Web.Routing.RouteTable.Routes.MapPageRoute("Home", "Home", "~/Home.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("About", "About", "~/About.aspx")
+        System.Web.Routing.RouteTable.Routes.MapPageRoute("Favorites", "Favorites", "~/Favorites.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("Contact", "Contact", "~/Contact.aspx")
+        System.Web.Routing.RouteTable.Routes.MapPageRoute("Login", "Login", "~/Login.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("SignIn", "SignIn", "~/SignIn.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("EmailConfirmation", "EmailConfirmation", "~/EmailConfirmation.aspx")
         System.Web.Routing.RouteTable.Routes.MapPageRoute("Register", "Register", "~/SignIn.aspx?qid=1")

@@ -18,7 +18,7 @@
                         <%=Resources.Resource.MessageThePageYouAreLookingForMightHaveBeenMovedOrMayNoLongerExist%>
                     </p>
                     <p>
-                        <a href="../Home.aspx"><%=Resources.Resource.GoToTheHomepage%></a>
+                        <a href="<%= PublicFunctions.ServerURL & "Home"%>"><%=Resources.Resource.GoToTheHomepage%></a>
                     </p>
                 </div>
             </div>
