@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutKayanAlDorra1" xml:space="preserve">
+    <value>كيان الدرة هي شركة متعددة الجنسيات العربية وتعمل في المجال منذ سنوات وتريد الوصول للعالمية بتقديم افكار جديدة واستحداث ادوات لتحقيق الرفاهيه للمستهلك بجودة عالية وبتكلفة اقل.</value>
+  </data>
+  <data name="AboutKayanAlDorra2" xml:space="preserve">
+    <value>تخصيص جزء من موارد الشركة للبحث العلمي لضمان التطوير المستمر والممنهج لمنتجات الشركة لضمان استحداث افكار جديدة تجعل منتجات الشركة فريده من نوعها وليس تقليدا للاخرين.</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>معلومات عنا</value>
+  </data>
+  <data name="ABriefOverviewOfTheCompany" xml:space="preserve">
+    <value>نبذة عن الشركة</value>
+  </data>
+  <data name="Address1" xml:space="preserve">
+    <value>منية سمنود - أمام مستشفي الكلي</value>
+  </data>
+  <data name="Address2" xml:space="preserve">
+    <value>أجا - دقهلية - مصر</value>
+  </data>
   <data name="AddToFavorites" xml:space="preserve">
     <value>اضافة الى المفضلة</value>
   </data>
@@ -267,6 +285,22 @@
   <data name="OfficeAddress" xml:space="preserve">
     <value>عنوان المكتب</value>
   </data>
+  <data name="OurVision" xml:space="preserve">
+    <value>رؤيتنا</value>
+  </data>
+  <data name="OurVision1" xml:space="preserve">
+    <value>نؤمن بأهمية التخصص و البحث لذلك لدينا فريق عمل مهمته فقط البحث عن كيفية ارضاء رغباتكم بإبداع بسيط ومتطور.</value>
+  </data>
+  <data name="OurVision2" xml:space="preserve">
+    <value>في ظل الحياة المعاصرة اصبح الابداع ضرورة لا رفاهية.</value>
+  </data>
+  <data name="OurVision3" xml:space="preserve">
+    <value>النجاح مسؤولية والمسؤولية التزام و التزامنا هو ان نجعل لكم حرية في
+تحقيق رغباتكم بما يتناسب معكم .</value>
+  </data>
+  <data name="OurVision4" xml:space="preserve">
+    <value>كل منتج من منتجاتنا نراعى فيه الحداثة والمرونة في التركيب حتى يتناسب مع المساحات المختلفة وأختلاف الأذواق بين عملائنا الاعزاء.</value>
+  </data>
   <data name="PagesInfo" xml:space="preserve">
     <value>معلومات الصفحات</value>
   </data>
@@ -302,6 +336,12 @@
   </data>
   <data name="SubCategories" xml:space="preserve">
     <value>الفئات الفرعية</value>
+  </data>
+  <data name="Warning1" xml:space="preserve">
+    <value>تشهد شركة كيان الدرة للتجارة والصناعة أن جميع منتجاتها مصنعة من أجود وأرقي الخامات العالمية والمحلية المستخدمة في صناعة البانيوهات تضمن الشركة جميع منتجاتها ضد عيوب الصناعة وبناء عليه فأن الشركة ستستبدل فورا أي منتج من منتجاتها وبه أي عيوب صناعة.</value>
+  </data>
+  <data name="Warning2" xml:space="preserve">
+    <value>بالإضافة إلي استعداد الشركة للإشراف علي تركيبه للعميل دون مقابل والضمان لا يشمل سوء الإستخدام والتركيب.</value>
   </data>
   <data name="YourMessage" xml:space="preserve">
     <value>رسالتك</value>

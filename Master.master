@@ -123,7 +123,8 @@
                                             </asp:Panel>--%>
                                             <asp:Panel runat="server" ID="pnlWelcome" CssClass="header-user-account display-inline-block" Visible="false">
                                                 <div class="header-user-account__propic position-relative" data-toggle="user-dropdown" role="button" aria-controls="user-dropdown" data-is-focus="false" data-yeti-box="user-dropdown" aria-haspopup="true" aria-expanded="false" id="hupkat-dd-anchor">
-                                                    <b class="header-user-account__propic--text font-x-small display-inline-block text-center"><asp:Label ID="lblRegisteredAvatar1" runat="server" /></b>
+                                                    <b class="header-user-account__propic--text font-x-small display-inline-block text-center">
+                                                        <asp:Label ID="lblRegisteredAvatar1" runat="server" /></b>
                                                 </div>
                                                 <div class="header-user-account__dropdown dropdown-pane padding-horizontal-0 padding-bottom-0 has-position-bottom has-alignment-right" id="user-dropdown" data-dropdown="3evie8-dropdown" data-close-on-click="true" data-position="bottom" data-alignment="right" data-v-offset="10" aria-labelledby="hupkat-dd-anchor" aria-hidden="true" data-yeti-box="user-dropdown" data-resize="user-dropdown" style="top: 47.2639px; left: -126.583px;" data-events="resize">
                                                     <div class="flex-container hide-for-large">
@@ -134,7 +135,8 @@
                                                     </div>
                                                     <div class="header-user-account__dropdown__user-info">
                                                         <div class="padding-bottom-1 padding-horizontal-1 flex-container align-middle">
-                                                            <b class="avatar"> <asp:Label ID="lblRegisteredAvatar2" runat="server" /></b>
+                                                            <b class="avatar">
+                                                                <asp:Label ID="lblRegisteredAvatar2" runat="server" /></b>
                                                             <div class="header-user-account__dropdown__user-info__details text-left">
                                                                 <b class="font-x-small">
                                                                     <asp:Label ID="lblRegisteredFirstName" runat="server" /></b>
@@ -271,7 +273,7 @@
                                                     <i class="icon-medium hide-for-xlarge icon icon-box fa fa-columns"></i>
                                                     <a title="<%=Resources.Resource.Categories%>" href="<%= PublicFunctions.ServerURL & "Categories.aspx"%>" data-content="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
                                                 </li>
-                                               <%-- <li class="cat_1691 firstLevel" role="treeitem">
+                                                <%-- <li class="cat_1691 firstLevel" role="treeitem">
                                                     <i class="icon-medium hide-for-xlarge icon icon-box fa fa-trademark"></i>
                                                     <a title="<%=Resources.Resource.Brands%>" href="<%= PublicFunctions.ServerURL & "Brands.aspx"%>" data-content="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
                                                 </li>--%>
@@ -279,11 +281,10 @@
                                                     <i class="icon-medium hide-for-xlarge icon icon-box fa fa-phone"></i>
                                                     <a title="<%=Resources.Resource.ContactUs%>" href="<%= PublicFunctions.ServerURL & "Contact_Us.aspx"%>" data-content="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
                                                 </li>
-                                                <%--<li class="cat_1691 firstLevel" data-id="2719" role="treeitem">
-                                            <svg class="icon-medium hide-for-xlarge">
-                                                <use xlink:href="/images/sprite-icon.svg?v=20231114_3#icon-2719"></use></svg>
-                                            <a title="معلومات عنا" href="#" data-content="معلومات عنا">معلومات عنا</a>
-                                        </li>--%>
+                                                <li class="cat_1691 firstLevel" data-id="2719" role="treeitem">
+                                                    <i class="icon-medium hide-for-xlarge icon icon-box fa fa-user"></i>
+                                                    <a title="<%=Resources.Resource.AboutUs%>" href="<%= PublicFunctions.ServerURL & "About_Us.aspx"%>" data-content="<%=Resources.Resource.AboutUs%>"><%=Resources.Resource.AboutUs%></a>
+                                                </li>
                                             </ul>
                                         </nav>
                                         <div class="mega-dropdown-overlay show-for-xlarge"></div>
@@ -330,9 +331,8 @@
                                             <span><%=Resources.Resource.KayanAlDorra%></span>
                                         </a>
                                         <div class="accordion-content margin-right-2">
-                                            <p class="p-text margin-right-4">
-                                                لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.
-                                            </p>
+                                            <p class="p-text margin-right-4"><%=Resources.Resource.AboutKayanAlDorra1%></p>
+                                            <p class="p-text margin-right-4"><%=Resources.Resource.AboutKayanAlDorra2%></p>
                                         </div>
                                     </li>
                                 </ul>
@@ -354,15 +354,15 @@
                                                 <li>
                                                     <a href="<%= PublicFunctions.ServerURL & "Categories.aspx"%>" title="<%=Resources.Resource.Categories%>"><%=Resources.Resource.Categories%></a>
                                                 </li>
-                                                <li>
+                                                <%--<li>
                                                     <a href="<%= PublicFunctions.ServerURL & "Brands.aspx"%>" title="<%=Resources.Resource.Brands%>"><%=Resources.Resource.Brands%></a>
-                                                </li>
+                                                </li>--%>
                                                 <li>
                                                     <a href="<%= PublicFunctions.ServerURL & "Contact_Us.aspx"%>" title="<%=Resources.Resource.ContactUs%>"><%=Resources.Resource.ContactUs%></a>
                                                 </li>
-                                                <%--<li>
-                                            <a href="#" title="معلومات عنا">معلومات عنا</a>
-                                        </li>--%>
+                                                <li>
+                                                    <a href="<%= PublicFunctions.ServerURL & "About_Us.aspx"%>" title="<%=Resources.Resource.AboutUs%>"><%=Resources.Resource.AboutUs%></a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>
@@ -382,7 +382,8 @@
                                                             <i class="fa fa-map-location-dot"></i>
                                                         </div>
                                                         <div class="media-body">
-                                                            <p class="info-text">25 شارع سيد درويش, القاهرة, مصر</p>
+                                                            <p class="info-text text-sm"><%=Resources.Resource.Address1%></p>
+                                                            <p class="info-text text-sm"><%=Resources.Resource.Address2%></p>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -393,10 +394,10 @@
                                                         </div>
                                                         <div class="media-body">
                                                             <p class="info-text">
-                                                                <a href="tel:+20123456789">+20 123 456 7890</a>
+                                                                <a href="tel:+20123456789">+2 010 6908 81 41</a>
                                                             </p>
                                                             <p class="info-text">
-                                                                <a href="tel:+20123456789">+20 198 765 4321</a>
+                                                                <a href="tel:+20123456789">+2 010 0782 20 40</a>
                                                             </p>
                                                         </div>
                                                     </div>

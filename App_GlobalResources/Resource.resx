@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutKayanAlDorra1" xml:space="preserve">
+    <value>Kayan Al-Durra is a multinational Arab company that has been operating in the field for years and aims to achieve global recognition by introducing new ideas and creating tools to enhance consumer welfare with high quality and lower cost.</value>
+  </data>
+  <data name="AboutKayanAlDorra2" xml:space="preserve">
+    <value>To allocate a portion of the company's resources to scientific research to ensure continuous and systematic development of the company's products, aiming to generate new ideas that make the company's products unique rather than imitative of others.</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="ABriefOverviewOfTheCompany" xml:space="preserve">
+    <value>A Brief Overview Of The Company</value>
+  </data>
+  <data name="Address1" xml:space="preserve">
+    <value>Minyat Samannoud - in front of the Kidney Hospital</value>
+  </data>
+  <data name="Address2" xml:space="preserve">
+    <value>Aga - Dakahlia - Egypt</value>
+  </data>
   <data name="AddToFavorites" xml:space="preserve">
     <value>Add To Favorites</value>
   </data>
@@ -267,6 +285,21 @@
   <data name="OfficeAddress" xml:space="preserve">
     <value>Office Address</value>
   </data>
+  <data name="OurVision" xml:space="preserve">
+    <value>Our Vision</value>
+  </data>
+  <data name="OurVision1" xml:space="preserve">
+    <value>We believe in the importance of specialization and research, which is why we have a dedicated team whose mission is to research how to satisfy your desires with simple and advanced innovations.</value>
+  </data>
+  <data name="OurVision2" xml:space="preserve">
+    <value>In contemporary life, creativity has become a necessity, not a luxury.</value>
+  </data>
+  <data name="OurVision3" xml:space="preserve">
+    <value>Success is a responsibility, and responsibility is commitment. Our commitment is to provide you with the freedom to fulfill your desires in a way that suits you.</value>
+  </data>
+  <data name="OurVision4" xml:space="preserve">
+    <value>Each of our products incorporates modernity and flexibility in its design to fit different spaces and cater to the diverse tastes of our valued customers.</value>
+  </data>
   <data name="PagesInfo" xml:space="preserve">
     <value>Pages Info</value>
   </data>
@@ -302,6 +335,12 @@
   </data>
   <data name="SubCategories" xml:space="preserve">
     <value>Sub Categories</value>
+  </data>
+  <data name="Warning1" xml:space="preserve">
+    <value>Kayan Al-Durra Trading and Industry Company declares that all its products are manufactured from the finest and highest quality global and local materials used in the production of bathtubs. The company guarantees all its products against manufacturing defects. Accordingly, the company will immediately replace any of its products found to have any manufacturing defects.</value>
+  </data>
+  <data name="Warning2" xml:space="preserve">
+    <value>In addition to the company's readiness to supervise its installation for the customer at no charge, the warranty does not cover misuse or improper installation.</value>
   </data>
   <data name="YourMessage" xml:space="preserve">
     <value>Your Message</value>

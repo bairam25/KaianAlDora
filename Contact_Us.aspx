@@ -18,7 +18,7 @@
             </div>
         </div>
     </nav>
-    <section class="grid-container margin-top-3">
+    <section class="grid-container margin-top-3 no-bg">
         <asp:Label Text="" ID="lblRes" runat="server" />
         <div class="grid-x grid-padding-x">
             <div class="small-12 large-5 cell">
@@ -31,7 +31,8 @@
                             </div>
                             <div class="media-body">
                                 <h4 class="info-title"><%=Resources.Resource.OfficeAddress%>:</h4>
-                                <p class="info-text">25 شارع سيد درويش, القاهرة, مصر</p>
+                                <p class="info-text"><%=Resources.Resource.Address1%></p>
+                                <p class="info-text"><%=Resources.Resource.Address2%></p>
                             </div>
                         </div>
                         <div class="info-media">
@@ -41,10 +42,10 @@
                             <div class="media-body">
                                 <h4 class="info-title"><%=Resources.Resource.ForHelpContactUs%>:</h4>
                                 <p class="info-text">
-                                    <a href="tel:+20123456789">+20 123 456 7890</a>
+                                    <a href="tel:+20123456789">+2 010 6908 81 41</a>
                                 </p>
                                 <p class="info-text">
-                                    <a href="tel:+20123456789">+20 198 765 4321</a>
+                                    <a href="tel:+20123456789">+2 010 0782 20 40</a>
                                 </p>
                             </div>
                         </div>
