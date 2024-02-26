@@ -422,7 +422,7 @@
                                             <span><%=Resources.Resource.ForInquiriesPleaseContactUs%> :</span>
                                         </a>
                                         <div class="accordion-content">
-                                            <a class="apx-amb" href="https://wa.me/+0123456789" target="_blank" title="<%=Resources.Resource.ContactUsViaWhatsApp%>">
+                                            <a class="apx-amb" href="https://wa.me/+01277191224" target="_blank" title="<%=Resources.Resource.ContactUsViaWhatsApp%>">
                                                 <i class="fab fa-whatsapp fa-lg"></i>
                                                 <span><%=Resources.Resource.ContactUsViaWhatsApp%></span>
                                             </a>
