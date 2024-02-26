@@ -56,7 +56,7 @@ function AddScriptsPostback() {
     $('.carousel .carousel-item img').on('click', function () {
         $('#pnlFullScreen #imgCarousel').attr('src', $(this).attr('src'));
         $('#pnlFullScreen #imgCarousel').attr('alt', $(this).attr('alt'));
-        $('#pnlFullScreen #lblimgTitle').text($(this).attr('alt'));
+        //$('#pnlFullScreen #lblimgTitle').text($(this).attr('alt'));
         $('#pnlFullScreen').show();
     });
 

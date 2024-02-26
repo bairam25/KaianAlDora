@@ -136,9 +136,9 @@
                                         <img src="#" id="imgCarousel" class="carousel-cell-image flickity-lazyloaded" alt="">
                                     </div>
                                     <button class="close-gallery close-button" type="button"><span aria-hidden="true">×</span></button>
-                                    <div class="caption-recap caption-details">
+                                    <%--<div class="caption-recap caption-details">
                                         <p id="lblimgTitle">AVIGO | Gruppo Geromin</p>
-                                    </div>
+                                    </div>--%>
                                 </div>
 
                                 <div class="productsheet__overview__cta">
@@ -247,7 +247,7 @@
                                         <div class="accordion-item grid-margin-x is-active">
                                             <a class="accordion-title" aria-controls="24p3fx-accordion" id="24p3fx-accordion-label" aria-expanded="true"><%=Resources.Resource.Dimensions%></a>
                                             <div class="accordion-content" data-tab-content="" style="display: block" role="region" aria-labelledby="24p3fx-accordion-label" aria-hidden="false" id="24p3fx-accordion">
-                                                <p><%# Eval("Size").ToString  %></p>
+                                                <p class="dir-en text-left"><%# Eval("Size").ToString  %></p>
                                                 <div class="grid-x grid-padding-x margin-top-1 flex-dimensions">
                                                     <figure class="cell small-12">
 

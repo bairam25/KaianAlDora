@@ -24741,3 +24741,7 @@ ul.list-text {
     ul.list-text li {
         margin-bottom: 0.5rem;
     }
+
+.dir-en {
+    direction: ltr;
+}
