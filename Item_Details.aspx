@@ -248,7 +248,7 @@
                                             <a class="accordion-title" aria-controls="24p3fx-accordion" id="24p3fx-accordion-label" aria-expanded="true"><%=Resources.Resource.Dimensions%></a>
                                             <div class="accordion-content" data-tab-content="" style="display: block" role="region" aria-labelledby="24p3fx-accordion-label" aria-hidden="false" id="24p3fx-accordion">
                                                 <p class="dir-en text-left"><%# Eval("Size").ToString  %></p>
-                                                <div class="grid-x grid-padding-x margin-top-1 flex-dimensions">
+                                                <div class="grid-x grid-padding-x margin-top-1 flex-dimensions" id="divSketchPhoto" runat="server" visible='<%# IIf(Eval("SketchPhoto").ToString = String.Empty, False, True) %>'>
                                                     <figure class="cell small-12">
 
                                                         <img src='<%# PublicFunctions.ServerURL & Eval("SketchPhoto") %>' loading="lazy" title="<%=Resources.Resource.Dimensions%>" alt="<%=Resources.Resource.Dimensions%>" width="624" height="423" style="width: auto" />
