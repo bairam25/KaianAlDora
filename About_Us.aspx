@@ -18,7 +18,7 @@
             </div>
         </div>
     </nav>
-    <section class="grid-container margin-top-3 no-bg">
+    <section class="grid-container margin-top-3 no-bg" style="min-height: 60vh;">
         <asp:Label Text="" ID="lblRes" runat="server" />
         <div class="grid-x grid-padding-x justify-content-center">
             <div class="small-12 large-8 cell text-center">

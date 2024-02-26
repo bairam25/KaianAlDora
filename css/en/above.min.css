@@ -24732,7 +24732,3 @@ ul.list-text {
     ul.list-text li {
         margin-bottom: 0.5rem;
     }
-
-section {
-    min-height: 60vh;
-}
