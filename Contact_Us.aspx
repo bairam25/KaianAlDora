@@ -56,7 +56,7 @@
                             <div class="media-body">
                                 <h4 class="info-title"><%=Resources.Resource.Email%>:</h4>
                                 <p class="info-text">
-                                    <a href="mailto:info@info.com">info@info.com</a>
+                                    <a href="mailto:info@kayanaldorra.com">info@kayanaldorra.com</a>
                                 </p>
                             </div>
                         </div>
