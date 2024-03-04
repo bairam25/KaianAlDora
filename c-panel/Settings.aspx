@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Settings</title>
+    <title>الإعدادات</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="~/images/favicons/favicon-32x32.png" />
     <!-- Resource style -->
@@ -45,13 +45,13 @@
                             <div class="col-md-12">
                                 <div class="page-header-title">
                                     <h5 class="m-b-10">
-                                        <asp:Label ID="lblFormName" runat="server">Settings</asp:Label>
+                                        <asp:Label ID="lblFormName" runat="server">الإعدادات</asp:Label>
                                     </h5>
                                 </div>
                                 <div class="d-flex">
                                     <ul class="breadcrumb flex-1 bg-unset p-0 m-0">
-                                        <li class="breadcrumb-item"><a href="Dashboards.aspx"><i class="fa fa-home"></i></a></li>
-                                        <li class="breadcrumb-item">Settings</li>
+                                        <li class="breadcrumb-item"><a href="Items.aspx"><i class="fa fa-home"></i></a></li>
+                                        <li class="breadcrumb-item">الإعدادات</li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                         <ProgressTemplate>
                             <div class="d-flex justify-content-center align-items-center h-100">
                                 <div class="spinner-border text-success" role="status">
-                                    <span class="sr-only">Loading...</span>
+                                    <span class="sr-only">جاري التحميل...</span>
                                 </div>
                             </div>
                         </ProgressTemplate>
@@ -83,7 +83,7 @@
                                 <asp:Panel ID="pgPanel" CssClass="input-in" runat="server">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Entries / page</span>
+                                            <span class="input-group-text">النتائج لكل صفحة</span>
                                         </div>
                                         <asp:DropDownList runat="server" CssClass="form-control ltr" ID="ddlPager" OnSelectedIndexChanged="PageSize_Changed" AutoPostBack="true">
                                             <asp:ListItem Value="10">10</asp:ListItem>
@@ -97,7 +97,7 @@
                             <div class="col-md-6 text-right">
                                 <div class="input-in col-md-6">
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtSearchAll" CssClass="form-control" AutoPostBack="true" placeholder="Search" OnTextChanged="FillDataTypes" runat="server" ToolTip="Search"></asp:TextBox>
+                                        <asp:TextBox ID="txtSearchAll" CssClass="form-control" AutoPostBack="true" placeholder="بحث" OnTextChanged="FillDataTypes" runat="server" ToolTip="بحث"></asp:TextBox>
                                         <asp:LinkButton runat="server" CssClass="clear-search" ID="cmdClear" title="Clear" OnClientClick="$('#txtSearchAll').val('');">&times;</asp:LinkButton>
                                         <asp:AutoCompleteExtender ID="acebasicSearch" BehaviorID="txtsaerchbasic" runat="server" FirstRowSelected="false"
                                             EnableCaching="false" Enabled="True" MinimumPrefixLength="1" CompletionListCssClass="acl"
@@ -122,19 +122,19 @@
                                 <asp:GridView ID="gvDataTypes" CssClass="table table-striped table-bordered table-hover" runat="server" AutoGenerateColumns="False" AllowSorting="true" OnSorting="gvDataTypes_Sorting" AllowPaging="true"
                                     PageSize='<%# ddlPager.SelectedValue  %>' OnPageIndexChanging="gvDataTypes_PageIndexChanging">
                                     <Columns>
-                                        <asp:TemplateField HeaderText="Type" SortExpression="Type" HeaderStyle-CssClass="upnDownArrow" Visible="false">
+                                        <asp:TemplateField HeaderText="النوع" SortExpression="Type" HeaderStyle-CssClass="upnDownArrow" Visible="false">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblType" runat="server" Text='<%# Eval("Type")%>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Description" SortExpression="description" HeaderStyle-CssClass="upnDownArrow">
+                                        <asp:TemplateField HeaderText="الوصف" SortExpression="description" HeaderStyle-CssClass="upnDownArrow">
                                             <ItemTemplate>
                                                 <asp:Label ID="lbldescription" runat="server" Text='<%# Eval("description")%>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Show">
+                                        <asp:TemplateField HeaderText="عرض">
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="lbShow" CssClass="btn btn-primary" runat="server" CommandArgument='<%# Eval("Id")%>' OnClick="ShowValues" ToolTip="Show">
+                                                <asp:LinkButton ID="lbShow" CssClass="btn btn-primary" runat="server" CommandArgument='<%# Eval("Id")%>' OnClick="ShowValues" ToolTip="عرض">
                                                    <i class="feather icon-eye"></i> 
                                                 </asp:LinkButton>
                                             </ItemTemplate>
@@ -142,7 +142,7 @@
                                     </Columns>
                                     <EmptyDataTemplate>
                                         <div class="text-center">
-                                            Not Data Found
+                                            لا توجد بيانات
                                         </div>
                                     </EmptyDataTemplate>
                                 </asp:GridView>
@@ -154,12 +154,12 @@
                                 <div class="row border-bottom pb-2 mb-2">
                                     <div class="col-md-6 p-0">
                                         <div class="input-in">
-                                            <asp:LinkButton ID="lbBack" runat="server" OnClick="Back" CssClass="btn btn-primary" ToolTip="Back">Back<i class="fa fa-reply"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="lbBack" runat="server" OnClick="Back" CssClass="btn btn-primary" ToolTip="Back">عودة<i class="fa fa-reply"></i></asp:LinkButton>
                                         </div>
                                     </div>
                                     <div class="col-md-6 p-0 text-right">
                                         <div class="input-in">
-                                            <asp:LinkButton ID="lbNewValue" runat="server" OnClick="NewValue" CssClass="btn btn-primary" ToolTip="New">New<i class="feather icon-plus"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="lbNewValue" runat="server" OnClick="NewValue" CssClass="btn btn-primary" ToolTip="اضافة جديد">اضافة جديد<i class="feather icon-plus"></i></asp:LinkButton>
                                         </div>
                                     </div>
                                 </div>
@@ -199,31 +199,31 @@
                                                         <asp:Label ID="lblCode" runat="server" Text='<%# Eval("Code")%>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Value" SortExpression="Value" HeaderStyle-CssClass="upnDownArrow">
+                                                <asp:TemplateField HeaderText="القيمة" SortExpression="Value" HeaderStyle-CssClass="upnDownArrow">
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblValue" runat="server" Text='<%# Eval("Value")%>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Image">
+                                                <asp:TemplateField HeaderText="الصورة">
                                                     <ItemTemplate>
                                                         <asp:Image ID="imgICON" Width="50px" Height="50px" ImageUrl='<%# Eval("Icon")%>' runat="server" />
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Parent Type">
+                                                <asp:TemplateField HeaderText="النوع الأساسي">
                                                     <ItemTemplate>
                                                         <asp:Label ID="lblParentType" runat="server" Text='<%# Eval("ParentType")%>'></asp:Label>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Edit">
+                                                <asp:TemplateField HeaderText="تعديل">
                                                     <ItemTemplate>
-                                                        <asp:LinkButton ID="lbUpdate" CssClass="btn btn-primary" runat="server" CommandArgument='<%# Eval("Id") %>' OnClick="Edit" ToolTip="Edit">
+                                                        <asp:LinkButton ID="lbUpdate" CssClass="btn btn-primary" runat="server" CommandArgument='<%# Eval("Id") %>' OnClick="Edit" ToolTip="تعديل">
                                                             <i class="feather icon-edit"></i>
                                                         </asp:LinkButton>
                                                     </ItemTemplate>
                                                 </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Delete">
+                                                <asp:TemplateField HeaderText="حذف">
                                                     <ItemTemplate>
-                                                        <a href="#" id="hrefDelete" class="btn btn-danger" title="Delete"
+                                                        <a href="#" id="hrefDelete" class="btn btn-danger" title="حذف"
                                                             onclick="ShowConfirmPopup('<%# CType(Container, GridViewRow).FindControl("mpConfirmDelete").ClientID.ToString%>','<%# CType(Container, GridViewRow).FindControl("pnlConfirmExtenderDelete").ClientID.ToString%>');return false;"><i class="feather icon-trash-2"></i></a>
                                                         <asp:HiddenField ID="hfDelete" runat="server" />
                                                         <asp:ModalPopupExtender ID="mpConfirmDelete" runat="server" PopupControlID="pnlConfirmExtenderDelete" TargetControlID="hfDelete"
@@ -234,17 +234,17 @@
                                                             <div class="rodal-dialog rodal-slideUp-enter" style="width: 300px;">
                                                                 <div class="card">
                                                                     <div class="card-header p-2">
-                                                                        <h5 class="card-title m-0">Confirmation Message</h5>
+                                                                        <h5 class="card-title m-0">رسالة تأكيد</h5>
                                                                     </div>
                                                                     <div class="body p-2">
-                                                                        <label>Are you sure you want to delete this record ?</label>
+                                                                        <label>هل أنت متأكد أنك تريد حذف هذا السجل ؟</label>
                                                                     </div>
                                                                     <div class="footer">
                                                                         <div class="input-in">
-                                                                            <asp:LinkButton ID="lbYesDelete" runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' OnClick="Delete">Yes<i class="fa fa-check"></i></asp:LinkButton>
+                                                                            <asp:LinkButton ID="lbYesDelete" runat="server" CssClass="btn btn-success" CommandArgument='<%# Eval("Id") %>' OnClick="Delete">نعم<i class="fa fa-check"></i></asp:LinkButton>
                                                                         </div>
                                                                         <div class="input-in">
-                                                                            <a id="lbNoDelete" class="btn btn-danger" onclick="CloseConfirmPopup('<%# CType(Container, GridViewRow).FindControl("mpConfirmDelete").ClientID.ToString%>');return false;">No<i class="fa fa-times"></i></a>
+                                                                            <a id="lbNoDelete" class="btn btn-danger" onclick="CloseConfirmPopup('<%# CType(Container, GridViewRow).FindControl("mpConfirmDelete").ClientID.ToString%>');return false;">لا<i class="fa fa-times"></i></a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -255,7 +255,7 @@
                                             </Columns>
                                             <EmptyDataTemplate>
                                                 <div class="text-center">
-                                                    Not Data Found
+                                                    لا توجد بيانات
                                                 </div>
                                             </EmptyDataTemplate>
                                         </asp:GridView>
@@ -268,17 +268,17 @@
                                     <div class="col-md-9">
                                         <div class="card m-0 h-100">
                                             <div class="card-header">
-                                                <h5 class="card-title">Details</h5>
+                                                <h5 class="card-title">التفاصيل</h5>
                                             </div>
                                             <div class="card-body">
                                                 <div class="col-md-12">
                                                     <div class="row">
                                                         <div class="form-group col-md-4 input-in">
-                                                            <label class="form-label required">Value</label>
+                                                            <label class="form-label required">القيمة</label>
                                                             <asp:TextBox ID="txtValue" runat="server" CssClass="form-control" MaxLength="200" onkeypress="return isString(event);" onkeyup="ValidateChars(this);"></asp:TextBox>
 
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="valid-inp"
-                                                                ControlToValidate="txtValue" ErrorMessage="Enter Value" ValidationGroup="vSettings"></asp:RequiredFieldValidator>
+                                                                ControlToValidate="txtValue" ErrorMessage="ادخل القيمة" ValidationGroup="vSettings"></asp:RequiredFieldValidator>
                                                         </div>
                                                         <div class="form-group col-md-4 input-in" id="divCode" runat="server" visible="false">
                                                             <label class="form-label">Code</label>
@@ -289,7 +289,7 @@
                                                         </div>
                                                         <div class="form-group col-md-4 input-in">
                                                             <asp:Panel ID="pnlRType" runat="server" CssClass="col-md-12 col-sm-12">
-                                                                <label class="form-label">Parent Type</label>
+                                                                <label class="form-label">النوع الأساسي</label>
                                                                 <asp:DropDownList ID="ddlRType" runat="server" CssClass="form-control"></asp:DropDownList>
                                                             </asp:Panel>
                                                             <div class="col-md-12" style="padding: 0" id="divColor" runat="server" visible="false">
@@ -307,7 +307,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-12 input-in">
-                                                            <label class="form-label">Description</label>
+                                                            <label class="form-label">الوصف</label>
                                                             <%--<asp:TextBox runat="server" ID="txtDescription" TextMode="MultiLine"></asp:TextBox>--%>
                                                             <uc1:HTMLEditor ID="txtDescription" runat="server" />
                                                         </div>
@@ -316,14 +316,14 @@
                                                 <div class="col-md-12 text-right p-0">
                                                     <div class="input-in">
                                                         <span class="frame-btn">
-                                                            <asp:Button ID="btnSave" runat="server" CssClass="btn btn-success" ValidationGroup="vSettings" OnClick="Save" UseSubmitBehavior="false" OnClientClick="SaveClick(this,'vSettings');" Text="Save" />
+                                                            <asp:Button ID="btnSave" runat="server" CssClass="btn btn-success" ValidationGroup="vSettings" OnClick="Save" UseSubmitBehavior="false" OnClientClick="SaveClick(this,'vSettings');" Text="حفظ" />
                                                             <label class="fa fa-check" for="btnSave"></label>
                                                         </span>
                                                     </div>
                                                     <div class="input-in">
                                                         <asp:Panel runat="server" ID="pnlCancel">
-                                                            <a href="#" title="Cancel" class="btn btn-danger" data-toggle="modal" data-placement="bottom" data-original-title="Cancel"
-                                                                onclick="ShowConfirmPopup('mpConfirmCancel','pnlConfirmExtenderCancel');return false;">Cancel<i class="fa fa-times"></i></a>
+                                                            <a href="#" title="Cancel" class="btn btn-danger" data-toggle="modal" data-placement="bottom" data-original-title="إلغاء"
+                                                                onclick="ShowConfirmPopup('mpConfirmCancel','pnlConfirmExtenderCancel');return false;">إلغاء<i class="fa fa-times"></i></a>
                                                             <asp:HiddenField ID="hfCancel" runat="server" />
                                                             <asp:ModalPopupExtender ID="mpConfirmCancel" ClientIDMode="Static" runat="server" PopupControlID="pnlConfirmExtenderCancel" TargetControlID="hfCancel"
                                                                 CancelControlID="lbNoCancel" BackgroundCssClass="modalBackground">
@@ -335,17 +335,17 @@
                                                             <div class="rodal-dialog rodal-slideUp-enter" style="width: 300px;">
                                                                 <div class="card">
                                                                     <div class="card-header p-2">
-                                                                        <h5 class="card-title border-0 m-0 p-0">Confirmation Message</h5>
+                                                                        <h5 class="card-title border-0 m-0 p-0">رسالة تأكيد</h5>
                                                                     </div>
                                                                     <div class="body p-2">
-                                                                        <label>Confirm Cancel ?</label>
+                                                                        <label>تأكيد الإلغاء</label>
                                                                     </div>
                                                                     <div class="footer">
                                                                         <div class="input-in">
-                                                                            <asp:LinkButton ID="lbYesCancel" runat="server" CssClass="btn btn-success" OnClick="Cancel" CausesValidation="false">Yes<i class="fa fa-check"></i></asp:LinkButton>
+                                                                            <asp:LinkButton ID="lbYesCancel" runat="server" CssClass="btn btn-success" OnClick="Cancel" CausesValidation="false">نعم<i class="fa fa-check"></i></asp:LinkButton>
                                                                         </div>
                                                                         <div class="input-in">
-                                                                            <asp:LinkButton ID="lbNoCancel" runat="server" CssClass="btn btn-danger" OnClientClick="CloseConfirmPopup('mpConfirmCancel');return false;">No<i class="fa fa-times"></i></asp:LinkButton>
+                                                                            <asp:LinkButton ID="lbNoCancel" runat="server" CssClass="btn btn-danger" OnClientClick="CloseConfirmPopup('mpConfirmCancel');return false;">لا<i class="fa fa-times"></i></asp:LinkButton>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -360,7 +360,7 @@
                                     <div class="col-md-3 pl-2">
                                         <div class="card m-0 h-100">
                                             <div class="card-header">
-                                                <h5 class="card-title">Logo</h5>
+                                                <h5 class="card-title">الشعار</h5>
                                             </div>
                                             <div class="card-body">
                                                 <div id="divPic" runat="server">
@@ -372,7 +372,7 @@
                                                         <asp:TextBox ID="txtHiddenPassword" runat="server" ClientIDMode="Static" Style="display: none;"></asp:TextBox>
                                                         <asp:TextBox ID="HiddenIcon" runat="server" ClientIDMode="Static" Style="display: none"></asp:TextBox>
                                                         <asp:Panel ID="pnlfuLogo" runat="server" CssClass="photo-upload-box">
-                                                            <span>Upload Logo <i class="fa fa-camera ml-1"></i></span>
+                                                            <span>اضافة شعار <i class="fa fa-camera ml-1"></i></span>
                                                             <asp:AsyncFileUpload ID="fuPhoto" ClientIDMode="Static" runat="server" CssClass="photo-upload-box-input" OnUploadedComplete="PhotoUploaded"
                                                                 OnClientUploadComplete="UploadPhotoCompleted" OnClientUploadError="UploadError" OnClientUploadStarted="UploadStarted" FailedValidation="False" />
 

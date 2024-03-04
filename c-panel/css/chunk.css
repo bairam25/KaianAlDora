@@ -1751,7 +1751,7 @@ perfect-scrollbar.config-scroll > .ps.ps--active-y > .ps__rail-y.ps--clicking, p
     }
 
         .nestable .pc-nestable-item-handler:before {
-            content: "Ã¢â€°Â¡";
+            content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€šÃ‚Â¡";
             display: block;
             position: absolute;
             left: 0;
@@ -3768,10 +3768,11 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 body {
+    direction: rtl;
     margin: 0;
     font-size: 1rem;
     line-height: 1.5;
-    text-align: left;
+    text-align: right;
     background-color: #f6f7fb
 }
 
@@ -7001,13 +7002,13 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         }
 
         .input-group > .custom-select:not(:last-child), .input-group > .form-control:not(:last-child) {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
 
         .input-group > .custom-select:not(:first-child), .input-group > .form-control:not(:first-child) {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
     .input-group > .custom-file {
@@ -7043,11 +7044,11 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
         }
 
 .input-group-prepend {
-    margin-right: -1px
+    margin-left: -1px;
 }
 
 .input-group-append {
-    margin-left: -1px
+    margin-right: -1px;
 }
 
 .input-group-text {
@@ -7097,13 +7098,13 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child), .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child), .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .custom-control {
@@ -8239,12 +8240,12 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
     .breadcrumb-item + .breadcrumb-item {
-        padding-left: .5rem
+        padding-right: .5rem;
     }
 
         .breadcrumb-item + .breadcrumb-item:before {
             display: inline-block;
-            padding-right: .5rem;
+            padding-left: .5rem;
             color: #6c757d;
             content: "/"
         }
@@ -11321,7 +11322,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .ml-1, .mx-1 {
-    margin-left: .25rem !important
+    margin-right: .25rem !important;
 }
 
 .m-2 {
@@ -11333,7 +11334,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .mr-2, .mx-2 {
-    margin-right: .5rem !important
+    margin-left: .5rem !important;
 }
 
 .mb-2, .my-2 {
@@ -13131,7 +13132,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .text-right {
-    text-align: right !important
+    text-align: left !important;
 }
 
 .text-center {
@@ -40159,7 +40160,7 @@ input[type="checkbox"] + label {
 }
 
 .btn i {
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .input-group-append .btn i {
@@ -40168,7 +40169,7 @@ input[type="checkbox"] + label {
 
 .clear-search {
     position: absolute;
-    right: 46px;
+    left: 46px;
     height: 100%;
     width: 20px;
     display: flex;

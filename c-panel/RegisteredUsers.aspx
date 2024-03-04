@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Users</title>
+    <title>المستخدمين</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="../images/favicons/favicon-32x32.png">
     <!-- Resource style -->
@@ -43,12 +43,12 @@
                         <div class="row align-items-center">
                             <div class="col-md-12">
                                 <div class="page-header-title">
-                                    <h5 class="m-b-10">Users</h5>
+                                    <h5 class="m-b-10">المستخدمين</h5>
                                 </div>
                                 <div class="d-flex">
                                     <ul class="breadcrumb flex-1 bg-unset p-0 m-0">
-                                        <li class="breadcrumb-item"><a href="Dashboards.aspx"><i class="fa fa-home"></i></a></li>
-                                        <li class="breadcrumb-item">Users</li>
+                                        <li class="breadcrumb-item"><a href="Items.aspx"><i class="fa fa-home"></i></a></li>
+                                        <li class="breadcrumb-item">المستخدمين</li>
                                     </ul>
 
                                 </div>
@@ -63,7 +63,7 @@
                         <ProgressTemplate>
                             <div class="d-flex justify-content-center align-items-center h-100">
                                 <div class="spinner-border text-success" role="status">
-                                    <span class="sr-only">Loading...</span>
+                                    <span class="sr-only">جاري التحميل...</span>
                                 </div>
                             </div>
                         </ProgressTemplate>
@@ -82,7 +82,7 @@
                                     <asp:Panel ID="pgPanel" CssClass="input-in" runat="server">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text">Entries / page</span>
+                                                <span class="input-group-text">النتائج لكل صفحة</span>
                                             </div>
                                             <asp:DropDownList runat="server" CssClass="form-control ltr" ID="ddlPager" AutoPostBack="true" OnSelectedIndexChanged="PageSize_Changed">
                                                 <asp:ListItem Value="10">10</asp:ListItem>
@@ -98,9 +98,9 @@
 
                                     <div class="input-in col-md-6">
                                         <div class="input-group">
-                                            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" type="text" placeholder="Search..." AutoPostBack="true" OnTextChanged="FillGrid" onkeypress="return isString(event);" onkeyup="ValidateChars(this);ShowHideClearSearch(this.value);" ToolTip="Search by Title"></asp:TextBox>
+                                            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" type="text" placeholder="البحث حسب العنوان" AutoPostBack="true" OnTextChanged="FillGrid" onkeypress="return isString(event);" onkeyup="ValidateChars(this);ShowHideClearSearch(this.value);" ToolTip="البحث حسب العنوان"></asp:TextBox>
 
-                                            <asp:LinkButton runat="server" ID="cmdClear" CssClass="clear-search" title="Clear" OnClientClick="$('#txtSearch').val('');">&times;</asp:LinkButton>
+                                            <asp:LinkButton runat="server" ID="cmdClear" CssClass="clear-search" title="مسح" OnClientClick="$('#txtSearch').val('');">&times;</asp:LinkButton>
                                             <asp:Button ID="btnSearch" runat="server" Style="display: none" ClientIDMode="Static" OnClick="FillGrid" />
                                             <span class="input-group-append">
                                                 <asp:LinkButton ID="cmdSearch" runat="server" CssClass="btn btn-primary" type="button" OnClick="FillGrid"><i class="fa-search fa"></i></asp:LinkButton>
@@ -122,34 +122,34 @@
                                         runat="server" AutoGenerateColumns="false" AllowSorting="true" OnPageIndexChanging="gvUsers_PageIndexChanging"
                                         AllowPaging="true" PageSize='<%# ddlPager.SelectedValue  %>' OnSorting="gv_Sorting">
                                         <Columns>
-                                            <asp:TemplateField HeaderText="No.">
+                                            <asp:TemplateField HeaderText="الرقم">
                                                 <ItemTemplate>
                                                      <asp:Label ID="lblNo" runat="server" Text='<%# Container.DataItemIndex + 1 %>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Name" SortExpression="FullName" HeaderStyle-CssClass="upnDownArrow">
+                                            <asp:TemplateField HeaderText="الاسم" SortExpression="FullName" HeaderStyle-CssClass="upnDownArrow">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblId" runat="server" Visible="false" Text='<%# Eval("Id")%>'></asp:Label>
                                                     <asp:Label ID="lblName" runat="server" Text='<%# Eval("FullName")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Username" SortExpression="Username" HeaderStyle-CssClass="upnDownArrow">
+                                            <asp:TemplateField HeaderText="اسم المستخدم" SortExpression="Username" HeaderStyle-CssClass="upnDownArrow">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblUsername" runat="server" Text='<%# Eval("Username")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Mobile" SortExpression="Mobile" HeaderStyle-CssClass="upnDownArrow">
+                                            <asp:TemplateField HeaderText="الهاتف" SortExpression="Mobile" HeaderStyle-CssClass="upnDownArrow">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblMobile" runat="server" Text='<%# Eval("Mobile")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="Modified Date" SortExpression="ModifiedDate" HeaderStyle-CssClass="upnDownArrow">
+                                            <asp:TemplateField HeaderText="تاريخ التعديل" SortExpression="ModifiedDate" HeaderStyle-CssClass="upnDownArrow">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblModifiedDate" runat="server" Text='<%# Eval("ModifiedDate")%>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Active" SortExpression="Active" HeaderStyle-CssClass="upnDownArrow">
+                                            <asp:TemplateField HeaderText="نشط" SortExpression="Active" HeaderStyle-CssClass="upnDownArrow">
                                                 <ItemTemplate>
                                                     <div class="checkbox">
                                                         <asp:CheckBox ID="chkActive" runat="server" Text=" " Checked='<%# PublicFunctions.BoolFormat(Eval("Active").ToString)%>' AutoPostBack="true" OnCheckedChanged="UpdateActive"></asp:CheckBox>
@@ -161,7 +161,7 @@
                                         </Columns>
                                         <EmptyDataTemplate>
                                             <div class="text-center">
-                                                Not Data Found
+                                                لا توجد بيانات
                                             </div>
                                         </EmptyDataTemplate>
                                     </asp:GridView>
